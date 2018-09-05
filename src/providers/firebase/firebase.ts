@@ -10,7 +10,7 @@ declare var firebase;
 export class FirebaseProvider {
 
   database = firebase.database();
-  authnticate  = firebase.auth();
+  //authnticate  = firebase.auth();
 
   constructor() {
 
