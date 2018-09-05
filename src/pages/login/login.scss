@@ -27,11 +27,8 @@ page-login {
         top: 10%;
     }
 
-    .logo{
-        position: relative;
-        left: 30%;
-        top: 50px;
-    }
+
+
 
     h1{
         color: rgb(236, 217, 217);
@@ -41,5 +38,45 @@ page-login {
        font-weight: 100;
     }
     
+   .butt{
+       text-align: center;
+       margin-bottom: 10%;
+   } 
 
-}
+
+    // h1{
+    //     color: rgb(236, 217, 217);
+    //     text-align: center;
+    //     padding-top: 15%;
+    //     font-size: 400%;
+    //    font-weight: 100;
+    // }
+
+
+    .btn{
+        width: 80%;
+        position: relative;
+        left: 10%;
+        top: 50px;
+
+    }
+
+    p{
+        color: white;
+        text-align: center;
+        position: relative;
+        top: 50px;
+        font-weight: 100;
+    }
+
+
+    .logo{
+        color: rgb(236, 217, 217);
+        font-size: 400%;
+        font-weight: 100;
+    }
+
+    
+
+
+    }
