@@ -92,7 +92,6 @@ login(email, password){
       this.authnticate.onAuthStateChanged(user =>{
         if (user != null){
           this.state = 1;
-          this.authnticate.signOut();
         }
         else{
           this.state = 0;
