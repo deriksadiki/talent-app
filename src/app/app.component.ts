@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { FirebaseProvider} from '../providers/firebase/firebase';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
@@ -13,11 +13,11 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  public rootPage:any;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private firebaseService:FirebaseProvider) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -26,6 +26,14 @@ export class MyApp {
       { title: 'List', component: ListPage }
     ];
 
+    this. firebaseService.getUserSatate().then( data =>{
+      if (data == 1){
+       this.rootPage =  HomePage ;
+      }
+      else{
+       this.rootPage = LoginPage ;
+      }
+    })
   }
 
   initializeApp() {
