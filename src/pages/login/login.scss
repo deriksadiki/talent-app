@@ -1,7 +1,7 @@
 page-login {
 
     .img{
-    background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/shoes.jpg');
+    background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
     background-attachment: fixed;
     background-color: black;
     background-size: cover;
@@ -81,12 +81,26 @@ page-login {
 
 
 
+    // .logo{
+    //     color: rgb(236, 217, 217);
+    //     font-size: 400%;
+    //     font-weight: 100;
+    // }
+
+
     .logo{
         color: rgb(236, 217, 217);
         position: relative;
         top: 5%;
      }
     
+
+     .pass{
+         position: relative;
+         left: 80px;
+        top: 10%;
+        }
+
 
 
     
