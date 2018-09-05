@@ -29,13 +29,13 @@ page-login {
 
 
 
-    h1{
-        color: rgb(236, 217, 217);
-        text-align: center;
-        padding-top: 15%;
-        font-size: 400%;
-       font-weight: 100;
-    }
+    // h1{
+    //     color: rgb(236, 217, 217);
+    //     text-align: center;
+    //     padding-top: 15%;
+    //     font-size: 400%;
+    //    font-weight: 100;
+    // }
 
     .btn{
         width: 80%;
@@ -53,7 +53,11 @@ page-login {
         font-weight: 100;
     }
 
-    
+    .logo{
+        color: rgb(236, 217, 217);
+        font-size: 400%;
+        font-weight: 100;
+    }
     
 
 }
