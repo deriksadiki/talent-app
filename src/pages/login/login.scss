@@ -16,15 +16,29 @@ page-login {
         position: relative;
         left: 10%;
         border-radius: 30px;
-        padding: 0,1px;
-      
+        padding: 0.5px;
+        padding-left: 7%;
         
-
+       
     }
 
     .list{
         position: relative;
-        top: 60%;
+        top: 10%;
+    }
+
+    .logo{
+        position: relative;
+        left: 30%;
+        top: 50px;
+    }
+
+    h1{
+        color: rgb(236, 217, 217);
+        text-align: center;
+        padding-top: 15%;
+        font-size: 400%;
+       font-weight: 100;
     }
     
 
