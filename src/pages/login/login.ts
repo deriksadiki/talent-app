@@ -17,7 +17,7 @@ import {login} from '../../Modals/login'
 })
 export class LoginPage {
 
-  email;
+  name;
 
   users = {} as login;
 
@@ -31,7 +31,7 @@ export class LoginPage {
   showForgotPassword(){
     const prompt = this.alertCtrl.create({
       title: 'Enter Your Email',
-      message: "A new passeord will be sent to your email",
+      message: "A new password will be sent to your email",
       inputs: [
         {
           name: 'recoverEmail',
@@ -51,21 +51,30 @@ export class LoginPage {
 
             const loader = this.loadingCtrl.create({
               content: "Please wait.. resetting your password",
-              duration: 3000
+              duration: 2000
             });
             loader.present();
 
-            console.log("this is the email"+ " " + data.recoverEmail);
             this.firebaseService.forgotUserPassword(data.recoverEmail).then(() =>{
               // add toast
               loader.dismiss().then(() => {
                 //show pop up
-
+                let alert = this.alertCtrl.create({
+                  title: 'Check your email',
+                  subTitle: 'Password reset succesful',
+                  buttons: ['OK']
+                });
+                alert.present();
               })
             }, error =>{ 
-              let alert = this.alertCtrl.create({});
+              loader.dismiss().then(() => {
+              let alert = this.alertCtrl.create({
+                title: 'Error resseting password',
+                subTitle:error.message,
+                buttons: ['OK']
+              });
               alert.present();
-
+            })
             });
           }
         }
