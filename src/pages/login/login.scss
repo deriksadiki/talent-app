@@ -1,3 +1,29 @@
 page-login {
 
+    .img{
+        background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.5)), url('../../assets/imgs/shoes.jpg');
+        background-attachment: fixed;
+        // background-color: black;
+        background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+    }
+
+    .item{
+        background-color: rgba(255, 255, 255, 0.192);
+        color: white;
+        border-radius: 10%;
+        width: 80%;
+        position: relative;
+        left: 10%;
+        
+
+    }
+
+    .list{
+        position: relative;
+        top: 50%;
+    }
+    
+
 }
