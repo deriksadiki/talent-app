@@ -27,18 +27,36 @@ page-login {
         top: 10%;
     }
 
-    .logo{
+
+
+    // h1{
+    //     color: rgb(236, 217, 217);
+    //     text-align: center;
+    //     padding-top: 15%;
+    //     font-size: 400%;
+    //    font-weight: 100;
+    // }
+
+    .btn{
+        width: 80%;
         position: relative;
-        left: 30%;
+        left: 10%;
         top: 50px;
+
     }
 
-    h1{
-        color: rgb(236, 217, 217);
+    p{
+        color: white;
         text-align: center;
-        padding-top: 15%;
+        position: relative;
+        top: 50px;
+        font-weight: 100;
+    }
+
+    .logo{
+        color: rgb(236, 217, 217);
         font-size: 400%;
-       font-weight: 100;
+        font-weight: 100;
     }
     
 
