@@ -1,5 +1,17 @@
 
-<ion-content class="img">
+
+ <ion-content class="img">
+
+<!--  <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+    <div class="flb">
+      <div class="Aligner-item Aligner-itemtop"></div>
+      <div class="log"  ><img class="logo" src="../../assets/logos/eclipse.svg">
+        <h1 class="head">Hotel Ville</h1></div>
+      <div class="Aligner-item Aligner-itembottom"></div>
+    </div>
+  </div>   -->
+
+
   <div class="logo" align="center">
   <img class="logo" src="../../assets/imgs/play-button (1).png">
   <h1>Vid'It.</h1>
@@ -16,9 +28,17 @@
       </ion-item>
     
     </ion-list>
+
+
+    <button class="btn" ion-button color="own" round (click)="login()">Log In</button>
+    <br>
+    <button class="btn" ion-button color="own" round  (click)= "Reg()">Register</button>
+
+    <button (click)="showForgotPassword()" class="btn" ion-button full clear>Forgot Password?</button>
+
     <button class="btn" ion-button color="own" round (click)="login()">Log In</button>   
     <br>
     <button class="btn" ion-button color="own" round  (click)= "Reg()">Register</button>
       <button (click)="showForgotPassword()" class="btn" ion-button full clear>Forgot Password?</button>
-      
+
 </ion-content>
