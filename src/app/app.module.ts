@@ -16,6 +16,8 @@ import { RegisterPage } from '../pages/register/register';
 import { ArtistPage } from '../pages/artist/artist';
 import { UserPage } from '../pages/user/user';
 import { RecruiterPage } from '../pages/recruiter/recruiter';
+import { LogoutPage } from '../pages/logout/logout';
+import { ProfilePage } from '../pages/profile/profile';
 
 
 @NgModule({
@@ -27,8 +29,10 @@ import { RecruiterPage } from '../pages/recruiter/recruiter';
     SecondPage,
     RegisterPage,
     RecruiterPage,
-UserPage,
-ArtistPage
+    UserPage,
+    ArtistPage,
+    LogoutPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -43,8 +47,10 @@ ArtistPage
     SecondPage,
     RegisterPage,
     RecruiterPage,
-UserPage,
-ArtistPage
+    UserPage,
+    ArtistPage,
+    LogoutPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
