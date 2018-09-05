@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
+
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RegisterPage } from '../register/register';
+
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
+import {login} from '../../Modals/login'
+
 
 /**
  * Generated class for the LoginPage page.
@@ -18,12 +24,19 @@ export class LoginPage {
 
   name;
 
+  users = {} as login;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private firebaseService:FirebaseProvider,public loadingCtrl:LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+
+Reg(){
+  this.navCtrl.push(RegisterPage);
+}
+
 
   showForgotPassword(){
     const prompt = this.alertCtrl.create({
@@ -79,4 +92,24 @@ export class LoginPage {
     });
     prompt.present();
   }
+
+  login(){
+    this.firebaseService.login(this.users.email,this.users.password).then(()=>{
+      const alert = this.alertCtrl.create({
+        title: 'Welcome',
+        subTitle: 'You have successfully logged in ',
+        buttons: ['OK']
+      });
+      alert.present();
+    }, Error =>{
+      const alert = this.alertCtrl.create({
+        title: 'Warning',
+        subTitle: Error,
+        buttons: ['OK']
+      });
+      alert.present();
+    })
+  }
+
+
 }
