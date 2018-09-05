@@ -1,3 +1,13 @@
+<ion-content id = "main" class="animated  zoomIn delay-2s">
+  <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+    <div class="flb">
+      <div class="Aligner-item Aligner-item--top"></div>
+      <div class="log"  ><img class="logo" src="../../assets/logos/eclipse.svg">
+        <h1 class="head">Hotel Ville</h1></div>
+      <div class="Aligner-item Aligner-item--bottom"></div>
+    </div>
+  </div>
+
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
@@ -7,10 +17,36 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<!-- <ion-content > -->
   <h3>Ionic Menu Starter</h3>
+<p>yes</p>
 
+
+ <ion-card>
+
+   <ion-title>
+log in
+   </ion-title>
  
+ 
+   <ion-card-content>
+    <ion-list>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+      <ion-item>
+        <ion-label fixed>E-mail:</ion-label>
+        <ion-input type="text" ></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label fixed>Password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+    
+    </ion-list>
+   </ion-card-content>
+<div class="butt"><button ion-button clear>Log-In</button></div>
+   
+  </ion-card>
+
+  <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
 </ion-content>
