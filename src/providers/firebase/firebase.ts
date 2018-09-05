@@ -54,6 +54,9 @@ login(email, password){
           age:age,
           userType: "talentPerson"
         })
+        accept("success");
+      }, Error =>{
+        reject(Error.message);
       })
     })
   }
@@ -70,8 +73,10 @@ login(email, password){
           companyName:companyName,
           companyemail:companyemail,
           companycellno:companycellno,
-          userType: "scoutPerson"
         })
+        accept("success");
+      }, Error =>{
+        reject(Error.message);
       })
     })
   }
