@@ -103,7 +103,7 @@ showForgotPassword(){
       alert.present();
     }, Error =>{
       const alert = this.alertCtrl.create({
-        title: 'Warning',
+        title: 'Warning!',
         subTitle: Error,
         buttons: ['OK']
       });
