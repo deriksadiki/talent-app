@@ -27,11 +27,7 @@ page-login {
         top: 10%;
     }
 
-    .logo{
-        position: relative;
-        left: 30%;
-        top: 50px;
-    }
+
 
     h1{
         color: rgb(236, 217, 217);
@@ -40,9 +36,31 @@ page-login {
         font-size: 400%;
        font-weight: 100;
     }
+<<<<<<< HEAD
    .butt{
        text-align: center;
        margin-bottom: 10%;
    } 
+=======
+
+    .btn{
+        width: 80%;
+        position: relative;
+        left: 10%;
+        top: 50px;
+
+    }
+
+    p{
+        color: white;
+        text-align: center;
+        position: relative;
+        top: 50px;
+        font-weight: 100;
+    }
+
+    
+    
+>>>>>>> 1a9b7b0b83c76b09d8476eb4ee47edb279481225
 
 }
