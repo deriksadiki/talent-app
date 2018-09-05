@@ -99,6 +99,7 @@ showForgotPassword(){
         subTitle: 'You have successfully logged in ',
         buttons: ['OK']
       });
+      this.navCtrl.push(HomePage);
       alert.present();
     }, Error =>{
       const alert = this.alertCtrl.create({
@@ -107,9 +108,6 @@ showForgotPassword(){
         buttons: ['OK']
       });
       alert.present();
-    })
-    .then(() =>{
-      this.navCtrl.push(HomePage);
     })
   }
 
