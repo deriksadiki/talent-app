@@ -15,6 +15,21 @@
 
 <ion-content class="img">
 
+    <ion-list no-lines>
+
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <br>
+      
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+
   <div class="logo" align="center">
   <img class="logo" src="../../assets/imgs/play-button (1).png">
   <h1>Vid'It.</h1>
@@ -41,5 +56,7 @@
     <button class="btn" ion-button color="own" round>Register</button>
 
     <p>Forgot password ?</p>
+
+      <button (click)="showForgotPassword()" ion-button full clear>Forgot Password?</button>
 
 </ion-content>

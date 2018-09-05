@@ -6,9 +6,11 @@ export class FirebaseProvider {
 
   database = firebase.database();
   authnticate  = firebase.auth();
+
   userIDl;
   dbRef;
   state;
+
   constructor() {
 
   }
@@ -84,6 +86,10 @@ login(email, password){
         accpt(this.state);
        });
     })
+  }
+
+  forgotUserPassword(email:any){
+    return this.authnticate.sendPasswordResetEmail(email);
   }
 
 }
