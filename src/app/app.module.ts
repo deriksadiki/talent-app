@@ -11,13 +11,24 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 
 import { LoginPage } from '../pages/login/login';
+import { SecondPage } from '../pages/second/second';
+import { RegisterPage } from '../pages/register/register';
+import { ArtistPage } from '../pages/artist/artist';
+import { UserPage } from '../pages/user/user';
+import { RecruiterPage } from '../pages/recruiter/recruiter';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    SecondPage,
+    RegisterPage,
+    RecruiterPage,
+UserPage,
+ArtistPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +39,12 @@ import { LoginPage } from '../pages/login/login';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    SecondPage,
+    RegisterPage,
+    RecruiterPage,
+UserPage,
+ArtistPage
   ],
   providers: [
     StatusBar,

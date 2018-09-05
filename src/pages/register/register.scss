@@ -1,0 +1,19 @@
+page-register {
+    .img{
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/shoes.jpg');
+        background-attachment: fixed;
+        background-color: black;
+        background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+    }
+
+    .butt{
+        text-align: center;
+        margin-top: 50%;
+    
+    }
+    button{
+        margin-bottom: 10px;
+    }
+}
