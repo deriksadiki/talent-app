@@ -52,19 +52,26 @@ export class LoginPage {
             });
             loader.present();
 
-            console.log("this is the email"+ " " + data.recoverEmail);
             this.firebaseService.forgotUserPassword(data.recoverEmail).then(() =>{
               // add toast
               loader.dismiss().then(() => {
                 //show pop up
+                let alert = this.alertCtrl.create({
+                  title: 'Check your email',
+                  subTitle: 'Password reset succesful',
+                  buttons: ['OK']
+                });
+                alert.present();
               })
             }, error =>{ 
+              loader.dismiss().then(() => {
               let alert = this.alertCtrl.create({
                 title: 'Error resseting password',
                 subTitle:error.message,
                 buttons: ['OK']
               });
               alert.present();
+            })
             });
           }
         }
