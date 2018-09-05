@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Talent} from '../../Modals/Talent';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
-
+import { HomePage } from '../home/home';
 /**
  * Generated class for the ArtistPage page.
  *
@@ -25,13 +25,14 @@ export class ArtistPage {
     this.firebaseService.registerTalentPerson(this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
       const alert = this.alertCtrl.create({
         title: 'Welcome',
-        subTitle: 'You have successfully logged in ',
+        subTitle: 'You have successfully Registared',
         buttons: ['OK']
       });
+      this.navCtrl.push(HomePage);
       alert.present();
     }, Error =>{
         const alert = this.alertCtrl.create({
-          title: 'Warning',
+          title: 'Warning!',
           subTitle: Error,
           buttons: ['OK']
         });
