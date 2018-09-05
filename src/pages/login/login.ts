@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
+
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RegisterPage } from '../register/register';
+
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
+import {login} from '../../Modals/login'
+
 
 /**
  * Generated class for the LoginPage page.
@@ -16,7 +22,9 @@ import { FirebaseProvider} from '../../providers/firebase/firebase';
 })
 export class LoginPage {
 
-  email;
+  name;
+
+  users = {} as login;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private firebaseService:FirebaseProvider,public loadingCtrl:LoadingController) {
   }
@@ -25,10 +33,15 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+Reg(){
+  this.navCtrl.push(RegisterPage);
+}
+
+
   showForgotPassword(){
     const prompt = this.alertCtrl.create({
       title: 'Enter Your Email',
-      message: "A new passeord will be sent to your email",
+      message: "A new password will be sent to your email",
       inputs: [
         {
           name: 'recoverEmail',
@@ -48,21 +61,30 @@ export class LoginPage {
 
             const loader = this.loadingCtrl.create({
               content: "Please wait.. resetting your password",
-              duration: 3000
+              duration: 2000
             });
             loader.present();
 
-            console.log("this is the email"+ " " + data.recoverEmail);
             this.firebaseService.forgotUserPassword(data.recoverEmail).then(() =>{
               // add toast
               loader.dismiss().then(() => {
                 //show pop up
-
+                let alert = this.alertCtrl.create({
+                  title: 'Check your email',
+                  subTitle: 'Password reset succesful',
+                  buttons: ['OK']
+                });
+                alert.present();
               })
             }, error =>{ 
-              let alert = this.alertCtrl.create({});
+              loader.dismiss().then(() => {
+              let alert = this.alertCtrl.create({
+                title: 'Error resseting password',
+                subTitle:error.message,
+                buttons: ['OK']
+              });
               alert.present();
-
+            })
             });
           }
         }
@@ -70,4 +92,24 @@ export class LoginPage {
     });
     prompt.present();
   }
+
+  login(){
+    this.firebaseService.login(this.users.email,this.users.password).then(()=>{
+      const alert = this.alertCtrl.create({
+        title: 'Welcome',
+        subTitle: 'You have successfully logged in ',
+        buttons: ['OK']
+      });
+      alert.present();
+    }, Error =>{
+      const alert = this.alertCtrl.create({
+        title: 'Warning',
+        subTitle: Error,
+        buttons: ['OK']
+      });
+      alert.present();
+    })
+  }
+
+
 }
