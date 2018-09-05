@@ -37,13 +37,23 @@ page-login {
     //    font-weight: 100;
     // }
 
+    .btn1{
+        width: 80%;
+        position: relative;
+        left: 10%;
+        top: 60px;
+
+    }
+
+
     .btn{
         width: 80%;
         position: relative;
         left: 10%;
-        top: 50px;
+        top: 100px;
 
     }
+    
 
     p{
         color: white;
@@ -55,9 +65,14 @@ page-login {
 
     .logo{
         color: rgb(236, 217, 217);
-        
+        position: relative;
+        top: 5%;
         
     }
+
+   
+
+    
     
 
 }
