@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { Talent} from '../../Modals/Talent';
+import { FirebaseProvider} from '../../providers/firebase/firebase';
 
 /**
  * Generated class for the ArtistPage page.
@@ -15,11 +17,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ArtistPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  artist = {} as Talent;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ArtistPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
+  }
+  reg(){
+    this.firebaseService.registerTalentPerson(this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
+      const alert = this.alertCtrl.create({
+        title: 'Welcome',
+        subTitle: 'You have successfully logged in ',
+        buttons: ['OK']
+      });
+      alert.present();
+    }, Error =>{
+        const alert = this.alertCtrl.create({
+          title: 'Warning',
+          subTitle: Error,
+          buttons: ['OK']
+        });
+        alert.present();
+      })
   }
 
 }
