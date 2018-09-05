@@ -89,6 +89,7 @@ login(email, password){
     return new Promise ((accpt, rej) =>{ 
       this.authnticate.onAuthStateChanged(user =>{
         if (user){
+          console.log(user);
           this.state = 1;
         }
         else{
