@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 
 
+import { RegisterPage } from '../register/register';
+
+
 
 
 
@@ -11,12 +14,6 @@ import {login} from '../../Modals/login'
 import { HomePage } from '../home/home';
 
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

@@ -6,6 +6,8 @@ import { FirebaseProvider} from '../providers/firebase/firebase';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { ProfilePage } from '../pages/profile/profile';
+// import { LogoutPage } from '../pages/logout/logout';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +15,11 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+
+  rootPage: any = HomePage;
+
   public rootPage:any;
+
 
   pages: Array<{title: string, component: any}>;
 
@@ -22,7 +28,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
+      { title: 'Profile', component: HomePage },
+      { title: 'Log-Out', component: LoginPage },
       { title: 'List', component: ListPage }
     ];
 
