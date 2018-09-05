@@ -16,13 +16,19 @@ export class FirebaseProvider {
   }
 
 login(email, password){
-  
+  return new Promise((accept,reject) =>{
+    this.authnticate.signInWithEmailAndPassword(email, password).then(()=>{
+    accept("success")
+    }, Error =>{
+      reject(Error.message)
+    })
+  })
  }
 
   registerUser(email,password){
 
     return new Promise((accept,reject) =>{
-      this.authnticate.signInWithEmailAndPassword(email, password).then(()=>{
+      this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
         var user = firebase.auth().currentUser;
         this.dbRef =  'users/' + user.uid;
         this.database.ref(this.dbRef).push({
@@ -37,7 +43,7 @@ login(email, password){
   }
   registerTalentPerson(email,password, name, surname, gender, cellno, age){
   return new Promise((accept,reject) =>{
-      this.authnticate.signInWithEmailAndPassword(email, password).then(()=>{
+      this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
         var user = firebase.auth().currentUser;
         this.dbRef =  'users/' + user.uid;
         this.database.ref(this.dbRef).push({
@@ -55,7 +61,7 @@ login(email, password){
 
   registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno, cellno, ){
     return new Promise((accept,reject) =>{
-      this.authnticate.signInWithEmailAndPassword(email, password).then(()=>{
+      this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
         var user = firebase.auth().currentUser;
         this.dbRef =  'users/' + user.uid;
         this.database.ref(this.dbRef).push({
