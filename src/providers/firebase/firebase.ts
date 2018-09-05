@@ -25,14 +25,15 @@ login(email, password){
   })
  }
 
-  registerUser(email,password){
+  registerUser(email,password, Username){
 
     return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
         var user = firebase.auth().currentUser;
         this.dbRef =  'users/' + user.uid;
         this.database.ref(this.dbRef).push({
-          userType: "talentPerson"
+          Username:Username,
+          userType: "normalPerson"
         })
       accept("user registred")
       }, Error =>{
@@ -54,12 +55,15 @@ login(email, password){
           age:age,
           userType: "talentPerson"
         })
+        accept("success");
+      }, Error =>{
+        reject(Error.message);
       })
     })
   }
 
 
-  registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno, cellno, ){
+  registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno){
     return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
         var user = firebase.auth().currentUser;
@@ -70,20 +74,27 @@ login(email, password){
           companyName:companyName,
           companyemail:companyemail,
           companycellno:companycellno,
-          userType: "scoutPerson"
+          userType: "ScoutPerson"
         })
+        accept("success");
+      }, Error =>{
+        reject(Error.message);
       })
     })
   }
 
   logout(){
-    this.authnticate.auth.signOut();
+    this.authnticate.signOut();
   }
 
   getUserSatate(){
     return new Promise ((accpt, rej) =>{ 
       this.authnticate.onAuthStateChanged(user =>{
+
         if (user){
+          console.log(user);
+        if (user != null){
+
           this.state = 1;
         }
         else{

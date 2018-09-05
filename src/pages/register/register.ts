@@ -31,6 +31,6 @@ User(){
   this.navCtrl.push(UserPage);
   }
   Scout(){
-    this.navCtrl.push(ArtistPage);
+    this.navCtrl.push(RecruiterPage);
     }
 }
