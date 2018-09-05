@@ -29,6 +29,7 @@ page-login {
 
 
 
+
     h1{
         color: rgb(236, 217, 217);
         text-align: center;
@@ -41,6 +42,15 @@ page-login {
        text-align: center;
        margin-bottom: 10%;
    } 
+
+
+    // h1{
+    //     color: rgb(236, 217, 217);
+    //     text-align: center;
+    //     padding-top: 15%;
+    //     font-size: 400%;
+    //    font-weight: 100;
+    // }
 
 
     .btn{
@@ -56,6 +66,13 @@ page-login {
         text-align: center;
         position: relative;
         top: 50px;
+        font-weight: 100;
+    }
+
+
+    .logo{
+        color: rgb(236, 217, 217);
+        font-size: 400%;
         font-weight: 100;
     }
 
