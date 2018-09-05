@@ -1,7 +1,7 @@
 page-login {
 
     .img{
-        // background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.5)), url('../../assets/imgs/shoes.jpg');
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/shoes.jpg');
         background-attachment: fixed;
         background-color: black;
         background-size: cover;
@@ -16,15 +16,29 @@ page-login {
         position: relative;
         left: 10%;
         border-radius: 30px;
-        padding: 0,1px;
-      
+        padding: 0.5px;
+        padding-left: 7%;
         
-
+       
     }
 
     .list{
         position: relative;
-        top: 60%;
+        top: 10%;
+    }
+
+    .logo{
+        position: relative;
+        left: 30%;
+        top: 50px;
+    }
+
+    h1{
+        color: rgb(236, 217, 217);
+        text-align: center;
+        padding-top: 15%;
+        font-size: 400%;
+       font-weight: 100;
     }
     
 
