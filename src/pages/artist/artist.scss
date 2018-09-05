@@ -1,6 +1,6 @@
 page-artist {
     .img{
-        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/shoes.jpg');
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
         background-color: black;
         background-size: cover;
@@ -8,6 +8,7 @@ page-artist {
        background-position: center;
     }
     ion-card.card{
+        // margin-top: 20%;
         border-radius: 12px;
         box-shadow: 2px 2px 4px;
     }
