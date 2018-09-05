@@ -10,7 +10,7 @@ declare var firebase;
 export class FirebaseProvider {
 
   database = firebase.database();
-  //authnticate  = firebase.auth();
+  authnticate  = firebase.auth();
 
   constructor() {
 
@@ -38,6 +38,10 @@ export class FirebaseProvider {
 
   getUserSatate(){
 
+  }
+
+  forgotUserPassword(email:any){
+    return this.authnticate.sendPasswordResetEmail(email);
   }
 
 }
