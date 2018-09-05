@@ -7,13 +7,13 @@ import { SecondPage } from '../second/second';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  splash = true;
-  secomndPage = SecondPage;
+  // splash = true;
+  // secomndPage = SecondPage;
   constructor(public navCtrl: NavController) {
 
   }
 
   ionviewDidLoad(){
-    setTimeout(()=> this.splash = false , 3000);
+    // setTimeout(()=> this.splash = false , 3000);
   }
 }
