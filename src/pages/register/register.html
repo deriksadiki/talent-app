@@ -1,0 +1,85 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <div>
+ <ion-segment  outline [(ngModel)]="pet" color="color2" class="animated slideInDown delay-2s" >
+    <ion-segment-button value="hotels" class="segbutt"  >
+     HOTELS
+    </ion-segment-button>
+    <ion-segment-button value="rooms" class="segbutt">
+     ROOMS
+    </ion-segment-button>
+  </ion-segment>
+</div>
+<br>
+<br>
+<br>
+
+<div [ngSwitch]="pet" >
+
+
+
+  <ion-list pager  *ngSwitchCase="'rooms'" class="animated slideInUp delay-2s">
+     <!-- <ion-slides page> -->
+       <ion-item class="IT" *ngFor = "let y of Arr;let i = index">
+         <ion-thumbnail item-start class="thumb">
+          <img id="pics" src="{{y.pic2}}" class="animated slideInLeft delay-2s"  >
+          </ion-thumbnail>  
+          <div id="con" class="animated slideInRight delay-2s">         
+                 <h2>{{y.name}} </h2>
+                 <p>R {{y.price}}</p>
+          
+                 <ion-icon name="star" class="i"></ion-icon>
+                 <ion-icon name="star" class="i"></ion-icon>
+                 <ion-icon name="star" class="i"></ion-icon>
+                 <ion-icon name="star" class="i"></ion-icon>
+           
+                </div> 
+                
+                 <button ion-button clear color = "color2" (click)="Rooms(i)"><h2 class="T2" item-end>View</h2></button>
+          </ion-item>
+         
+        
+</ion-list>
+  <!-- </ion-list> -->
+
+  <ion-slides pager *ngSwitchCase="'hotels'" class="animated slideInLeft delay-2s">
+    <ion-slide *ngFor = "let H of Arr;let i = index ">
+     <ion-card class="res" >
+        <div class="overlay"></div>  
+          <img src="{{H.pic}}" class="pice">
+          <div id="tit"class="animated slideInRight delay-2s">
+            <ion-item class="tem">
+                
+                <div class="animated slideInDown delay-2s"><h2 class="T">{{H.name}}</h2></div> 
+               
+                <div class="animated slideInUp delay-2s">
+                 <ion-icon name="star" class="i"></ion-icon>
+                <ion-icon name="star"  class="i"></ion-icon>
+                <ion-icon name="star"  class="i"></ion-icon>
+                <ion-icon name="star"  class="i"></ion-icon>
+              </div>
+              <br>
+                <button ion-button clear color = "color2" (click)="View(i)"  class="animated slideInUp delay-3s"><h2 class="T2">View</h2></button> 
+            </ion-item>
+          </div>
+       
+     </ion-card>
+    </ion-slide>
+  </ion-slides>
+ 
+</div>
+</ion-content>
