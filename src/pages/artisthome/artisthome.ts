@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ScoutPage } from '../scout/scout';
 
 /**
- * Generated class for the RecruiterPage page.
+ * Generated class for the ArtisthomePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,19 +10,16 @@ import { ScoutPage } from '../scout/scout';
 
 @IonicPage()
 @Component({
-  selector: 'page-recruiter',
-  templateUrl: 'recruiter.html',
+  selector: 'page-artisthome',
+  templateUrl: 'artisthome.html',
 })
-export class RecruiterPage {
+export class ArtisthomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ScoutHome(){
-    this.navCtrl.push(ScoutPage);
-  }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RecruiterPage');
+    console.log('ionViewDidLoad ArtisthomePage');
   }
 
 }
