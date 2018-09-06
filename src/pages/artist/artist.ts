@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { Talent} from '../../Modals/Talent';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import { HomePage } from '../home/home';
+
+
 /**
  * Generated class for the ArtistPage page.
  *
@@ -18,9 +20,18 @@ import { HomePage } from '../home/home';
 export class ArtistPage {
 
   artist = {} as Talent;
-
+photo:any;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
   }
+
+  takePicture(){
+
+this.firebaseService.uploadpic();
+
+  }
+
+
   reg(){
     this.firebaseService.registerTalentPerson(this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
       const alert = this.alertCtrl.create({

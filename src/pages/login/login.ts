@@ -2,12 +2,6 @@ import { Component } from '@angular/core';
 
 
 import { RegisterPage } from '../register/register';
-
-
-
-
-
-import { RegisterPage } from '../register/register';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {login} from '../../Modals/login'
@@ -104,6 +98,7 @@ showForgotPassword(){
       this.navCtrl.push(HomePage);
       alert.present();
     }, Error =>{
+      console.log(Error)
       const alert = this.alertCtrl.create({
         title: 'Warning!',
         subTitle: Error,

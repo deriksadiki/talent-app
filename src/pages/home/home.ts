@@ -15,33 +15,9 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
 
 
-  users;
-  constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
-
-
   }
-  logout(){
 
-  ionviewDidLoad(){
-    // setTimeout(()=> this.splash = false , 3000);
 
-      this.firebaseService.authnticate.signOut().then(()=>{
-        const alert = this.alertCtrl.create({
-          title: 'Log Out',
-          subTitle: 'You have now been logged out!',
-          buttons: ['OK']
-        });
-        alert.present();
-        this.navCtrl.push(LoginPage);
-      }, Error =>{
-        const alert = this.alertCtrl.create({
-          title: 'Warning',
-          subTitle: Error,
-          buttons: ['OK']
-        });
-        alert.present();
-      })
-    }
 
   }
  

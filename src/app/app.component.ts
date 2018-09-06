@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
+
 // import { LogoutPage } from '../pages/logout/logout';
 
 @Component({
@@ -14,9 +15,6 @@ import { ProfilePage } from '../pages/profile/profile';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
-
-  rootPage: any = HomePage;
 
   public rootPage:any;
 
