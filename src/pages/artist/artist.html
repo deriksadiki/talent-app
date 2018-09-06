@@ -21,50 +21,50 @@
 <!-- <ion-card class="bg">
 <ion-card-content > -->
 
-    <ion-list class="context" no-lines>
+    <ion-list class="list" no-lines>
 
         <ion-item>
-          <ion-label ><ion-icon name="person" class="i"></ion-icon>Name:</ion-label>
-          <ion-input type="text" [(ngModel)]= "artist.surname"></ion-input>
+          <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+          <ion-input placeholder="Name" type="text" [(ngModel)]= "artist.surname"></ion-input>
         </ion-item>
   
         <ion-item>
-          <ion-label ><ion-icon name="person" class="i"></ion-icon>Surname:</ion-label>
-          <ion-input type="text"  [(ngModel)] = "artist.name"></ion-input>
+          <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+          <ion-input placeholder="Surname" type="text" [(ngModel)] = "artist.name"></ion-input>
         </ion-item>
 
         <ion-item>
-            <ion-label ><ion-icon name="mail" class="i"></ion-icon>Email:</ion-label>
-            <ion-input type="text"  [(ngModel)] = "artist.email"></ion-input>
+            <ion-label ><ion-icon name="mail" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="Email" type="text"  [(ngModel)] = "artist.email"></ion-input>
           </ion-item>
         
           <ion-item>
-            <ion-label ><ion-icon name="lock" class="i"></ion-icon>Password:</ion-label>
-            <ion-input type="password"  [(ngModel)] = "artist.password"></ion-input>
+            <ion-label ><ion-icon name="lock" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="Password" type="password"  [(ngModel)] = "artist.password"></ion-input>
           </ion-item>
         
 
         <ion-item>
-            <ion-label ><ion-icon name="person" class="i"></ion-icon>Gender:</ion-label>
-            <ion-input type="text" [(ngModel)]= "artist.gender"></ion-input>
+            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="Gender" type="text" [(ngModel)]= "artist.gender"></ion-input>
           </ion-item>
     
           <ion-item>
-            <ion-label ><ion-icon name="person" class="i"></ion-icon>Cell No:</ion-label>
-            <ion-input type="text"  [(ngModel)] = "artist.cellno"></ion-input>
+            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="Cell No" type="text"  [(ngModel)] = "artist.cellno"></ion-input>
           </ion-item>
   
           
           <ion-item>
-              <ion-label ><ion-icon name="person" class="i"></ion-icon>Age:</ion-label>
-              <ion-input type="text"  [(ngModel)] = "artist.age"></ion-input>
+              <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+              <ion-input placeholder="Age" type="text"  [(ngModel)] = "artist.age"></ion-input>
             </ion-item>
       
           </ion-list>
 
 <!-- </ion-card-content> -->
 <div class="butt">
-<button class="btn" ion-button color="own" round (click)="reg()">Log In</button>
+<button class="animated infinite jello delay-2s" class="btn" ion-button color="own" round (click)="reg()">Log In</button>
 </div>
 <!-- </ion-card> -->
 </ion-content>

@@ -6,8 +6,7 @@ import { FirebaseProvider} from '../providers/firebase/firebase';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
-import { ProfilePage } from '../pages/profile/profile';
-// import { LogoutPage } from '../pages/logout/logout';
+import { LogoutPage } from '../pages/logout/logout';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,11 +14,7 @@ import { ProfilePage } from '../pages/profile/profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-
-  rootPage: any = HomePage;
-
   public rootPage:any;
-
 
   pages: Array<{title: string, component: any}>;
 
@@ -28,9 +23,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Profile', component: HomePage },
-      { title: 'Log-Out', component: LoginPage },
-      { title: 'List', component: ListPage }
+      { title: 'Home', component: HomePage },
+      { title: 'List', component: ListPage },
+      { title: 'LogOut', component: LogoutPage}
     ];
 
     this. firebaseService.getUserSatate().then( data =>{
