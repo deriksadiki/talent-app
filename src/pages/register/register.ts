@@ -3,6 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ArtistPage } from '../artist/artist';
 import { UserPage } from '../user/user';
 import { RecruiterPage } from '../recruiter/recruiter';
+import { UsersPage } from '../users/users';
+import { ScoutPage } from '../scout/scout';
+import { ArtisthomePage } from '../artisthome/artisthome';
+
 
 @IonicPage()
 @Component({
@@ -23,7 +27,17 @@ this.navCtrl.push(ArtistPage);
 User(){
   this.navCtrl.push(UserPage);
   }
-  Scout(){
+  Recruiter(){
     this.navCtrl.push(RecruiterPage);
+    }
+
+    Users(){
+      this.navCtrl.push(UsersPage);
+      }
+  Scout(){
+      this.navCtrl.push(ScoutPage);
+    }
+    Artisthome(){
+      this.navCtrl.push(ArtisthomePage);
     }
 }

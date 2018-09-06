@@ -40,7 +40,7 @@ recrt = {} as Recruit;
       })
     }
 
-      },
+      
        Error =>{ 
             console.log("Message : " + Error.message);
             console.log("Code : " + Error.code);  
@@ -82,19 +82,10 @@ recrt = {} as Recruit;
             buttons: ['OK']
           });
           alert.present();
-        })
+        };
 
     }
-    else{
-      const alert = this.alertCtrl.create({
-        title: 'Warning!',
-        subTitle: 'Please make sure that all the fields are filled.',
-        buttons: ['OK']
-      });
-      alert.present();
-
-    }
-
+   
 
   }
 
