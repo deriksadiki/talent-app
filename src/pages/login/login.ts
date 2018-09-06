@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> bc12fa10417f90f435aae6e1c39ac3ca1c28f51d
 import { Component } from '@angular/core';
 import { RegisterPage } from '../register/register';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
