@@ -1,7 +1,5 @@
 {
-
   "name": "talent-app",
-
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -51,8 +49,8 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-filechooser": {}
+      "cordova-plugin-filechooser": {},
+      "cordova-plugin-camera": {}
     }
   }
 }
-

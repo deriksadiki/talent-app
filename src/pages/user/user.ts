@@ -3,10 +3,9 @@ import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angul
 import { HomePage } from '../home/home';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {Guest} from '../../Modals/Guest'
-
 import { UsersPage } from '../users/users';
 
-
+declare var firebase;
 
 @IonicPage()
 @Component({
@@ -16,7 +15,9 @@ import { UsersPage } from '../users/users';
 export class UserPage {
 guest = {} as Guest;
 
+constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl,private firebaseService:FirebaseProvider){
 
+}
 
 
   reg(){
@@ -44,5 +45,5 @@ guest = {} as Guest;
 
 }
 
-}
+
 
