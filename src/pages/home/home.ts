@@ -9,14 +9,21 @@ import {LoginPage} from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  users;
+
+
+  // splash = true;
+  // secomndPage = SecondPage;
+   users;
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
   }
-    // ionviewDidLoad(){
+
+     // ionviewDidLoad(){
     // setTimeout(()=> this.splash = false , 3000);
     // }
 }
 
 
   
+
  
+}

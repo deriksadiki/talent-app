@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ScoutPage } from '../scout/scout';
 import { IonicPage, NavController, NavParams , AlertController } from 'ionic-angular';
 import {Recruit} from '../../Modals/Recruit';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
@@ -16,6 +17,13 @@ recrt = {} as Recruit;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
   }
 
+
+  ScoutHome(){
+    this.navCtrl.push(ScoutPage);
+  }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad RecruiterPage');
+  }
   reg(){
 
     if(this.recrt.email != '' && this.recrt.password != null && this.recrt.name != '' && this.recrt.surname != '' && this.recrt.companyName != '' && this.recrt.companyemail != '' && this.recrt .companycellno != ''){
@@ -28,6 +36,10 @@ recrt = {} as Recruit;
         });
         this.navCtrl.push(HomePage);
         alert.present();
+
+      })
+    }
+
       },
        Error =>{ 
             console.log("Message : " + Error.message);
@@ -83,6 +95,7 @@ recrt = {} as Recruit;
 
     }
 
+
   }
 
-}
+

@@ -19,6 +19,8 @@ import { UserPage } from '../pages/user/user';
 import { RecruiterPage } from '../pages/recruiter/recruiter';
 import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
+import { UsersPage } from '../pages/users/users';
+import { ScoutPage } from '../pages/scout/scout';
 
 
 @NgModule({
@@ -33,7 +35,10 @@ import { ProfilePage } from '../pages/profile/profile';
     UserPage,
     ArtistPage,
     LogoutPage,
-    ProfilePage
+    ProfilePage,
+    ArtistPage,
+ScoutPage,
+UsersPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,10 @@ import { ProfilePage } from '../pages/profile/profile';
     UserPage,
     ArtistPage,
     LogoutPage,
-    ProfilePage
+    ProfilePage,
+    ArtistPage,
+    ScoutPage,
+    UsersPage
   ],
   providers: [
     StatusBar,
