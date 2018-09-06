@@ -9,13 +9,7 @@ import { LoginPage } from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  users;
-  constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
-  }
-    // ionviewDidLoad(){
-  //   // setTimeout(()=> this.splash = false , 3000);
-  // }
-  
+
   logout(){
       this.firebaseService.authnticate.signOut().then(()=>{
         const alert = this.alertCtrl.create({

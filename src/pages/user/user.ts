@@ -17,28 +17,6 @@ import {Guest} from '../../Modals/Guest'
 })
 export class UserPage {
 guest = {} as Guest;
- constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
- }
 
-
-
- reg(){
-   this.firebaseService.registerUser(this.guest.email, this.guest.password, this.guest.Username).then(() =>{
-     const alert = this.alertCtrl.create({
-       title: 'Welcome',
-       subTitle: 'You have successfully Registared',
-       buttons: ['OK']
-     });
-     this.navCtrl.push(HomePage);
-     alert.present();
-   }, Error =>{
-       const alert = this.alertCtrl.create({
-         title: 'Warning!',
-         subTitle: Error,
-         buttons: ['OK']
-       });
-       alert.present();
-     })
- }
 
 }
