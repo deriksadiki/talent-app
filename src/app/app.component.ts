@@ -7,7 +7,14 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
+
+import { UsersPage } from '../pages/users/users';
+import { LogoutPage } from '../pages/logout/logout';
+
+import { LogoutPage } from '../pages/logout/logout';
 // import { LogoutPage } from '../pages/logout/logout';
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -16,23 +23,26 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   public rootPage:any;
 
 
   pages: Array<{title: string, component: any}>;
-
+  
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private firebaseService:FirebaseProvider) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Profile', component: HomePage },
-      { title: 'Log-Out', component: LoginPage },
-      { title: 'List', component: ListPage }
-    ];
 
+      { title: 'Profile', component: ProfilePage },
+      { title: 'Log-Out', component: HomePage },
+      { title: 'List', component: ListPage },
+    
+
+    ];
+if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
       if (data == 1){
        this.rootPage =  HomePage ;
@@ -57,4 +67,5 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
 }

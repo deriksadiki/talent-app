@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, AlertController } from 'ionic-angular';
+import { HomePage } from '../home/home';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+import { LoginPage } from '../login/login';
 
 
 
@@ -10,12 +13,31 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class LogoutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private view:ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl:ModalController,public alertCtrl:AlertController,private firebaseService:FirebaseProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LogoutPage');
-    this.view.dismiss();
+   ionViewDidLoad() {
+    const confirm = this.alertCtrl.create({
+      title: 'Log Out',
+      message: 'You are about to be logged out!',
+      buttons: [
+        {
+          text: 'Disagree',
+          handler: () => {
+            console.log('Disagree clicked');
+            this.navCtrl.push(HomePage);
+          }
+        },
+        {
+          text: 'Agree',
+          handler: () => {
+            console.log('Agree clicked');
+            this.firebaseService.authnticate.signOut();
+            this.navCtrl.push(LoginPage);
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
-
-}
+  }
