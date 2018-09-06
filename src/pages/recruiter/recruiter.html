@@ -6,59 +6,68 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color ="color" >
     <ion-title>Recruiter</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<div class="logo" align="center">
-    <img class="logo" src="../../assets/imgs/play-button (1).png">
-  
-    <h1>Vid'It.</h1>
-  </div>
-<ion-content  class="img" >
-<ion-card>
-  <ion-card-content class="bg">
 
-      <ion-list class="context">
+<ion-content  class="img" >
+
+    <div class="logo" align="center">
+        <img class="logo" src="../../assets/imgs/play-button (1).png">
+      
+        <h1>Vid'It.</h1>
+    </div>
+
+<!-- <ion-card class="bg">
+  <ion-card-content > -->
+
+      <ion-list class="context" no-lines>
 
           <ion-item>
             <ion-label ><ion-icon name="person" class="i"></ion-icon>Name:</ion-label>
-            <!-- <ion-input type="text" [(ngModel)]= 'users.name'></ion-input> -->
+            <ion-input type="text" [(ngModel)]= 'recrt.name'></ion-input>
           </ion-item>
     
           <ion-item>
             <ion-label ><ion-icon name="person" class="i"></ion-icon>Surname:</ion-label>
-            <!-- <ion-input type="text"  [(ngModel)] = "users.surname"></ion-input> -->
+            <ion-input type="text"  [(ngModel)] = "recrt.surname"></ion-input>
           </ion-item>
 
           <ion-item>
-              <ion-label ><ion-icon name="mail" class="i"></ion-icon>E-mail:</ion-label>
-              <!-- <ion-input type="text"  [(ngModel)] = "users.email"></ion-input> -->
+              <ion-label ><ion-icon name="mail" class="i"></ion-icon>Email:</ion-label>
+              <ion-input type="text"  [(ngModel)] = "recrt.email"></ion-input>
             </ion-item>
           
             <ion-item>
               <ion-label ><ion-icon name="lock" class="i"></ion-icon>Password:</ion-label>
-              <!-- <ion-input type="password"  [(ngModel)] = "users.password"></ion-input> -->
+              <ion-input type="password"  [(ngModel)] = "recrt.password"></ion-input>
             </ion-item>
           </ion-list>
 
           <ion-item>
               <ion-label ><ion-icon name="person" class="i"></ion-icon>Company Name:</ion-label>
-              <!-- <ion-input type="text" [(ngModel)]= 'users.name'></ion-input> -->
+              <ion-input type="text" [(ngModel)]= 'recrt.companyName'></ion-input>
             </ion-item>
       
             <ion-item>
-              <ion-label ><ion-icon name="person" class="i"></ion-icon>Company E-mail:</ion-label>
-              <!-- <ion-input type="text"  [(ngModel)] = "users.surname"></ion-input> -->
+              <ion-label ><ion-icon name="person" class="i"></ion-icon>Company Email:</ion-label>
+              <ion-input type="text"  [(ngModel)] = "recrt.companyemail"></ion-input>
             </ion-item>
     
         
+            <ion-item>
+              <ion-label ><ion-icon name="person" class="i"></ion-icon>Company cellno:</ion-label>
+              <ion-input type="text"  [(ngModel)] = "recrt.companycellno"></ion-input>
+            </ion-item>
         
-  </ion-card-content>
+  <!-- </ion-card-content> -->
   <div class="butt">
-      <button class="btn" ion-button color="own" round>Log In</button>
+      <button class="btn" ion-button color="own" round (click)="reg()">Register</button>
       </div>
-    </ion-card>
+  <br>
+
+    <!-- </ion-card> -->
 </ion-content>
