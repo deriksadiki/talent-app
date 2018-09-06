@@ -6,5 +6,4 @@ export interface  Recruit{
     companyName:string;
     companyemail:string;
     companycellno:string;
-    cellno:number;
 }
