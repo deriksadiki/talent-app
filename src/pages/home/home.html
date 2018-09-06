@@ -1,12 +1,32 @@
 
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<!-- <ion-content id = "main" class="animated  zoomIn delay-2s"> -->
+  <!-- <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
+    <div class="flb">
+      <div class="Aligner-item Aligner-item--top"></div>
+      <div class="log"  ><img class="logo" src="../../assets/logos/eclipse.svg">
+        <h1 class="head">Hotel Ville</h1></div>
+      <div class="Aligner-item Aligner-item--bottom"></div>
+    </div>
+  </div> -->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+
+<ion-content padding>
+ 
+
+  
+
+
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
   <button (click)="logout()" ion-button>Log Out</button>
+
 </ion-content>
