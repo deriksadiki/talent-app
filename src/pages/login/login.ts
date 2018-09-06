@@ -90,7 +90,7 @@ showForgotPassword(){
     this.firebaseService.login(this.users.email,this.users.password).then(()=>{
       const alert = this.alertCtrl.create({
         title: 'Welcome',
-        message: 'You have successfully logged in ',
+        message: 'You have successfully logged in',
         buttons: ['OK']
       });
       this.navCtrl.push(HomePage);
