@@ -10,20 +10,6 @@ import {LoginPage} from '../login/login';
 })
 export class HomePage {
 
-<<<<<<< HEAD
-  users;
-  // splash = true;
-  // secomndPage = SecondPage;
-  constructor(public navCtrl: NavController) {
-
-
-
-
-
-  }
-}
-=======
-
   // splash = true;
   // secomndPage = SecondPage;
    users;
@@ -37,7 +23,5 @@ export class HomePage {
 
 
   
-
->>>>>>> bc12fa10417f90f435aae6e1c39ac3ca1c28f51d
  
-}
+
