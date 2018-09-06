@@ -27,7 +27,7 @@ this.navCtrl.push(ArtistPage);
 User(){
   this.navCtrl.push(UserPage);
   }
-  Recruiter(){
+  scout(){
     this.navCtrl.push(RecruiterPage);
     }
 

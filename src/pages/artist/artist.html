@@ -1,9 +1,13 @@
-<ion-header>
-  <ion-navbar color = "color" >
-    <ion-title>Artist</ion-title>
-  </ion-navbar>
 
+<ion-header>
+
+
+<ion-navbar>
+
+</ion-navbar>
 </ion-header>
+
+
 
 <ion-content class="img">
     <div class="logo" align="center">
@@ -38,13 +42,13 @@
         
 
         <ion-item>
-            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+            <ion-label > <ion-icon ios="ios-body" md="md-body" class="i"></ion-icon></ion-label>
             <ion-input placeholder="Gender" type="text" [(ngModel)]= "artist.gender"></ion-input>
           </ion-item>
     
           <ion-item>
-            <ion-label ><ion-icon name="person" class="i"></ion-icon>Cell No:</ion-label>
-            <ion-input type="text"  [(ngModel)] = "artist.cellno"></ion-input>
+            <ion-label >  <ion-icon ios="ios-call" md="md-call" class="i"></ion-icon></ion-label>
+            <ion-input  placeholder="Cell No" type="text"  [(ngModel)] = "artist.cellno"></ion-input>
           </ion-item>
 
          

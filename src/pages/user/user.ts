@@ -16,7 +16,9 @@ import { UsersPage } from '../users/users';
 export class UserPage {
 guest = {} as Guest;
 
+constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private firebaseService:FirebaseProvider){
 
+}
 
 
   reg(){
@@ -44,5 +46,5 @@ guest = {} as Guest;
 
 }
 
-}
+
 

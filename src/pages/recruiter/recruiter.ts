@@ -37,7 +37,7 @@ recrt = {} as Recruit;
         this.navCtrl.push(HomePage);
         alert.present();
 
-      })
+      });
     }
 
       
