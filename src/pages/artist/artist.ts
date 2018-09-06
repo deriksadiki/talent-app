@@ -37,7 +37,7 @@ this.firebaseService.uploadpic();
     this.firebaseService.registerTalentPerson(this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
       const alert = this.alertCtrl.create({
         title: 'Welcome',
-        subTitle: 'You have successfully Registared',
+        subTitle: 'You have successfully Registered',
         buttons: ['OK']
       });
       this.navCtrl.push(HomePage);
