@@ -12,6 +12,7 @@ import { UsersPage } from '../pages/users/users';
 
 
 import { LogoutPage } from '../pages/logout/logout';
+import { ArtisthomePage } from '../pages/artisthome/artisthome';
 
 
 

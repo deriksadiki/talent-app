@@ -21,6 +21,8 @@ import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
 import { UsersPage } from '../pages/users/users';
 import { ScoutPage } from '../pages/scout/scout';
+import { ArtisthomePage } from '../pages/artisthome/artisthome';
+
 
 
 @NgModule({
@@ -36,7 +38,7 @@ import { ScoutPage } from '../pages/scout/scout';
     ArtistPage,
     LogoutPage,
     ProfilePage,
-    ArtistPage,
+    ArtisthomePage,
 ScoutPage,
 UsersPage
   ],
@@ -57,7 +59,7 @@ UsersPage
     ArtistPage,
     LogoutPage,
     ProfilePage,
-    ArtistPage,
+    ArtisthomePage,
     ScoutPage,
     UsersPage
   ],
