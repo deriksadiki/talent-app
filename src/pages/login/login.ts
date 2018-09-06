@@ -1,9 +1,5 @@
-<<<<<<< HEAD
+
 import { Component } from '@angular/core';
-
-=======
->>>>>>> 85bfd0382f5b77a8820b09fbb6957b6352bd55ee
-
 import { RegisterPage } from '../register/register';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { FirebaseProvider} from '../../providers/firebase/firebase';

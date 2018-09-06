@@ -7,11 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
-<<<<<<< HEAD
-
-=======
 import { LogoutPage } from '../pages/logout/logout';
->>>>>>> 85bfd0382f5b77a8820b09fbb6957b6352bd55ee
 // import { LogoutPage } from '../pages/logout/logout';
 
 
@@ -20,11 +16,6 @@ import { LogoutPage } from '../pages/logout/logout';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-<<<<<<< HEAD
-
-=======
- 
->>>>>>> 85bfd0382f5b77a8820b09fbb6957b6352bd55ee
   public rootPage:any;
 
   pages: Array<{title: string, component: any}>;
