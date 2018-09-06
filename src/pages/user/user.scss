@@ -22,10 +22,10 @@ page-user {
     .item{
         background-color: rgba(255, 255, 255, 0.192);
         // color: white;
-        // width: 80%;
+        width: 80%;
         margin-bottom: 20px;
         position: relative;
-        // left: 10%;
+        left: 10%;
         border-radius: 30px;
         padding: 0.5px;
         padding-left: 7%;
@@ -41,7 +41,10 @@ page-user {
         padding-top: 15%;
         font-size: 400%;
        font-weight: 100;
+       position: relative;
+       bottom: 54px;
     }
+
     .logo{
         // margin-top: 20%;
     }
