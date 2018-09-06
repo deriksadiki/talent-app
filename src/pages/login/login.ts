@@ -1,4 +1,5 @@
-import { Component } from '@angular/core'
+
+import { Component } from '@angular/core';
 import { RegisterPage } from '../register/register';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
@@ -85,22 +86,34 @@ showForgotPassword(){
   }
 
   login(){
+   var message;
     this.firebaseService.login(this.users.email,this.users.password).then(()=>{
       const alert = this.alertCtrl.create({
         title: 'Welcome',
-        subTitle: 'You have successfully logged in ',
+        message: 'You have successfully logged in ',
         buttons: ['OK']
       });
       this.navCtrl.push(HomePage);
       alert.present();
-    }, Error =>{
+    }, 
+    Error =>{ if (Error.message == "signInWithEmailAndPassword failed: First argument email must be a valid string."){
+      message == 'Please enter your log in details';
+      
+    } else if (Error.message == "signInWithEmailAndPassword failed: Second argument password must be a valid string." ){
+      message == 'Invalid password'
+  
+    } else if (Error.message == "signInWithEmailAndPassword failed: Second argument password must be a valid string."){
+      message == 'Invalid email address'
+    }
+
+
       const alert = this.alertCtrl.create({
         title: 'Warning!',
-        subTitle: Error,
+        subTitle: message,
         buttons: ['OK']
       });
-      alert.present();
+      alert.present(); 
     })
-  }
 
+  }
 }

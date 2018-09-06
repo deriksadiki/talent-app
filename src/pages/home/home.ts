@@ -16,3 +16,7 @@ export class HomePage {
     // setTimeout(()=> this.splash = false , 3000);
     // }
 }
+
+
+  }
+ 

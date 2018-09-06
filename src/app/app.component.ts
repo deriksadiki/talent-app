@@ -16,7 +16,6 @@ import { LogoutPage } from '../pages/logout/logout';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
   public rootPage:any;
 
   pages: Array<{title: string, component: any}>;
