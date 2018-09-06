@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, AlertController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
-import { LoginPage } from '../login/login';
+import {LoginPage} from '../login/login';
 // import { SecondPage } from '../second/second';
 
 @Component({
@@ -10,38 +10,20 @@ import { LoginPage } from '../login/login';
 })
 export class HomePage {
 
+
   // splash = true;
   // secomndPage = SecondPage;
-  constructor(public navCtrl: NavController) {
-
-
-  users;
+   users;
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
-
-
   }
-  logout(){
 
-  ionviewDidLoad(){
+     // ionviewDidLoad(){
     // setTimeout(()=> this.splash = false , 3000);
+    // }
+}
 
-      this.firebaseService.authnticate.signOut().then(()=>{
-        const alert = this.alertCtrl.create({
-          title: 'Log Out',
-          subTitle: 'You have now been logged out!',
-          buttons: ['OK']
-        });
-        alert.present();
-        this.navCtrl.push(LoginPage);
-      }, Error =>{
-        const alert = this.alertCtrl.create({
-          title: 'Warning',
-          subTitle: Error,
-          buttons: ['OK']
-        });
-        alert.present();
-      })
-    }
 
-  }
+  
+
  
+}

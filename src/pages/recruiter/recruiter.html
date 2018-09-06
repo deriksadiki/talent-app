@@ -1,9 +1,3 @@
-<!--
-  Generated template for the RecruiterPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar color ="color" >
@@ -45,7 +39,7 @@
               <ion-label ><ion-icon name="lock" class="i"></ion-icon>Password:</ion-label>
               <ion-input type="password"  [(ngModel)] = "recrt.password"></ion-input>
             </ion-item>
-          </ion-list>
+          
 
           <ion-item>
               <ion-label ><ion-icon name="person" class="i"></ion-icon>Company Name:</ion-label>
@@ -62,10 +56,15 @@
               <ion-label ><ion-icon name="person" class="i"></ion-icon>Company cellno:</ion-label>
               <ion-input type="text"  [(ngModel)] = "recrt.companycellno"></ion-input>
             </ion-item>
+        </ion-list>
         
   <!-- </ion-card-content> -->
   <div class="butt">
+
+      <button class="btn" ion-button color="own" (click)="ScoutHome()" round>Sign Up</button>
+
       <button class="btn" ion-button color="own" round (click)="reg()">Register</button>
+
       </div>
   <br>
 
