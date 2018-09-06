@@ -16,7 +16,6 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
 
-  rootPage: any = HomePage;
 
   public rootPage:any;
 

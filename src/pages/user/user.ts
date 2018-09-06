@@ -18,11 +18,10 @@ import {Guest} from '../../Modals/Guest'
 export class UserPage {
 guest = {} as Guest;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
+
   }
-
-
-
   reg(){
+    var message;
     this.firebaseService.registerUser(this.guest.email, this.guest.password, this.guest.Username).then(() =>{
       const alert = this.alertCtrl.create({
         title: 'Welcome',
@@ -31,10 +30,25 @@ guest = {} as Guest;
       });
       this.navCtrl.push(HomePage);
       alert.present();
-    }, Error =>{
+    }, Error =>{ if (Error.messge == "createUserWithEmailAndPassword failed: First argument email must be a valid string."){
+      message = 'Please provide your details to full register!';
+    
+    }else if (Error.messge == "createUserWithEmailAndPassword failed: First argument ''email'' must be a valid string. "){
+      message == 'Provide your email to proceed!'
+   
+    }else if (Error.messge == "createUserWithEmailAndPassword failed: First argument email must be a valid string. "){
+      message == 'Provide your password to proceed!'
+    
+    }else if (Error.messge == "createUserWithEmailAndPassword failed: First argument email must be a valid string. "){
+      message == 'Provide your username to proceed!'
+    }
+
+
+
+    console.log(Error.message)
         const alert = this.alertCtrl.create({
           title: 'Warning!',
-          subTitle: Error,
+          subTitle: message,
           buttons: ['OK']
         });
         alert.present();
