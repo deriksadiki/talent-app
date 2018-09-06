@@ -90,11 +90,7 @@ login(email, password){
   getUserSatate(){
     return new Promise ((accpt, rej) =>{ 
       this.authnticate.onAuthStateChanged(user =>{
-
-        if (user){
-          console.log(user);
         if (user != null){
-
           this.state = 1;
         }
         else{
