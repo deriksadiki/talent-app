@@ -7,8 +7,14 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
+
 import { UsersPage } from '../pages/users/users';
 import { LogoutPage } from '../pages/logout/logout';
+
+import { LogoutPage } from '../pages/logout/logout';
+// import { LogoutPage } from '../pages/logout/logout';
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -16,23 +22,27 @@ import { LogoutPage } from '../pages/logout/logout';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+
   rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
-  // added
-  pageUsers: Array<{title: string, component: any}>;
+  public rootPage:any;
 
+
+  pages: Array<{title: string, component: any}>;
+  
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private firebaseService:FirebaseProvider) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
+
       { title: 'Profile', component: ProfilePage },
       { title: 'Log-Out', component: HomePage },
       { title: 'List', component: ListPage },
     
-    ];
 
+    ];
+if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
       if (data == 1){
        this.rootPage =  HomePage ;

@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider } from '../providers/firebase/firebase';
+import {Camera} from '@ionic-native/camera'
 
 import { LoginPage } from '../pages/login/login';
 import { SecondPage } from '../pages/second/second';
@@ -63,6 +64,7 @@ UsersPage
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseProvider
   ]

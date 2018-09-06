@@ -3,18 +3,19 @@ import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angul
 import { HomePage } from '../home/home';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {Guest} from '../../Modals/Guest'
+
 import { UsersPage } from '../users/users';
+
 
 
 @IonicPage()
 @Component({
-  selector: 'page-user',
-  templateUrl: 'user.html',
+ selector: 'page-user',
+ templateUrl: 'user.html',
 })
 export class UserPage {
 guest = {} as Guest;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
-  }
+
 
 
 
@@ -42,3 +43,6 @@ guest = {} as Guest;
   }
 
 }
+
+}
+

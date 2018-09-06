@@ -4,13 +4,6 @@ import { ArtistPage } from '../artist/artist';
 import { UserPage } from '../user/user';
 import { RecruiterPage } from '../recruiter/recruiter';
 
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-register',

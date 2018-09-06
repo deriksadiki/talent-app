@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color ="color" >
     <ion-title>Recruiter</ion-title>
   </ion-navbar>
 
@@ -15,10 +15,10 @@
         <h1>Vid'It.</h1>
     </div>
 
-<ion-card class="bg">
-  <ion-card-content >
+<!-- <ion-card class="bg">
+  <ion-card-content > -->
 
-      <ion-list class="context">
+      <ion-list class="context" no-lines>
 
           <ion-item>
             <ion-label ><ion-icon name="person" class="i"></ion-icon>Name:</ion-label>
@@ -39,7 +39,7 @@
               <ion-label ><ion-icon name="lock" class="i"></ion-icon>Password:</ion-label>
               <ion-input type="password"  [(ngModel)] = "recrt.password"></ion-input>
             </ion-item>
-          </ion-list>
+          
 
           <ion-item>
               <ion-label ><ion-icon name="person" class="i"></ion-icon>Company Name:</ion-label>
@@ -56,8 +56,9 @@
               <ion-label ><ion-icon name="person" class="i"></ion-icon>Company cellno:</ion-label>
               <ion-input type="text"  [(ngModel)] = "recrt.companycellno"></ion-input>
             </ion-item>
+        </ion-list>
         
-  </ion-card-content>
+  <!-- </ion-card-content> -->
   <div class="butt">
 
       <button class="btn" ion-button color="own" (click)="ScoutHome()" round>Sign Up</button>
@@ -67,5 +68,5 @@
       </div>
   <br>
 
-    </ion-card>
+    <!-- </ion-card> -->
 </ion-content>

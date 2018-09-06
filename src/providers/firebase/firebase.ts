@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-
+import {Camera,CameraOptions} from '@ionic-native/camera';
 declare var firebase;
 @Injectable()
 export class FirebaseProvider {
 
   database = firebase.database();
   authnticate  = firebase.auth();
+  storageRef = firebase.storage();
 
   userIDl;
   dbRef;
   state;
+  image;
 
-  constructor() {
+  constructor(private camera:Camera) {
 
   }
 
@@ -55,6 +57,7 @@ login(email, password){
           age:age,
           userType: "talentPerson"
         })
+        this.storageRef.ref('pictures/' + user.uid).putString(this.image, 'data_url');
         accept("success");
       }, Error =>{
         reject(Error.message);
@@ -90,11 +93,7 @@ login(email, password){
   getUserSatate(){
     return new Promise ((accpt, rej) =>{ 
       this.authnticate.onAuthStateChanged(user =>{
-
-        if (user){
-          console.log(user);
         if (user != null){
-
           this.state = 1;
         }
         else{
@@ -107,6 +106,21 @@ login(email, password){
 
   forgotUserPassword(email:any){
     return this.authnticate.sendPasswordResetEmail(email);
+  }
+  async uploadpic(){
+  
+          const options: CameraOptions= {
+            quality : 100,
+            targetWidth: 600,
+            targetHeight: 600,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            correctOrientation: true
+      
+          }
+            const results = await this.camera.getPicture(options);
+          this.image = `data:image/jpeg;base64,${results}`;
   }
 
 }

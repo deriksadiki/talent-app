@@ -11,23 +11,29 @@ page-user {
     ion-card.card{
         // margin-top: 20%;
         border-radius: 12px;
-        box-shadow: 2px 2px 4px;
+        // box-shadow: 2px 2px 4px;
     }
     .bg{
         background-color:rgba(0,0,0,0.5); 
     }
+    ion-label.label{
+        color: whitesmoke;
+    }
     .item{
         background-color: rgba(255, 255, 255, 0.192);
         // color: white;
-        // width: 80%;
+        width: 80%;
         margin-bottom: 20px;
         position: relative;
-        // left: 10%;
+        left: 10%;
         border-radius: 30px;
         padding: 0.5px;
         padding-left: 7%;
         
        
+    }
+    .i{
+        margin-right: 15px;
     }
     h1{
         color: rgb(236, 217, 217);
@@ -35,7 +41,10 @@ page-user {
         padding-top: 15%;
         font-size: 400%;
        font-weight: 100;
+       position: relative;
+       bottom: 54px;
     }
+
     .logo{
         // margin-top: 20%;
     }
