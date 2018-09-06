@@ -1,5 +1,5 @@
 {
-  "name": "talentApp",
+  "name": "talent-app-",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -54,17 +54,7 @@
     }
   }
 }
-=======
-      "cordova-plugin-camera": {},
-      "cordova-plugin-whitelist": {},
-      "cordova-plugin-statusbar": {},
-      "cordova-plugin-device": {},
-      "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
-    },
-    "platforms": [
-      "android"
-    ]
-  }
-}
+
+     
+  
+
