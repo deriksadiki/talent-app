@@ -12,18 +12,15 @@ export class HomePage {
 
   // splash = true;
   // secomndPage = SecondPage;
-  constructor(public navCtrl: NavController) {
-
 
   users;
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
 
-
+  // ionviewDidLoad(){
+  //     // setTimeout(()=> this.splash = false , 3000);
+  //   }
   }
   logout(){
-
-  ionviewDidLoad(){
-    // setTimeout(()=> this.splash = false , 3000);
 
       this.firebaseService.authnticate.signOut().then(()=>{
         const alert = this.alertCtrl.create({
