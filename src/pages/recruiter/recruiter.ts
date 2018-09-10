@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ScoutPage } from '../scout/scout';
 import { IonicPage, NavController, NavParams , AlertController } from 'ionic-angular';
 import {Recruit} from '../../Modals/Recruit';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
@@ -16,6 +17,13 @@ recrt = {} as Recruit;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
   }
 
+
+  ScoutHome(){
+    this.navCtrl.push(ScoutPage);
+  }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad RecruiterPage');
+  }
   reg(){
 
     if(this.recrt.email != '' && this.recrt.password != null && this.recrt.name != '' && this.recrt.surname != '' && this.recrt.companyName != '' && this.recrt.companyemail != '' && this.recrt .companycellno != ''){
@@ -26,9 +34,13 @@ recrt = {} as Recruit;
           subTitle: 'You have successfully Registared',
           buttons: ['OK']
         });
-        this.navCtrl.push(HomePage);
+        this.navCtrl.push(ScoutPage);
         alert.present();
-      },
+
+      });
+    }
+
+      
        Error =>{ 
             console.log("Message : " + Error.message);
             console.log("Code : " + Error.code);  
@@ -70,19 +82,14 @@ recrt = {} as Recruit;
             buttons: ['OK']
           });
           alert.present();
-        })
 
+        }
     }
-    else{
-      const alert = this.alertCtrl.create({
-        title: 'Warning!',
-        subTitle: 'Please make sure that all the fields are filled.',
-        buttons: ['OK']
-      });
-      alert.present();
+    
 
-    }
 
-  }
+        };
 
-}
+
+
+
