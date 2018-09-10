@@ -16,6 +16,11 @@ recrt = {} as Recruit;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
   }
+
+
+  ScoutHome(){
+    this.navCtrl.push(ScoutPage);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecruiterPage');
   }
