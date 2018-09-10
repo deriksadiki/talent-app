@@ -18,5 +18,11 @@ import {Guest} from '../../Modals/Guest'
 export class UserPage {
 guest = {} as Guest;
 
+constructor(public navCtrl: NavController, public navParams: NavParams, private fire:FirebaseProvider) {
+}
+
+reg(){
+    this.fire.registerUser(this.guest.email, this.guest.password, this.guest.Username)
+}
 
 }
