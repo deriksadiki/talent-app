@@ -47,6 +47,3 @@ constructor(public navCtrl: NavController, public navParams: NavParams,public al
 
 }
 
-
-
-

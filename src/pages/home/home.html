@@ -12,22 +12,76 @@
 
 
 <ion-content padding>
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 32f163ec9149b1f001ffa5cd65832184fc121354
     <ion-card >
         <ion-item class="item item-trns text-center">
-          <input type="file" (change)="insertpic($event)">
+          <input type="file" (change)="insertvid($event)">
         </ion-item>
       </ion-card>
+<<<<<<< HEAD
+  <button (click)="show()" ion-button>upload</button>
+=======
       <video width="320" height="240" controls>
           <source src="talentapp-98f45.appspot.com/pictures" type="video/mp4">
           <source src={{vidd}} type="video/ogg">
           Your browser does not support the video tag.
         </video>
+
+        <ion-card>
+
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="img/marty-avatar.png">
+              </ion-avatar>
+              <h2>View Artist</h2>
+            </ion-item>
+          
+            <!-- video -->
+            <video width="400" height="240" controls>
+                <source src="movie.mp4" type="video/mp4">
+                
+              </video>
+  
+            <ion-card-content>
+              <p>Sensational soul music</p>
+            </ion-card-content>
+          
+            <ion-row>
+              <ion-col>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <div>12 Likes</div>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="text"></ion-icon>
+                  <div>4 Comments</div>
+                </button>
+              </ion-col>
+              <ion-col center text-center>
+                <ion-note>
+                 11 hrs
+                </ion-note>
+              </ion-col>
+           
+               <button ion-button icon-start clear small (click)="view()">
+                <ion-icon name="update"></ion-icon>
+                <div>View Artist</div>
+              </button>
+              </ion-row> 
+          </ion-card>
         
   <button ion-button (click)="show()">Toggle Menu</button>
 
+  <button ion-button secondary menuToggle>Toggle Menu</button>
+
 
   <button (click)="upload()" ion-button>upload</button>
+>>>>>>> 32f163ec9149b1f001ffa5cd65832184fc121354
 
 </ion-content>
