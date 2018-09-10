@@ -89,6 +89,11 @@ recrt = {} as Recruit;
 
         };
 
+<<<<<<< HEAD
+=======
+   
+   
+>>>>>>> 182a03385e7c3d9feff070a0deb4e0c0387766b2
 
 
 

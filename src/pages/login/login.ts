@@ -99,7 +99,6 @@ showForgotPassword(){
     }, 
     Error =>{ if (Error.message == "signInWithEmailAndPassword failed: First argument email must be a valid string."){
       message == 'Please enter your log in details';
-      
     } else if (Error.message == "signInWithEmailAndPassword failed: Second argument password must be a valid string." ){
       message == 'Invalid password'
   
