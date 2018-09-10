@@ -33,11 +33,8 @@ export class MyApp {
     this.pages = [
 
       { title: 'Profile', component: ProfilePage },
-<<<<<<< HEAD
-      { title: 'Log-Out', component: LogoutPage},
-=======
+
       { title: 'Log-Out', component: LogoutPage },
->>>>>>> 32f163ec9149b1f001ffa5cd65832184fc121354
       { title: 'List', component: ListPage },
     
 
