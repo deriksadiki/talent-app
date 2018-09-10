@@ -9,7 +9,7 @@
     </ion-navbar>
   </ion-header>
   
-  <ion-content padding>
+  <ion-content class="img">
       <ion-card>
 
           <ion-item>
@@ -22,8 +22,7 @@
           <!-- video -->
           <video width="320" height="240" controls>
               <source src="movie.mp4" type="video/mp4">
-              <source src="movie.ogg" type="video/ogg">
-              Your browser does not support the video tag.
+              
             </video>
 
           <ion-card-content>
@@ -49,7 +48,7 @@
               </ion-note>
             </ion-col>
          
-             <button ion-button icon-start clear small (click)="update()">
+             <button ion-button icon-start clear small (click)="view()">
               <ion-icon name="update"></ion-icon>
               <div>Update profile</div>
             </button>
@@ -64,14 +63,13 @@
             <ion-avatar item-start>
               <img src="img/marty-avatar.png">
             </ion-avatar>
-            <h2>Name Surname</h2>
+            <h2>View Artist</h2>
           </ion-item>
         
           <!-- video -->
           <video width="320" height="240" controls>
               <source src="movie.mp4" type="video/mp4">
-              <source src="movie.ogg" type="video/ogg">
-              Your browser does not support the video tag.
+              
             </video>
 
           <ion-card-content>
@@ -97,9 +95,9 @@
               </ion-note>
             </ion-col>
          
-             <button ion-button icon-start clear small>
+             <button ion-button icon-start clear small (click)="view()">
               <ion-icon name="update"></ion-icon>
-              <div>Update profile</div>
+              <div>View Artist</div>
             </button>
             </ion-row> 
         </ion-card>
