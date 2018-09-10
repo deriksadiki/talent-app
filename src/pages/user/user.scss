@@ -38,8 +38,8 @@ page-user {
     h1{
         color: rgb(236, 217, 217);
         text-align: center;
-        padding-top: 15%;
-        font-size: 400%;
+        padding-top: 10%;
+        font-size: 300%;
        font-weight: 100;
        position: relative;
        bottom: 54px;
@@ -50,5 +50,10 @@ page-user {
     }
     .butt{
         text-align: center;
+    }
+    button{
+        // position: relative;
+        // top: 30px;
+        // width: 30%;
     }
 }

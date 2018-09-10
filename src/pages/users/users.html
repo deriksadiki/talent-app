@@ -1,0 +1,49 @@
+<!-- <ion-menu>
+    <ion-header>
+     <ion-navbar>
+        <ion-title>Users</ion-title>
+     </ion-navbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <button ion-item (click)="openPage(homePage)">
+          Videos
+        </button>
+        <button ion-item (click)="closeMenu()">
+          LogOut
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+   -->
+
+   <ion-header>
+      <ion-navbar>
+        <button ion-button menuToggle icon-only>
+          <ion-icon name='menu'></ion-icon>
+        </button>
+        <ion-title>
+         Users
+        </ion-title>
+      </ion-navbar>
+    </ion-header>
+    
+    <ion-content padding>
+        <ion-row></ion-row>
+        <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>12 Likes</div>
+            </button>
+          </ion-col>
+          <ion-col>
+              <button ion-button icon-left clear small>
+                <ion-icon name="text"></ion-icon>
+                <div>4 Comments</div>
+              </button>
+            </ion-col>
+
+
+      </ion-content>

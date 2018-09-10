@@ -3,19 +3,13 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { Talent} from '../../Modals/Talent';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import { HomePage } from '../home/home';
+import { ArtisthomePage } from '../artisthome/artisthome';
 
-
-/**
- * Generated class for the ArtistPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
-  selector: 'page-artist',
-  templateUrl: 'artist.html',
+ selector: 'page-artist',
+ templateUrl: 'artist.html',
 })
 export class ArtistPage {
 
