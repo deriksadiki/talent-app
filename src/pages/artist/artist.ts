@@ -20,7 +20,6 @@ photo:any;
   }
 
   takePicture(){
-
 this.firebaseService.uploadpic();
 
   }
