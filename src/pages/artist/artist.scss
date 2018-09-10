@@ -21,7 +21,7 @@ page-artist {
     }
     .item{
         background-color: rgba(255, 255, 255, 0.192);
-        // color: white;
+        color: white;
         width: 80%;
         margin-bottom: 10px;
         position: relative;
@@ -30,15 +30,35 @@ page-artist {
         // padding: 0.5px;
         padding-left: 7%;
         top: 20px;
+        position: relative;
+        top: 15%;
         
        
     }
     .i{
         margin-right: 15px;
     }
-    .butt{
-        text-align: center;
+    .butts{
+        // margin-right: 40px;
+  
+        // text-align: center;
 
+    //    flex-direction: column;
+    }
+    .butt1{
+        // margin-right: 10px;
+        text-align: center;
+        // margin-left: 180px;
+        display: flex;
+        margin: 0 auto;
+        align-content: center;
+        justify-content: center;
+        // float: right;
+    }
+    .butt2{
+        // margin-left: 20px;
+        // text-align: center;
+        // float: left;
     }
     img{
         // box-shadow: 2px 2px 4px; 
@@ -61,6 +81,15 @@ page-artist {
     //     top: 30px;
     //     width: 30%;
     // }
+
+    .btn{
+        // width: 36%;
+    }
+
+   
+
+  
+
 
 
 }
