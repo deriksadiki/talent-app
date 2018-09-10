@@ -12,6 +12,7 @@ export class FirebaseProvider {
   dbRef;
   state;
   image;
+  file;
 
   constructor(private camera:Camera) {
 
@@ -122,5 +123,4 @@ login(email, password){
             const results = await this.camera.getPicture(options);
           this.image = `data:image/jpeg;base64,${results}`;
   }
-
 }

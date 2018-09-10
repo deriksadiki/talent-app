@@ -29,7 +29,6 @@ Reg(){
   this.navCtrl.push(RegisterPage);
 }
 
-
 showForgotPassword(){
   const prompt = this.alertCtrl.create({
     title: 'Enter Your Email',
@@ -96,20 +95,20 @@ showForgotPassword(){
       this.navCtrl.push(HomePage);
       alert.present();
     }, 
-    Error =>{ if (Error.message == "signInWithEmailAndPassword failed: First argument email must be a valid string."){
+    Error =>{ if (Error.message == "signIn With Email And Password failed: Please enter your email details!"){
       message == 'Please enter your log in details';
       
-    } else if (Error.message == "signInWithEmailAndPassword failed: Second argument password must be a valid string." ){
+    } else if (Error.message == "sign In With Email And Password failed: Please Enter a valid password!" ){
       message == 'Invalid password'
   
-    } else if (Error.message == "signInWithEmailAndPassword failed: Second argument password must be a valid string."){
+    } else if (Error.message == "sign In With Email And Password failed: Please enter in all your details!s"){
       message == 'Invalid email address'
     }
 
 
       const alert = this.alertCtrl.create({
         title: 'Warning!',
-        subTitle: message,
+        subTitle: Error.message,
         buttons: ['OK']
       });
       alert.present(); 

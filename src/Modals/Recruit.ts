@@ -1,6 +1,6 @@
 export interface  Recruit{
     email:string;
-    password:number;
+    password:string;
     name:string;
     surname:string;
     companyName:string;
