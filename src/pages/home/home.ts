@@ -38,7 +38,7 @@ export class HomePage {
       }
     
     }
-    show(){
+    upload(){
       this.firebaseService.uploadvid(this.url).then(data =>{
         console.log(data);
          this.firebaseService.storeToDB(data).then(() =>{

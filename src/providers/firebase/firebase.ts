@@ -48,11 +48,11 @@ login(email, password){
     })
 
   }
-  registerTalentPerson(email,password, name, surname, gender, cellno, age){
+  registerTalentPerson(username,email,password, name, surname, gender, cellno, age){
   return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
         var user = firebase.auth().currentUser;
-        this.dbRef =  'users/' + name + " " + surname;
+        this.dbRef =  'users/' + username
         this.database.ref(this.dbRef).push({
           name:name,
           surname:surname,
@@ -132,7 +132,7 @@ login(email, password){
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',
       content: 'Please wait',
-      duration: 5000
+      duration: 9000
     });
   return new Promise((accpt,rejc) =>{
     loading.present();
