@@ -20,7 +20,7 @@ page-profile {
         }
 
         h1{
-            color: white;
+            color: rgb(255, 255, 255);
             font-weight: 100;
         }
 
@@ -39,7 +39,12 @@ page-profile {
         }
 
         .cont{
-            background-color: rgb(251, 190, 197);
+            background-color: rgb(230, 207, 207);
+        }
+
+        p{
+            color: rgb(224, 114, 114);
+            font-weight: 100;
         }
 
 }
