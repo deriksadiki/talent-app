@@ -27,7 +27,7 @@ this.firebaseService.uploadpic();
 
   reg(){
     var message;
-    this.firebaseService.registerTalentPerson(this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
+    this.firebaseService.registerTalentPerson(this.artist.username,this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
       const alert = this.alertCtrl.create({
         title: 'Welcome',
         subTitle: 'You have successfully Registered',

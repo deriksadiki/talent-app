@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Camera,CameraOptions} from '@ionic-native/camera';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { LoadingController } from 'ionic-angular';
+
 declare var firebase;
 @Injectable()
 export class FirebaseProvider {
@@ -14,7 +17,7 @@ export class FirebaseProvider {
   image;
   videoArray = new Array();
 
-  constructor(private camera:Camera) {
+  constructor(private camera:Camera, public loadingCtrl: LoadingController) {
 
   }
 
@@ -45,11 +48,11 @@ login(email, password){
     })
 
   }
-  registerTalentPerson(email,password, name, surname, gender, cellno, age){
+  registerTalentPerson(username,email,password, name, surname, gender, cellno, age){
   return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
         var user = firebase.auth().currentUser;
-        this.dbRef =  'users/' + user.uid;
+        this.dbRef =  'users/' + username
         this.database.ref(this.dbRef).push({
           name:name,
           surname:surname,
@@ -125,23 +128,51 @@ login(email, password){
   }
 
   uploadvid(vid){
-    var metadata = {
-      contentType: 'video/mp4',
-    };
-    
-    // Upload the file and metadata
-  // this.storageRef.ref('images/mountains.jpg').put(vid);
-   this.storageRef.ref('pictures/').putString(vid, 'data_url');
+    var d = Date.now();
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Please wait',
+      duration: 9000
+    });
+  return new Promise((accpt,rejc) =>{
+    loading.present();
+  this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
+    accpt(d);
+  }, Error =>{
+    rejc(Error.message)
+  })
+  })
   }
 
   getvideo():any{
+     var user = firebase.auth().currentUser;
+     let storageRef =  firebase.storage().ref();
+return new Promise((accpt,rejc) =>{
+  let imgRef = storageRef.child('pictures');
+  imgRef.getDownloadURL().then(function(url) {
+    accpt(url)
+     }.bind(this)).catch(function(error) {
+  rejc(error)
+});
+})
+}
 
-    var pathReference = this.storageRef.ref('pictures/');
-    console.log(pathReference);
-    return pathReference;
-//  this.storageRef.ref('pictures/').on('value', (data:any) =>{
-//   var vid = data.val();
-//   console.log(vid);
-//  })
-  }
+storeToDB(name){
+  return new Promise((accpt,rejc) =>{
+    var storageRef = firebase.storage().ref(name + ".mp4");
+    storageRef.getDownloadURL().then(url => {
+      console.log(url)
+      var user = firebase.auth().currentUser;
+      var link =  url;
+      this.database.ref('uploads/' + user.uid).push({
+            downloadurl :link
+          });
+          accpt('success');
+}, Error =>{
+  rejc(Error.message);
+  console.log(Error.message);
+});
+})
+}
+
 }
