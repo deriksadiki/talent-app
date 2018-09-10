@@ -10,22 +10,22 @@ import {LoginPage} from '../login/login';
 })
 export class HomePage {
   users;
-<<<<<<< HEAD
+
   url;
   vidd;
-=======
+
 
   // splash = true;
   // secomndPage = SecondPage;
  
->>>>>>> 534d81c5b5bded2b68e111c23d806ae0cf7d1531
+
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
   }
 
      // ionviewDidLoad(){
     // setTimeout(()=> this.splash = false , 3000);
     // }
-<<<<<<< HEAD
+
     insertpic(event:any){
       if (event.target.files && event.target.files[0]){
         let reader = new FileReader();
@@ -47,9 +47,8 @@ export class HomePage {
      console.log(vid);
      this.vidd = vid;
     }
-=======
 
->>>>>>> 534d81c5b5bded2b68e111c23d806ae0cf7d1531
+
 }
 
 

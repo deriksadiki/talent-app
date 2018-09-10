@@ -87,9 +87,9 @@ recrt = {} as Recruit;
     }
     
 
-        };
+  }
 
-    }
+    
    
 
 

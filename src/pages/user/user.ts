@@ -16,14 +16,7 @@ import { UsersPage } from '../users/users';
 export class UserPage {
 guest = {} as Guest;
 
-<<<<<<< HEAD
-constructor(public navCtrl: NavController, public navParams: NavParams, private fire:FirebaseProvider) {
-}
 
-reg(){
-    this.fire.registerUser(this.guest.email, this.guest.password, this.guest.Username)
-}
-=======
 constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private firebaseService:FirebaseProvider){
 
 }
@@ -55,5 +48,4 @@ constructor(public navCtrl: NavController, public navParams: NavParams,public al
 }
 
 
->>>>>>> 534d81c5b5bded2b68e111c23d806ae0cf7d1531
 

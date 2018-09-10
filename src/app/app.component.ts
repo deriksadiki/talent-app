@@ -3,7 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider} from '../providers/firebase/firebase';
-import { HomePage } from '../pages/home/home';
+import { HomePage } from  '../pages/home/home'
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
@@ -21,7 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
 
-  rootPage: any = LoginPage;
+  public rootPage: any;
 
 
   pages: Array<{title: string, component: any}>;
@@ -33,7 +33,7 @@ export class MyApp {
     this.pages = [
 
       { title: 'Profile', component: ProfilePage },
-      { title: 'Log-Out', component: HomePage },
+      { title: 'Log-Out', component: LogoutPage},
       { title: 'List', component: ListPage },
     
 
