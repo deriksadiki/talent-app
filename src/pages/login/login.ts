@@ -5,6 +5,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {login} from '../../Modals/login'
 import { HomePage } from '../home/home';
+import { ScoutPage } from '../scout/scout';
 
 @IonicPage()
 @Component({
@@ -98,7 +99,6 @@ showForgotPassword(){
     }, 
     Error =>{ if (Error.message == "signInWithEmailAndPassword failed: First argument email must be a valid string."){
       message == 'Please enter your log in details';
-      
     } else if (Error.message == "signInWithEmailAndPassword failed: Second argument password must be a valid string." ){
       message == 'Invalid password'
   
@@ -115,5 +115,9 @@ showForgotPassword(){
       alert.present(); 
     })
 
+  }
+
+  scoutpage(){
+    this.navCtrl.push(ScoutPage);
   }
 }

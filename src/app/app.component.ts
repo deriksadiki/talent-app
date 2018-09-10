@@ -9,11 +9,8 @@ import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 
 import { UsersPage } from '../pages/users/users';
-
-
 import { LogoutPage } from '../pages/logout/logout';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
-
 
 
 
@@ -25,8 +22,6 @@ export class MyApp {
 
 
   rootPage: any = LoginPage;
-
-  // public rootPage:any;
 
 
   pages: Array<{title: string, component: any}>;

@@ -1,9 +1,11 @@
 
+
 <ion-header>
 <ion-navbar color = "color" >
 <ion-title>Artist Profile</ion-title>
 </ion-navbar>
 </ion-header>
+
 
 
 
@@ -44,26 +46,26 @@
           </ion-item>
     
           <ion-item>
-            <ion-label >  <ion-icon ios="ios-call" md="md-call" class="i"></ion-icon></ion-label>
-            <ion-input  placeholder="Cell No." type="text"  [(ngModel)] = "artist.cellno"></ion-input>
-          </ion-item>
 
-         
+
+            <ion-label ><ion-icon name="person" class="i"></ion-icon>Cell No:</ion-label>
+            <ion-input type="text"  [(ngModel)] = "artist.cellno"></ion-input>
+          </ion-item>
    
+      
+
             <ion-item>
                 <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
                 <ion-input placeholder="Age" type="text"  [(ngModel)] = "artist.age"></ion-input>
               </ion-item>
             </ion-list>
-   
+            
+    <button class="btn" ion-button color="own" round (click)="takePicture()">Take photo</button>
    
    <div class="butt">
    <button class="animated infinite jello delay-2s" class="btn" ion-button color="own" round (click)="reg()">Sign Up</button>
    </div>
    </ion-content>
-
-            
-
 
 
 
