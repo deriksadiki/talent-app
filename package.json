@@ -59,11 +59,12 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-camera": {}
 
-      "cordova-plugin-filechooser": {}
+   
 
     },
     "platforms": [
       "android"
     ]
   }
+}
 
