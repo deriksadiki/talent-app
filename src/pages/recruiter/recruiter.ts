@@ -16,11 +16,6 @@ recrt = {} as Recruit;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
   }
-
-
-  ScoutHome(){
-    this.navCtrl.push(ScoutPage);
-  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecruiterPage');
   }
@@ -34,7 +29,7 @@ recrt = {} as Recruit;
           subTitle: 'You have successfully Registared',
           buttons: ['OK']
         });
-        this.navCtrl.push(HomePage);
+        this.navCtrl.push(ScoutPage);
         alert.present();
 
       });
@@ -86,6 +81,7 @@ recrt = {} as Recruit;
         }
     }
     
+
 
         };
 

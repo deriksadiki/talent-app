@@ -21,7 +21,7 @@ page-artist {
     }
     .item{
         background-color: rgba(255, 255, 255, 0.192);
-        // color: white;
+        color: white;
         width: 80%;
         margin-bottom: 10px;
         position: relative;
@@ -30,6 +30,8 @@ page-artist {
         // padding: 0.5px;
         padding-left: 7%;
         top: 20px;
+        position: relative;
+        top: 15%;
         
        
     }
@@ -38,6 +40,8 @@ page-artist {
     }
     .butt{
         text-align: center;
+        
+
 
     }
     img{
@@ -61,6 +65,15 @@ page-artist {
     //     top: 30px;
     //     width: 30%;
     // }
+
+    .btn{
+        width: 36%;
+    }
+
+   
+
+  
+
 
 
 }

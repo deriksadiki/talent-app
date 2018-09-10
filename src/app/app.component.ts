@@ -33,7 +33,7 @@ export class MyApp {
     this.pages = [
 
       { title: 'Profile', component: ProfilePage },
-      { title: 'Log-Out', component: HomePage },
+      { title: 'Log-Out', component: LogoutPage },
       { title: 'List', component: ListPage },
     
 
