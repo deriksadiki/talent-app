@@ -1,20 +1,29 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>profile</ion-title>
+  <ion-navbar color="own">
+    <ion-title>Your Profile</ion-title>
   </ion-navbar>
 
+ <div class="img" align="center">
+
+  <img class="pic" src="../../assets/imgs/face.webp">
+<h1>Jorja Smith</h1>
+
+
+<button class="btn" ion-button color="own" round (click)="update()"><ion-icon name="hammer"></ion-icon></button>
+
+ </div>
 </ion-header>
 
 
-<ion-content padding>
-    <div class="logo" align="center">
-        <img class="logo" src="../../assets/imgs/play-button (1).png">
+<ion-content padding class="cont">
+    <div align="center"> 
+        <h1>Your Vid'It profile</h1>    
       </div>
-      <h1>Vid'It.</h1>
       
+      
+      <div>
 <ion-list>
-
     Image
     <br>
     <br>
@@ -34,10 +43,11 @@
     
 </ion-list>
 
+</div>
+
    
-   <div class="butt">
-   <button class="animated infinite jello delay-2s" class="btn" ion-button color="own" round (click)="update()">UPDATE</button>
-   </div>
+  
+  
   
 
 
