@@ -31,12 +31,15 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-
+      { title: 'Home', component: ArtisthomePage },
+      { title: 'Upload', component: HomePage },
       { title: 'Profile', component: ProfilePage },
 
+      { title: 'Video Category', component: ListPage },
+
+
       { title: 'Log-Out', component: LogoutPage },
-      { title: 'List', component: ListPage },
-    
+      
 
     ];
 if('Log-Out')
