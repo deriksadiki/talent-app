@@ -25,9 +25,14 @@ export class HomePage {
 
      // ionviewDidLoad(){
     // setTimeout(()=> this.splash = false , 3000);
+<<<<<<< HEAD
     // }
 
     insertvid(event:any){
+=======
+
+    insertpic(event:any){
+>>>>>>> 32f163ec9149b1f001ffa5cd65832184fc121354
       if (event.target.files && event.target.files[0]){
         let reader = new FileReader();
     
@@ -54,9 +59,12 @@ export class HomePage {
       
     }
 
+<<<<<<< HEAD
     
 
 
+=======
+>>>>>>> 32f163ec9149b1f001ffa5cd65832184fc121354
 }
 
 

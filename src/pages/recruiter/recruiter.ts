@@ -34,7 +34,7 @@ recrt = {} as Recruit;
           subTitle: 'You have successfully Registared',
           buttons: ['OK']
         });
-        this.navCtrl.push(HomePage);
+        this.navCtrl.push(ScoutPage);
         alert.present();
 
       });
@@ -87,10 +87,16 @@ recrt = {} as Recruit;
     }
     
 
+<<<<<<< HEAD
   }
 
     
    
+=======
+
+        };
+
+>>>>>>> 32f163ec9149b1f001ffa5cd65832184fc121354
 
 
 

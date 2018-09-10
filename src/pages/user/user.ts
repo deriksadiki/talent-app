@@ -48,4 +48,8 @@ constructor(public navCtrl: NavController, public navParams: NavParams,public al
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32f163ec9149b1f001ffa5cd65832184fc121354
 
