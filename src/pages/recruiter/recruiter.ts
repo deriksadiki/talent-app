@@ -82,11 +82,15 @@ recrt = {} as Recruit;
             buttons: ['OK']
           });
           alert.present();
+
+        }
+    }
+    
+
         };
 
     }
    
 
-  }
 
 
