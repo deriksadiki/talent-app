@@ -49,7 +49,11 @@
 
         <ion-item class="items">
             <ion-label > <ion-icon ios="ios-body" md="md-body" class="i"></ion-icon></ion-label>
-            <ion-input placeholder="Gender" type="text" [(ngModel)]= "artist.gender"></ion-input>
+            <ion-select [(ngModel)]="gaming" placeholder="Gender" item-center>
+                <ion-option value="Male">Male</ion-option>
+                <ion-option value="Female">Female</ion-option>
+              </ion-select>
+            <!-- <ion-input placeholder="Gender" type="text" [(ngModel)]= "artist.gender"></ion-input> -->
           </ion-item>
     
           <ion-item class="items">
