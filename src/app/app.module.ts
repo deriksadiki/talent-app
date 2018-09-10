@@ -21,7 +21,10 @@ import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
 import { UsersPage } from '../pages/users/users';
 import { ScoutPage } from '../pages/scout/scout';
+
+import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
+
 
 
 
@@ -40,7 +43,8 @@ import { ArtisthomePage } from '../pages/artisthome/artisthome';
     ProfilePage,
     ArtisthomePage,
 ScoutPage,
-UsersPage
+UsersPage,
+ArtistProfilePage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,8 @@ UsersPage
     ProfilePage,
     ArtisthomePage,
     ScoutPage,
-    UsersPage
+    UsersPage,
+    ArtistProfilePage
   ],
   providers: [
     StatusBar,
