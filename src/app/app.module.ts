@@ -24,6 +24,8 @@ import { ScoutPage } from '../pages/scout/scout';
 
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
+import { ArtistProfileUpdatePage } from '../pages/artist-profile-update/artist-profile-update';
+import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-profile-update';
 
 
 
@@ -42,10 +44,12 @@ import { ArtisthomePage } from '../pages/artisthome/artisthome';
     LogoutPage,
     ProfilePage,
     ArtisthomePage,
-ScoutPage,
-UsersPage,
-ArtistProfilePage
-  ],
+    ScoutPage,
+    UsersPage,
+    ArtistProfilePage,
+    ArtistProfileUpdatePage,
+    ScoutProfileUpdatePage  
+],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -66,7 +70,8 @@ ArtistProfilePage
     ArtisthomePage,
     ScoutPage,
     UsersPage,
-    ArtistProfilePage
+    ArtistProfilePage,
+    ArtistProfileUpdatePage
   ],
   providers: [
     StatusBar,
