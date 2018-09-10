@@ -5,6 +5,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {login} from '../../Modals/login'
 import { HomePage } from '../home/home';
+import { ScoutPage } from '../scout/scout';
 
 @IonicPage()
 @Component({
@@ -115,5 +116,9 @@ showForgotPassword(){
       alert.present(); 
     })
 
+  }
+
+  scoutpage(){
+    this.navCtrl.push(ScoutPage);
   }
 }
