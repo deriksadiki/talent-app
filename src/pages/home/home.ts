@@ -24,7 +24,7 @@ export class HomePage {
 
      // ionviewDidLoad(){
     // setTimeout(()=> this.splash = false , 3000);
-    // 
+
     insertpic(event:any){
       if (event.target.files && event.target.files[0]){
         let reader = new FileReader();
