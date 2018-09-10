@@ -1,9 +1,7 @@
 
 <ion-header>
-
-
-<ion-navbar>
-
+<ion-navbar color = "color" >
+<ion-title>Artist Profile</ion-title>
 </ion-navbar>
 </ion-header>
 
@@ -11,10 +9,9 @@
 
 <ion-content class="img">
     <div class="logo" align="center">
-        <!-- <img class="logo" src="../../assets/imgs/play-button (1).png"> -->
-      
-        <h1>Vid'It.</h1>
+        <img class="logo" src="../../assets/imgs/play-button (1).png">
       </div>
+      <h1>Vid'It.</h1>
 <!-- <ion-card class="bg">
 <ion-card-content > -->
 
@@ -48,7 +45,7 @@
     
           <ion-item>
             <ion-label >  <ion-icon ios="ios-call" md="md-call" class="i"></ion-icon></ion-label>
-            <ion-input  placeholder="Cell No" type="text"  [(ngModel)] = "artist.cellno"></ion-input>
+            <ion-input  placeholder="Cell No." type="text"  [(ngModel)] = "artist.cellno"></ion-input>
           </ion-item>
 
          
@@ -61,7 +58,7 @@
    
    
    <div class="butt">
-   <button class="animated infinite jello delay-2s" class="btn" ion-button color="own" round (click)="reg()">Log In</button>
+   <button class="animated infinite jello delay-2s" class="btn" ion-button color="own" round (click)="reg()">Sign Up</button>
    </div>
    </ion-content>
 

@@ -8,22 +8,31 @@ page-recruiter {
        background-repeat: no-repeat;
        background-position: center;
     }
-ion-card.card{
-    // margin-top: 20%;
-    border-radius: 12px;
-    box-shadow: 2px 2px 4px;
-}
+
 ion-label.label{
     color: whitesmoke;
 }
 .bg{
     background-color:rgba(0,0,0,0.5); 
 }
+// .logo{
+//     // height: 80%;
+//     // width: 95%;
+//     height: 28vh;
+//     border-radius: 15px;
+//     text-align: center;
+//     border-radius: 15px;
+// }
+img{
+    // box-shadow: 2px 2px 4px; 
+    height: 10vh;
+    // border-radius: 15px;  
+}
 .item{
     background-color: rgba(255, 255, 255, 0.192);
     // color: white;
     width: 80%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     position: relative;
     left: 10%;
@@ -41,5 +50,15 @@ ion-label.label{
 }
 h1{
     color: rgb(236, 217, 217);
+    text-align: center;
+    padding-top: 1%;
+    font-weight: 100;
+    font-size: 300%;
+   
 }
+// button{
+//     // position: relative;
+//     // top: 30px;
+//     width: 30%;
+// }
 }

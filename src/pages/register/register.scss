@@ -11,22 +11,32 @@ page-register {
     .butt{
         text-align: center;
         margin-top: 10%;
+        // border-radius: 12px;
         width: 70%;
         position: relative;
         left: 15%;
-        
-    
+    }
+    .head{
+        text-align: center;
     }
     button{
         margin-bottom: 10px;
+        // border-radius: 8px;
     }
-
+#but{
+    border-radius: 18px;
+}
     h1{
         color: rgb(236, 217, 217);
         text-align: center;
         padding-top: 1px;
         font-size: 400%;
        font-weight: 100;
+    }
+    h2{
+        color: rgb(236, 217, 217);
+        text-align: center;  
+        font-weight: 100;
     }
 
 

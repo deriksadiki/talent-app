@@ -1,22 +1,27 @@
 <ion-header>
 
   <ion-navbar color ="color" >
-    <ion-title>Recruiter</ion-title>
+    <ion-title>Scout Profile</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content  class="img" >
-
+  <br>
     <div class="logo" align="center">
         <img class="logo" src="../../assets/imgs/play-button (1).png">
+        </div>
+      <h1>Vid'It.</h1>
+
+    <!-- <div class="logo" align="center">
+        <img class="log" src="../../assets/imgs/play-button (1).png">
         <h1>Vid'It.</h1>
-    </div>
+    </div> -->
 
 <!-- <ion-card class="bg">
   <ion-card-content > -->
-
+<div class="section">
       <ion-list class="context" no-lines>
 
           <ion-item>
@@ -31,7 +36,7 @@
 
           <ion-item>
               <ion-label ><ion-icon name="mail" class="i"></ion-icon></ion-label>
-              <ion-input type="text" placeholder= "Email"  [(ngModel)] = "recrt.email"></ion-input>
+              <ion-input type="text" placeholder= "E-mail"  [(ngModel)] = "recrt.email"></ion-input>
             </ion-item>
           
             <ion-item>
@@ -47,7 +52,7 @@
       
             <ion-item>
               <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
-              <ion-input type="text" placeholder= "Company Email"  [(ngModel)] = "recrt.companyemail"></ion-input>
+              <ion-input type="text" placeholder= "Company E-mail"  [(ngModel)] = "recrt.companyemail"></ion-input>
             </ion-item>
     
         
@@ -57,15 +62,9 @@
             </ion-item>
         </ion-list>
         
-  <!-- </ion-card-content> -->
   <div class="butt">
-
-      <!-- <button class="btn" ion-button color="own" (click)="ScoutHome()" round>Sign Up</button> -->
-
-      <button class="btn" ion-button color="own" round (click)="reg()">Register</button>
-
+      <button class="btn" ion-button color="own" round (click)="reg()">Sign Up</button>
       </div>
+    </div>
   <br>
-
-    <!-- </ion-card> -->
 </ion-content>
