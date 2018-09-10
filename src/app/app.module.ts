@@ -71,7 +71,8 @@ import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-prof
     ScoutPage,
     UsersPage,
     ArtistProfilePage,
-    ArtistProfileUpdatePage
+    ArtistProfileUpdatePage,
+    ScoutProfileUpdatePage
   ],
   providers: [
     StatusBar,
