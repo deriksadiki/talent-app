@@ -37,7 +37,7 @@ recrt = {} as Recruit;
         this.navCtrl.push(HomePage);
         alert.present();
 
-      })
+      });
     }
 
       
@@ -82,9 +82,15 @@ recrt = {} as Recruit;
             buttons: ['OK']
           });
           alert.present();
+
         }
     }
     
-  }
+
+        };
+
+    }
+   
+
 
 

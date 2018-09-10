@@ -21,7 +21,10 @@ import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
 import { UsersPage } from '../pages/users/users';
 import { ScoutPage } from '../pages/scout/scout';
+
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
+import { ArtisthomePage } from '../pages/artisthome/artisthome';
+
 
 
 
@@ -38,7 +41,7 @@ import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
     ArtistPage,
     LogoutPage,
     ProfilePage,
-    ArtistPage,
+    ArtisthomePage,
 ScoutPage,
 UsersPage,
 ArtistProfilePage
@@ -60,7 +63,7 @@ ArtistProfilePage
     ArtistPage,
     LogoutPage,
     ProfilePage,
-    ArtistPage,
+    ArtisthomePage,
     ScoutPage,
     UsersPage,
     ArtistProfilePage

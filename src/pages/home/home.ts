@@ -20,4 +20,8 @@ export class HomePage {
      // ionviewDidLoad(){
     // setTimeout(()=> this.splash = false , 3000);
     // }
+
 }
+
+
+
