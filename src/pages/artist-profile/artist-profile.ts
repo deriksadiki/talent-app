@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 
 
@@ -11,11 +11,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ArtistProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ArtistProfilePage');
+  }
+
+  close(){
+    this.view.dismiss();
   }
 
 }

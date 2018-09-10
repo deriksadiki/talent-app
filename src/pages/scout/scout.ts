@@ -18,7 +18,7 @@ export class ScoutPage {
     console.log('ionViewDidLoad ScoutPage');
   }
 
-  update(){
+  view(){
     const modal = this.modalCtrl.create(ArtistProfilePage);
     modal.present();
   }
