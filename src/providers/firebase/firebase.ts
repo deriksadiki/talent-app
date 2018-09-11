@@ -55,7 +55,8 @@ login(email, password){
       this.username =  username;
       return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-        this.dbRef =  'users/' + username
+        var user = firebase.auth().currentUser;
+        this.dbRef =  'users/' +  username + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           name:name,
           surname:surname,
@@ -249,7 +250,6 @@ this.imgurl =  url;
 
 storeuserid(uid){
   this.currentUserID = uid;
-  console.log(this.currentUserID);
 }
 
 
