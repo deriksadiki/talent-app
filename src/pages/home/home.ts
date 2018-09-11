@@ -10,18 +10,16 @@ import {LoginPage} from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  users;
-
   url;
-  vidd;
+  category;
+  vidName;
+  vidDesc;
 
 
-  // splash = true;
-  // secomndPage = SecondPage;
  
 
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
-
+  this.firebaseService.getuserType();
   }
 
     
@@ -42,7 +40,7 @@ export class HomePage {
     upload(){
       this.firebaseService.uploadvid(this.url).then(data =>{
         console.log(data);
-         this.firebaseService.storeToDB(data).then(() =>{
+         this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
            console.log('added to db');
          },
         Error =>{

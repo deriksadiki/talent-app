@@ -16,6 +16,8 @@ export class FirebaseProvider {
   state;
   image;
   videoArray = new Array();
+  username;
+  imgurl;
 
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
 
@@ -49,7 +51,8 @@ login(email, password){
 
   }
   registerTalentPerson(username,email,password, name, surname, gender, cellno, age){
-  return new Promise((accept,reject) =>{
+      this.username =  username;
+      return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
         this.dbRef =  'users/' + username
         this.database.ref(this.dbRef).push({
@@ -155,7 +158,7 @@ return new Promise((accpt,rejc) =>{
 })
 }
 
-storeToDB(name){
+storeToDB(name, category, vidname, vidDesc){
   return new Promise((accpt,rejc) =>{
     var storageRef = firebase.storage().ref(name + ".mp4");
     storageRef.getDownloadURL().then(url => {
@@ -163,7 +166,10 @@ storeToDB(name){
       var user = firebase.auth().currentUser;
       var link =  url;
       this.database.ref('uploads/' + user.uid).push({
-            downloadurl :link
+            downloadurl :link,
+            name : vidname,
+            category: category,
+            description: vidDesc
           });
           accpt('success');
 }, Error =>{
@@ -191,6 +197,8 @@ getAllvideos(){
                 var key = keys2[a];
                 let obj = {
                 vidurl : details[key].downloadurl,
+                vidDesc : details[key].description,
+                vidname : details[key].name,
                 key: key
           }
           this.videoArray.push(obj);
@@ -216,10 +224,17 @@ return new Promise ((accpt, rej) =>{
       var index = str1.indexOf( ":" ); 
       var currentUserID = userIDs[x].substr(index + 1);
       if (user.uid == currentUserID){
+        this.storeUserName(userIDs[x].substr(0,index));
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
             var Userdetails;
             var Userdetails = data.val(); 
             var keys2:any = Object.keys(Userdetails);
+            var user = firebase.auth().currentUser;
+            let storageRef =  firebase.storage().ref();
+            let imgRef = storageRef.child('pictures/' + userIDs[x].substr(0,index));
+            imgRef.getDownloadURL().then(function(url) {
+            this.storePictureUrl(url);
+          }.bind(this)).catch(function(error) {})
             accpt(Userdetails[keys2].userType)
            })
         break;
@@ -227,6 +242,16 @@ return new Promise ((accpt, rej) =>{
     }
   })
 })
+}
+
+storeUserName(name){
+this.username = name;
+console.log(this.username);
+}
+
+storePictureUrl(url){
+this.imgurl =  url;
+console.log(this.imgurl);
 }
 
 }
