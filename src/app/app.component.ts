@@ -36,7 +36,7 @@ export class MyApp {
       { title: 'Upload', component: HomePage },
       { title: 'Profile', component: ProfilePage },
 
-      { title: 'Video Category', component: ListPage },
+      // { title: 'Video Category', component: ListPage },
 
 
       { title: 'Log-Out', component: LogoutPage },

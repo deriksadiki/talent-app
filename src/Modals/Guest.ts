@@ -1,5 +1,5 @@
 export interface Guest{
     email:string;
-    password:number;
+    password:string;
     Username:string;
 }
