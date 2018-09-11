@@ -48,6 +48,9 @@ User(){
   artistProf(){
     this.navCtrl.push(ScoutProfileUpdatePage);
   }
+  artist(){
+    this.navCtrl.push(ArtistProfilePage);
+  }
   Home(){
     this.navCtrl.push(HomePage);
   }
