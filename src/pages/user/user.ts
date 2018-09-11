@@ -3,12 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angul
 import { HomePage } from '../home/home';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {Guest} from '../../Modals/Guest'
-/**
- * Generated class for the UserPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -22,37 +17,44 @@ guest = {} as Guest;
   }
   reg(){
     var message;
-    this.firebaseService.registerUser(this.guest.email, this.guest.password, this.guest.Username).then(() =>{
-      const alert = this.alertCtrl.create({
-        title: 'Welcome',
-        subTitle: 'You have successfully Registared',
-        buttons: ['OK']
-      });
-      this.navCtrl.push(HomePage);
-      alert.present();
-    }, Error =>{ if (Error.messge == "createUserWithEmailAndPassword failed: First argument email must be a valid string."){
-      message = 'Please provide your details to full register!';
-    
-    }else if (Error.messge == "createUserWithEmailAndPassword failed: First argument ''email'' must be a valid string. "){
-      message == 'Provide your email to proceed!'
-   
-    }else if (Error.messge == "createUserWithEmailAndPassword failed: First argument email must be a valid string. "){
-      message == 'Provide your password to proceed!'
-    
-    }else if (Error.messge == "createUserWithEmailAndPassword failed: First argument email must be a valid string. "){
-      message == 'Provide your username to proceed!'
-    }
-
-
-
-    console.log(Error.message)
-        const alert = this.alertCtrl.create({
-          title: 'Warning!',
-          subTitle: message,
-          buttons: ['OK']
-        });
-        alert.present();
-      })
+if ( this.guest.Username == undefined && this.guest.email == undefined && this.guest.password == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: ' Please provide your full details to register!',
+    buttons: ['OK']
+  });
+  alert.present();
+} else if (this.guest.email == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Wearning',
+    subTitle: 'Email cannot be left out',
+    buttons: ['OK']
+  });
+  alert.present();
+} else if (this.guest.password == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Password cannot be left out',
+    buttons: ['OK']
+  });
+  alert.present();
+} else if (this.guest.Username == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Username cannot be left out',
+    buttons: ['OK']
+  });
+  alert.present();
+}else {
+  this.firebaseService.registerUser(this.guest.email, this.guest.password,this.guest.Username).then(() => {
+     const alert = this.alertCtrl.create({
+    title: 'Welcome',
+    subTitle: 'You have successfully Registared',
+    buttons: ['OK']
+  });
+  this.navCtrl.push(HomePage);
+  alert.present(); 
+  })
+}
   }
-
 }

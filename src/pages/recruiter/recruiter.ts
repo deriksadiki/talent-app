@@ -16,73 +16,75 @@ recrt = {} as Recruit;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
   }
 
+
   reg(){
+if (this.recrt.email == undefined && this.recrt.password == undefined && this.recrt.name == undefined && this.recrt.surname == undefined && this.recrt.companyName == undefined && this.recrt.companyemail == undefined && this.recrt.companycellno == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Please provide your full details to register!',
+    buttons: ['OK']
+  });
+  alert.present();
+}else if (this.recrt.name == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Name cannot be left out!',
+    buttons: ['OK']
+  });
+  alert.present();
+} else if (this.recrt.surname == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Surname cannot be left out!',
+    buttons: ['OK']
+  });
+  alert.present();
+}else if (this.recrt.email == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Email cannot be left out!',
+    buttons: ['OK']
+  });
+  alert.present();
+}else if (this.recrt.password == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Password cannot be left out!',
+    buttons: ['OK']
+  });
+  alert.present();
+}else if (this.recrt.companyName == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Company name cannot be left out!',
+    buttons: ['OK']
+  });
+  alert.present();
+}else if (this.recrt.companyemail == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Company email cannot be left out!',
+    buttons: ['OK']
+  });
+  alert.present();
+}else if (this.recrt.companycellno == undefined){
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Company cell number cannot be left out!',
+    buttons: ['OK']
+  });
+  alert.present();
 
-    if(this.recrt.email != '' && this.recrt.password != null && this.recrt.name != '' && this.recrt.surname != '' && this.recrt.companyName != '' && this.recrt.companyemail != '' && this.recrt .companycellno != ''){
-      var message;
-      this.firebaseService.registerScoutPerson(this.recrt.email, this.recrt.password, this.recrt.name, this.recrt.surname, this.recrt.companyName, this.recrt.companyemail, this.recrt .companycellno).then(() =>{
-        const alert = this.alertCtrl.create({
-          title: 'Welcome',
-          subTitle: 'You have successfully Registared',
-          buttons: ['OK']
-        });
-        this.navCtrl.push(HomePage);
-        alert.present();
-      },
-       Error =>{ 
-            console.log("Message : " + Error.message);
-            console.log("Code : " + Error.code);  
-        if (Error.message == "createUserWithEmailAndPassword failed: First argument email must be a valid string."){
-         message == 'Please provide your details to full register!';
-       
-         } else if (Error.message == "createUserWithEmailAndPassword failed: First argument email must be a valid string."){
-           message == 'Provide your name please!';
-         }
-  
-         else if (Error.message == "createUserWithEmailAndPassword failed: First argument email must be a valid string."){
-          message == 'Provide your surname please!';
-        }
-  
-        else if (Error.message == "createUserWithEmailAndPassword failed: First argument email must be a valid string."){
-          message == 'Provide your email please!';
-        }
-  
-        else if (Error.message == "createUserWithEmailAndPassword failed: First argument email must be a valid string."){
-          message == 'Provide your password please!';
-        }
-  
-        else if (Error.message == "createUserWithEmailAndPassword failed: First argument email must be a valid string."){
-          message == 'Provide your company name please!';
-        }
-  
-        else if (Error.message == "createUserWithEmailAndPassword failed: First argument email must be a valid string."){
-          message == 'Provide your company email please!';
-        }
-  
-        else if (Error.message == "createUserWithEmailAndPassword failed: First argument email must be a valid string."){
-          message == 'Provide your company cellno please!';
-        }
-  
-         
-          const alert = this.alertCtrl.create({
-            title: 'Warning!',
-            subTitle: message,
-            buttons: ['OK']
-          });
-          alert.present();
-        })
-
-    }
-    else{
-      const alert = this.alertCtrl.create({
-        title: 'Warning!',
-        subTitle: 'Please make sure that all the fields are filled.',
-        buttons: ['OK']
-      });
-      alert.present();
-
-    }
-
+}else {
+  this.firebaseService.registerScoutPerson(this.recrt.email, this.recrt.password, this.recrt.name, this.recrt.surname, this.recrt.companyName, this.recrt.companyemail, this.recrt .companycellno).then(() =>{
+           const alert = this.alertCtrl.create({
+             title: 'Welcome',
+             subTitle: 'You have successfully Registered',
+             buttons: ['OK']
+           });
+           this.navCtrl.push(HomePage);
+           alert.present();
+})
   }
-
+}
 }
