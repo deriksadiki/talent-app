@@ -21,6 +21,7 @@ export class HomePage {
  
 
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
+
   }
 
     

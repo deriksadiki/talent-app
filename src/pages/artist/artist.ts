@@ -4,6 +4,7 @@ import { Talent} from '../../Modals/Talent';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import { HomePage } from '../home/home';
 import { unescapeIdentifier } from '@angular/compiler';
+import { ScoutPage } from '../scout/scout';
 
 @IonicPage()
 @Component({
@@ -81,11 +82,10 @@ export class ArtistPage {
                  subTitle: 'You have successfully Registered',
                  buttons: ['OK']
                });
-               this.navCtrl.push(HomePage);
+               this.navCtrl.push(ScoutPage);
                alert.present();
     })
       }
- 
   }
 
 }

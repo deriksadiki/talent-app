@@ -1,12 +1,36 @@
 
 <ion-content padding>
-
-        <ion-item class="item item-trns text-center">
+  <br>
+  <ion-item class="item item-trns text-center">
           <input type="file" (change)="insertvid($event)">
         </ion-item>
-      
        
- 
+<br>
+    <ion-list>
+        <ion-item class="combo">
+          <ion-label>Talent Category</ion-label>
+          <ion-select [(ngModel)]="category">
+            <ion-option value="mus">Music</ion-option>
+            <ion-option value="dan">Dance</ion-option>
+            <ion-option value="poet">Poetry</ion-option>
+            <ion-option value="act">Acting</ion-option>
+            <ion-option value="art">Art</ion-option>
+            <ion-option value="sport">Sport</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+       <ion-item>
+          <ion-label><ion-icon name="information-circle"></ion-icon></ion-label>
+          <ion-input type="text" placeholder="video name"></ion-input>
+       </ion-item> 
+      
+<ion-item>
+          <ion-label><ion-icon name="information-circle"></ion-icon></ion-label>
+          <ion-input type="text" placeholder="video description"></ion-input>
+       </ion-item>
+       
+  
   <button (click)="upload()" ion-button>upload</button>
 
 

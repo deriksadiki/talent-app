@@ -36,7 +36,7 @@ login(email, password){
     return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
         var user = firebase.auth().currentUser;
-        this.dbRef =  'users/' + user.uid;
+        this.dbRef =  'users/' + Username + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           Username:Username,
           userType: "normalPerson"
@@ -51,7 +51,6 @@ login(email, password){
   registerTalentPerson(username,email,password, name, surname, gender, cellno, age){
   return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-        var user = firebase.auth().currentUser;
         this.dbRef =  'users/' + username
         this.database.ref(this.dbRef).push({
           name:name,
@@ -61,7 +60,7 @@ login(email, password){
           age:age,
           userType: "talentPerson"
         })
-        this.storageRef.ref('pictures/' + user.uid).putString(this.image, 'data_url');
+        this.storageRef.ref('pictures/' + username).putString(this.image, 'data_url');
         accept("success");
       }, Error =>{
         reject(Error.message);
@@ -74,11 +73,9 @@ login(email, password){
   registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno){
     return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-        var user = firebase.auth().currentUser;
-        this.dbRef =  'users/' + user.uid;
+        this.dbRef =  'users/' + surname;
         this.database.ref(this.dbRef).push({
           name:name,
-          surname:surname,
           companyName:companyName,
           companyemail:companyemail,
           companycellno:companycellno,
@@ -173,6 +170,62 @@ storeToDB(name){
   rejc(Error.message);
   console.log(Error.message);
 });
+})
+}
+
+getAllvideos(){
+
+  return new Promise ((accpt, rej) =>{
+    this.database.ref('uploads/').on('value', (data: any) => {
+      var videos = data.val();
+      var keys:any =  Object.keys(videos);
+        for (var i = 0; i < keys.length; i++){
+          var x = keys[i];
+          var y  = 'uploads/' + x;
+          var details;
+          this.database.ref(y).on('value', (data2: any) => {
+           details = data2.val();
+            })
+          var keys2:any = Object.keys(details);
+          for (var a = 0; a < keys2.length; a++){
+                var key = keys2[a];
+                let obj = {
+                vidurl : details[key].downloadurl,
+                key: key
+          }
+          this.videoArray.push(obj);
+          }
+        }
+       accpt(this.videoArray);
+  }, Error =>{
+    rej(Error.message)
+  })
+  })
+
+} 
+
+
+getuserType(){
+return new Promise ((accpt, rej) =>{
+  this.database.ref('users').on('value', (data: any) => {
+    var users =  data.val();
+    var user = firebase.auth().currentUser;
+    var  userIDs = Object.keys(users);
+    for (var x = 0; x < userIDs.length; x++){
+      var str1 = new String( userIDs[x]); 
+      var index = str1.indexOf( ":" ); 
+      var currentUserID = userIDs[x].substr(index + 1);
+      if (user.uid == currentUserID){
+          this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
+            var Userdetails;
+            var Userdetails = data.val(); 
+            var keys2:any = Object.keys(Userdetails);
+            accpt(Userdetails[keys2].userType)
+           })
+        break;
+      }
+    }
+  })
 })
 }
 
