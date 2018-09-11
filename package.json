@@ -50,7 +50,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-
       "cordova-plugin-filechooser": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
@@ -59,14 +58,9 @@
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-camera": {}
-
-
     },
     "platforms": [
       "android"
     ]
   }
-
 }
-
-
