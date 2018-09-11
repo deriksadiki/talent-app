@@ -13,6 +13,7 @@ export class FirebaseProvider {
   state;
   image;
   file;
+  videoArray = new Array();
 
   constructor(private camera:Camera) {
 
@@ -123,4 +124,27 @@ login(email, password){
             const results = await this.camera.getPicture(options);
           this.image = `data:image/jpeg;base64,${results}`;
   }
+
+  uploadvid(vid){
+    var metadata = {
+      contentType: 'video/mp4',
+    };
+    
+    // Upload the file and metadata
+  // this.storageRef.ref('images/mountains.jpg').put(vid);
+   this.storageRef.ref('pictures/').putString(vid, 'data_url');
+  }
+
+  getvideo():any{
+
+    var pathReference = this.storageRef.ref('pictures/');
+    console.log(pathReference);
+    return pathReference;
+//  this.storageRef.ref('pictures/').on('value', (data:any) =>{
+//   var vid = data.val();
+//   console.log(vid);
+//  })
+}
+
+getProfile(){}
 }

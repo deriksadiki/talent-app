@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+import {Recruit} from '../../modals/Recruit';
 
 /**
  * Generated class for the ProfilePage page.
@@ -15,7 +17,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  arr = new Array();
+  dbRef;
+  datas;
+
+  recruit = {} as Recruit;
+
+  email:string;
+  password:string;
+  name:string;
+  surname:string;
+  companyName:string;
+  companyemail:string;
+  gender:string;
+  age:string;
+  cellno:string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService:FirebaseProvider) {
+  }
+
+  view(){
+    var data = this.firebaseService.getProfile();
+    console.log(data);
+    this.datas = data;
   }
 
   ionViewDidLoad() {
