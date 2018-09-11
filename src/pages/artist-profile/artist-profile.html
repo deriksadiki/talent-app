@@ -11,8 +11,13 @@
 <ion-header>
     <div class="section">
     
-    
-      <ion-navbar color = "color" ></ion-navbar>
+      <ion-navbar color = "color" >
+        
+          <ion-buttons end>
+              <button ion-button round (click)="close()"> <ion-icon name="md-close"></ion-icon>
+              </button>
+            </ion-buttons>
+      </ion-navbar>
     <div class="logo" align="center">
       <img src="../../assets/Pics/2372f27612fee17412c8e647fd76c199.jpg" >
     <h1>Sibusiso Nyoni</h1>
@@ -34,6 +39,7 @@
     </ion-header>
 
     <ion-content class="img">
+      <title>Artist</title>
         <ion-card>
           <ion-card-content>
             <ion-list>
