@@ -6,4 +6,5 @@ export interface Talent{
     gender:string;
     cellno:number;
     age:number;
+    username:string;
 }

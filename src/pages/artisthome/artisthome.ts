@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 
 @IonicPage()
 @Component({
@@ -8,12 +8,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'artisthome.html',
 })
 export class ArtisthomePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+videos = new Array();
+  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ArtisthomePage');
+   this.firebaseService.getAllvideos().then((data:any) =>{
+     this.videos = data;
+     console.log(this.videos);
+   });
+
   }
 
 }
