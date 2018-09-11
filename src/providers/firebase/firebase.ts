@@ -65,6 +65,7 @@ login(email, password){
         accept("success");
       }, Error =>{
         reject(Error.message);
+        console.log(Error.message);
       })
     })
   }
@@ -96,7 +97,7 @@ login(email, password){
 
   getUserSatate(){
     return new Promise ((accpt, rej) =>{ 
-      this.authnticate.onAuthStateChanged(user =>{
+      this.authnticate.onAuthStateChanged(user =>{ 
         if (user != null){
           this.state = 1;
         }
