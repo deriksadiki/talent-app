@@ -35,11 +35,15 @@ page-profile {
 
         .btn{
             position: relative;
-            top: 45%;
+            bottom: 200px;
             border-radius: 100%;
-            width: 5px;
-            height: 10;
-            left: 30%;
+            width: 50px;
+            left: 15%;
+            height: 50px;
+            background-color: white;
+            color: #F53D4E;
+            font-size: 180%;
+            font-weight: 800;
         }
 
         .cont{
@@ -47,8 +51,9 @@ page-profile {
         }
 
         p{
-            color: rgb(63, 59, 59);
+            color: rgb(134, 132, 132);
             font-weight: 100;
+            font-size: 120%;
         }
 
         .dash{
@@ -59,10 +64,12 @@ page-profile {
             
         }
 
-        // .list{
-        //     position: relative;
-        //     left: 20%;
-        // }
+        .list{
+            position: relative;
+            left: 25%;
+            bottom: 10px;
+            
+        }
 
        
 
