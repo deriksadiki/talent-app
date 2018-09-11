@@ -1,13 +1,9 @@
 
-
 <ion-header>
 <ion-navbar color = "color" >
 <ion-title>Artist Profile</ion-title>
 </ion-navbar>
 </ion-header>
-
-
-
 
 <ion-content class="img">
   <br>
@@ -15,21 +11,26 @@
         <img class="logo" src="../../assets/imgs/play-button (1).png">
       </div>
       <h1>Vid'It.</h1>
-<!-- <ion-card class="bg">
-<ion-card-content > -->
+
+ 
+
 
     <ion-list class="list" no-lines>
+      <ion-item>
+        <ion-label ><ion-icon name="person" class="i"></ion-icon>Name:</ion-label>
+        <ion-input type="text" [(ngModel)]= "artist.name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label ><ion-icon name="person" class="i"></ion-icon>Surname:</ion-label>
+        <ion-input type="text"  [(ngModel)] = "artist.surname"></ion-input>
+      </ion-item>
 
         <ion-item class="items">
-          <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
-          <ion-input placeholder="Name" type="text" [(ngModel)]= "artist.surname"></ion-input>
-        </ion-item>
+            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="Username" type="text" [(ngModel)]= "artist.username"></ion-input>
+          </ion-item>
   
-        <ion-item class="items">
-          <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
-          <ion-input placeholder="Surname" type="text" [(ngModel)] = "artist.name"></ion-input>
-        </ion-item>
-
         <ion-item class="items">
             <ion-label ><ion-icon name="mail" class="i"></ion-icon></ion-label>
             <ion-input placeholder="Email" type="text"  [(ngModel)] = "artist.email"></ion-input>
@@ -43,29 +44,36 @@
 
         <ion-item class="items">
             <ion-label > <ion-icon ios="ios-body" md="md-body" class="i"></ion-icon></ion-label>
-            <ion-input placeholder="Gender" type="text" [(ngModel)]= "artist.gender"></ion-input>
+            <ion-select [(ngModel)]="artist.gender" placeholder="Gender" item-center>
+                <ion-option value="Male">Male</ion-option>
+                <ion-option value="Female">Female</ion-option>
+              </ion-select>
+            <!-- <ion-input placeholder="Gender" type="text" [(ngModel)]= "artist.gender"></ion-input> -->
           </ion-item>
     
           <ion-item class="items">
             <ion-label ><ion-icon name="call" class="i"></ion-icon></ion-label>
             <ion-input placeholder="Cell No" type="text"  [(ngModel)] = "artist.cellno"></ion-input>
           </ion-item>
+   
+            <ion-item class="items">
+                <ion-label ><ion-icon name="walk" class="i"></ion-icon></ion-label>
+                <ion-input placeholder="Age" type="text"  [(ngModel)] = "artist.age"></ion-input>
+              </ion-item>
+            </ion-list>
 
-          <ion-item>
-              <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
-              <ion-input placeholder="Age" type="text"  [(ngModel)] = "artist.age"></ion-input>
-            </ion-item>
-          </ion-list>
-         
-        
-    
-<!-- </ion-card-content> -->
 <div class="butt">
-
-<button class="btn" ion-button color="own" round (click)="takePicture()">Take photo</button>
-<button class="animated infinite jello delay-2s" class="btn" ion-button color="own" round (click)="reg()">Register</button> 
+  <button class="btn" ion-button color="own" round (click)="reg()">Register</button>
+<button class="animated infinite jello delay-2s" class="btn" ion-button color="own" round (click)="reg()">Log In</button>
 </div>
-</ion-content>
+
+  
+
+   <div class="butt1">
+      <button ion-button color="own" round (click)="takePicture()">Take photo</button> <br>
+      <button class="btn" ion-button color="own" round (click)="reg()">Sign Up</button>
+    </div>
+   </ion-content>
 
 
 

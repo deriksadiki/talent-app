@@ -34,16 +34,16 @@ export class ProfilePage {
   cellno:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService:FirebaseProvider) {
-  }
-
-  view(){
-    var data = this.firebaseService.getProfile();
-    console.log(data);
-    this.datas = data;
+    this.firebaseService.getuserType();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+  }
+
+
+  update(){
+   
   }
 
 }

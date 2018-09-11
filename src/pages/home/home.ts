@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, ViewController, AlertController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import {LoginPage} from '../login/login';
+
 // import { SecondPage } from '../second/second';
 
 @Component({
@@ -9,21 +10,22 @@ import {LoginPage} from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  file:any;
-  users;
   url;
-  vidd;
+  category;
+  vidName;
+  vidDesc;
 
 
-  // splash = true;
-  // secomndPage = SecondPage;
+ 
 
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
+  this.firebaseService.getuserType();
   }
-     // ionviewDidLoad(){
-    // setTimeout(()=> this.splash = false , 3000);
-    // }
-    insertpic(event:any){
+
+    
+
+    insertvid(event:any){
+
       if (event.target.files && event.target.files[0]){
         let reader = new FileReader();
     
@@ -34,14 +36,19 @@ export class HomePage {
       }
     
     }
-    show(){
-      this.firebaseService.uploadvid(this.url);
-    }
     upload(){
-     var vid = this.firebaseService.getvideo();
-     console.log(vid);
-     this.vidd = vid;
+      this.firebaseService.uploadvid(this.url).then(data =>{
+        console.log(data);
+         this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
+           console.log('added to db');
+         },
+        Error =>{
+          console.log(Error)
+        })
+      }, Error =>{
+        console.log(Error )
+      })
+      
     }
-
-}
+  }
 

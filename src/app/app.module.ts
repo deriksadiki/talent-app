@@ -11,6 +11,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import {Camera} from '@ionic-native/camera'
 
+
 import { LoginPage } from '../pages/login/login';
 import { SecondPage } from '../pages/second/second';
 import { RegisterPage } from '../pages/register/register';
@@ -71,7 +72,8 @@ import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-prof
     ScoutPage,
     UsersPage,
     ArtistProfilePage,
-    ArtistProfileUpdatePage
+    ArtistProfileUpdatePage,
+    ScoutProfileUpdatePage
   ],
   providers: [
     StatusBar,
