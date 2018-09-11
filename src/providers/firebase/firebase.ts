@@ -228,9 +228,4 @@ return new Promise ((accpt, rej) =>{
 })
 }
 
-getCurrentUserPage(userid){
-
-}
-
-
 }
