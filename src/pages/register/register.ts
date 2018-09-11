@@ -54,4 +54,7 @@ User(){
   Home(){
     this.navCtrl.push(HomePage);
   }
+  artProfUpdate(){
+    this.navCtrl.push(ArtistProfileUpdatePage);
+  }
 }

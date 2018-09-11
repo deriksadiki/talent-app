@@ -5,14 +5,50 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>ArtistProfileUpdate</ion-title>
-  </ion-navbar>
-
+    <div class="section">
+  <ion-navbar color = "color" ></ion-navbar>
+  <div class="logo" align="center">
+      <img src="../../assets/Pics/2372f27612fee17412c8e647fd76c199.jpg" >
+    <!-- <h1>Sibusiso Nyoni</h1> -->
+    </div>
+</div>
 </ion-header>
 
 
 <ion-content padding>
+<ion-card>
 
+  <ion-title>
+    Artist Profile
+  </ion-title>
+<br>
+  <ion-card-content>
+    <ion-list no-lines>
+
+      <ion-item>
+        <ion-label fixed>Username</ion-label>
+        <ion-input  type="text" ></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label fixed>E-mail</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Cell No.</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Gender</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    
+    </ion-list>
+<div class="butt">
+    <button ion-button round color = "own">Update profile</button>
+  </div>
+  </ion-card-content>
+</ion-card>
 </ion-content>
