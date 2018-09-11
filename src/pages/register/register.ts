@@ -5,7 +5,12 @@ import { UserPage } from '../user/user';
 import { RecruiterPage } from '../recruiter/recruiter';
 import { UsersPage } from '../users/users';
 import { ScoutPage } from '../scout/scout';
+
+import { ArtistProfilePage } from "../artist-profile/artist-profile";
 import { ArtisthomePage } from '../artisthome/artisthome';
+import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
+import { ScoutProfileUpdatePage } from '../scout-profile-update/scout-profile-update';
+import { HomePage } from '../home/home';
 
 
 @IonicPage()
@@ -40,4 +45,16 @@ User(){
     Artisthome(){
       this.navCtrl.push(ArtisthomePage);
     }
+  artistProf(){
+    this.navCtrl.push(ScoutProfileUpdatePage);
+  }
+  artist(){
+    this.navCtrl.push(ArtistProfilePage);
+  }
+  Home(){
+    this.navCtrl.push(HomePage);
+  }
+  artProfUpdate(){
+    this.navCtrl.push(ArtistProfileUpdatePage);
+  }
 }

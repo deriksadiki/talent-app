@@ -1,26 +1,193 @@
 <ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle icon-only>
+        <ion-icon name='menu'></ion-icon>
+      </button>
+      <ion-title>
+       Home
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content  >
+      <ion-card *ngFor="let i of videos">
 
-  <ion-navbar>
+
+  <ion-navbar color = "own" >
     <ion-title>Artisthome</ion-title>
   </ion-navbar>
-
+  <div >
+  <ion-fab  class="fabi">
+      <button color = "own" ion-fab mini><ion-icon name="menu"></ion-icon></button>
+      <ion-fab-list >
+        <button class="fabs" ion-fab color = "own" >Home</button>
+        <button class="fabs" ion-fab color = "own">Profile</button>
+        <button class="fabs" ion-fab color = "own">Category</button>
+        <button class="fabs" ion-fab color = "own">UpLoad</button>
+        <button class="fabs" ion-fab color = "own">Log-Out</button>
+      </ion-fab-list>
+    </ion-fab>
+  </div>
 </ion-header>
 
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="img/marty-avatar.png">
+            </ion-avatar>
+            <h2>Name Surname</h2>
+          </ion-item>
+        
+          <!-- video -->
+          <video width="320" height="240" controls>
+              <source src={{i.vidurl}} type="video/mp4">
+              
+            </video>
 
-<ion-content >
-  <button>Upload Video</button>
-    <!-- <ion-row>
-    <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div>12 Likes</div>
-        </button>
-      </ion-col>
-      <ion-col>
-          <button ion-button icon-left clear small>
-            <ion-icon name="text"></ion-icon>
-            <div>4 Comments</div>
-          </button>
-        </ion-col>
-</ion-row> -->
+          <ion-card-content>
+            <p>{{i.key}}</p>
+          </ion-card-content>
+        
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>12 Likes</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="text"></ion-icon>
+                <div>4 Comments</div>
+              </button>
+            </ion-col>
+            <ion-col center text-center>
+              <ion-note>
+               11 hrs
+              </ion-note>
+            </ion-col>
+         
+             <button ion-button icon-start clear small (click)="view()">
+              <ion-icon name="update"></ion-icon>
+              <div>Update profile</div>
+            </button>
+            </ion-row> 
+        </ion-card>
+
+
+  
   </ion-content>
+
+
+    <ion-content class="img">
+        <ion-card>
+  
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="img/marty-avatar.png">
+              </ion-avatar>
+              <h2>Name Surname</h2>
+            </ion-item>
+          
+            <!-- video -->
+            <video width="400" height="240" controls>
+                <source src="movie.mp4" type="video/mp4">
+                
+              </video>
+  
+            <ion-card-content>
+              <p>Sensational soul music</p>
+            </ion-card-content>
+          
+            <ion-row>
+              <ion-col>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <div>12 Likes</div>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="text"></ion-icon>
+                  <div>4 Comments</div>
+                </button>
+              </ion-col>
+              <ion-col center text-center>
+                <ion-note>
+                 11 hrs
+                </ion-note>
+              </ion-col>
+               <button ion-button icon-start clear small (click)="view()">
+                <ion-icon name="update"></ion-icon>
+                <div>Update profile</div>
+              </button>
+              </ion-row> 
+              <!-- <ion-row>
+                  <ion-col>
+                    <button ion-button icon-start clear small>
+                      <ion-icon name="thumbs-up"></ion-icon>
+                      <div>12 Likes</div>
+                    </button>
+                  </ion-col>
+                  <ion-col>
+                    <button ion-button icon-start clear small>
+                      <ion-icon name="text"></ion-icon>
+                      <div>4 Comments</div>
+                    </button>
+                  </ion-col>
+                  <ion-col center text-center>
+                    <ion-note>
+                      11h ago
+                    </ion-note>
+                  </ion-col>
+                </ion-row> -->
+          </ion-card>
+  
+  
+         <!-- card2 -->
+         <ion-card>
+  
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="img/marty-avatar.png">
+              </ion-avatar>
+              <h2>View Artist</h2>
+            </ion-item>
+          
+            <!-- video -->
+            <video width="400" height="240" controls>
+                <source src="movie.mp4" type="video/mp4">
+                
+              </video>
+  
+            <ion-card-content>
+              <p>Sensational soul music</p>
+            </ion-card-content>
+          
+            <ion-row>
+              <ion-col>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <div>12 Likes</div>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="text"></ion-icon>
+                  <div>4 Comments</div>
+                </button>
+              </ion-col>
+              <ion-col center text-center>
+                <ion-note>
+                 11 hrs
+                </ion-note>
+              </ion-col>
+           
+               <button ion-button icon-start clear small (click)="view()">
+                <ion-icon name="update"></ion-icon>
+                <div>View Artist</div>
+              </button>
+              </ion-row> 
+          </ion-card>
+      </ion-content>
+ 
+

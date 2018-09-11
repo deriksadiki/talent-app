@@ -1,5 +1,6 @@
 
 
+
 <!-- <ion-content id = "main" class="animated  zoomIn delay-2s"> -->
   <!-- <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
     <div class="flb">
@@ -9,26 +10,101 @@
       <div class="Aligner-item Aligner-item--bottom"></div>
     </div>
   </div> -->
+  <ion-header>
+      <ion-fab item-end>
+          <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+          <ion-fab-list>
+            <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+          </ion-fab-list>
+        </ion-fab>
+      <div class="section">
+      
+      
+        <ion-navbar color = "color" ></ion-navbar>
+      <!-- <div class="logo" align="center">
+        <img src="../../assets/Pics/2372f27612fee17412c8e647fd76c199.jpg" >
+      <h1>Sibusiso Nyoni</h1>
+      </div>
+      <p class="p1">Scout</p>
+      <div class="dash">
+       <p><ion-icon name="logo-twitter"></ion-icon><br>
+      follower | <br> 1 000</p>
+      <br>
+      <p><ion-icon name="thumbs-up"></ion-icon> <br> Likes |<br>23</p>
+      <br>
+      <p><ion-icon name="text"></ion-icon> <br> comments | <br>80</p>
+      <br>
+      <br>
+      </div> -->
+      
+      </div>
+      
+      </ion-header>
 
 
 <ion-content padding>
 
-<<<<<<< HEAD
-    <ion-card >
-        <ion-item class="item item-trns text-center">
-          <input type="file" (change)="insertpic($event)">
+    <ion-header>
+        <title>Video Upload</title>
+      </ion-header>
+
+  <br>
+ <ion-card> 
+   <ion-item class="item item-trns text-center">
+          <input type="file" (change)="insertvid($event)">
         </ion-item>
-      </ion-card>
+
+    
       <video width="320" height="240" controls>
           <source src="talentapp-98f45.appspot.com/pictures" type="video/mp4">
           <source src={{vidd}} type="video/ogg">
           Your browser does not support the video tag.
         </video>
-        
-  <button ion-button (click)="show()">Toggle Menu</button>
-=======
-  <button ion-button secondary menuToggle>Toggle Menu</button>
->>>>>>> 534d81c5b5bded2b68e111c23d806ae0cf7d1531
-  <button (click)="upload()" ion-button>upload</button>
+  </ion-card>
+        <ion-card>
+
+            <ion-item>
+              <ion-avatar item-start>
+                <img src="img/marty-avatar.png">
+              </ion-avatar>
+              <h2>View Artist</h2>
+            </ion-item>
+
+       
+<br>
+    <ion-list>
+     
+        <ion-item class="combo" align="left">
+
+          
+          <ion-select placeholder="Talent Category" text-align="left" [(ngModel)]="category">
+            <ion-option value="mus">Music</ion-option>
+            <ion-option value="dan">Dance</ion-option>
+            <ion-option value="poet">Poetry</ion-option>
+            <ion-option value="act">Acting</ion-option>
+            <ion-option value="art">Art</ion-option>
+            <ion-option value="sport">Sport</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+       <ion-item>
+          <ion-label><ion-icon name="information-circle"></ion-icon></ion-label>
+          <ion-input type="text" placeholder="video name" [(ngModel)]="vidName"></ion-input>
+       </ion-item> 
+      
+<ion-item>
+          <ion-label><ion-icon name="information-circle"></ion-icon></ion-label>
+          <ion-input type="text" placeholder="video description" [(ngModel)]="vidDesc"></ion-input>
+       </ion-item>
+       
+</ion-card>
+  
+<button (click)="upload()" ion-button>upload</button>
+
+
 
 </ion-content>
