@@ -7,16 +7,16 @@ page-profile {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        height: 250px;
+        height: 350px;
 
         }
 
         .pic{
             width: 40%;
-            height: 60%;
+            height: 45%;
             border-radius: 60%;
             position: relative;
-            top: 10%;
+            top: 4px;
         }
 
         h1{
@@ -24,27 +24,47 @@ page-profile {
             font-weight: 100;
         }
 
-        .butt{
-            position: relative;
-           
+        h2{
+            font-weight: 100;
         }
+
+        // .butt{
+        //     position: relative;
+           
+        // }
 
         .btn{
             position: relative;
-            bottom: 10%;
-            border-radius: 50%;
-            width: 10%;
-            height: 20%;
+            top: 45%;
+            border-radius: 100%;
+            width: 5px;
+            height: 10;
             left: 30%;
         }
 
         .cont{
-            background-color: rgb(230, 207, 207);
+            background-color: rgb(255, 255, 255);
         }
 
         p{
-            color: rgb(224, 114, 114);
+            color: rgb(63, 59, 59);
             font-weight: 100;
         }
+
+        .dash{
+            background-color: rgba(53, 52, 52, 0.555);
+            color: white;
+            height: 24%;
+            // border-left: 2px solid white;
+            
+        }
+
+        // .list{
+        //     position: relative;
+        //     left: 20%;
+        // }
+
+       
+
 
 }

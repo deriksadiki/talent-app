@@ -1,0 +1,56 @@
+page-scoute-profile {
+    .section{
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        background-attachment: fixed;
+        background-color: black;
+        background-size: cover;
+        height: 44vh;
+       background-repeat: no-repeat;
+       background-position: center;
+    }
+    ion-card.card{
+        box-shadow: 2px 2px 4px;
+        border-radius: 12px;
+    }
+
+    img{
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+    }
+    .p1{
+        text-align: center;
+        margin-bottom: 1px;
+
+    }
+    .details{
+        margin-left: 60px;
+        // margin-bottom: 1px;
+    }
+    .dash{
+        display: flex;
+        align-content: center;
+        text-align: center;
+        height: 11vh;
+        background-color: rgba(0, 0, 0, 0.288);
+        justify-content: center;
+        // padding: 10px;
+    }
+    p{
+        margin: 25px;
+        color: whitesmoke;
+        margin-bottom: 1px;
+    }
+    h1{
+        color: whitesmoke;
+    }
+    .i{
+        margin: 25px;
+        // display: flex;
+        // align-content: center;
+        // text-align: center;
+        // justify-content: center;
+    }
+}
+
+
