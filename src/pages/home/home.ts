@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, AlertController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
-import { LoginPage } from '../login/login';
+import {LoginPage} from '../login/login';
+
 // import { SecondPage } from '../second/second';
 
 @Component({
@@ -9,25 +10,47 @@ import { LoginPage } from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  users;
 
-  logout(){
-      this.firebaseService.authnticate.signOut().then(()=>{
-        const alert = this.alertCtrl.create({
-          title: 'Log Out',
-          subTitle: 'You have now been logged out!',
-          buttons: ['OK']
-        });
-        alert.present();
-        this.navCtrl.push(LoginPage);
-      }, Error =>{
-        const alert = this.alertCtrl.create({
-          title: 'Warning',
-          subTitle: Error,
-          buttons: ['OK']
-        });
-        alert.present();
-      })
-    }
+  url;
+  vidd;
 
-  }
+
+  // splash = true;
+  // secomndPage = SecondPage;
  
+
+  constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
+  }
+
+    
+
+    insertvid(event:any){
+
+      if (event.target.files && event.target.files[0]){
+        let reader = new FileReader();
+    
+        reader.onload = (event:any) =>{
+          this.url = event.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+
+      }
+    
+    }
+    upload(){
+      this.firebaseService.uploadvid(this.url).then(data =>{
+        console.log(data);
+         this.firebaseService.storeToDB(data).then(() =>{
+           console.log('added to db');
+         },
+        Error =>{
+          console.log(Error)
+        })
+      }, Error =>{
+        console.log(Error )
+      })
+      
+    }
+  }
+

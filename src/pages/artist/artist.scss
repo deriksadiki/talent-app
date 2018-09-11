@@ -1,4 +1,5 @@
 page-artist {
+
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -20,7 +21,7 @@ page-artist {
     }
     .item{
         background-color: rgba(255, 255, 255, 0.192);
-        // color: white;
+        color: white;
         width: 80%;
         margin-bottom: 10px;
         position: relative;
@@ -28,28 +29,67 @@ page-artist {
         border-radius: 30px;
         // padding: 0.5px;
         padding-left: 7%;
-        bottom: 20px;
+        top: 20px;
+        position: relative;
+        top: 15%;
         
        
     }
     .i{
         margin-right: 15px;
     }
-    .butt{
+    .butts{
+        // margin-right: 40px;
+  
+        // text-align: center;
+
+    //    flex-direction: column;
+    }
+    .butt1{
+        // margin-right: 10px;
         text-align: center;
+        // margin-left: 180px;
+        display: flex;
+        margin: 0 auto;
+        align-content: center;
+        justify-content: center;
+        // float: right;
+    }
+    .butt2{
+        // margin-left: 20px;
+        // text-align: center;
+        // float: left;
+    }
+    img{
+        // box-shadow: 2px 2px 4px; 
+        height: 10vh;
+        // border-radius: 15px;  
     }
 
     h1{
         color: rgb(236, 217, 217);
         text-align: center;
-        padding-top: 10%;
-        font-size: 400%;
+        padding-top: 8%;
+        font-size: 200%;
        font-weight: 100;
        position: relative;
-       bottom: 60px;
+       bottom: 40px;
     }
 
-    
+    // button{
+    //     position: relative;
+    //     top: 30px;
+    //     width: 30%;
+    // }
+
+    .btn{
+        // width: 36%;
+    }
+
+   
+
+  
+
 
 
 }

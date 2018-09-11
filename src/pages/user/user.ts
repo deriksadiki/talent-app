@@ -2,17 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
-import {Guest} from '../../Modals/Guest'
-<<<<<<< HEAD
-
-=======
-/**
-* Generated class for the UserPage page.
-*
-* See https://ionicframework.com/docs/components/#navigation for more info on
-* Ionic pages and navigation.
-*/
->>>>>>> f93f58316743eda690b2ee36f400f6a03a590e06
+import {Guest} from '../../Modals/Guest';
 
 @IonicPage()
 @Component({
@@ -22,8 +12,8 @@ import {Guest} from '../../Modals/Guest'
 export class UserPage {
 guest = {} as Guest;
 
-<<<<<<< HEAD
-  }
+constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
+}
   reg(){
     var message;
 if ( this.guest.Username == undefined && this.guest.email == undefined && this.guest.password == undefined){
@@ -67,7 +57,3 @@ if ( this.guest.Username == undefined && this.guest.email == undefined && this.g
 }
   }
 }
-=======
-
-}
->>>>>>> f93f58316743eda690b2ee36f400f6a03a590e06

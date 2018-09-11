@@ -1,3 +1,50 @@
 page-profile {
 
+    .img{
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        background-attachment: fixed;
+        background-color: black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 250px;
+
+        }
+
+        .pic{
+            width: 40%;
+            height: 60%;
+            border-radius: 60%;
+            position: relative;
+            top: 10%;
+        }
+
+        h1{
+            color: rgb(255, 255, 255);
+            font-weight: 100;
+        }
+
+        .butt{
+            position: relative;
+           
+        }
+
+        .btn{
+            position: relative;
+            bottom: 10%;
+            border-radius: 50%;
+            width: 10%;
+            height: 20%;
+            left: 30%;
+        }
+
+        .cont{
+            background-color: rgb(230, 207, 207);
+        }
+
+        p{
+            color: rgb(224, 114, 114);
+            font-weight: 100;
+        }
+
 }

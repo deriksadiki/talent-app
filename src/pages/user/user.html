@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar color = "color">
-    <ion-title>User</ion-title>
+    <ion-title>User profile</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,12 +10,13 @@
 
 
 <ion-content  class="img">
-
+<br>
 <div class="logo" align="center">
     <img class="logo" src="../../assets/imgs/play-button (1).png">
-  
-    <h1>Vid'It.</h1>
   </div>
+
+  <h1>Vid'It.</h1>
+
 
         <ion-list class="context" no-lines>
 
@@ -24,36 +25,20 @@
             <ion-input type="text"  [(ngModel)] = "guest.Username"></ion-input>
           </ion-item>
       
-<<<<<<< HEAD
             <ion-item>
               <ion-label ><ion-icon name="mail" class="i"></ion-icon>E-mail:</ion-label>
-=======
-              <ion-item>              <ion-label ><ion-icon name="mail" class="i"></ion-icon>E-mail:</ion-label>
->>>>>>> f93f58316743eda690b2ee36f400f6a03a590e06
               <ion-input type="text"  [(ngModel)] = "guest.email"></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-label ><ion-icon name="lock" class="i"></ion-icon>Password:</ion-label>
-              <ion-input type="password"  [(ngModel)] = "guest.password"></ion-input>
+              <ion-label ><ion-icon name="lock" class="i"></ion-icon></ion-label>
+              <ion-input type="password" placeholder = "Password" [(ngModel)] = "guest.password"></ion-input>
             </ion-item>
-
-<<<<<<< HEAD
-        
-=======
-              
-            <ion-item>
-              <ion-label ><ion-icon name="lock" class="i"></ion-icon>Username</ion-label>
-              <ion-input type="text"  [(ngModel)] = "guest.Username"></ion-input>
-            </ion-item>
-      
->>>>>>> f93f58316743eda690b2ee36f400f6a03a590e06
           </ion-list>
           
 
     <div class="butt">
         <button class="btn" ion-button color="own" round (click)="reg()">Register</button>
-        </div>
-        <br>
+  </div>
 
 </ion-content>

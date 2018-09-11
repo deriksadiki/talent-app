@@ -3,12 +3,15 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider} from '../providers/firebase/firebase';
-import { HomePage } from '../pages/home/home';
+import { HomePage } from  '../pages/home/home'
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
+
+import { UsersPage } from '../pages/users/users';
 import { LogoutPage } from '../pages/logout/logout';
-// import { LogoutPage } from '../pages/logout/logout';
+import { ArtisthomePage } from '../pages/artisthome/artisthome';
+
 
 
 @Component({
@@ -16,19 +19,28 @@ import { LogoutPage } from '../pages/logout/logout';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
- 
-  public rootPage:any;
+
+
+  public rootPage: any;
+
 
   pages: Array<{title: string, component: any}>;
-
+  
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private firebaseService:FirebaseProvider) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Profile', component: HomePage },
+      { title: 'Home', component: ArtisthomePage },
+      { title: 'Upload', component: HomePage },
+      { title: 'Profile', component: ProfilePage },
+
+      { title: 'Video Category', component: ListPage },
+
+
       { title: 'Log-Out', component: LogoutPage },
-      { title: 'List', component: ListPage }
+      
+
     ];
 if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
@@ -55,4 +67,5 @@ if('Log-Out')
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
 }

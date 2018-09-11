@@ -1,23 +1,19 @@
 
 <ion-header>
-
-  <ion-navbar color = "color" >
-    <ion-title>Artist</ion-title>
-  </ion-navbar>
-
+<ion-navbar color = "color" >
+<ion-title>Artist Profile</ion-title>
+</ion-navbar>
 </ion-header>
 
 <ion-content class="img">
+  <br>
     <div class="logo" align="center">
         <img class="logo" src="../../assets/imgs/play-button (1).png">
-      
-        <h1>Vid'It.</h1>
       </div>
 
     <ion-list class="list" no-lines>
 
         <ion-item>
-<<<<<<< HEAD
           <ion-label ><ion-icon name="person" class="i"></ion-icon>Name:</ion-label>
           <ion-input type="text" [(ngModel)]= "artist.name"></ion-input>
         </ion-item>
@@ -25,52 +21,57 @@
         <ion-item>
           <ion-label ><ion-icon name="person" class="i"></ion-icon>Surname:</ion-label>
           <ion-input type="text"  [(ngModel)] = "artist.surname"></ion-input>
-=======
-          <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
-          <ion-input placeholder="Name" type="text" [(ngModel)]= "artist.surname"></ion-input>
-        </ion-item>
-  
-        <ion-item>
-          <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
-          <ion-input placeholder="Surname" type="text" [(ngModel)] = "artist.name"></ion-input>
->>>>>>> f93f58316743eda690b2ee36f400f6a03a590e06
-        </ion-item>
 
-        <ion-item>
+      <h1>Vid'It.</h1>
+
+    <ion-list class="list" no-lines>
+
+        <ion-item class="items">
+            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="Username" type="text" [(ngModel)]= "artist.username"></ion-input>
+          </ion-item>
+  
+        <ion-item class="items">
             <ion-label ><ion-icon name="mail" class="i"></ion-icon></ion-label>
             <ion-input placeholder="Email" type="text"  [(ngModel)] = "artist.email"></ion-input>
           </ion-item>
         
-          <ion-item>
+          <ion-item class="items">
             <ion-label ><ion-icon name="lock" class="i"></ion-icon></ion-label>
             <ion-input placeholder="Password" type="password"  [(ngModel)] = "artist.password"></ion-input>
           </ion-item>
         
 
-        <ion-item>
-            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+        <ion-item class="items">
+            <ion-label > <ion-icon ios="ios-body" md="md-body" class="i"></ion-icon></ion-label>
             <ion-input placeholder="Gender" type="text" [(ngModel)]= "artist.gender"></ion-input>
           </ion-item>
     
-          <ion-item>
-            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+          <ion-item class="items">
+            <ion-label ><ion-icon name="call" class="i"></ion-icon></ion-label>
             <ion-input placeholder="Cell No" type="text"  [(ngModel)] = "artist.cellno"></ion-input>
           </ion-item>
-  
-          
-          <ion-item>
-              <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
-              <ion-input placeholder="Age" type="text"  [(ngModel)] = "artist.age"></ion-input>
-            </ion-item>
-      
-          </ion-list>
+   
+            <ion-item class="items">
+                <ion-label ><ion-icon name="walk" class="i"></ion-icon></ion-label>
+                <ion-input placeholder="Age" type="text"  [(ngModel)] = "artist.age"></ion-input>
+              </ion-item>
+            </ion-list>
 
 <div class="butt">
-<<<<<<< HEAD
-<button class="btn" ion-button color="own" round (click)="reg()">Register</button>
-=======
+  <button class="btn" ion-button color="own" round (click)="reg()">Register</butto>
 <button class="animated infinite jello delay-2s" class="btn" ion-button color="own" round (click)="reg()">Log In</button>
->>>>>>> f93f58316743eda690b2ee36f400f6a03a590e06
 </div>
 
 </ion-content>
+      
+
+   <div class="butt1">
+      <button ion-button color="own" round (click)="takePicture()">Take photo</button> <br>
+      <button class="btn" ion-button color="own" round (click)="reg()">Sign Up</button>
+</div>
+   </ion-content>
+
+
+
+

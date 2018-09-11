@@ -1,26 +1,14 @@
 
-
-<!-- <ion-content id = "main" class="animated  zoomIn delay-2s"> -->
-  <!-- <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
-    <div class="flb">
-      <div class="Aligner-item Aligner-item--top"></div>
-      <div class="log"  ><img class="logo" src="../../assets/logos/eclipse.svg">
-        <h1 class="head">Hotel Ville</h1></div>
-      <div class="Aligner-item Aligner-item--bottom"></div>
-    </div>
-  </div> -->
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
-
 <ion-content padding>
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-  <button (click)="logout()" ion-button>Log Out</button>
+
+        <ion-item class="item item-trns text-center">
+          <input type="file" (change)="insertvid($event)">
+        </ion-item>
+      
+       
+ 
+  <button (click)="upload()" ion-button>upload</button>
+
+
 
 </ion-content>

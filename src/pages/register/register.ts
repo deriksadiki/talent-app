@@ -3,6 +3,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ArtistPage } from '../artist/artist';
 import { UserPage } from '../user/user';
 import { RecruiterPage } from '../recruiter/recruiter';
+import { UsersPage } from '../users/users';
+import { ScoutPage } from '../scout/scout';
+
+import { ArtistProfilePage } from "../artist-profile/artist-profile";
+import { ArtisthomePage } from '../artisthome/artisthome';
+import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
+import { ScoutProfileUpdatePage } from '../scout-profile-update/scout-profile-update';
+import { HomePage } from '../home/home';
+
 
 @IonicPage()
 @Component({
@@ -23,7 +32,23 @@ this.navCtrl.push(ArtistPage);
 User(){
   this.navCtrl.push(UserPage);
   }
-  Scout(){
+  scout(){
     this.navCtrl.push(RecruiterPage);
     }
+
+    Users(){
+      this.navCtrl.push(UsersPage);
+      }
+  Scout(){
+      this.navCtrl.push(ScoutPage);
+    }
+    Artisthome(){
+      this.navCtrl.push(ArtisthomePage);
+    }
+  artistProf(){
+    this.navCtrl.push(ScoutProfileUpdatePage);
+  }
+  Home(){
+    this.navCtrl.push(HomePage);
+  }
 }
