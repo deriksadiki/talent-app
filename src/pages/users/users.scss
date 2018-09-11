@@ -1,3 +1,26 @@
 page-users {
+//  ion-fab{
+//      width: 20px;
+//  }
+.fabs{
+    height: 50px;
+    width: 85%;
+}
 
+.fabi{
+    bottom:1%;
+    // left:48vh;
+    // margin-bottom: 30%;
+    margin-left: 85vw;
+    // top: 0;
+    
+}
+.img{
+    background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+    background-attachment: fixed;
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
 }

@@ -1,4 +1,8 @@
 page-scout-profile-update {
+    ion-card.card{
+        border-radius: 12px;
+        box-shadow: 2px 2px 4px 2px;
+    }
     .section{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -8,39 +12,18 @@ page-scout-profile-update {
        background-repeat: no-repeat;
        background-position: center;
     }
-
+    .item{
+        // box-shadow: 2px 2px 2px ;
+        border-radius: 12px;
+        margin-block-end: 20px;
+    }
     img{
         height: 100px;
         width: 100px;
+        margin: 15%;
         border-radius: 50px;
     }
-    .p1{
+    .butt{
         text-align: center;
-        margin-bottom: 1px;
-
-    }
-    .dash{
-        display: flex;
-        align-content: center;
-        text-align: center;
-        height: 11vh;
-        background-color: rgba(0, 0, 0, 0.288);
-        justify-content: center;
-        // padding: 10px;
-    }
-    p{
-        margin: 25px;
-        color: whitesmoke;
-        margin-bottom: 1px;
-    }
-    h1{
-        color: whitesmoke;
-    }
-    .i{
-        margin: 25px;
-        // display: flex;
-        // align-content: center;
-        // text-align: center;
-        // justify-content: center;
     }
 }

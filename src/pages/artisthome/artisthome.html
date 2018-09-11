@@ -11,12 +11,11 @@
   
   <ion-content  >
       <ion-card *ngFor="let i of videos">
-
           <ion-item>
             <ion-avatar item-start>
-              <img src="img/marty-avatar.png">
+              <img src={{i.img}}>
             </ion-avatar>
-            <h2>Name Surname</h2>
+           <p>{{i.name}}</p>
           </ion-item>
         
           <!-- video -->
@@ -26,7 +25,7 @@
             </video>
 
           <ion-card-content>
-            <p>{{i.key}}</p>
+            <p>{{i.vidDesc}}</p>
           </ion-card-content>
         
           <ion-row>
@@ -55,6 +54,9 @@
             </ion-row> 
         </ion-card>
 
+
   
   </ion-content>
 
+
+  

@@ -47,12 +47,11 @@ if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
       if (data == 1){
         this.firebaseService.getuserType().then(data =>{
-          console.log(data);
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
         }
         else if (data == "talentPerson"){
-           this.rootPage = HomePage;
+           this.rootPage =  ArtisthomePage;
         }
         else{
           this.rootPage = ScoutPage;
