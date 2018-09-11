@@ -7,6 +7,7 @@ import { HomePage } from  '../pages/home/home'
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
+import { ScoutPage} from '../pages/scout/scout'
 
 import { UsersPage } from '../pages/users/users';
 import { LogoutPage } from '../pages/logout/logout';
@@ -31,18 +32,32 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-
+      { title: 'Home', component: ArtisthomePage },
+      { title: 'Upload', component: HomePage },
       { title: 'Profile', component: ProfilePage },
 
+      // { title: 'Video Category', component: ListPage },
+
+
       { title: 'Log-Out', component: LogoutPage },
-      { title: 'List', component: ListPage },
-    
+      
 
     ];
 if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
       if (data == 1){
-       this.rootPage =  HomePage ;
+        this.firebaseService.getuserType().then(data =>{
+          console.log(data);
+        if (data == "normalPerson"){
+          this.rootPage = UsersPage;
+        }
+        else if (data == "talentPerson"){
+           this.rootPage = HomePage;
+        }
+        else{
+          this.rootPage = ScoutPage;
+        }
+      })
       }
       else{
        this.rootPage = LoginPage ;

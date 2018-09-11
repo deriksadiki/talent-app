@@ -21,6 +21,7 @@ export class HomePage {
  
 
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
+
   }
 
     
@@ -38,7 +39,7 @@ export class HomePage {
       }
     
     }
-    show(){
+    upload(){
       this.firebaseService.uploadvid(this.url).then(data =>{
         console.log(data);
          this.firebaseService.storeToDB(data).then(() =>{
