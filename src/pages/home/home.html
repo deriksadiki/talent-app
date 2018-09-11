@@ -1,22 +1,36 @@
 
+  <ion-header>
+      <ion-fab item-end>
+          <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+          <ion-fab-list>
+            <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+            <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+          </ion-fab-list>
+        </ion-fab>
+      <div class="section">  
+      <ion-navbar color = "color" ></ion-navbar>  
+      </div> 
+      </ion-header>
+
+
 <ion-content padding>
 
-    <ion-header>
-        <title>Video Upload</title>
-      </ion-header>
 
   <br>
  <ion-card> 
    <ion-item class="item item-trns text-center">
           <input type="file" (change)="insertvid($event)">
         </ion-item>
-       
-<br>
+  </ion-card>
+        <ion-card>
     <ion-list>
      
         <ion-item class="combo" align="left">
+
           
-          <ion-select placeholder="Talent Category" text-align="left" [(ngModel)]="category">
+          <ion-select placeholder="video Category" text-align="left" [(ngModel)]="category">
             <ion-option value="mus">Music</ion-option>
             <ion-option value="dan">Dance</ion-option>
             <ion-option value="poet">Poetry</ion-option>

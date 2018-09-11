@@ -1,5 +1,17 @@
 page-home {
+
+    .section{
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        background-attachment: fixed;
+        background-color: black;
+        background-size: cover;
+        height: 38vh;
+       background-repeat: no-repeat;
+       background-position: center;
+    } 
+
    .combo{
        box-shadow: 2px 2px 4px;
    }
+
 }

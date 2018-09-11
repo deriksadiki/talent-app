@@ -1,3 +1,29 @@
 page-artist-profile-update {
-
+    ion-card.card{
+        border-radius: 12px;
+        box-shadow: 2px 2px 4px 2px;
+    }
+    .section{
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        background-attachment: fixed;
+        background-color: black;
+        background-size: cover;
+        height: 44vh;
+       background-repeat: no-repeat;
+       background-position: center;
+    }
+    .item{
+        // box-shadow: 2px 2px 2px ;
+        border-radius: 12px;
+        margin-block-end: 20px;
+    }
+    img{
+        height: 100px;
+        width: 100px;
+        margin: 15%;
+        border-radius: 50px;
+    }
+    .butt{
+        text-align: center;
+    }
 }
