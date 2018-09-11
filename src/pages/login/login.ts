@@ -6,7 +6,7 @@ import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {login} from '../../Modals/login'
 import { HomePage } from '../home/home';
 import { UsersPage } from '../users/users';
-import { ProfilePage } from '../profile/profile';
+import { ScoutPage } from '../scout/scout';
 
 
 @IonicPage()
@@ -96,37 +96,40 @@ showForgotPassword(){
         message: 'You have successfully logged in',
         buttons: ['OK']
       });
-      this.navCtrl.push(HomePage);
       alert.present();
-    }, 
-    Error =>{ if (Error.message == "signInWithEmailAndPassword failed: First argument email must be a valid string."){
-      message == 'Please enter your log in details';
-    } else if (Error.message == "signInWithEmailAndPassword failed: Second argument password must be a valid string." ){
-      message == 'Invalid password'
+      this.firebaseService.getuserType().then(data =>{
+          console.log(data);
+        if (data == "normalPerson"){
+          this.navCtrl.push(UsersPage);
+        }
+        else if (data == "talentPerson"){
+          this.navCtrl.push(HomePage);
+        }
+        else{
+            this.navCtrl.push(ScoutPage);
+        }
+      })
+     
+
+   // }, 
+    // Error =>{ if (Error.message == "signInWithEmailAndPassword failed: First argument email must be a valid string."){
+    //   message == 'Please enter your log in details';
+    // } else if (Error.message == "signInWithEmailAndPassword failed: Second argument password must be a valid string." ){
+    //   message == 'Invalid password'
   
-    } else if (Error.message == "signInWithEmailAndPassword failed: Second argument password must be a valid string."){
-      message == 'Invalid email address'
-    }
+    // } else if (Error.message == "signInWithEmailAndPassword failed: Second argument password must be a valid string."){
+    //   message == 'Invalid email address'
+    // }
 
 
-      const alert = this.alertCtrl.create({
-        title: 'Warning!',
-        subTitle: message,
-        buttons: ['OK']
-      });
-      alert.present(); 
+    //   const alert = this.alertCtrl.create({
+    //     title: 'Warning!',
+    //     subTitle: message,
+    //     buttons: ['OK']
+    //   });
+    //   alert.present(); 
     })
 
   }
-
-  userspage(){
-    this.navCtrl.push(UsersPage);
-  }
-
-
-  Profile(){
-    this.navCtrl.push(ProfilePage)
-  }
-
   
 }
