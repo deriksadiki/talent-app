@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Talent} from '../../Modals/Talent';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
@@ -98,6 +98,34 @@ export class ArtistPage {
        alert.present();
     })
       }
+  }
+  takePicture(){
+    const confirm = this.alertCtrl.create({
+      title: 'Options?',
+      message: 'Please Choose one of the options',
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Title',
+          type: 'file'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Upload Photo',
+          handler: () => {
+      
+          }
+        },
+        {
+          text: 'Take Photo',
+          handler: () => {
+         this.firebaseService.uploadpic();
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }

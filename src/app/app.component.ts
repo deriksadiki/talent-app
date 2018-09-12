@@ -36,6 +36,7 @@ if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
       if (data == 1){
         this.firebaseService.getuserType().then(data =>{
+          console.log(data)
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
@@ -54,15 +55,17 @@ if('Log-Out')
           ];
            this.rootPage =  ArtisthomePage;
         }
-        else{
-          this.rootPage = ScoutPage;
+        else if (data == "ScoutPerson"){
+         
           this.pages = [
             { title: 'Home3', component: ArtisthomePage },
             { title: 'Upload', component: HomePage },
             { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
           ];
+          this.rootPage = ScoutPage;
         }
+  
       })
       }
       else{

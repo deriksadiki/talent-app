@@ -78,7 +78,8 @@ login(email, password){
   registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno){
     return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-        this.dbRef =  'users/' + surname;
+        var user = firebase.auth().currentUser;
+        this.dbRef =  'users/' + surname + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           name:name,
           companyName:companyName,
@@ -219,6 +220,7 @@ return new Promise ((accpt, rej) =>{
       var currentUserID = userIDs[x].substr(index + 1);
       if (user.uid == currentUserID){
         this.storeUserName(userIDs[x].substr(0,index));
+        console.log(userIDs[x].substr(0,index))
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
             var Userdetails;
             var Userdetails = data.val(); 
@@ -242,6 +244,7 @@ return new Promise ((accpt, rej) =>{
 
 storeUserName(name){
 this.username = name;
+console.log(this.username)
 }
 
 storePictureUrl(url){
