@@ -23,6 +23,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { UsersPage } from '../pages/users/users';
 import { ScoutPage } from '../pages/scout/scout';
 
+
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
 import { ArtistProfileUpdatePage } from '../pages/artist-profile-update/artist-profile-update';
@@ -49,7 +50,8 @@ import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-prof
     UsersPage,
     ArtistProfilePage,
     ArtistProfileUpdatePage,
-    ScoutProfileUpdatePage  
+    ScoutProfileUpdatePage,
+   
 ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-prof
     UsersPage,
     ArtistProfilePage,
     ArtistProfileUpdatePage,
-    ScoutProfileUpdatePage
+    ScoutProfileUpdatePage,
+    
   ],
   providers: [
     StatusBar,
