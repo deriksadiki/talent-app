@@ -43,7 +43,7 @@ export class ProfilePage {
 
 
   update(){
-   
+  //  this.navCtrl.push()
   }
 
 }
