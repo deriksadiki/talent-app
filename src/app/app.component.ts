@@ -12,6 +12,8 @@ import { ScoutPage} from '../pages/scout/scout'
 import { UsersPage } from '../pages/users/users';
 import { LogoutPage } from '../pages/logout/logout';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
+import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
+import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 
 
 
@@ -39,9 +41,9 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
-            { title: 'Home1', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
+            { title: 'Home1', component: UsersPage },
+            { title: 'Share', component: HomePage },
+            // { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
           ];
         }
@@ -49,17 +51,17 @@ if('Log-Out')
           this.pages = [
             { title: 'Home2', component: ArtisthomePage },
             { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
+            { title: 'Profile', component: ArtistProfilePage },
             { title: 'Log-Out', component: LogoutPage },
           ];
            this.rootPage =  ArtisthomePage;
         }
-        else{
+        else if (data == "ScoutPerson"){
           this.rootPage = ScoutPage;
           this.pages = [
-            { title: 'Home3', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
+            { title: 'Home3', component: ScoutPage },
+             { title: 'Upload', component: HomePage },
+            { title: 'Profile', component:ScouteProfilePage },
             { title: 'Log-Out', component: LogoutPage },
           ];
         }
