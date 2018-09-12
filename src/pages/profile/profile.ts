@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Recruit} from '../../Modals/Recruit'
+import {FirebaseProvider} from '../../providers/firebase/firebase'
 
 
 /**
