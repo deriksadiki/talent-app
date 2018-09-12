@@ -1,21 +1,16 @@
-<ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle icon-only>
-        <ion-icon name='menu'></ion-icon>
-      </button>
-      <ion-title>
-       Home
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content  >
+
+  <ion-header>
+     <ion-navbar color = "own" >
+    <ion-title>Artisthome</ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+
+<ion-content class="img">
       <ion-card *ngFor="let i of videos">
 
 
-  <ion-navbar color = "own" >
-    <ion-title>Artisthome</ion-title>
-  </ion-navbar>
+
   <div >
   <ion-fab  class="fabi">
       <button color = "own" ion-fab mini><ion-icon name="menu"></ion-icon></button>
@@ -74,10 +69,8 @@
 
 
 
-  </ion-content>
 
 
-    <ion-content class="img">
         <ion-card>
   
             <ion-item>
@@ -87,7 +80,7 @@
               <h2>Name Surname</h2>
             </ion-item>
           
-            video
+       
             <video width="400" height="240" controls>
                 <source src="movie.mp4" type="video/mp4">
                 
@@ -142,7 +135,7 @@
           </ion-card>
   
   
-         card2
+   
          <ion-card>
   
             <ion-item>
@@ -152,7 +145,7 @@
               <h2>View Artist</h2>
             </ion-item>
           
-            video
+          
             <video width="400" height="240" controls>
                 <source src="movie.mp4" type="video/mp4">
                 
@@ -188,5 +181,5 @@
               </ion-row> 
           </ion-card>
       </ion-content>
- 
 
+  

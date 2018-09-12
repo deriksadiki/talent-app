@@ -4,11 +4,11 @@ import { RegisterPage } from '../register/register';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {login} from '../../Modals/login'
-import { HomePage } from '../home/home';
+import { ArtisthomePage } from '../artisthome/artisthome';
 import { UsersPage } from '../users/users';
 import { ScoutPage } from '../scout/scout';
 import { updateDimensions } from 'ionic-angular/components/virtual-scroll/virtual-util';
-import { ProfilePage } from '../profile/profile';
+
 
 
 @IonicPage()
@@ -94,15 +94,19 @@ showForgotPassword(){
       });
       alert.present();
       this.firebaseService.getuserType().then(data =>{
-          console.log(data);
         if (data == "normalPerson"){
+          window.location.reload();
           this.navCtrl.push(UsersPage);
         }
         else if (data == "talentPerson"){
-          this.navCtrl.push(HomePage);
+          this.navCtrl.push(ArtisthomePage);
+          window.location.reload();
+
         }
         else{
             this.navCtrl.push(ScoutPage);
+            window.location.reload();
+    
         }
       })
     
@@ -129,18 +133,6 @@ showForgotPassword(){
           buttons: ['Ok']
         });
         alert.present();
-      
-      }else{
-        this.firebaseService.login(this.users.email, this.users.password).then(() => {
-          const alert = this.alertCtrl.create({
-          title: 'Welcome',
-          message: 'Successfully logged in ',
-          buttons: ['OK']
-        });
-        this.navCtrl.push(HomePage);
-        alert.present();
-        })
-      
       }
     })
   }

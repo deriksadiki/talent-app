@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams , AlertController } from 'ionic-angular';
 import {Recruit} from '../../Modals/Recruit';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
-import { HomePage } from '../home/home';
+import {ScoutPage} from '../scout/scout';
 
 @IonicPage()
 @Component({
@@ -82,7 +82,8 @@ if (this.recrt.email == undefined && this.recrt.password == undefined && this.re
              subTitle: 'You have successfully Registered',
              buttons: ['OK']
            });
-           this.navCtrl.push(HomePage);
+           this.navCtrl.push(ScoutPage);
+           window.location.reload();
            alert.present();
 })
   }

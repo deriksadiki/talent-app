@@ -18,6 +18,7 @@ export class FirebaseProvider {
   videoArray = new Array();
   username;
   imgurl;
+  currentUserID;
 
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
 
@@ -54,7 +55,8 @@ login(email, password){
       this.username =  username;
       return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-        this.dbRef =  'users/' + username
+        var user = firebase.auth().currentUser;
+        this.dbRef =  'users/' +  username + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           name:name,
           surname:surname,
@@ -145,19 +147,6 @@ login(email, password){
   })
   }
 
-  getvideo():any{
-     var user = firebase.auth().currentUser;
-     let storageRef =  firebase.storage().ref();
-return new Promise((accpt,rejc) =>{
-  let imgRef = storageRef.child('pictures');
-  imgRef.getDownloadURL().then(function(url) {
-    accpt(url)
-     }.bind(this)).catch(function(error) {
-  rejc(error)
-});
-})
-}
-
 storeToDB(name, category, vidname, vidDesc){
   return new Promise((accpt,rejc) =>{
     var storageRef = firebase.storage().ref(name + ".mp4");
@@ -165,11 +154,13 @@ storeToDB(name, category, vidname, vidDesc){
       console.log(url)
       var user = firebase.auth().currentUser;
       var link =  url;
-      this.database.ref('uploads/' + user.uid).push({
+      this.database.ref('uploads/' + this.username).push({
             downloadurl :link,
             name : vidname,
             category: category,
-            description: vidDesc
+            description: vidDesc,
+            username : this.username,
+            userImg : this.imgurl
           });
           accpt('success');
 }, Error =>{
@@ -192,6 +183,7 @@ getAllvideos(){
           this.database.ref(y).on('value', (data2: any) => {
            details = data2.val();
             })
+            this.videoArray.length = 0;
           var keys2:any = Object.keys(details);
           for (var a = 0; a < keys2.length; a++){
                 var key = keys2[a];
@@ -199,6 +191,8 @@ getAllvideos(){
                 vidurl : details[key].downloadurl,
                 vidDesc : details[key].description,
                 vidname : details[key].name,
+                name : details[key].username,
+                img : details[key].userImg,
                 key: key
           }
           this.videoArray.push(obj);
@@ -228,15 +222,17 @@ return new Promise ((accpt, rej) =>{
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
             var Userdetails;
             var Userdetails = data.val(); 
+            this.storeuserid(userIDs[x])
             var keys2:any = Object.keys(Userdetails);
             var user = firebase.auth().currentUser;
             let storageRef =  firebase.storage().ref();
-            let imgRef = storageRef.child('pictures/' + userIDs[x].substr(0,index));
+           var img = userIDs[x].substr(0,index) + ".jpg"
+            let imgRef = storageRef.child('pictures/' + img);
             imgRef.getDownloadURL().then(function(url) {
             this.storePictureUrl(url);
           }.bind(this)).catch(function(error) {})
             accpt(Userdetails[keys2].userType)
-           })
+           });
         break;
       }
     }
@@ -246,12 +242,15 @@ return new Promise ((accpt, rej) =>{
 
 storeUserName(name){
 this.username = name;
-console.log(this.username);
 }
 
 storePictureUrl(url){
 this.imgurl =  url;
-console.log(this.imgurl);
 }
+
+storeuserid(uid){
+  this.currentUserID = uid;
+}
+
 
 }
