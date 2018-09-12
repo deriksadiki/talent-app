@@ -255,5 +255,4 @@ storeuserid(uid){
   console.log(this.currentUserID);
 }
 
-
 }
