@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ArtistProfilePage } from '../artist-profile/artist-profile';
+import { HomePage } from '../home/home';
+import { LogoutPage } from '../logout/logout';
 
 
 
@@ -20,5 +22,12 @@ export class UsersPage {
   viewartist(){
     const modal = this.modalCtrl.create(ArtistProfilePage);
     modal.present();
+  }
+
+  Home(){
+    this.navCtrl.push(UsersPage);
+  }
+  LogOut(){
+    this.navCtrl.push(LogoutPage);
   }
 }
