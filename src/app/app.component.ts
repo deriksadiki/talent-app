@@ -31,30 +31,37 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: ArtisthomePage },
-      { title: 'Upload', component: HomePage },
-      { title: 'Profile', component: ProfilePage },
-
-      // { title: 'Video Category', component: ListPage },
-
-
-      { title: 'Log-Out', component: LogoutPage },
-      
-
-    ];
+ 
 if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
       if (data == 1){
         this.firebaseService.getuserType().then(data =>{
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
+          this.pages = [
+            { title: 'Home1', component: ArtisthomePage },
+            { title: 'Upload', component: HomePage },
+            { title: 'Profile', component: ProfilePage },
+            { title: 'Log-Out', component: LogoutPage },
+          ];
         }
         else if (data == "talentPerson"){
+          this.pages = [
+            { title: 'Home2', component: ArtisthomePage },
+            { title: 'Upload', component: HomePage },
+            { title: 'Profile', component: ProfilePage },
+            { title: 'Log-Out', component: LogoutPage },
+          ];
            this.rootPage =  ArtisthomePage;
         }
         else{
           this.rootPage = ScoutPage;
+          this.pages = [
+            { title: 'Home3', component: ArtisthomePage },
+            { title: 'Upload', component: HomePage },
+            { title: 'Profile', component: ProfilePage },
+            { title: 'Log-Out', component: LogoutPage },
+          ];
         }
       })
       }
