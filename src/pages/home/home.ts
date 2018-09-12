@@ -33,7 +33,6 @@ export class HomePage {
           this.url = event.target.result;
         }
         reader.readAsDataURL(event.target.files[0]);
-
       }
     
     }

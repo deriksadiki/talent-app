@@ -29,7 +29,6 @@ Reg(){
   this.navCtrl.push(RegisterPage);
 }
 
-
 showForgotPassword(){
   const prompt = this.alertCtrl.create({
     title: 'Enter Your Email',

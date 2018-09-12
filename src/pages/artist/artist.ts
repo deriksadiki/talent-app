@@ -83,6 +83,8 @@ export class ArtistPage {
                  subTitle: 'You have successfully Registered',
                  buttons: ['OK']
                });
+               this.navCtrl.push(HomePage);
+               alert.present();
                this.firebaseService.getuserType().then(()=>{
                 this.navCtrl.push(ArtisthomePage);
                 window.location.reload();

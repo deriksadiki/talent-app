@@ -76,7 +76,7 @@ if (this.recrt.email == undefined && this.recrt.password == undefined && this.re
   alert.present();
 
 }else {
-  this.firebaseService.registerScoutPerson(this.recrt.email, this.recrt.password, this.recrt.name, this.recrt.surname, this.recrt.companyName, this.recrt.companyemail, this.recrt .companycellno).then(() =>{
+  this.firebaseService.registerScoutPerson(this.recrt.email, this.recrt.password, this.recrt.name, this.recrt.surname, this.recrt.companyName, this.recrt.companyemail, this.recrt.companycellno).then(() =>{
            const alert = this.alertCtrl.create({
              title: 'Welcome',
              subTitle: 'You have successfully Registered',
