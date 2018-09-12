@@ -19,7 +19,9 @@ videos = [];
       this.videos = undefined;
       this.videos = null;
     }
+ 
      this.videos = data;
+     console.log(this.videos)
 
    });
 

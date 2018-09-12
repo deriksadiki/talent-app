@@ -116,7 +116,7 @@ export class ArtistPage {
         {
           text: 'Upload Photo',
           handler: () => {
-      
+            
           }
         },
         {
