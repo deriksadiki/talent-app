@@ -28,27 +28,28 @@ export class HomePage {
 
       if (event.target.files && event.target.files[0]){
         let reader = new FileReader();
-    
         reader.onload = (event:any) =>{
           this.url = event.target.result;
         }
         reader.readAsDataURL(event.target.files[0]);
+        console.log(this.url);
       }
-    
     }
     upload(){
-      this.firebaseService.uploadvid(this.url).then(data =>{
-        console.log(data);
-         this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
-           console.log('added to db');
-         },
-        Error =>{
-          console.log(Error)
-        })
-      }, Error =>{
-        console.log(Error )
-      })
+      console.log(this.url);
+    //   this.firebaseService.uploadvid(this.url).then(data =>{
+    //     console.log(data);
+    //      this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
+    //        console.log('added to db');
+    //      },
+    //     Error =>{
+    //       console.log(Error)
+    //     })
+    //   }, Error =>{
+    //     console.log(Error )
+    //   })
       
-    }
+    // }
   }
+}
 

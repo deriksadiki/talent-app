@@ -116,6 +116,11 @@ login(email, password){
   forgotUserPassword(email:any){
     return this.authnticate.sendPasswordResetEmail(email);
   }
+
+  uploadPropic(url){
+    this.storageRef.ref('pictures/' + this.username).putString(url, 'data_url');
+  }
+
   async uploadpic(){
   
           const options: CameraOptions= {

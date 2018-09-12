@@ -15,6 +15,7 @@ import { ArtisthomePage } from '../artisthome/artisthome';
 export class ArtistPage {
 
   artist = {} as Talent;
+  url;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
   }
@@ -115,8 +116,10 @@ export class ArtistPage {
       buttons: [
         {
           text: 'Upload Photo',
-          handler: () => {
-            
+          handler: data => {
+         
+           // this.converImg(`${data.title}`);
+            //console.log(this.url);
           }
         },
         {
@@ -128,6 +131,17 @@ export class ArtistPage {
       ]
     });
     confirm.present();
+  }
+
+  converImg(event:any){
+ 
+      let reader = new FileReader();
+      reader.onload = (event:any) =>{
+        this.url = event.target.result;
+      }
+      reader.readAsDataURL(event.target);
+      console.log(this.url);
+    
   }
 
 }

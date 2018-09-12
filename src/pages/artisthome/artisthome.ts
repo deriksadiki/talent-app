@@ -21,8 +21,6 @@ videos = [];
     }
  
      this.videos = data;
-     console.log(this.videos)
-
    });
 
   }

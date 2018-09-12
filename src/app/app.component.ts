@@ -40,7 +40,7 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
-            { title: 'Home1', component: ArtisthomePage },
+            { title: 'Home', component: ArtisthomePage },
             { title: 'Upload', component: HomePage },
             { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
@@ -48,7 +48,7 @@ if('Log-Out')
         }
         else if (data == "talentPerson"){
           this.pages = [
-            { title: 'Home2', component: ArtisthomePage },
+            { title: 'Home', component: ArtisthomePage },
             { title: 'Upload', component: HomePage },
             { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
@@ -58,7 +58,7 @@ if('Log-Out')
         else if (data == "ScoutPerson"){
          
           this.pages = [
-            { title: 'Home3', component: ArtisthomePage },
+            { title: 'Home', component: ArtisthomePage },
             { title: 'Upload', component: HomePage },
             { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
