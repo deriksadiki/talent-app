@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FirebaseProvider } from '../../providers/firebase/firebase';
-import {Recruit} from '../../modals/Recruit';
+import {Recruit} from '../../Modals/Recruit'
+import {FirebaseProvider} from '../../providers/firebase/firebase'
+
 
 /**
  * Generated class for the ProfilePage page.
@@ -43,7 +44,7 @@ export class ProfilePage {
 
 
   update(){
-  //  this.navCtrl.push()
+
   }
 
 }
