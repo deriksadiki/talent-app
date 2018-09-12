@@ -85,7 +85,6 @@ showForgotPassword(){
   }
 
   login(){
-   var message;
     this.firebaseService.login(this.users.email,this.users.password).then(()=>{
       const alert = this.alertCtrl.create({
         title: 'Welcome',
