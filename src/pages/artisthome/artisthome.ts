@@ -8,14 +8,19 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
   templateUrl: 'artisthome.html',
 })
 export class ArtisthomePage {
-videos = new Array();
+videos = [];
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider) {
   }
 
   ionViewDidLoad() {
+   
    this.firebaseService.getAllvideos().then((data:any) =>{
+    if (this.videos != null || this.videos != undefined){
+      this.videos = undefined;
+      this.videos = null;
+    }
      this.videos = data;
-     console.log(this.videos);
+
    });
 
   }

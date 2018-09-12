@@ -1,46 +1,21 @@
-<ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle icon-only>
-        <ion-icon name='menu'></ion-icon>
-      </button>
-      <ion-title>
-       Home
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content  >
+
+  <!-- <ion-content  >
       <ion-card *ngFor="let i of videos">
-  <ion-navbar color = "own" >
-    <ion-title>Artisthome</ion-title>
-  </ion-navbar>
-  <div >
-  <ion-fab  class="fabi">
-      <button color = "own" ion-fab mini><ion-icon name="menu"></ion-icon></button>
-      <ion-fab-list >
-        <button class="fabs" ion-fab color = "own" >Home</button>
-        <button class="fabs" ion-fab color = "own">Profile</button>
-        <button class="fabs" ion-fab color = "own">Category</button>
-        <button class="fabs" ion-fab color = "own">UpLoad</button>
-        <button class="fabs" ion-fab color = "own">Log-Out</button>
-      </ion-fab-list>
-    </ion-fab>
-  </div>
           <ion-item>
             <ion-avatar item-start>
-              <img src="img/marty-avatar.png">
+              <img src={{i.img}}>
             </ion-avatar>
-            <h2>Name Surname</h2>
+           <p>{{i.name}}</p>
           </ion-item>
         
-          <!-- video -->
+          video
           <video width="320" height="240" controls>
               <source src={{i.vidurl}} type="video/mp4">
               
             </video>
 
           <ion-card-content>
-            <p>{{i.key}}</p>
+            <p>{{i.vidDesc}}</p>
           </ion-card-content>
         
           <ion-row>
@@ -182,3 +157,4 @@
       <!-- </ion-content> -->
  
 
+  
