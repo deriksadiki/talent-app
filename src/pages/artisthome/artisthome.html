@@ -1,12 +1,5 @@
 
-  <ion-header>
-     <ion-navbar color = "own" >
-    <ion-title>Artisthome</ion-title>
-  </ion-navbar>
-</ion-header>
- 
 
-<ion-content class="img">
       <ion-card *ngFor="let i of videos">
           <ion-item>
             <ion-avatar item-start>
@@ -14,8 +7,7 @@
             </ion-avatar>
             <h2>{{i.name}}</h2>
           </ion-item>
-        
-          <!-- video -->
+
           <video width="320" height="240" controls>
               <source src={{i.vidurl}} type="video/mp4">
               
@@ -53,7 +45,6 @@
 
     
   </ion-content> 
-
 
 
 
