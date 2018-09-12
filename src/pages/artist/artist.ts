@@ -5,6 +5,7 @@ import { FirebaseProvider} from '../../providers/firebase/firebase';
 import { HomePage } from '../home/home';
 import { unescapeIdentifier } from '@angular/compiler';
 import { ScoutPage } from '../scout/scout';
+import { ArtisthomePage } from '../artisthome/artisthome';
 
 @IonicPage()
 @Component({
@@ -83,7 +84,8 @@ export class ArtistPage {
                  buttons: ['OK']
                });
                this.firebaseService.getuserType().then(()=>{
-                this.navCtrl.push(ScoutPage);
+                this.navCtrl.push(ArtisthomePage);
+                window.location.reload();
                 alert.present();
                })
             

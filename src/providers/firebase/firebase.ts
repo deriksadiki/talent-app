@@ -232,7 +232,7 @@ return new Promise ((accpt, rej) =>{
             this.storePictureUrl(url);
           }.bind(this)).catch(function(error) {})
             accpt(Userdetails[keys2].userType)
-           })
+           });
         break;
       }
     }
