@@ -15,6 +15,7 @@ export class FirebaseProvider {
   dbRef;
   state;
   image;
+  file;
   videoArray = new Array();
   username;
   imgurl;
@@ -232,7 +233,7 @@ return new Promise ((accpt, rej) =>{
             let imgRef = storageRef.child('pictures/' + img);
             imgRef.getDownloadURL().then(function(url) {
             this.storePictureUrl(url);
-          }.bind(this)).catch(function(error) {})
+            }.bind(this)).catch(function(error) {})
             accpt(Userdetails[keys2].userType)
            });
         break;
@@ -246,6 +247,8 @@ storeUserName(name){
 this.username = name;
 console.log(this.username)
 }
+
+storeProfile(){}
 
 storePictureUrl(url){
 this.imgurl =  url;
