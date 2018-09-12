@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { UsersPage} from '../users/users';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {Guest} from '../../Modals/Guest';
 
@@ -51,7 +51,8 @@ if ( this.guest.Username == undefined && this.guest.email == undefined && this.g
     subTitle: 'You have successfully Registared',
     buttons: ['OK']
   });
-  this.navCtrl.push(HomePage);
+  this.navCtrl.push(UsersPage);
+  window.location.reload();
   alert.present(); 
   })
 }

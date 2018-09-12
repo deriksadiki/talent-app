@@ -1,12 +1,13 @@
 
-   <ion-content  >
+
       <ion-card *ngFor="let i of videos">
           <ion-item>
             <ion-avatar item-start>
               <img src={{i.img}}>
             </ion-avatar>
-           <p>{{i.name}}</p>
+            <h2>{{i.name}}</h2>
           </ion-item>
+
           <video width="320" height="240" controls>
               <source src={{i.vidurl}} type="video/mp4">
               
@@ -42,9 +43,11 @@
             </ion-row> 
         </ion-card>
 
+    
+  </ion-content> 
 
-  
-  </ion-content>
 
 
-  
+
+
+        

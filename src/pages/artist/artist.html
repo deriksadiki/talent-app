@@ -16,15 +16,10 @@
 
 
     <ion-list class="list" no-lines>
-      <!-- <ion-item>
-        <ion-label ><ion-icon name="person" class="i"></ion-icon>Name:</ion-label>
-        <ion-input type="text" [(ngModel)]= "artist.name"></ion-input>
-      </ion-item>
-
       <ion-item>
-        <ion-label ><ion-icon name="person" class="i"></ion-icon>Surname:</ion-label>
-        <ion-input type="text"  [(ngModel)] = "artist.surname"></ion-input>
-      </ion-item> -->
+        <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+        <ion-input type="text" placeholder="Name" [(ngModel)]= "artist.name"></ion-input>
+      </ion-item>
 
         <ion-item class="items">
             <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
@@ -33,7 +28,7 @@
   
         <ion-item class="items">
             <ion-label ><ion-icon name="mail" class="i"></ion-icon></ion-label>
-            <ion-input placeholder="Email" type="text"  [(ngModel)] = "artist.email"></ion-input>
+            <ion-input placeholder="E-mail" type="text"  [(ngModel)] = "artist.email"></ion-input>
           </ion-item>
         
           <ion-item class="items">
@@ -44,7 +39,7 @@
 
         <ion-item class="items">
             <ion-label > <ion-icon ios="ios-body" md="md-body" class="i"></ion-icon></ion-label>
-            <ion-select [(ngModel)]="gaming" placeholder="Gender" item-center>
+            <ion-select [(ngModel)]="artist.gender" placeholder="Gender" item-center>
                 <ion-option value="Male">Male</ion-option>
                 <ion-option value="Female">Female</ion-option>
               </ion-select>
@@ -64,7 +59,6 @@
 
 
 
-  
 
    <div class="butt1">
       <button ion-button color="own" round (click)="takePicture()">Take photo</button> <br>

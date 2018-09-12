@@ -15,6 +15,7 @@ export class FirebaseProvider {
   dbRef;
   state;
   image;
+  file;
   videoArray = new Array();
   username;
   imgurl;
@@ -55,7 +56,8 @@ login(email, password){
       this.username =  username;
       return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-        this.dbRef =  'users/' + username
+        var user = firebase.auth().currentUser;
+        this.dbRef =  'users/' +  username + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           name:name,
           surname:surname,
@@ -77,7 +79,8 @@ login(email, password){
   registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno){
     return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-        this.dbRef =  'users/' + surname;
+        var user = firebase.auth().currentUser;
+        this.dbRef =  'users/' + surname + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           name:name,
           companyName:companyName,
@@ -218,6 +221,7 @@ return new Promise ((accpt, rej) =>{
       var currentUserID = userIDs[x].substr(index + 1);
       if (user.uid == currentUserID){
         this.storeUserName(userIDs[x].substr(0,index));
+        console.log(userIDs[x].substr(0,index))
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
             var Userdetails;
             var Userdetails = data.val(); 
@@ -229,9 +233,9 @@ return new Promise ((accpt, rej) =>{
             let imgRef = storageRef.child('pictures/' + img);
             imgRef.getDownloadURL().then(function(url) {
             this.storePictureUrl(url);
-          }.bind(this)).catch(function(error) {})
+            }.bind(this)).catch(function(error) {})
             accpt(Userdetails[keys2].userType)
-           })
+           });
         break;
       }
     }
@@ -241,7 +245,10 @@ return new Promise ((accpt, rej) =>{
 
 storeUserName(name){
 this.username = name;
+console.log(this.username)
 }
+
+storeProfile(){}
 
 storePictureUrl(url){
 this.imgurl =  url;
@@ -249,7 +256,6 @@ this.imgurl =  url;
 
 storeuserid(uid){
   this.currentUserID = uid;
-  console.log(this.currentUserID);
 }
 
 

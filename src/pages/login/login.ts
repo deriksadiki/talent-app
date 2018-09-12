@@ -29,7 +29,6 @@ Reg(){
   this.navCtrl.push(RegisterPage);
 }
 
-
 showForgotPassword(){
   const prompt = this.alertCtrl.create({
     title: 'Enter Your Email',
@@ -86,7 +85,6 @@ showForgotPassword(){
   }
 
   login(){
-   var message;
     this.firebaseService.login(this.users.email,this.users.password).then(()=>{
       const alert = this.alertCtrl.create({
         title: 'Welcome',
@@ -96,13 +94,18 @@ showForgotPassword(){
       alert.present();
       this.firebaseService.getuserType().then(data =>{
         if (data == "normalPerson"){
+          window.location.reload();
           this.navCtrl.push(UsersPage);
         }
         else if (data == "talentPerson"){
           this.navCtrl.push(ArtisthomePage);
+          window.location.reload();
+
         }
         else{
             this.navCtrl.push(ScoutPage);
+            window.location.reload();
+    
         }
       })
     
