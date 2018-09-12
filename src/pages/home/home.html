@@ -1,12 +1,20 @@
 
   <ion-header>
-      <ion-fab item-end>
+      <!-- <ion-fab top right edge>
           <button ion-fab mini><ion-icon name="add"></ion-icon></button>
           <ion-fab-list>
             <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
             <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
             <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
             <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+          </ion-fab-list>
+        </ion-fab> -->
+        <ion-fab class="fabi"  >
+          <button color = "own" ion-fab mini><ion-icon name="menu"></ion-icon></button>
+          <ion-fab-list >
+            <!-- <button class="fabs" ion-fab color = "own" (click)="Home()" >Home</button> -->
+            <button class="fabs" ion-fab color = "own" (click)="Category()">Category</button>
+            <button class="fabs" ion-fab color = "own" (click)="LogOut()">Log-Out</button>
           </ion-fab-list>
         </ion-fab>
       <div class="section">  

@@ -5,6 +5,7 @@ import { FirebaseProvider} from '../../providers/firebase/firebase';
 import { HomePage } from '../home/home';
 import { unescapeIdentifier } from '@angular/compiler';
 import { ScoutPage } from '../scout/scout';
+import { ArtisthomePage } from '../artisthome/artisthome';
 
 @IonicPage()
 @Component({
@@ -76,7 +77,7 @@ export class ArtistPage {
       alert.present();
     
     }else {
-      this.firebaseService.registerScoutPerson(this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
+      this.firebaseService.registerTalentPerson(this.artist.username,this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
                const alert = this.alertCtrl.create({
                  title: 'Welcome',
                  subTitle: 'You have successfully Registered',
@@ -84,6 +85,19 @@ export class ArtistPage {
                });
                this.navCtrl.push(HomePage);
                alert.present();
+               this.firebaseService.getuserType().then(()=>{
+                this.navCtrl.push(ArtisthomePage);
+                window.location.reload();
+                alert.present();
+               })
+            
+    }, Error =>{
+      const alert = this.alertCtrl.create({
+        title: 'warning!',
+        subTitle: Error,
+        buttons: ['OK']
+      });
+       alert.present();
     })
       }
   }

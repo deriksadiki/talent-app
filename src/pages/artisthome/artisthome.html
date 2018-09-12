@@ -1,15 +1,18 @@
 
-  <!-- <ion-content  >
+   <ion-content  >
       <ion-card *ngFor="let i of videos">
           <ion-item>
             <ion-avatar item-start>
               <img src={{i.img}}>
             </ion-avatar>
-           <p>{{i.name}}</p>
+           <h1>{{i.name}}</h1>
+           <p></p>
+
+
           </ion-item>
         
-          video
-          <video width="320" height="240" controls>
+        
+          <video width="390" height="240" controls>
               <source src={{i.vidurl}} type="video/mp4">
               
             </video>
@@ -38,8 +41,8 @@
             </ion-col>
          
              <button ion-button icon-start clear small (click)="view()">
-              <ion-icon name="update"></ion-icon>
-              <div>Update profile</div>
+              <ion-icon name="View"></ion-icon>
+              <div>View profile</div>
             </button>
             </ion-row> 
         </ion-card>
@@ -47,6 +50,7 @@
     <!-- <ion-content class="img">
         <ion-card>
   
+
             <ion-item>
               <ion-avatar item-start>
                 <img src="img/marty-avatar.png">
@@ -155,6 +159,6 @@
               </ion-row> 
           </ion-card> -->
       <!-- </ion-content> -->
- 
+  </ion-content> 
 
   
