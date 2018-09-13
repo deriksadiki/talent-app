@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
+import {CommentsPage} from '../comments/comments'
 
 @IonicPage()
 @Component({
@@ -20,9 +21,14 @@ videos = [];
       this.videos = null;
     }
      this.videos = data;
+     console.log(this.videos);
 
    });
 
+  }
+
+  test(indexNUmber){
+    this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
   }
 
 }

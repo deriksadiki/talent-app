@@ -42,6 +42,7 @@ export class HomePage {
         console.log(data);
          this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
            console.log('added to db');
+           this.navCtrl.push(HomePage);
          },
         Error =>{
           console.log(Error)

@@ -9,7 +9,7 @@
   </ion-navbar>
 
 </ion-header> -->
-<ion-header>
+<ion-list *ngFor = "let i of arr">
     <div class="section">
     
       <ion-navbar color = "color" >
@@ -20,8 +20,8 @@
             </ion-buttons> -->
       </ion-navbar>
     <div class="logo" align="center">
-      <img src="../../assets/Pics/2372f27612fee17412c8e647fd76c199.jpg" >
-    <h1>Sibusiso Nyoni</h1>
+      <img src={{i.imageURl}} >
+    <h1>{{i.name}} {{i.surname}}</h1>
     </div>
     <p class="p1">Artist</p>
     <div class="dash">
@@ -40,7 +40,6 @@
 
 
 
-    <ion-content >
       <title>Artist</title>
         <ion-card>
           <ion-card-content>
@@ -49,15 +48,16 @@
               <p><ion-icon class="i" name="call"></ion-icon>Username</p>
               <h3 class="detail">BudaNyoni</h3>
               <p><ion-icon class="i" name="call"></ion-icon>Cell</p>
-              <h3 class="detail">(011) 567 3445</h3>
+              <h3 class="detail">{{i.cellno}}</h3>
               <p><ion-icon class="i" name="call"></ion-icon> E-mail</p>
               <h3 class="detail">Dreamers@yahoo.com</h3>
               <p><ion-icon class="i" name="call"></ion-icon>Gender</p>
-              <h3 class="detail">Male</h3>
+              <h3 class="detail">{{i.gender}}</h3>
              
             </div>
             </ion-list>
           </ion-card-content>
         </ion-card>
-        </ion-content>
+    
+</ion-list>
         

@@ -22,6 +22,7 @@ import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
 import { UsersPage } from '../pages/users/users';
 import { ScoutPage } from '../pages/scout/scout';
+import {CommentsPage } from '../pages/comments/comments'
 
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
@@ -43,6 +44,7 @@ import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
     RecruiterPage,
     UserPage,
     ArtistPage,
+    CommentsPage ,
     LogoutPage,
     ProfilePage,
     ArtisthomePage,
@@ -64,6 +66,7 @@ import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
     ListPage,
     LoginPage,
     SecondPage,
+    CommentsPage ,
     RegisterPage,
     RecruiterPage,
     UserPage,
