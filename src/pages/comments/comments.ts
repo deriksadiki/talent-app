@@ -46,7 +46,7 @@ export class CommentsPage {
   placeComment(commet){
   
     this.firebaseService.comment(this.videos[0].key, commet).then(data =>{
-      this.firebaseService.addNumComments(this.videos[0].key,  this.comments.length,this.videos[0].name);
+      this.firebaseService.addNumComments(this.videos[0].key, this.comments.length ,this.videos[0].name );
       this.comments.length = 0;
       this.comments2.length = 0;
       this.getComments()

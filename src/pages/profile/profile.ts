@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
 
 /**
  * Generated class for the ProfilePage page.
@@ -23,8 +24,8 @@ export class ProfilePage {
   }
 
 
-  update(){
-  //  this.navCtrl.push()
+  Update(){
+   this.navCtrl.push(ArtistProfileUpdatePage);
   }
 
 }

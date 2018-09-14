@@ -32,13 +32,16 @@
           </video>
           <p>{{i.vidDesc}}</p>
           
-          <ion-item class="item2">
+          <ion-item class="item2" text-wrap>
               <ion-input #comment type="text"></ion-input>
           </ion-item>
           <button ion-button round (click)="placeComment(comment.value)">comment</button>
         
-      <ion-list *ngFor="let a of comments2">
-        <p color="primary">{{a.name}} <span color="dark">{{a.text}}</span></p>
+      <ion-list padding-top *ngFor="let a of comments2">
+        <div class="cm">
+            <p color="primary">{{a.name}} <span color="dark">{{a.text}}</span></p>
+        </div>
+
       </ion-list>
 
 

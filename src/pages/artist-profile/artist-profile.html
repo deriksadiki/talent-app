@@ -9,19 +9,20 @@
   </ion-navbar>
 
 </ion-header> -->
-<ion-list *ngFor = "let i of arr">
+<ion-header>
+
+
     <div class="section">
     
       <ion-navbar color = "color" >
-        
-          <!-- <ion-buttons end>
-              <button ion-button round (click)="close()"> <ion-icon name="md-close"></ion-icon>
-              </button>
-            </ion-buttons> -->
+          <button ion-button menuToggle icon-only>
+              <ion-icon name='menu'></ion-icon>
+            </button>
+       
       </ion-navbar>
     <div class="logo" align="center">
-      <img src={{i.imageURl}} >
-    <h1>{{i.name}} {{i.surname}}</h1>
+      <!-- <img src={{i.imageURl}} >
+    <h1>{{i.name}} {{i.surname}}</h1> -->
     </div>
     <p class="p1">Artist</p>
     <div class="dash">
@@ -36,9 +37,10 @@
     </div>
     
     </div>
+  </ion-header>
 
 
-
+  <ion-content *ngFor = "let i of arr">
 
       <title>Artist</title>
         <ion-card>
@@ -48,16 +50,16 @@
               <p><ion-icon class="i" name="call"></ion-icon>Username</p>
               <h3 class="detail">BudaNyoni</h3>
               <p><ion-icon class="i" name="call"></ion-icon>Cell</p>
-              <h3 class="detail">{{i.cellno}}</h3>
+              <!-- <h3 class="detail">{{i.cellno}}</h3> -->
               <p><ion-icon class="i" name="call"></ion-icon> E-mail</p>
               <h3 class="detail">Dreamers@yahoo.com</h3>
               <p><ion-icon class="i" name="call"></ion-icon>Gender</p>
-              <h3 class="detail">{{i.gender}}</h3>
+              <!-- <h3 class="detail">{{i.gender}}</h3> -->
              
             </div>
             </ion-list>
           </ion-card-content>
         </ion-card>
     
-</ion-list>
+</ion-content>
         

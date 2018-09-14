@@ -51,7 +51,7 @@ if('Log-Out')
           this.pages = [
             { title: 'Home2', component: ArtisthomePage },
             { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ArtistProfilePage },
+            { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
           ];
            this.rootPage =  ArtisthomePage;
