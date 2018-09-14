@@ -8,33 +8,36 @@
     <div class="section">
   <ion-navbar color = "color" ></ion-navbar>
   <div class="logo" align="center">
-      <img src="../../assets/Pics/2372f27612fee17412c8e647fd76c199.jpg" >
-    <!-- <h1>Sibusiso Nyoni</h1> -->
+    <img class="pic" src="../../assets/imgs/face.webp">
+    <h1>Jorja Smith</h1>
     </div>
 </div>
+<button class="btn" ion-button color="own" round (click)="takePicture()"><ion-icon name="add"></ion-icon></button>
+
+<h2>Edit your Profile</h2>
 </ion-header>
-
-
-<ion-content padding>
-
 
   <ion-title>
     Update Profile
   </ion-title>
+
+<ion-content class="cont">
+    
+
 <br>
 
       <ion-item>
-        <!-- <ion-label fixed>Username</ion-label> -->
+        <ion-label><ion-icon name="contact"></ion-icon></ion-label>
         <ion-input placeholder ="Username" type="text" ></ion-input>
       </ion-item>
     
       <ion-item>
-        <!-- <ion-label fixed>E-mail</ion-label> -->
+        <ion-label><ion-icon name="mail"></ion-icon></ion-label>
         <ion-input  placeholder ="E-mail" type="text"></ion-input>
       </ion-item>
 
       <ion-item>
-        <!-- <ion-label fixed>Cell No.</ion-label> -->
+       <ion-label><ion-icon name="call"></ion-icon></ion-label>
         <ion-input  placeholder ="Cell No." type="number"></ion-input>
       </ion-item>
 
@@ -48,7 +51,7 @@
         </ion-item>
     
 <div class="butt">
-    <button ion-button color="own" round (click)="takePicture()">Take photo</button>
+  
   <button ion-button round color = "own">Update profile</button>
   </div>
 

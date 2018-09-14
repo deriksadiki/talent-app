@@ -24,6 +24,7 @@ import { UsersPage } from '../pages/users/users';
 import { ScoutPage } from '../pages/scout/scout';
 import {CommentsPage } from '../pages/comments/comments'
 
+
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
 import { ArtistProfileUpdatePage } from '../pages/artist-profile-update/artist-profile-update';
@@ -80,6 +81,7 @@ import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
     ScouteProfilePage
+
   ],
   providers: [
     StatusBar,

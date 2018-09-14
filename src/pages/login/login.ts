@@ -29,7 +29,6 @@ Reg(){
   this.navCtrl.push(RegisterPage);
 }
 
-
 showForgotPassword(){
   const prompt = this.alertCtrl.create({
     title: 'Enter Your Email',
@@ -86,7 +85,6 @@ showForgotPassword(){
   }
 
   login(){
-   var message;
     this.firebaseService.login(this.users.email,this.users.password).then(()=>{
       const alert = this.alertCtrl.create({
         title: 'Welcome',
