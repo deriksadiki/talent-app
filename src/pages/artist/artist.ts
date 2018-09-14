@@ -15,6 +15,7 @@ import { ArtisthomePage } from '../artisthome/artisthome';
 export class ArtistPage {
 
   artist = {} as Talent;
+  url;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
   }
@@ -77,29 +78,32 @@ export class ArtistPage {
       alert.present();
     
     }else {
-      this.firebaseService.registerTalentPerson(this.artist.username,this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
-               const alert = this.alertCtrl.create({
-                 title: 'Welcome',
-                 subTitle: 'You have successfully Registered',
-                 buttons: ['OK']
-               });
-               this.navCtrl.push(HomePage);
-               alert.present();
-               this.firebaseService.getuserType().then(()=>{
-                this.navCtrl.push(ArtisthomePage);
-                window.location.reload();
-                alert.present();
-               })
-            
-    }, Error =>{
-      const alert = this.alertCtrl.create({
-        title: 'warning!',
-        subTitle: Error,
-        buttons: ['OK']
-      });
-       alert.present();
-    })
-      }
+
+      this.firebaseService.addImage(this.artist.username).then(data =>{
+        console.log(data)
+        this.firebaseService.getimagepropicurl(this.artist.username).then(data =>{
+          console.log(data)
+          this.firebaseService.registerTalentPerson(this.artist.username,this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
+            this.firebaseService.getuserType().then(()=>{
+                            const alert = this.alertCtrl.create({
+                              title: 'Welcome',
+                              subTitle: 'You have successfully Registered',
+                              buttons: ['OK']
+                            });
+                            alert.present();   
+                            this.navCtrl.push(ArtisthomePage);
+                            window.location.reload();
+          })
+
+        }, Error =>{
+            const alert = this.alertCtrl.create({
+              title: 'warning!',
+              subTitle: Error,
+              buttons: ['OK']
+            });
+             alert.present();
+          })
+      })
   }
   takePicture(){
     const confirm = this.alertCtrl.create({
@@ -115,8 +119,10 @@ export class ArtistPage {
       buttons: [
         {
           text: 'Upload Photo',
-          handler: () => {
-            
+          handler: data => {
+         
+           // this.converImg(`${data.title}`);
+            //console.log(this.url);
           }
         },
         {
@@ -129,5 +135,47 @@ export class ArtistPage {
     });
     confirm.present();
   }
+  takePicture(){
+    const confirm = this.alertCtrl.create({
+      title: 'Options?',
+      message: 'Please Choose one of the options',
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Title',
+          type: 'file'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Upload Photo',
+          handler: data => {
+         
+           // this.converImg(`${data.title}`);
+            //console.log(this.url);
+          }
+        },
+        {
+          text: 'Take Photo',
+          handler: () => {
+         this.firebaseService.uploadpic();
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  converImg(event:any){
+ 
+      let reader = new FileReader();
+      reader.onload = (event:any) =>{
+        this.url = event.target.result;
+      }
+      reader.readAsDataURL(event.target);
+      console.log(this.url);
+    
+  }
+
 
 }

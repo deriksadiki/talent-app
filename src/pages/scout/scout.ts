@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ArtistProfilePage } from '../artist-profile/artist-profile';
 import { ModalController } from 'ionic-angular';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 
 
 @IonicPage()
@@ -10,12 +11,21 @@ import { ModalController } from 'ionic-angular';
   templateUrl: 'scout.html',
 })
 export class ScoutPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  videos = [];
+  constructor(private firebaseService:FirebaseProvider, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ScoutPage');
+  
+    this.firebaseService.getAllvideos().then((data:any) =>{
+      if (this.videos != null || this.videos != undefined){
+        this.videos = undefined;
+        this.videos = null;
+      }
+   
+       this.videos = data;
+     });
+  
   }
 
   view(){
