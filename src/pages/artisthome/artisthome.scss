@@ -7,17 +7,56 @@ page-artisthome {
         background-repeat: no-repeat;
         background-position: center;
         }
+        .logo{
+            color: rgb(236, 217, 217);
+            position: relative;
+            top: 2%;
+         }
+         .section{
+            background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+            background-attachment: fixed;
+            // background-color: black;
+            background-size: cover;
+            height: 31vh;
+           background-repeat: no-repeat;
+           background-position: center;
+        }
+        img{
+            height: 100px;
+            width: 100px;
+            border-radius: 50px;
+        }
+        .dash{
+            display: flex;
+            align-content: center;
+            text-align: center;
+            height: 10vh;
+            background-color: rgba(0, 0, 0, 0.288);
+            justify-content: center;
+            // padding: 10px;
+        }
+        p{
+            margin: 25px;
+            color: whitesmoke;
+            margin-bottom: 1px;
+        }
+        .com{
+            margin-right: 80px;
+        }
+        .time{
+            margin-left: 50%;
+        }
       
-        .fabs{
-            height: 50px;
-            width: 85%;
-        }
-        .fabi{
-            bottom:1%;
-            // left:48vh;
-            // margin-bottom: 30%;
-            margin-left: 85vw;
-            // top: 0;
+        // .fabs{
+        //     height: 50px;
+        //     width: 85%;
+        // }
+        // .fabi{
+        //     bottom:1%;
+        //     // left:48vh;
+        //     // margin-bottom: 30%;
+        //     margin-left: 85vw;
+        //     // top: 0;
             
-        }
+        // }
 }

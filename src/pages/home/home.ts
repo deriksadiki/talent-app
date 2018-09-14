@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, ViewController, AlertController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import {LoginPage} from '../login/login';
 
@@ -28,28 +28,29 @@ export class HomePage {
 
       if (event.target.files && event.target.files[0]){
         let reader = new FileReader();
+    
         reader.onload = (event:any) =>{
           this.url = event.target.result;
         }
         reader.readAsDataURL(event.target.files[0]);
-        console.log(this.url);
+
       }
+    
     }
     upload(){
-      console.log(this.url);
-    //   this.firebaseService.uploadvid(this.url).then(data =>{
-    //     console.log(data);
-    //      this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
-    //        console.log('added to db');
-    //      },
-    //     Error =>{
-    //       console.log(Error)
-    //     })
-    //   }, Error =>{
-    //     console.log(Error )
-    //   })
+      this.firebaseService.uploadvid(this.url).then(data =>{
+        console.log(data);
+         this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
+           console.log('added to db');
+           this.navCtrl.push(HomePage);
+         },
+        Error =>{
+          console.log(Error)
+        })
+      }, Error =>{
+        console.log(Error )
+      })
       
-    // }
+    }
   }
-}
 

@@ -11,6 +11,7 @@ import { ArtisthomePage } from '../artisthome/artisthome';
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
 import { ScoutProfileUpdatePage } from '../scout-profile-update/scout-profile-update';
 import { HomePage } from '../home/home';
+import { ScouteProfilePage } from '../scoute-profile/scoute-profile';
 
 
 @IonicPage()
@@ -55,6 +56,6 @@ User(){
     this.navCtrl.push(HomePage);
   }
   artProfUpdate(){
-    this.navCtrl.push(ArtistProfileUpdatePage);
+    this.navCtrl.push(ScouteProfilePage);
   }
 }

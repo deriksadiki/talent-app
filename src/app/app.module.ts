@@ -22,12 +22,14 @@ import { LogoutPage } from '../pages/logout/logout';
 import { ProfilePage } from '../pages/profile/profile';
 import { UsersPage } from '../pages/users/users';
 import { ScoutPage } from '../pages/scout/scout';
+import {CommentsPage } from '../pages/comments/comments'
 
 
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
 import { ArtistProfileUpdatePage } from '../pages/artist-profile-update/artist-profile-update';
 import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-profile-update';
+import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 
 
 
@@ -43,6 +45,7 @@ import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-prof
     RecruiterPage,
     UserPage,
     ArtistPage,
+    CommentsPage ,
     LogoutPage,
     ProfilePage,
     ArtisthomePage,
@@ -51,7 +54,7 @@ import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-prof
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
-   
+    ScouteProfilePage  
 ],
   imports: [
     BrowserModule,
@@ -64,6 +67,7 @@ import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-prof
     ListPage,
     LoginPage,
     SecondPage,
+    CommentsPage ,
     RegisterPage,
     RecruiterPage,
     UserPage,
@@ -76,7 +80,8 @@ import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-prof
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
-    
+    ScouteProfilePage
+
   ],
   providers: [
     StatusBar,
