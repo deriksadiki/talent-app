@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
+import {CommentsPage} from '../comments/comments'
+import { ArtistProfilePage } from '../artist-profile/artist-profile';
+import { ProfilePage } from '../profile/profile';
+import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
+
 
 @IonicPage()
 @Component({
@@ -19,12 +24,19 @@ videos = [];
       this.videos = undefined;
       this.videos = null;
     }
- 
      this.videos = data;
-     console.log(this.videos)
+     console.log(this.videos);
 
    });
 
+  }
+
+  test(indexNUmber){
+    this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
+  }
+
+  Profile(){
+    this.navCtrl.push(ArtistProfilePage);
   }
 
 }

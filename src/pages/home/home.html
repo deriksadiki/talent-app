@@ -1,35 +1,30 @@
 
   <ion-header>
-      <!-- <ion-fab top right edge>
-          <button ion-fab mini><ion-icon name="add"></ion-icon></button>
-          <ion-fab-list>
-            <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-            <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-            <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-            <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-          </ion-fab-list>
-        </ion-fab> -->
-        <ion-fab class="fabi"  >
-          <button color = "own" ion-fab mini><ion-icon name="menu"></ion-icon></button>
-          <ion-fab-list >
-            <!-- <button class="fabs" ion-fab color = "own" (click)="Home()" >Home</button> -->
-            <button class="fabs" ion-fab color = "own" (click)="Category()">Category</button>
-            <button class="fabs" ion-fab color = "own" (click)="LogOut()">Log-Out</button>
-          </ion-fab-list>
-        </ion-fab>
+     
+  
       <div class="section">  
-      <ion-navbar color = "color" ></ion-navbar>  
+      <ion-navbar color = "color" >
+        artist
+        <button ion-button menuToggle icon-only>
+          <ion-icon name='menu'></ion-icon>
+        </button>
+      </ion-navbar> 
+       
+      <div class="logo" align="center">
+        <img class="logo" src="../../assets/imgs/play-button (1).png">
+      </div>
+      <h1 align="center">Vid'It.</h1>
       </div> 
       </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 
 
   <br>
  <ion-card> 
    <ion-item class="item item-trns text-center">
-          <input type="file" (change)="insertvid($event)">
+          <input type="file" (change)="insertvid($event)" >
         </ion-item>
   </ion-card>
         <ion-card>
@@ -60,9 +55,11 @@
        </ion-item>
        
 </ion-card>
-  
-<button (click)="upload()" ion-button>upload</button>
+  <div align = "center" >
+<button (click)="upload()" round color = "own" ion-button>upload</button>
+</div>
+<br>
 
-
+<!-- <button (click)="upload()" ion-button>upload</button> -->
 
 </ion-content>
