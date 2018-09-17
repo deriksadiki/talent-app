@@ -1,7 +1,11 @@
 page-users {
+    font-family: 'Ubuntu', sans-serif;
 //  ion-fab{
 //      width: 20px;
-//  }
+//  }ion-card.card{
+    ion-card.card{
+        border-radius: 12px;
+    }
 .fabs{
     height: 50px;
     width: 85%;
@@ -22,5 +26,14 @@ page-users {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    }
+    .com{
+        margin-right: 30px;
+    }
+    .time{
+        margin-left: 85px;
+    }
+    h1{
+        color: whitesmoke;
     }
 }

@@ -1,5 +1,19 @@
 page-scout {
-
+    font-family: 'Ubuntu', sans-serif;
+ion-card.card{
+    border-radius: 12px;
+}
+.com{
+    margin-right: 85px;
+}
+.time{
+    // margin-left: 85%;
+}
+.pic{
+    width: 50%;
+    height: 50px;
+    // padding: 20px;
+}
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -31,7 +45,10 @@ page-scout {
 
 
 
-       
+     
+        h1{
+            color: whitesmoke
+        }
         
 
 }

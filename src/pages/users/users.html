@@ -1,9 +1,9 @@
 
    <ion-header>
       <ion-navbar color = "own" >
-        <!-- <button ion-button menuToggle icon-only>
+        <button ion-button menuToggle icon-only>
           <ion-icon name='menu'></ion-icon>
-        </button> -->
+        </button>
        
         <ion-title>
          Users Home
@@ -22,6 +22,9 @@
 
     
     <ion-content class="img">
+
+      <h1 align = "center" > <ion-icon name="flame"></ion-icon>&emsp;Top Trending</h1>
+      <br>
         <ion-card>
 
             <ion-item>
@@ -32,38 +35,41 @@
             </ion-item>
           
             <!-- video -->
-            <video width="320" height="240" controls>
+            <video width="390" height="240" controls>
                 <source src="movie.mp4" type="video/mp4">
             </video>
   
             <ion-card-content>
-              <p>Sensational soul music</p>
-            </ion-card-content>
+              <h2>Sensational soul music</h2>
+
           
+                     
             <ion-row>
-              <ion-col>
-                <button ion-button icon-start clear small>
-                  <ion-icon name="thumbs-up"></ion-icon>
-                  <div>12 Likes</div>
-                </button>
-              </ion-col>
-              <ion-col>
-                <button ion-button icon-start clear small>
-                  <ion-icon name="text"></ion-icon>
-                  <div>4 Comments</div>
-                </button>
-              </ion-col>
-              <ion-col center text-center>
-                <ion-note>
-                 11 hrs
-                </ion-note>
-              </ion-col>
-           
-               <button ion-button icon-start clear small (click)="viewartist()">
-                <ion-icon name="update"></ion-icon>
-                <div>View Artist</div>
-              </button>
-              </ion-row> 
+                <ion-col>
+                  <button ion-button icon-start clear small>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div>12 Likes</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button  class="com" ion-button icon-start clear small center>
+                    <ion-icon name="text"></ion-icon>
+                    <div>4 Comments</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                <button ion-button icon-start clear small (click)="view()">
+                   <ion-icon name="update"></ion-icon>
+                   <div>View Profile</div>
+                 </button>
+               </ion-col>
+                <ion-col >
+                  <ion-note class="time">
+                   11 hrs
+                  </ion-note>
+                </ion-col>
+                </ion-row>        
+                   </ion-card-content>
           </ion-card>
   
   
@@ -78,39 +84,41 @@
             </ion-item>
           
             <!-- video -->
-            <video width="320" height="240" controls>
+            <video width="390" height="240" controls>
                 <source src="movie.mp4" type="video/mp4">
               
               </video>
   
             <ion-card-content>
-              <p>Sensational soul music</p>
-            </ion-card-content>
+              <h2>Sensational soul music</h2>
+      
           
             <ion-row>
-              <ion-col>
-                <button ion-button icon-start clear small>
-                  <ion-icon name="thumbs-up"></ion-icon>
-                  <div>12 Likes</div>
-                </button>
-              </ion-col>
-              <ion-col>
-                <button ion-button icon-start clear small>
-                  <ion-icon name="text"></ion-icon>
-                  <div>4 Comments</div>
-                </button>
-              </ion-col>
-              <ion-col center text-center>
-                <ion-note>
-                 11 hrs
-                </ion-note>
-              </ion-col>
-           
-               <button ion-button icon-start clear small (click)="viewartist()">
-                <ion-icon name="update"></ion-icon>
-                <div>View Artist</div>
-              </button>
-              </ion-row> 
+                <ion-col>
+                  <button ion-button icon-start clear small>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div>12 Likes</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button  class="com" ion-button icon-start clear small center>
+                    <ion-icon name="text"></ion-icon>
+                    <div>4 Comments</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                <button ion-button icon-start clear small (click)="view()">
+                   <ion-icon name="update"></ion-icon>
+                   <div>View Profile</div>
+                 </button>
+               </ion-col>
+                <ion-col >
+                  <ion-note class="time">
+                   11 hrs
+                  </ion-note>
+                </ion-col>
+                </ion-row> 
+              </ion-card-content>
           </ion-card>
 
       </ion-content>

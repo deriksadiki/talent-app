@@ -1,5 +1,71 @@
 page-profile {
+    font-family: 'Ubuntu', sans-serif;
+    // .img{
+    //     background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+    //     background-attachment: fixed;
+    //     background-color: black;
+    //     background-size: cover;
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     height: 350px;
+ 
+    //     }
+ 
+    //     .pic{
+    //         width: 40%;
+    //         height: 45%;
+    //         border-radius: 60%;
+    //         position: relative;
+    //         top: 4px;
+    //     }
+ 
+    //     h1{
+    //         color: rgb(255, 255, 255);
+    //         font-weight: 100;
+    //     }
+ 
+    //     h2{
+    //         font-weight: 100;
+    //     }
+ 
+    //     // .butt{
+    //     //     position: relative;
+ 
+    //     // }
 
+    //         position: relative;
+    //         bottom: 140px;
+    //         width: 50px;
+    //         left: 24%;
+    //         height: 50px;
+    //         color: rgb(255, 255, 255);
+    //         font-size: 180%;
+           
+    //     }
+ 
+    //     .cont{
+    //         background-color: rgb(255, 255, 255);
+    //     }
+ 
+    //     p{
+    //         color: rgb(134, 132, 132);
+    //         font-weight: 100;
+    //         font-size: 120%;
+    //     }
+ 
+    //     .dash{
+    //         background-color: rgba(53, 52, 52, 0.555);
+    //         color: white;
+    //         height: 24%;
+    //         // border-left: 2px solid white;
+ 
+    //     }
+    //     .list{
+    //         position: relative;
+    //         left: 25%;
+    //         bottom: 10px;
+            
+    //     }
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -26,13 +92,14 @@ page-profile {
  
         h2{
             font-weight: 100;
+            color: rgb(134, 132, 132);
         }
  
         // .butt{
         //     position: relative;
  
         // }
-
+ 
             position: relative;
             bottom: 140px;
             width: 50px;
@@ -40,7 +107,7 @@ page-profile {
             height: 50px;
             color: rgb(255, 255, 255);
             font-size: 180%;
-           
+ 
         }
  
         .cont{
@@ -56,16 +123,32 @@ page-profile {
         .dash{
             background-color: rgba(53, 52, 52, 0.555);
             color: white;
-            height: 24%;
+            height: 23%;
             // border-left: 2px solid white;
+            font-size: 50%;
  
         }
         .list{
             position: relative;
             left: 25%;
             bottom: 10px;
-            
+            font-size: 55%;
+            font-weight: 100%;
+ 
         }
+        #btn{
+            position: relative;
+            bottom: 335px;
+            left: 40%;
+            color: #F53D4E;
+            background-color: white;
+            border-radius: 100%;
+            width: 15%;
+            height: 15%;
+        }
+ 
+
+
 
        
 

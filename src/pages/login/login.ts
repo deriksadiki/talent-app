@@ -93,6 +93,7 @@ showForgotPassword(){
       });
       alert.present();
       this.firebaseService.getuserType().then(data =>{
+        console.log(data)
         if (data == "normalPerson"){
           window.location.reload();
           this.navCtrl.push(UsersPage);
@@ -102,7 +103,7 @@ showForgotPassword(){
           window.location.reload();
 
         }
-        else{
+        else if (data  == "ScoutPerson"){
             this.navCtrl.push(ScoutPage);
             window.location.reload();
     
@@ -130,6 +131,14 @@ showForgotPassword(){
           title: 'Warning!',
           subTitle: 'Password cannot be left out!',
           buttons: ['Ok']
+        });
+        alert.present();
+      }
+      else{
+        const alert = this.alertCtrl.create({
+          title: 'Warning!',
+          message: Error,
+          buttons: ['OK']
         });
         alert.present();
       }

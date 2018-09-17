@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import {LoginPage} from '../login/login';
+import { ArtisthomePage } from '../artisthome/artisthome';
 
 // import { SecondPage } from '../second/second';
 
@@ -36,20 +37,19 @@ export class HomePage {
       }
     }
     upload(){
-      console.log(this.url);
-    //   this.firebaseService.uploadvid(this.url).then(data =>{
-    //     console.log(data);
-    //      this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
-    //        console.log('added to db');
-    //      },
-    //     Error =>{
-    //       console.log(Error)
-    //     })
-    //   }, Error =>{
-    //     console.log(Error )
-    //   })
+      this.firebaseService.uploadvid(this.url).then(data =>{
+        console.log(data);
+         this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
+           console.log('added to db');
+           this.navCtrl.push(ArtisthomePage);
+         },
+        Error =>{
+          console.log(Error)
+        })
+      }, Error =>{
+        console.log(Error )
+      })
       
-    // }
-  }
+    }
 }
 

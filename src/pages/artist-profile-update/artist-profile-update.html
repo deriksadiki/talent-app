@@ -13,16 +13,13 @@
     </div>
 </div>
 <button class="btn" ion-button color="own" round (click)="takePicture()"><ion-icon name="add"></ion-icon></button>
-
-<h2>Edit your Profile</h2>
 </ion-header>
 
 <ion-content class="cont">
     
-  
-<br>
-
-    <ion-list no-lines>
+<ion-card-content>
+ <br>
+<h2>Edit your Profile</h2>
 
       <ion-item>
         <ion-label><ion-icon name="contact"></ion-icon></ion-label>
@@ -30,7 +27,7 @@
       </ion-item>
     
       <ion-item>
-        <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+        <ion-label><ion-icon name="at" class="i"></ion-icon></ion-label>
         <ion-input  placeholder ="E-mail" type="text"></ion-input>
       </ion-item>
 
@@ -40,18 +37,17 @@
       </ion-item>
 
       <ion-item class="items">
-          <ion-label > <ion-icon ios="ios-body" md="md-body" class="i"></ion-icon></ion-label>
-          <ion-select [(ngModel)]="gaming" placeholder="Gender" item-center>
+          <ion-label ><ion-icon ios="ios-transgender" md="md-body" class="i"></ion-icon></ion-label>
+          <ion-select  class="boxs" [(ngModel)]="gaming" placeholder="Gender" item-center>
               <ion-option value="Male">Male</ion-option>
               <ion-option value="Female">Female</ion-option>
             </ion-select>
           <!-- <ion-input placeholder="Gender" type="text" [(ngModel)]= "artist.gender"></ion-input> -->
         </ion-item>
-    
-    </ion-list>
+ 
 <div class="butt">
-  
   <button ion-button round color = "own">Update profile</button>
   </div>
- 
+
+  </ion-card-content>
 </ion-content>

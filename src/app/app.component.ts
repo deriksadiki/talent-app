@@ -21,6 +21,7 @@ import { ArtisthomePage } from '../pages/artisthome/artisthome';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  activePage: any;
 
   public rootPage: any;
 
@@ -40,11 +41,10 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
-            { title: 'Home', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
+            { title: 'Home', component: UsersPage,  },
             { title: 'Log-Out', component: LogoutPage },
           ];
+          
         }
         else if (data == "talentPerson"){
           this.pages = [
@@ -58,8 +58,7 @@ if('Log-Out')
         else if (data == "ScoutPerson"){
          
           this.pages = [
-            { title: 'Home', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
+            { title: 'Home', component: ScoutPage },
             { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
           ];
