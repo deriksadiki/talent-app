@@ -12,6 +12,8 @@ import { ScoutPage} from '../pages/scout/scout'
 import { UsersPage } from '../pages/users/users';
 import { LogoutPage } from '../pages/logout/logout';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
+import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
+import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 
 
 
@@ -21,6 +23,7 @@ import { ArtisthomePage } from '../pages/artisthome/artisthome';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  activePage: any;
 
   public rootPage: any;
 
@@ -36,33 +39,44 @@ if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
       if (data == 1){
         this.firebaseService.getuserType().then(data =>{
+          console.log(data)
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
-            { title: 'Home1', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
+<<<<<<< HEAD
+            { title: 'Home', component: UsersPage,  },
+=======
+
+            { title: 'Home', component: UsersPage },
+            { title: 'Share', component: HomePage },
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
             { title: 'Log-Out', component: LogoutPage },
           ];
+          
         }
         else if (data == "talentPerson"){
           this.pages = [
-            { title: 'Home2', component: ArtisthomePage },
+            { title: 'Home', component: ArtisthomePage },
             { title: 'Upload', component: HomePage },
             { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
           ];
            this.rootPage =  ArtisthomePage;
         }
-        else{
-          this.rootPage = ScoutPage;
+        else if (data == "ScoutPerson"){
           this.pages = [
-            { title: 'Home3', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
+            { title: 'Home', component: ScoutPage },
+<<<<<<< HEAD
             { title: 'Profile', component: ProfilePage },
+=======
+             { title: 'Upload', component: HomePage },
+            { title: 'Profile', component:ScouteProfilePage },
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
             { title: 'Log-Out', component: LogoutPage },
           ];
+          this.rootPage = ScoutPage;
         }
+  
       })
       }
       else{

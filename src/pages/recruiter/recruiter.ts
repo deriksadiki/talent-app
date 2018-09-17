@@ -35,7 +35,7 @@ if (this.recrt.email == undefined && this.recrt.password == undefined && this.re
 } else if (this.recrt.surname == undefined){
   const alert = this.alertCtrl.create({
     title: 'Warning',
-    subTitle: 'Surname cannot be left out!',
+    subTitle: 'Username cannot be left out!',
     buttons: ['OK']
   });
   alert.present();

@@ -1,5 +1,5 @@
 page-recruiter {
-
+    font-family: 'Ubuntu', sans-serif;
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -33,20 +33,26 @@ img{
     // color: white;
     width: 80%;
     margin-bottom: 10px;
-
     position: relative;
-    left: 10%;
+    right: 15%;
     border-radius: 30px;
     padding: 0.5px;
     padding-left: 7%;
+    top: 8px;
     
    
 }
 .i{
     margin-right: 15px;
+   
 }
 .butt{
     text-align: center;
+    position: relative;
+    bottom: 9px;
+}
+.btn{
+    width: 60%;
 }
 h1{
     color: rgb(236, 217, 217);

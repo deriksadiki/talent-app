@@ -1,4 +1,5 @@
 page-scout-profile-update {
+    font-family: 'Ubuntu', sans-serif;
     ion-card.card{
         border-radius: 12px;
         box-shadow: 2px 2px 4px 2px;
@@ -14,16 +15,46 @@ page-scout-profile-update {
     }
     .item{
         // box-shadow: 2px 2px 2px ;
-        border-radius: 12px;
-        margin-block-end: 20px;
+        // border-radius: 12px;
+        // margin-block-end: 20px;
+         position: relative;
+         right: 100px;
+         top: 40px;
+       
     }
     img{
-        height: 100px;
-        width: 100px;
-        margin: 15%;
-        border-radius: 50px;
+        width: 38%;
+        height: 150px;
+        border-radius: 60%;
+        position: relative;
+        top: 4px;
     }
     .butt{
         text-align: center;
+        margin-top: 20%;
+    }
+
+    h2{
+        font-weight: 100;
+        text-align: center;
+        position: relative;
+    }
+
+    h1{
+        color: rgb(255, 255, 255);
+        font-weight: 100;
+        font-size: 40px;
+
+    }
+
+    .btn{
+        height: 50px;
+        width: 50px;
+        position: relative;
+        bottom: 120px;
+        left: 13%;
+        background-color: white;
+        color: #F53D4E;
+
     }
 }

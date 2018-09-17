@@ -21,5 +21,7 @@ export class ArtistProfileUpdatePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ArtistProfileUpdatePage');
   }
-
+Update(){
+  this.navCtrl.push(ArtistProfileUpdatePage);
+}
 }

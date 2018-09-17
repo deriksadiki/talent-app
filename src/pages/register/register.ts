@@ -11,6 +11,11 @@ import { ArtisthomePage } from '../artisthome/artisthome';
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
 import { ScoutProfileUpdatePage } from '../scout-profile-update/scout-profile-update';
 import { HomePage } from '../home/home';
+<<<<<<< HEAD
+import { ProfilePage } from '../profile/profile';
+=======
+import { ScouteProfilePage } from '../scoute-profile/scoute-profile';
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
 
 
 @IonicPage()
@@ -55,6 +60,9 @@ User(){
     this.navCtrl.push(HomePage);
   }
   artProfUpdate(){
-    this.navCtrl.push(ArtistProfileUpdatePage);
+    this.navCtrl.push(ScouteProfilePage);
+  }
+  Profile(){
+    this.navCtrl.push(ProfilePage);
   }
 }
