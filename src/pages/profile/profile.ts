@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Recruit} from '../../Modals/Recruit'
 import {FirebaseProvider} from '../../providers/firebase/firebase'
+import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
 
 
 /**
@@ -44,7 +45,7 @@ export class ProfilePage {
 
 
   update(){
-
+this.navCtrl.push(ArtistProfileUpdatePage);
   }
 
 }
