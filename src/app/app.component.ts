@@ -12,6 +12,7 @@ import { ScoutPage} from '../pages/scout/scout'
 import { UsersPage } from '../pages/users/users';
 import { LogoutPage } from '../pages/logout/logout';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
+import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 
 
 
@@ -31,7 +32,14 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
- 
+   
+    this.pages = [
+      { title: 'Home3', component: ArtisthomePage },
+      // { title: 'Upload', component: HomePage },
+      { title: 'Profile', component: ScouteProfilePage },
+      { title: 'Log-Out', component: LogoutPage },
+    ];
+    this.rootPage = ArtisthomePage;
 if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
       if (data == 1){
@@ -40,8 +48,8 @@ if('Log-Out')
           this.rootPage = UsersPage;
           this.pages = [
             { title: 'Home1', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
+            // { title: 'Upload', component: HomePage },
+            // { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
           ];
         }
@@ -54,14 +62,8 @@ if('Log-Out')
           ];
            this.rootPage =  ArtisthomePage;
         }
-        else{
-          this.rootPage = ScoutPage;
-          this.pages = [
-            { title: 'Home3', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
-            { title: 'Log-Out', component: LogoutPage },
-          ];
+        else if (data == "ScoutPerson"){
+     
         }
       })
       }

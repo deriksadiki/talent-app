@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 
 
 
@@ -11,12 +12,12 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ArtistProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private view: ViewController,private firebaseService:FirebaseProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ArtistProfilePage');
-  }
+    }
 
   close(){
     this.view.dismiss();

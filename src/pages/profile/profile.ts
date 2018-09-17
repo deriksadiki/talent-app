@@ -17,9 +17,10 @@ import {Recruit} from '../../modals/Recruit';
 })
 export class ProfilePage {
 
-  arr = new Array();
+  // public list:Array<Object>;
   dbRef;
   datas;
+  arr2= []; 
 
   recruit = {} as Recruit;
 
@@ -35,10 +36,13 @@ export class ProfilePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService:FirebaseProvider) {
     this.firebaseService.getuserType();
+    this.firebaseService.viewArtistProfile();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+    this.firebaseService.viewArtistProfile().then((data:any) =>{
+      this.arr2 = data;
+    })
   }
 
 

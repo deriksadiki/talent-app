@@ -96,15 +96,20 @@ showForgotPassword(){
       this.firebaseService.getuserType().then(data =>{
         if (data == "normalPerson"){
           window.location.reload();
-          this.navCtrl.push(UsersPage);
+
         }
         else if (data == "talentPerson"){
-          this.navCtrl.push(ArtisthomePage);
+
+          window.location.reload();
+
+        }
+        else if (data == "ScoutPerson"){
+
           window.location.reload();
 
         }
         else{
-            this.navCtrl.push(ScoutPage);
+
             window.location.reload();
     
         }

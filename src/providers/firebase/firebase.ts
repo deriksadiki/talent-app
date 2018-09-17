@@ -20,6 +20,11 @@ export class FirebaseProvider {
   username;
   imgurl;
   currentUserID;
+  name;
+  name2;
+
+  arr = new Array();
+  arr2 = new Array();
 
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
 
@@ -254,5 +259,59 @@ this.imgurl =  url;
 storeuserid(uid){
   this.currentUserID = uid;
 }
+
+storeArtistName(name){  
+  this.name2 = name;
+
+}
+
+ viewArtistProfile(){
+   console.log(this.currentUserID);
+   return new Promise ((accpt, rej) =>{
+    this.database.ref('users/' + this.currentUserID).on('value', (data: any) => {
+      var details =  data.val();
+      console.log(details);
+  
+      var  artistProfiles = Object.keys(details);
+      for (var x = 0; x < artistProfiles.length; x++){
+        var k = artistProfiles[x];
+        
+        let obj = {
+          name:details[k].name,
+          surname: details[k].surname,
+          age: details[k].age,
+          cellno: details[k].cellno,
+        }
+        this.arr.push(obj);
+      }
+      console.log(this.arr);
+      accpt(this.arr);
+    })
+   })
+ }
+
+ viewScoutProfile(){
+   console.log(this.currentUserID);
+   return new Promise((accpt,rej) =>{
+     this.database.ref('users/' + this.currentUserID).on('value',(data:any) =>{
+       var details2 = data.val();
+       console.log(details2);
+
+      //  var scoutProfile = Object.keys(details2);
+      //  for(var x = 0;x < scoutProfile.length;x++){
+      //    var k = scoutProfile[x];
+
+      //    let obj = {
+      //      name: details2[k].name,
+      //      surname: details2[k].surname,
+      //      companyName: details2[k].companyName
+      //    }
+      //    this.arr2.push(obj);
+      //  }
+      //  console.log(this.arr2);
+      //  accpt(this.arr2);
+     })
+   })
+ }
 
 }

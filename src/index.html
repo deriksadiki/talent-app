@@ -16,6 +16,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+  <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAfp-bkUOqMbMR-Z5Nfo9lHKQc2ixJc18s",
+      authDomain: "talentappdb.firebaseapp.com",
+      databaseURL: "https://talentappdb.firebaseio.com",
+      projectId: "talentappdb",
+      storageBucket: "talentappdb.appspot.com",
+      messagingSenderId: "507641056616"
+    };
+    firebase.initializeApp(config);
+  </script>
+
   <!-- cordova.js required for cordova apps (remove if not needed) -->
   <script src="cordova.js"></script>
 
@@ -30,21 +44,6 @@
 
   <link href="build/main.css" rel="stylesheet">
   <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
-  <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
- <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyDHEGUHlTlAPs3ll5WmDYaDicQiNOO6nns",
-      authDomain: "talentapp-98f45.firebaseapp.com",
-      databaseURL: "https://talentapp-98f45.firebaseio.com",
-      projectId: "talentapp-98f45",
-      storageBucket: "talentapp-98f45.appspot.com",
-      messagingSenderId: "505281381491"
-    };
-    firebase.initializeApp(config);
-  </script>
 </head>
 <body>
 

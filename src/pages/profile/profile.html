@@ -8,7 +8,6 @@
       
       <img class="pic" src="../../assets/imgs/face.webp">
       <h1>Jorja Smith</h1>
-      
       <ion-grid class="dash">
       <ion-row>
         <ion-col>
@@ -38,23 +37,16 @@
       </ion-header>
       
       
-      <ion-content class="cont">
+      <ion-content  class="cont">
         <div align="center">
-            <h2>Your Vid'It profile</h2>
+          <h2>Your Vid'It profile</h2>
           </div>
           <br>
-      
-          <div>
-      
-      <ion-list class="list">
-      
-        <p><ion-icon name="contact"></ion-icon>&emsp;Jorja</p>
-        <p><ion-icon name="contact"></ion-icon>&emsp;Smith</p>
-        <p><ion-icon name="mail"></ion-icon>&emsp;JorjaSmith23@gmail.com</p>
-        <p><ion-icon name="transgender"></ion-icon>&emsp;Female</p>
-        <p><ion-icon name="call"></ion-icon>&emsp;0168753482</p>
-        <p><p><ion-icon name="contact"></ion-icon>&emsp;30</p>
+      <ion-list *ngFor="let x of arr2" class="list">
+        <p><ion-icon name="contact"></ion-icon>&emsp;{{x.name}}</p>
+        <p><ion-icon name="contact"></ion-icon>&emsp;{{x.surname}}</p>
+        <p><ion-icon name="mail"></ion-icon>&emsp;{{x.cellno}}</p>
+        <p><ion-icon name="transgender"></ion-icon>&emsp;{{x.gender}}</p>
+        <p><p><ion-icon name="contact"></ion-icon>&emsp;Age:{{x.age}}</p>
       </ion-list>
-      
-      </div>
       </ion-content>
