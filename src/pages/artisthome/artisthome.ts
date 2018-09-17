@@ -14,6 +14,7 @@ import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile
 })
 export class ArtisthomePage {
 videos = [];
+color = "grey";
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider) {
   }
 
@@ -30,7 +31,15 @@ videos = [];
    });
 
   }
-
+like(){
+  console.log(this.color);
+    if (this.color == "grey"){
+      this.color = "primary"
+    }
+    else{
+      this.color = "grey";
+    }
+}
   test(indexNUmber){
     this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
   }

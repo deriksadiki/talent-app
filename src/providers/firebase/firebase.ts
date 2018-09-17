@@ -337,11 +337,12 @@ getProfile(){
 
 comment(key,text){
   return new Promise ((accpt, rej) =>{
-    var today = moment().format("Do MMM");
+    var today = moment().format('l');  
     this.database.ref('comments/' + key).push({
       text:text,
       username: this.username,
-      date : today
+      date : today,
+      img : this.imgurl
     })
     accpt("comment added")
   })
@@ -360,7 +361,8 @@ getcomments(key){
           let obj = {
             date : details[key].date,
             text :  details[key].text,
-            name : details[key].username
+            name : details[key].username,
+            img :  details[key].img
           }
           this.comments.push(obj)
         }
@@ -379,4 +381,10 @@ addNumComments(key, numComments, user){
   this.database.ref('uploads/' + user+ "/"+ key).update({comments: num});
   console.log("comment number added")
 }
+
+likeVideo(){
+
+}
+
+
 }

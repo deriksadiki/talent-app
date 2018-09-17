@@ -42,8 +42,8 @@
             <p>{{i.vidDesc}}</p>
             <ion-row>
               <ion-col>
-                <button ion-button icon-start clear small>
-                  <ion-icon name="thumbs-up"></ion-icon>
+                <button ion-button icon-start clear small (click)="like()">
+                  <ion-icon color ={{color}} name="thumbs-up" ></ion-icon>
                   <div>{{i.likes}} Likes</div>
                 </button>
               </ion-col>
