@@ -5,10 +5,14 @@ import {Camera,CameraOptions} from '@ionic-native/camera';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 import { LoadingController } from 'ionic-angular';
+<<<<<<< HEAD
 import { dateDataSortValue } from 'ionic-angular/util/datetime-util';
 
  
 
+=======
+import moment from 'moment';
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
 declare var firebase;
 
 @Injectable()
@@ -42,6 +46,8 @@ export class FirebaseProvider {
   imgurl;
 
   currentUserID;
+  profile =  new Array();
+  comments =  new Array();
 
  
 
@@ -108,6 +114,7 @@ login(email, password){
   }
 
   registerTalentPerson(username,email,password, name, surname, gender, cellno, age){
+<<<<<<< HEAD
 
     let loading = this.loadingCtrl.create({
 
@@ -121,6 +128,14 @@ login(email, password){
 
     loading.present();
 
+=======
+    let loading = this.loadingCtrl.create({
+      spinner: 'bubbles',
+      content: 'Please wait',
+      duration: 17000
+    });
+    loading.present();
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
       this.username =  username;
 
       return new Promise((accept,reject) =>{
@@ -142,11 +157,16 @@ login(email, password){
           cellno:cellno,
 
           age:age,
+<<<<<<< HEAD
 
           userType: "talentPerson",
 
           imageURl:  this.imgurl
 
+=======
+          userType: "talentPerson",
+          imageURl:  this.imgurl
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
         })
         loading.dismiss();
         accept("success");
@@ -166,9 +186,13 @@ login(email, password){
  
 
   registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno){
+<<<<<<< HEAD
 
   
 
+=======
+   
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
     return new Promise((accept,reject) =>{
 
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
@@ -245,7 +269,41 @@ login(email, password){
 
     return this.authnticate.sendPasswordResetEmail(email);
 
+<<<<<<< HEAD
   }
+=======
+addImage(username){
+  let loading = this.loadingCtrl.create({
+    spinner: 'bubbles',
+    content: 'Please wait',
+    duration: 17000
+  });
+  loading.present();
+  return new Promise ((accpt, rej) =>{
+    this.storageRef.ref('pictures/' + username + ".jpg").putString(this.image, 'data_url');
+    loading.dismiss();
+    accpt("image added to storage")
+  })
+
+}
+
+getimagepropicurl(username){
+  let loading = this.loadingCtrl.create({
+    spinner: 'bubbles',
+    content: 'Please wait',
+    duration: 5000
+  });
+  loading.present();
+return new Promise ((accpt,rej) =>{
+  var storageRef = firebase.storage().ref('pictures/' + username + ".jpg");
+  storageRef.getDownloadURL().then(url => {
+    this.storePictureUrl(url);
+    loading.dismiss();
+    accpt("image url found")
+  })
+})
+}
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
 
  
 
@@ -340,9 +398,13 @@ return new Promise ((accpt,rej) =>{
             const results = await this.camera.getPicture(options);
 
           this.image = `data:image/jpeg;base64,${results}`;
+<<<<<<< HEAD
 
           console.log(this.image);
 
+=======
+          console.log(this.image);
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
   }
 
  
@@ -360,6 +422,7 @@ return new Promise ((accpt,rej) =>{
       duration: 17000
 
     });
+<<<<<<< HEAD
 
     loading.present();
 
@@ -371,6 +434,13 @@ return new Promise ((accpt,rej) =>{
 
     loading.dismiss();
 
+=======
+    loading.present();
+  return new Promise((accpt,rejc) =>{
+
+  this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
+    loading.dismiss();
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
     accpt(d);
 
   }, Error =>{
@@ -400,7 +470,11 @@ storeToDB(name, category, vidname, vidDesc){
 
   loading.present();
   return new Promise((accpt,rejc) =>{
+<<<<<<< HEAD
 
+=======
+    var today = moment().format("Do MMM");
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
     var storageRef = firebase.storage().ref(name + ".mp4");
 
     storageRef.getDownloadURL().then(url => {
@@ -427,10 +501,17 @@ storeToDB(name, category, vidname, vidDesc){
             description: vidDesc,
 
             username : this.username,
+<<<<<<< HEAD
 
             userImg : this.imgurl,
             date : today
 
+=======
+            userImg : this.imgurl,
+            date : today,
+            likes : 0,
+            comments : 0
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
           });
           loading.dismiss();
 
@@ -451,17 +532,24 @@ storeToDB(name, category, vidname, vidDesc){
  
 
 getAllvideos(){
+<<<<<<< HEAD
 
  
 
+=======
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
   return new Promise ((accpt, rej) =>{
 
     this.database.ref('uploads/').on('value', (data: any) => {
 
       var videos = data.val();
+<<<<<<< HEAD
 
       this.videoArray.length = 0;
 
+=======
+      this.videoArray.length = 0;
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
       var keys:any =  Object.keys(videos);
 
         for (var i = 0; i < keys.length; i++){
@@ -477,7 +565,10 @@ getAllvideos(){
            details = data2.val();
 
             })
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
           var keys2:any = Object.keys(details);
 
           for (var a = 0; a < keys2.length; a++){
@@ -485,7 +576,12 @@ getAllvideos(){
                 var key = keys2[a];
 
                 let obj = {
+<<<<<<< HEAD
 
+=======
+                likes: details[key].likes,
+                comments : details[key].comments,
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
                 vidurl : details[key].downloadurl,
 
                 vidDesc : details[key].description,
@@ -496,7 +592,10 @@ getAllvideos(){
 
                 img : details[key].userImg,
                 date : details[key].date,
+<<<<<<< HEAD
 
+=======
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
                 key: key
 
           }
@@ -599,12 +698,15 @@ console.log(this.username)
 
 }
 
+<<<<<<< HEAD
  
 
 storeProfile(){}
 
  
 
+=======
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
 storePictureUrl(url){
 
 this.imgurl =  url;
@@ -616,6 +718,7 @@ this.imgurl =  url;
 storeuserid(uid){
 
   this.currentUserID = uid;
+<<<<<<< HEAD
 
   this.getProfile();
 
@@ -637,11 +740,86 @@ getProfile(){
        })
 
   })
-
+=======
+  this.getProfile();
 }
+
+getProfile(){
+  return new Promise ((accpt, rej) =>{
+    this.database.ref('users/' + this.currentUserID).on('value', (data2: any) => {
+      var details = data2.val();
+      var keys = Object.keys(details)
+
+      for (var x = 0; x< keys.length; x++){
+        var key = keys[x];
+        let obj = {
+          age : details[key].age,
+          cellno : details[key].cellno,
+          gender: details[key].gender,
+          imageURl: details[key].imageURl,
+          name : details[key].name,
+          surname : details[key].surname
+        }
+        this.profile.push(obj)
+      }
+      console.log(this.profile);
+      accpt(this.profile);
+       })
+  })
+}
+
+comment(key,text){
+  return new Promise ((accpt, rej) =>{
+    var today = moment().format("Do MMM");
+    this.database.ref('comments/' + key).push({
+      text:text,
+      username: this.username,
+      date : today
+    })
+    accpt("comment added")
+  })
+}
+
+getcomments(key){
+  return new Promise ((pass,fail) =>{
+
+    this.database.ref('comments/' + key).on('value', (data2: any) => {
+      var details = data2.val();
+      if (details != null ||  details != undefined){
+        this.comments.length = 0;
+        var keys = Object.keys(details) 
+        for (var x =0; x < keys.length; x++){
+          var key = keys[x];
+          let obj = {
+            date : details[key].date,
+            text :  details[key].text,
+            name : details[key].username
+          }
+          this.comments.push(obj)
+        }
+          
+          pass(this.comments);
+      }
+      })
+    
+  })
+}
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
+
+addNumComments(key, numComments, user){
+  console.log(key);
+  console.log(numComments);
+  var num =  numComments  + 1;
+  this.database.ref('uploads/' + user+ "/"+ key).update({comments: num});
+  console.log("comment number added")
+}
+<<<<<<< HEAD
 
  
 
 }
 
  
+=======
+}
+>>>>>>> 79926212867663946e034b567e161d2271ea4197

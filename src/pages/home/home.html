@@ -1,6 +1,7 @@
 
   <ion-header>
      
+<<<<<<< HEAD
      
       <div class="section">  
       <ion-navbar color = "color" >
@@ -12,17 +13,49 @@
           <img class="logo" src="../../assets/imgs/play-button (1).png">
         </div>
         <h1 align="center" class="log">Vid'It.</h1>  
+=======
+  
+      <div class="section">  
+      <ion-navbar color = "color" >
+        artist
+        <button ion-button menuToggle icon-only>
+          <ion-icon name='menu'></ion-icon>
+        </button>
+      </ion-navbar> 
+       
+      <div class="logo" align="center">
+        <img class="logo" src="../../assets/imgs/play-button (1).png">
+      </div>
+      <h1 align="center">Vid'It.</h1>
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
       </div> 
     
       </ion-header>
 
 
+<<<<<<< HEAD
 <ion-content class="img">
+=======
+<ion-content >
+
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
 
     <h1 align="center" class="head">UpLoad your Video</h1>
   <br>
+<<<<<<< HEAD
  
 
+=======
+ <ion-card> 
+   <ion-item class="item item-trns text-center">
+          <input type="file" (change)="insertvid($event)" >
+        </ion-item>
+  </ion-card>
+        <ion-card>
+    <ion-list>
+     
+        <ion-item class="combo" align="left">
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
 
         <!-- <ion-card> -->
             <ion-card-content>
@@ -57,10 +90,22 @@
           <ion-label><ion-icon class="i" name="information-circle"></ion-icon></ion-label>
           <ion-input type="text" placeholder="video description" [(ngModel)]="vidDesc"></ion-input>
        </ion-item>
+<<<<<<< HEAD
       </div>
        </ion-card-content>
 <!-- </ion-card> -->
   <div  align = "center" >
 <button class="butt" (click)="upload()" round color = "own" block ion-button>Upload</button>
 </div>
+=======
+       
+</ion-card>
+  <div align = "center" >
+<button (click)="upload()" round color = "own" ion-button>upload</button>
+</div>
+<br>
+
+<!-- <button (click)="upload()" ion-button>upload</button> -->
+
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
 </ion-content>
