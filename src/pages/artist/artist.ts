@@ -78,6 +78,7 @@ export class ArtistPage {
       alert.present();
     
     }else {
+
       this.firebaseService.addImage(this.artist.username).then(data =>{
         console.log(data)
         this.firebaseService.getimagepropicurl(this.artist.username).then(data =>{
@@ -103,8 +104,6 @@ export class ArtistPage {
              alert.present();
           })
       })
-    })
-    }
   }
   takePicture(){
     const confirm = this.alertCtrl.create({
@@ -135,6 +134,47 @@ export class ArtistPage {
       ]
     });
     confirm.present();
+  }
+  takePicture(){
+    const confirm = this.alertCtrl.create({
+      title: 'Options?',
+      message: 'Please Choose one of the options',
+      inputs: [
+        {
+          name: 'title',
+          placeholder: 'Title',
+          type: 'file'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Upload Photo',
+          handler: data => {
+         
+           // this.converImg(`${data.title}`);
+            //console.log(this.url);
+          }
+        },
+        {
+          text: 'Take Photo',
+          handler: () => {
+         this.firebaseService.uploadpic();
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  converImg(event:any){
+ 
+      let reader = new FileReader();
+      reader.onload = (event:any) =>{
+        this.url = event.target.result;
+      }
+      reader.readAsDataURL(event.target);
+      console.log(this.url);
+    
   }
 
 

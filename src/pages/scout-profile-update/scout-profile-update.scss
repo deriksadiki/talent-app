@@ -14,16 +14,45 @@ page-scout-profile-update {
     }
     .item{
         // box-shadow: 2px 2px 2px ;
-        border-radius: 12px;
-        margin-block-end: 20px;
+        // border-radius: 12px;
+        // margin-block-end: 20px;
+         position: relative;
+         right: 100px;
+         top: 40px;
+       
     }
     img{
-        height: 100px;
-        width: 100px;
-        margin: 15%;
-        border-radius: 50px;
+        width: 38%;
+        height: 150px;
+        border-radius: 60%;
+        position: relative;
+        top: 4px;
     }
     .butt{
         text-align: center;
+        margin-top: 20%;
+    }
+
+    h2{
+        font-weight: 100;
+        text-align: center;
+        position: relative;
+    }
+
+    h1{
+        color: rgb(255, 255, 255);
+        font-weight: 100;
+        font-size: 40px;
+
+    }
+
+    .btn{
+        width: 5%;
+        border-radius: 50%;
+        position: relative;
+        bottom: 10px;
+        background-color: white;
+        color: #F53D4E;
+
     }
 }
