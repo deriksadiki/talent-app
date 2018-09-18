@@ -30,20 +30,42 @@
             <source src={{i.vidurl}} type="video/mp4">
             
           </video>
-          <p>{{i.vidDesc}}</p>
+          <p><b>{{i.vidDesc}}</b></p>
           
-          <ion-item class="item2" text-wrap>
-              <ion-input #comment type="text"></ion-input>
-          </ion-item>
-          <button ion-button round (click)="placeComment(comment.value)">comment</button>
-        
-      <ion-list padding-top *ngFor="let a of comments2">
-        <div class="cm">
-            <p color="primary">{{a.name}} <span color="dark">{{a.text}}</span></p>
+          <!-- <ion-item  class="item2" > -->
+            <textarea class="comments" #comment type="text" cols="40" rows="5" placeholder="Comment here"></textarea>
+          <!-- </ion-item> -->
+
+          <div align = "right" >
+          <button ion-button round color = "primary" (click)="placeComment(comment.value)">Post</button>
         </div>
+<br>
+
+   
+<div class="cm">
+    <ion-list no-lines *ngFor="let a of comments2"  >
+
+        <ion-item>
+          <ion-avatar class="pic" item-start>
+              <img src={{a.img}}>
+          </ion-avatar>
+          
+          <h2><b>{{a.name}}</b> <span class="datew">{{a.date}}</span></h2>
+         
+        </ion-item>
+    
+        <div class="list2">
+            <div text-wrap class="text">
+                <p>{{a.text}}</p>
+              </div>
+        </div>
+         
+ 
+          <!-- <div text-wrap> -->
+       
+        <!-- </div> -->
 
       </ion-list>
-
-
-
+   
+</div>
 </ion-content> 
