@@ -24,15 +24,9 @@ videos = [];
       this.videos = undefined;
       this.videos = null;
     }
-<<<<<<< HEAD
 
      this.videos = data;
      console.log(this.videos)
-=======
-     this.videos = data;
-     console.log(this.videos);
-
->>>>>>> 79926212867663946e034b567e161d2271ea4197
    });
 
   }

@@ -1,277 +1,133 @@
 import { Injectable } from '@angular/core';
-
 import {Camera,CameraOptions} from '@ionic-native/camera';
-
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-
 import { LoadingController } from 'ionic-angular';
-<<<<<<< HEAD
-import { dateDataSortValue } from 'ionic-angular/util/datetime-util';
-
- 
-
-=======
 import moment from 'moment';
->>>>>>> 79926212867663946e034b567e161d2271ea4197
 declare var firebase;
 
 @Injectable()
-
 export class FirebaseProvider {
 
- 
-
   database = firebase.database();
-
   authnticate  = firebase.auth();
-
   storageRef = firebase.storage();
 
- 
-
   userIDl;
-
   dbRef;
-
   state;
-
   image;
-
   file;
-
   videoArray = new Array();
-
   username;
-
   imgurl;
-
   currentUserID;
   profile =  new Array();
   comments =  new Array();
 
- 
-
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
-
- 
 
   }
 
- 
-
 login(email, password){
-
   return new Promise((accept,reject) =>{
-
     this.authnticate.signInWithEmailAndPassword(email, password).then(()=>{
-
     accept("success")
-
     }, Error =>{
-
       reject(Error.message)
-
     })
-
   })
-
-}
-
- 
+ }
 
   registerUser(email,password, Username){
 
- 
-
     return new Promise((accept,reject) =>{
-
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-
         var user = firebase.auth().currentUser;
-
         this.dbRef =  'users/' + Username + ":" + user.uid;
-
         this.database.ref(this.dbRef).push({
-
           Username:Username,
-
           userType: "normalPerson"
-
         })
-
       accept("user registred")
-
       }, Error =>{
-
         reject(Error.message)
-
       })
-
     })
 
- 
-
   }
-
   registerTalentPerson(username,email,password, name, surname, gender, cellno, age){
-<<<<<<< HEAD
-
-    let loading = this.loadingCtrl.create({
-
-      spinner: 'bubbles',
-
-      content: 'Please wait',
-
-      duration: 1500
-
-    });
-
-    loading.present();
-
-=======
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',
       content: 'Please wait',
       duration: 17000
     });
     loading.present();
->>>>>>> 79926212867663946e034b567e161d2271ea4197
       this.username =  username;
-
       return new Promise((accept,reject) =>{
-
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-
         var user = firebase.auth().currentUser;
-
         this.dbRef =  'users/' +  username + ":" + user.uid;
-
         this.database.ref(this.dbRef).push({
-
           name:name,
-
           surname:surname,
-
           gender:gender,
-
           cellno:cellno,
-
           age:age,
-<<<<<<< HEAD
-
-          userType: "talentPerson",
-
-          imageURl:  this.imgurl
-
-=======
           userType: "talentPerson",
           imageURl:  this.imgurl
->>>>>>> 79926212867663946e034b567e161d2271ea4197
         })
         loading.dismiss();
         accept("success");
-
       }, Error =>{
-
         reject(Error.message);
-
         console.log(Error.message);
-
       })
-
     })
-
   }
 
- 
 
   registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno){
-<<<<<<< HEAD
-
-  
-
-=======
    
->>>>>>> 79926212867663946e034b567e161d2271ea4197
     return new Promise((accept,reject) =>{
-
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-
         var user = firebase.auth().currentUser;
-
         this.dbRef =  'users/' + surname + ":" + user.uid;
-
         this.database.ref(this.dbRef).push({
-
           name:name,
-
           companyName:companyName,
-
           companyemail:companyemail,
-
           companycellno:companycellno,
-
           userType: "ScoutPerson"
-
         })
-
         accept("success");
-
       }, Error =>{
-
         reject(Error.message);
-
       })
-
     })
-
   }
-
- 
 
   logout(){
-
     this.authnticate.signOut();
-
   }
-
- 
 
   getUserSatate(){
-
-    return new Promise ((accpt, rej) =>{
-
-      this.authnticate.onAuthStateChanged(user =>{
-
+    return new Promise ((accpt, rej) =>{ 
+      this.authnticate.onAuthStateChanged(user =>{ 
         if (user != null){
-
           this.state = 1;
-
         }
-
         else{
-
           this.state = 0;
-
         }
-
         accpt(this.state);
-
        });
-
     })
-
   }
-
- 
 
   forgotUserPassword(email:any){
-
     return this.authnticate.sendPasswordResetEmail(email);
-
-<<<<<<< HEAD
   }
-=======
+
 addImage(username){
   let loading = this.loadingCtrl.create({
     spinner: 'bubbles',
@@ -303,444 +159,155 @@ return new Promise ((accpt,rej) =>{
   })
 })
 }
->>>>>>> 79926212867663946e034b567e161d2271ea4197
-
- 
-
-addImage(username){
-
-  let loading = this.loadingCtrl.create({
-
-    spinner: 'bubbles',
-
-    content: 'Please wait',
-
-    duration: 17000
-
-  });
-
-  loading.present();
-
-  return new Promise ((accpt, rej) =>{
-
-    this.storageRef.ref('pictures/' + username + ".jpg").putString(this.image, 'data_url');
-
-    loading.dismiss();
-
-    accpt("image added to storage")
-
-  })
-
- 
-
-}
-
- 
-
-getimagepropicurl(username){
-
-  let loading = this.loadingCtrl.create({
-
-    spinner: 'bubbles',
-
-    content: 'Please wait',
-
-    duration: 5000
-
-  });
-
-  loading.present();
-
-return new Promise ((accpt,rej) =>{
-
-  var storageRef = firebase.storage().ref('pictures/' + username + ".jpg");
-
-  storageRef.getDownloadURL().then(url => {
-
-    this.storePictureUrl(url);
-
-    loading.dismiss();
-
-    accpt("image url found")
-
-  })
-
-})
-
-}
-
- 
 
   async uploadpic(){
-
- 
-
+  
           const options: CameraOptions= {
-
             quality : 100,
-
             targetWidth: 600,
-
             targetHeight: 600,
-
             destinationType: this.camera.DestinationType.DATA_URL,
-
             encodingType: this.camera.EncodingType.JPEG,
-
             mediaType: this.camera.MediaType.PICTURE,
-
             correctOrientation: true
-
-     
-
+      
           }
-
             const results = await this.camera.getPicture(options);
-
           this.image = `data:image/jpeg;base64,${results}`;
-<<<<<<< HEAD
-
           console.log(this.image);
-
-=======
-          console.log(this.image);
->>>>>>> 79926212867663946e034b567e161d2271ea4197
   }
-
- 
 
   uploadvid(vid){
-
     var d = Date.now();
-
     let loading = this.loadingCtrl.create({
-
       spinner: 'bubbles',
-
       content: 'Please wait',
-
-      duration: 17000
-
+      duration: 9000
     });
-<<<<<<< HEAD
-
-    loading.present();
-
-  return new Promise((accpt,rejc) =>{
-
- 
-
-  this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
-
-    loading.dismiss();
-
-=======
     loading.present();
   return new Promise((accpt,rejc) =>{
 
   this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
     loading.dismiss();
->>>>>>> 79926212867663946e034b567e161d2271ea4197
     accpt(d);
-
   }, Error =>{
-
     rejc(Error.message)
-
   })
-
   })
-
   }
 
- 
-
 storeToDB(name, category, vidname, vidDesc){
-  var d = Date.now();
-
-  let loading = this.loadingCtrl.create({
-
-    spinner: 'bubbles',
-
-    content: 'Please wait',
-
-    duration: 9000
-
-  });
-
-  loading.present();
   return new Promise((accpt,rejc) =>{
-<<<<<<< HEAD
-
-=======
     var today = moment().format("Do MMM");
->>>>>>> 79926212867663946e034b567e161d2271ea4197
     var storageRef = firebase.storage().ref(name + ".mp4");
-
     storageRef.getDownloadURL().then(url => {
-
       console.log(url)
-
       var user = firebase.auth().currentUser;
-
       var link =  url;
-      var currentDate = new Date()
-      var day = currentDate.getDate();
-      var month = currentDate.getMonth() + 1;
-      var year = currentDate.getFullYear();
-      var today =  year + "/"+ '0' + month + "/" + day; 
-      console.log(today)
       this.database.ref('uploads/' + this.username).push({
-
             downloadurl :link,
-
             name : vidname,
-
             category: category,
-
             description: vidDesc,
-
             username : this.username,
-<<<<<<< HEAD
-
-            userImg : this.imgurl,
-            date : today
-
-=======
             userImg : this.imgurl,
             date : today,
             likes : 0,
             comments : 0
->>>>>>> 79926212867663946e034b567e161d2271ea4197
           });
-          loading.dismiss();
-
           accpt('success');
-
 }, Error =>{
-
   rejc(Error.message);
-
   console.log(Error.message);
-
 });
-
 })
-
 }
-
- 
 
 getAllvideos(){
-<<<<<<< HEAD
-
- 
-
-=======
->>>>>>> 79926212867663946e034b567e161d2271ea4197
   return new Promise ((accpt, rej) =>{
-
     this.database.ref('uploads/').on('value', (data: any) => {
-
       var videos = data.val();
-<<<<<<< HEAD
-
       this.videoArray.length = 0;
-
-=======
-      this.videoArray.length = 0;
->>>>>>> 79926212867663946e034b567e161d2271ea4197
       var keys:any =  Object.keys(videos);
-
         for (var i = 0; i < keys.length; i++){
-
           var x = keys[i];
-
           var y  = 'uploads/' + x;
-
           var details;
-
           this.database.ref(y).on('value', (data2: any) => {
-
            details = data2.val();
-
             })
-<<<<<<< HEAD
-
-=======
->>>>>>> 79926212867663946e034b567e161d2271ea4197
           var keys2:any = Object.keys(details);
-
           for (var a = 0; a < keys2.length; a++){
-
                 var key = keys2[a];
-
                 let obj = {
-<<<<<<< HEAD
-
-=======
                 likes: details[key].likes,
                 comments : details[key].comments,
->>>>>>> 79926212867663946e034b567e161d2271ea4197
                 vidurl : details[key].downloadurl,
-
                 vidDesc : details[key].description,
-
                 vidname : details[key].name,
-
                 name : details[key].username,
-
                 img : details[key].userImg,
                 date : details[key].date,
-<<<<<<< HEAD
-
-=======
->>>>>>> 79926212867663946e034b567e161d2271ea4197
                 key: key
-
           }
-
           this.videoArray.push(obj);
-
           }
-
         }
-
        accpt(this.videoArray);
-
   }, Error =>{
-
     rej(Error.message)
-
+  })
   })
 
-  })
+} 
 
- 
-
-}
-
- 
 
 getuserType(){
-
 return new Promise ((accpt, rej) =>{
-
   this.database.ref('users').on('value', (data: any) => {
-
     var users =  data.val();
-
     var user = firebase.auth().currentUser;
-
     var  userIDs = Object.keys(users);
-
     for (var x = 0; x < userIDs.length; x++){
-
-      var str1 = new String( userIDs[x]);
-
-      var index = str1.indexOf( ":" );
-
+      var str1 = new String( userIDs[x]); 
+      var index = str1.indexOf( ":" ); 
       var currentUserID = userIDs[x].substr(index + 1);
-
       if (user.uid == currentUserID){
-
         this.storeUserName(userIDs[x].substr(0,index));
-
         console.log(userIDs[x].substr(0,index))
-
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
-
             var Userdetails;
-
-            var Userdetails = data.val();
-
+            var Userdetails = data.val(); 
             this.storeuserid(userIDs[x])
-
             var keys2:any = Object.keys(Userdetails);
-
             var user = firebase.auth().currentUser;
-
             let storageRef =  firebase.storage().ref();
-
            var img = userIDs[x].substr(0,index) + ".jpg"
-
             let imgRef = storageRef.child('pictures/' + img);
-
             imgRef.getDownloadURL().then(function(url) {
-
             this.storePictureUrl(url);
-
             }.bind(this)).catch(function(error) {})
-
             accpt(Userdetails[keys2].userType)
-
            });
-
         break;
-
       }
-
     }
-
   })
-
 })
-
 }
-
- 
 
 storeUserName(name){
-
 this.username = name;
-
 console.log(this.username)
-
 }
 
-<<<<<<< HEAD
- 
-
-storeProfile(){}
-
- 
-
-=======
->>>>>>> 79926212867663946e034b567e161d2271ea4197
 storePictureUrl(url){
-
 this.imgurl =  url;
 
 }
 
- 
-
 storeuserid(uid){
-
   this.currentUserID = uid;
-<<<<<<< HEAD
-
-  this.getProfile();
-
-
-}
-
- 
-
-getProfile(){
-
-  return new Promise ((accpt, rej) =>{
-
-    this.database.ref('users/' + this.currentUserID).on('value', (data2: any) => {
-
-      var details = data2.val();
-
-      console.log(details)
-
-       })
-
-  })
-=======
   this.getProfile();
 }
 
@@ -804,7 +371,6 @@ getcomments(key){
     
   })
 }
->>>>>>> 79926212867663946e034b567e161d2271ea4197
 
 addNumComments(key, numComments, user){
   console.log(key);
@@ -813,13 +379,4 @@ addNumComments(key, numComments, user){
   this.database.ref('uploads/' + user+ "/"+ key).update({comments: num});
   console.log("comment number added")
 }
-<<<<<<< HEAD
-
- 
-
 }
-
- 
-=======
-}
->>>>>>> 79926212867663946e034b567e161d2271ea4197

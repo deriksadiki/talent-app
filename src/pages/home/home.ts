@@ -43,11 +43,7 @@ export class HomePage {
         console.log(data);
          this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
            console.log('added to db');
-<<<<<<< HEAD
            this.navCtrl.push(ArtisthomePage);
-=======
-           this.navCtrl.push(HomePage);
->>>>>>> 79926212867663946e034b567e161d2271ea4197
          },
         Error =>{
           console.log(Error)
@@ -57,9 +53,5 @@ export class HomePage {
       })
       
     }
-<<<<<<< HEAD
 }
-=======
-  }
->>>>>>> 79926212867663946e034b567e161d2271ea4197
 

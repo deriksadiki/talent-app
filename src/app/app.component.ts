@@ -28,7 +28,7 @@ export class MyApp {
   public rootPage: any;
 
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: any}>;
   
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private firebaseService:FirebaseProvider) {
     this.initializeApp();
@@ -43,36 +43,28 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
-<<<<<<< HEAD
-            { title: 'Home', component: UsersPage,  },
-=======
 
-            { title: 'Home', component: UsersPage },
-            { title: 'Share', component: HomePage },
->>>>>>> 79926212867663946e034b567e161d2271ea4197
-            { title: 'Log-Out', component: LogoutPage },
+            { title: 'Home', component: UsersPage,  icon: "person" },
+            { title: 'Share', component: HomePage,  icon: "person" },
+            { title: 'Log-Out', component: LogoutPage,  icon: "person" },
           ];
           
         }
         else if (data == "talentPerson"){
           this.pages = [
-            { title: 'Home', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
-            { title: 'Log-Out', component: LogoutPage },
+            { title: 'Home', component: ArtisthomePage, icon: "home"},
+            { title: 'Upload', component: HomePage,  icon: "person" },
+            { title: 'Profile', component: ProfilePage,  icon: "person"},
+            { title: 'Log-Out', component: LogoutPage,  icon: "person"},
           ];
            this.rootPage =  ArtisthomePage;
         }
         else if (data == "ScoutPerson"){
           this.pages = [
-            { title: 'Home', component: ScoutPage },
-<<<<<<< HEAD
-            { title: 'Profile', component: ProfilePage },
-=======
-             { title: 'Upload', component: HomePage },
-            { title: 'Profile', component:ScouteProfilePage },
->>>>>>> 79926212867663946e034b567e161d2271ea4197
-            { title: 'Log-Out', component: LogoutPage },
+            { title: 'Home', component: ScoutPage, icon: "person" },
+             { title: 'Upload', component: HomePage,  icon: "person"},
+            { title: 'Profile', component:ScouteProfilePage,  icon: "person" },
+            { title: 'Log-Out', component: LogoutPage,  icon: "person" },
           ];
           this.rootPage = ScoutPage;
         }
