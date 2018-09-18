@@ -1,5 +1,5 @@
 page-recruiter {
-
+    font-family: 'Ubuntu', sans-serif;
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -50,6 +50,9 @@ img{
     text-align: center;
     position: relative;
     bottom: 9px;
+}
+.btn{
+    width: 60%;
 }
 h1{
     color: rgb(236, 217, 217);

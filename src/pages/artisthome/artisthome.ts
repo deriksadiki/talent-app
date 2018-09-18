@@ -25,7 +25,8 @@ color = "primary";
       this.videos = undefined;
       this.videos = null;
     }
-      this.videos = data;
+     this.videos = data;
+     console.log(this.videos);
    });
   }
   like(keyIndex){

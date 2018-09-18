@@ -3,28 +3,34 @@
     <ion-navbar color = "own" >
 
    <ion-title>Scout Home</ion-title>
+   <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
  </ion-navbar>
 </ion-header>
 
 
 <ion-content class="img">
+
+    <h1 align="center"><ion-icon name="flame"></ion-icon>&emsp;Top Trending</h1>
+
      <ion-card *ngFor="let i of videos">
          <ion-item>
            <ion-avatar item-start>
-             <img src={{i.img}}>
+             <img class="pic" src={{i.img}}>
            </ion-avatar>
            <h2>{{i.name}}</h2>
          </ion-item>
        
          <!-- video -->
-         <video width="320" height="240" controls>
+         <video width="390" height="260" controls>
              <source src={{i.vidurl}} type="video/mp4">
              
            </video>
 
          <ion-card-content>
-           <p>{{i.vidDesc}}</p>
-         </ion-card-content>
+           <h2>{{i.vidDesc}}</h2>
+       
        
          <ion-row>
            <ion-col>
@@ -34,22 +40,26 @@
              </button>
            </ion-col>
            <ion-col>
-             <button ion-button icon-start clear small>
+             <button  class="com" ion-button icon-start clear small center>
                <ion-icon name="text"></ion-icon>
                <div>4 Comments</div>
              </button>
            </ion-col>
-           <ion-col center text-center>
-             <ion-note>
+        
+           <button ion-button icon-start clear small (click)="view()">
+              <ion-icon name="update"></ion-icon>
+              <div>Update profile</div>
+            </button>
+         
+           <ion-col >
+             <ion-note class="time">
               11 hrs
              </ion-note>
            </ion-col>
         
-            <button ion-button icon-start clear small (click)="view()">
-             <ion-icon name="update"></ion-icon>
-             <div>Update profile</div>
-           </button>
+           
            </ion-row> 
+          </ion-card-content>
        </ion-card>
 
 

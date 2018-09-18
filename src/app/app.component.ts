@@ -23,6 +23,7 @@ import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  activePage: any;
 
   public rootPage: any;
 
@@ -42,11 +43,16 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
+<<<<<<< HEAD
+            { title: 'Home', component: UsersPage,  },
+=======
 
             { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage },
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
             { title: 'Log-Out', component: LogoutPage },
           ];
+          
         }
         else if (data == "talentPerson"){
           this.pages = [
@@ -60,8 +66,12 @@ if('Log-Out')
         else if (data == "ScoutPerson"){
           this.pages = [
             { title: 'Home', component: ScoutPage },
+<<<<<<< HEAD
+            { title: 'Profile', component: ProfilePage },
+=======
              { title: 'Upload', component: HomePage },
             { title: 'Profile', component:ScouteProfilePage },
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
             { title: 'Log-Out', component: LogoutPage },
           ];
           this.rootPage = ScoutPage;
