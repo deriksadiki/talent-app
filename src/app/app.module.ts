@@ -29,6 +29,7 @@ import { ArtisthomePage } from '../pages/artisthome/artisthome';
 import { ArtistProfileUpdatePage } from '../pages/artist-profile-update/artist-profile-update';
 import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-profile-update';
 import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
+import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
 
 
 
@@ -53,7 +54,8 @@ import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
-    ScouteProfilePage  
+    ScouteProfilePage,
+    UploadPreviewPage  
 ],
   imports: [
     BrowserModule,
@@ -79,7 +81,8 @@ import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
-    ScouteProfilePage
+    ScouteProfilePage,
+    UploadPreviewPage
   ],
   providers: [
     StatusBar,
