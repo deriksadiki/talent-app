@@ -58,7 +58,9 @@ import {MessagePage } from '../pages/message/message'
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
     ScouteProfilePage,
+    UploadPreviewPage, 
     DisplayPage 
+
 
 ],
   imports: [
@@ -86,8 +88,12 @@ import {MessagePage } from '../pages/message/message'
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
+
+    UploadPreviewPage 
+
     ScouteProfilePage,
     DisplayPage
+
   ],
   providers: [
     StatusBar,

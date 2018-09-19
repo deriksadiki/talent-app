@@ -35,6 +35,7 @@
 
 
         <ion-card>
+
                 <div align="center">
                     <ion-item class="combo"  >
                   
@@ -64,14 +65,22 @@
           <ion-label><ion-icon class="i" name="information-circle"></ion-icon></ion-label>
           <ion-input type="text" placeholder="video description" [(ngModel)]="vidDesc"></ion-input>
        </ion-item>
-       
-      </ion-card>
-  <div align = "center" >
-<button (click)="upload()" round color = "own" ion-button>upload</button>
-</div>
-<br>
 
- 
+
+      </div>
+
+</ion-card>
+  
+
+     <div  align = "center" >
+         <button class="butt" (click)="upload()" round color = "own" block ion-button>Upload</button>
+         <button ion-button round color="own" (click)="preview()">Preview</button>
+    </div>
+<!-- <button (click)="upload()" ion-button>upload</button> -->
+
+  
+
+
 </ion-content>
 
 

@@ -101,7 +101,7 @@ page-profile {
         // .butt{
         //     position: relative;
         // }
- 
+
 
             // position: relative;
             // bottom: 140px;
@@ -110,8 +110,22 @@ page-profile {
             // height: 50px;
             // color: rgb(255, 255, 255);
             // font-size: 180%;
- 
-       
+
+           
+            .btn{
+                position: relative;
+                bottom: 200px;
+                border-radius: 100%;
+                width: 50px;
+                left: 15%;
+                height: 50px;
+                background-color: white;
+                color: #F53D4E;
+                font-size: 180%;
+                font-weight: 800;
+            }
+
+
  
         .cont{
             background-color: rgb(255, 255, 255);
@@ -134,24 +148,9 @@ page-profile {
         .list{
             position: relative;
             left: 25%;
-            bottom: 10px;
-            font-size: 55%;
-            font-weight: 100%;
- 
+            bottom: 15px;
+            
         }
-        #btn{
-            position: relative;
-            bottom: 335px;
-            left: 40%;
-            color: #F53D4E;
-            background-color: white;
-            border-radius: 100%;
-            width: 15%;
-            height: 15%;
-        
- 
- }
 
-   
 }
 

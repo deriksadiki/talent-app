@@ -43,10 +43,14 @@ if('Log-Out')
           this.rootPage = UsersPage;
           this.pages = [
 
+            { title: 'Home', component: UsersPage,  },
+
+
 
             { title: 'Home1', component: ArtisthomePage },
             // { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage },
+
             { title: 'Log-Out', component: LogoutPage },
           ]
         }
@@ -64,7 +68,11 @@ if('Log-Out')
           this.pages = [
 
             { title: 'Home', component: ScoutPage },
+
+            { title: 'Profile', component: ProfilePage },
+
             { title: 'Profile', component:ScouteProfilePage },
+
             { title: 'Log-Out', component: LogoutPage },
           ];
           this.rootPage = ScoutPage;
