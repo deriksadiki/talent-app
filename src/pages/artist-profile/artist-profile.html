@@ -1,12 +1,12 @@
 <ion-header>
 
     <div class="section">
-    
+ 
       <ion-navbar color = "color" >
           <button ion-button menuToggle icon-only>
               <ion-icon name='menu'></ion-icon>
             </button>
-       
+ 
       </ion-navbar>
     <div class="logo" align="center">
       <img src={{i.imageURl}} >
@@ -24,14 +24,14 @@
     <br>
     </div>
     </div>
-
+ 
   </ion-header>
-
-
-
+ 
+ 
+ 
     <ion-content class="img" *ngFor = "let i of arr">
-
-
+ 
+ 
       <title>Artist</title>
         <ion-card>
           <ion-card-content>
@@ -40,18 +40,18 @@
               <p><ion-icon class="i" name="call"></ion-icon>Username</p>
               <h3 class="detail">BudaNyoni</h3>
               <p><ion-icon class="i" name="call"></ion-icon>Cell</p>
-
+ 
               <h3 class="detail">{{i.cellno}}</h3>
-
+ 
               <p><ion-icon class="i" name="call"></ion-icon> E-mail</p>
               <h3 class="detail">Dreamers@yahoo.com</h3>
               <p><ion-icon class="i" name="call"></ion-icon>Gender</p>
-             <h3 class="detail">{{i.gender}}</h3> 
-             
+             <h3 class="detail">{{i.gender}}</h3>
+ 
             </div>
             </ion-list>
           </ion-card-content>
         </ion-card>
-    
-</ion-content>
+ 
+ </ion-content>
         
