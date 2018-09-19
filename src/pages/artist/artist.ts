@@ -153,11 +153,7 @@ export class ArtistPage {
       });
 
       alert.present();
-
-   
-
     }else {
-
       this.firebaseService.addImage(this.artist.username).then(data =>{
 
         console.log(data)
@@ -171,110 +167,56 @@ export class ArtistPage {
 
             this.firebaseService.getuserType().then(()=>{
 
-                            const alert = this.alertCtrl.create({
-
-                              title: 'Welcome',
-
-                              subTitle: 'You have successfully Registered',
-
-                              buttons: ['OK']
-
-                            });
-
-                            alert.present();  
-
-                            this.navCtrl.push(ArtisthomePage);
-
-                            window.location.reload();
-
+              const alert = this.alertCtrl.create({
+              title: 'Welcome',
+              subTitle: 'You have successfully Registered',
+              buttons: ['OK']
+              });
+              alert.present();
+              this.navCtrl.push(ArtisthomePage);
+              window.location.reload();
           })
-
- 
 
         }, Error =>{
-
             const alert = this.alertCtrl.create({
-
               title: 'warning!',
-
               subTitle: Error,
-
               buttons: ['OK']
-
             });
-
              alert.present();
-
           })
-
+        })
       })
-
-    })
-
     }
-
-  }
-
+}
+  
   takePicture(){
-
     const confirm = this.alertCtrl.create({
-
       title: 'Options?',
-
       message: 'Please Choose one of the options',
-
       inputs: [
-
         {
-
           name: 'title',
-
           placeholder: 'Title',
-
           type: 'file'
-
         },
-
       ],
-
       buttons: [
-
         {
-
           text: 'Upload Photo',
-
           handler: data => {
-
-        
-
            // this.converImg(`${data.title}`);
-
-            //console.log(this.url);
-
-          }
-
+          //console.log(this.url);
+         }
         },
-
         {
-
           text: 'Take Photo',
-
           handler: () => {
-
          this.firebaseService.uploadpic();
-
           }
-
         }
-
       ]
-
     });
-
     confirm.present();
-
   }
-
- 
-
 }

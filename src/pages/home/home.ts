@@ -28,8 +28,6 @@ export class HomePage {
  
   }
 
-    
-
     insertvid(event:any){
 
       if (event.target.files && event.target.files[0]){
@@ -41,19 +39,13 @@ export class HomePage {
         reader.readAsDataURL(event.target.files[0]);
 
       }
-    
     }
     upload(){
       this.firebaseService.uploadvid(this.url).then(data =>{
         console.log(data);
          this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
            console.log('added to db');
-
-
-
            this.navCtrl.push(HomePage);
-
-
          },
         Error =>{
           console.log(Error)
@@ -61,16 +53,10 @@ export class HomePage {
       }, Error =>{
         console.log(Error )
       })
-      
     }
 
+  }
 
-    preview=function(){
-      const modal = this.modalCtrl.create(UploadPreviewPage);
-      modal.present();
-    }
-
-}
 
 
 
