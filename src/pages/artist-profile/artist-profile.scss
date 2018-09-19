@@ -1,4 +1,5 @@
 page-artist-profile {
+    font-family: 'Ubuntu', sans-serif;
     ion-card.card{
         border-radius: 12px;
         box-shadow: 2px 2px 4px 2px;
@@ -12,9 +13,10 @@ page-artist-profile {
         display: flex;
         align-content: center;
         text-align: center;
-        height: 11vh;
+        height: 13vh;
         background-color: rgba(0, 0, 0, 0.288);
         justify-content: center;
+        margin-top: 119px;
         // padding: 10px;
     }
     img{
@@ -25,7 +27,7 @@ page-artist-profile {
     .section{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
-        background-color: black;
+        // background-color: black;
         background-size: cover;
         height: 44vh;
        background-repeat: no-repeat;
