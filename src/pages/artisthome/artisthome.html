@@ -1,29 +1,4 @@
-<<<<<<< HEAD
 <ion-content>
-=======
-
-<ion-header>
-    <div class="section">
-    
-      <ion-navbar color = "color" >
-          <button ion-button menuToggle icon-only>
-              <ion-icon name='menu'></ion-icon>
-            </button>
-      </ion-navbar>
-  
-      <!-- <div class="logo" align="center">
-          <img class="logo" src="../../assets/imgs/play-button (1).png">
-        </div>
-        <h1>Vid'It.</h1> -->
-        <div class="logo" align="center">
-            <img src="../../assets/Pics/2372f27612fee17412c8e647fd76c199.jpg" >
-          <h1>Sibusiso Nyoni</h1>
-          </div>
-    </div>
-</ion-header>
-
-   <ion-content>
->>>>>>> f93048f008b71425f8f8cef75762ef85946085e7
 
       <ion-card *ngFor="let i of videos; let a =index">
           <ion-item>
@@ -56,11 +31,6 @@
                   <ion-icon name="text"></ion-icon>
                   <div (click)="test(a)">{{i.comments}} Comments</div>
                 </button>
-              </ion-col>
-              <ion-col>
-                  <button (click) = " Profile()" ion-button  icon-start clear small center>
-               <div>View Prof.</div> 
-              </button>
              </ion-col>
               <ion-col >
                 <ion-note class="time">
