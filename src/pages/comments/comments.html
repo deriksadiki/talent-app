@@ -16,6 +16,7 @@
 
 <ion-content *ngFor="let i of videos" padding>
 
+
         <ion-item>
           <ion-avatar item-start>
             <img src={{i.img}}>
@@ -48,30 +49,24 @@
 <br>
 
    
+<div class="cm">
+    <ion-list no-lines *ngFor="let a of comments2"  >
 
+        <ion-item>
+          <ion-avatar class="pic" item-start>
+              <img src={{a.img}}>
+          </ion-avatar>
+          
+          <h2><b>{{a.name}}</b> <span class="datew">{{a.date}}</span></h2>
+         
+        </ion-item>
+    
+        <div class="list2">
+            <div text-wrap class="text">
+                <p>{{a.text}}</p>
+              </div>
+        </div>
      
-  <div class="cm">
-      <ion-list no-lines *ngFor="let a of comments2"  >
-  
-          <ion-item>
-            <ion-avatar class="pic" item-start>
-                <img src={{a.img}}>
-            </ion-avatar>
-            
-            <h2><b>{{a.name}}</b> <span class="datew">{{a.date}}</span></h2>
-           
-          </ion-item>
-      
-          <div class="list2">
-              <div text-wrap class="text">
-                  <p>{{a.text}}</p>
-                </div>
-          </div>
-           
-
-   
-           
-        </ion-list>
-     
-  </div>
-  </ion-content> 
+      </ion-list>
+</div>
+</ion-content> 
