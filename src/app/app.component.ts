@@ -14,6 +14,7 @@ import { LogoutPage } from '../pages/logout/logout';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
 import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
+import { SeeMessagesPage } from '../pages/see-messages/see-messages'
 
 
 
@@ -56,6 +57,7 @@ if('Log-Out')
             { title: 'Upload', component: HomePage },
             { title: 'Profile', component: ProfilePage},
             { title: 'Log-Out', component: LogoutPage},
+            {title: 'Messages', component:  SeeMessagesPage }
 
           ];
            this.rootPage =  ArtisthomePage;

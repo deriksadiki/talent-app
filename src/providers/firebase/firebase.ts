@@ -27,6 +27,8 @@ export class FirebaseProvider {
   videoArray = new Array();
   arr = new Array();
   arr2 = new Array();
+  messages =  new Array();
+  messages2 =  new Array();
   
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
@@ -255,7 +257,6 @@ getAllvideos(){
               {
                 var likes = data3.val();
                 var likesKey:any = Object.keys(likes )
-                console.log(likes[likesKey[0]].username)
               if (likes[likesKey[0]].username == this.currentUserID){
                 colour = "primary";
               }
@@ -336,6 +337,7 @@ this.imgurl =  url;
 
 storeuserid(uid){
 this.currentUserID = uid;
+console.log(this.currentUserID);
 }
 
 getProfile(){
@@ -379,13 +381,15 @@ viewArtistProfile(user){
             var keys:any = Object.keys(userFound);
             for(var b = 0; b <keys.length;b++){
               var k =  keys[b];
+              console.log(userFound)
+              console.log(userFound[k].imageURl)
               let obj = {
               age: userFound[k].age,
               cellno: userFound[k].cellno,
               gender: userFound[k].gender,
               name: userFound[k].name,
               surname: userFound[k].surname,
-              img : this.imgurl
+              img : userFound[k].imageURl
               }
               this.arr2.push(obj);
               accpt(this.arr2);
@@ -471,20 +475,137 @@ removeLike(username, key, num){
 sendMessage(username, text){
   return new Promise ((accpt, rej) =>{
     var today = moment().format("Do MMM");
-    this.database.ref('message/' + this.username + ":"  + username).push({
-      message : text,
-      date : today
+    this.database.ref('message').on('value', (data: any) => {
+      if ( data.val() != null ||  data.val() != undefined){
+        var paths =  data.val();
+        var keys = Object.keys(paths);
+        for (var x = 0; x < keys.length; x++){
+          var key = keys[x];
+          var str1 = new String( key);
+          var index = str1.indexOf( ":" );
+          var person = str1.substr(0,index);
+          var user2 =  str1.substr(index + 1,str1.length)
+          if (this.username == person&& username == user2){
+            this.database.ref('message/' + key).push({
+              date : today,
+              message : text
+            })
+            accpt('message sent')
+            break;
+          }
+          else if (this.username == user2 && username == person){
+            this.database.ref('message/' + key).push({
+              date : today,
+              message : text
+            })
+            accpt('message sent')
+            break;
+          }
+        }
+      }
+
+      accpt('fail')
     })
-    accpt('message sent')
   })
 }
 
-getMessages(username){
+startConvo(username, text){
+  var today = moment().format("Do MMM");
+  this.database.ref('message/' + this.username + ":" + username).push({
+    date : today,
+    message : text
+  })
+}
+
+getSentMessages(path){
 return new Promise ((accpt, rej) =>{
-  this.database.ref('message/' + this.username + ":"  + username).on('value', (data: any) => {
-    var messages =  data.val();
-    console.log(messages);
+  this.messages.length = 0;
+  this.database.ref('message/' + path).on('value', (data: any) => {
+    if ( data.val() != null ||  data.val() != undefined){
+      var messages =  data.val();
+      var keys =  Object.keys(messages);
+      for (var x = 0; x < keys.length; x++){
+        var key = keys[x];
+        let obj = {
+          message: messages[key].message,
+          date : messages[key].date
+        }
+        this.messages.push(obj)
+      }
+      accpt(this.messages);
+    }
   })
 })
 }
+
+getAllMessages(){
+return new Promise ((accpt,rej) =>{
+  this.database.ref('message').on('value', (data: any) => {
+    this.messages2.length = 0;
+    var objects = data.val();
+    var key = Object.keys(objects);
+    for (var x = 0; x < key.length; x++){
+      var str1 = new String( key[x]);
+      var index = str1.indexOf( ":" );
+      var messageID =  str1.substr(index + 1,str1.length);
+      var messageID2 = str1.substr(0,index)
+      console.log(this.username);
+      console.log(messageID);
+      console.log(key[x])
+        if (messageID == this.username)
+             {  //var storageRef = firebase.storage().ref('pictures/' + username + ".jpg");
+            // storageRef.getDownloadURL().then(url => {})
+              this.database.ref('message/' + key[x]).on('value', (data2: any) => {
+              var messg = data2.val();
+              var mesKeys = Object.keys(messg);
+              var length = mesKeys.length - 1;
+              var messageKey = mesKeys[length]
+              this.database.ref('message/' + key[x] + '/' + messageKey ).on('value', (data3: any) => {
+                let obj = {
+                  path : key[x],
+                  message : data3.val().message,
+                  key : messageKey,
+                  date : data3.val().date,
+                  name : messageID2 
+                }
+              this.AssignMessages(obj)
+              })
+            })
+        }
+      else if (messageID2 == this.username){
+        this.database.ref('message/' + key[x]).on('value', (data2: any) => {
+          var Newmessg = data2.val();
+          console.log(Newmessg )
+          var mesKeys = Object.keys(Newmessg);
+          var length = mesKeys.length - 1;
+          var messageKey = mesKeys[length]
+          this.database.ref('message/' + key[x] + '/' + messageKey ).on('value', (data3: any) => {
+            let obj = {
+              path : key[x],
+              message : data3.val().message,
+              key : messageKey,
+              date : data3.val().date,
+              name : messageID 
+            }
+          this.AssignMessages(obj)
+          })
+        })
+      }
+    }
+    accpt('finished')
+  })
+})
+}
+
+AssignMessages(obj:any){
+this.messages2.push(obj)
+}
+
+returnAllMessages(){
+  return new Promise ((accpt,rej) =>{
+    accpt(this.messages2);
+  })
+}
+
+
 }

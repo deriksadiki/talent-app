@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
-
+import { MessagePage } from "../message/message";
 /**
  * Generated class for the DisplayPage page.
  *
@@ -33,5 +33,9 @@ export class DisplayPage {
 
   dismiss() {
     this.viewCtrl.dismiss();
+  }
+  Message(){
+    var user = this.navParams.get('user');
+    this.navCtrl.push(MessagePage, {username:user})
   }
 }

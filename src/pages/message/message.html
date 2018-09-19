@@ -7,12 +7,29 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>message</ion-title>
+    <ion-title>{{name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-list *ngFor="let i of messages ">
+    <ion-item color="primary">
+      <p>{{i.message}}</p>
+    </ion-item>
+  </ion-list>
+ 
 
 </ion-content>
+<ion-footer>
+    <div class="down">
+        <ion-item  class="item2" >
+            <textarea  #text class="comments" #comment type="text" cols="40" rows="5" placeholder="message"></textarea>
+        
+        <div align = "right" > 
+          <button ion-button round color = "own" (click)="sendMessage(text.value)">send</button>
+        </div>
+            </ion-item>
+    </div>
+</ion-footer>
