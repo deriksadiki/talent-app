@@ -59,7 +59,7 @@ import {MessagePage } from '../pages/message/message'
     ScoutProfileUpdatePage,
     ScouteProfilePage,
     DisplayPage 
-    UploadPreviewPage  
+
 ],
   imports: [
     BrowserModule,

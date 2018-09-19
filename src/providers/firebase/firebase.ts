@@ -187,8 +187,7 @@ return new Promise ((accpt,rej) =>{
     });
     loading.present();
   return new Promise((accpt,rejc) =>{
-      duration: 9000
-    });
+
     loading.present();
   this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
     loading.dismiss();
@@ -293,11 +292,6 @@ getAllvideos(){
 
 } 
 
-asignColor(colour){
-  this.color = colour;
-  console.log(this.color);
-}
-
 getuserType(){
 return new Promise ((accpt, rej) =>{
   this.database.ref('users').on('value', (data: any) => {
@@ -366,44 +360,6 @@ getProfile(){
       console.log(this.profile);
       accpt(this.profile);
        })
-  })
-}
-
-getAllvideos(){
-  return new Promise ((accpt, rej) =>{
-
-    this.database.ref('uploads/').on('value', (data: any) => {
-      var videos = data.val();
-      this.videoArray.length = 0;
-      var keys:any =  Object.keys(videos);
-        for (var i = 0; i < keys.length; i++){
-          var x = keys[i];
-          var y  = 'uploads/' + x;
-          var details;
-          this.database.ref(y).on('value', (data2: any) => {
-           details = data2.val();
-            })
-          var keys2:any = Object.keys(details);
-          for (var a = 0; a < keys2.length; a++){
-                var key = keys2[a];
-                let obj = {
-                likes: details[key].likes,
-                comments : details[key].comments,
-                vidurl : details[key].downloadurl,
-                vidDesc : details[key].description,
-                vidname : details[key].name,
-                name : details[key].username,
-                img : details[key].userImg,
-                date : details[key].date,
-                key: key
-          }
-          this.videoArray.push(obj);
-          }
-        }
-       accpt(this.videoArray);
-  }, Error =>{
-    rej(Error.message)
-  })
   })
 }
 
@@ -511,7 +467,6 @@ removeLike(username, key, num){
     accpt('like removed')
   })
 }
-<<<<<<< HEAD
 
 sendMessage(username, text){
   return new Promise ((accpt, rej) =>{
@@ -532,7 +487,4 @@ return new Promise ((accpt, rej) =>{
   })
 })
 }
-
-=======
->>>>>>> fbd6ae0bfd00103d3c036777aee5c1f5dad0127a
 }

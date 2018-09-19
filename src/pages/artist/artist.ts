@@ -186,14 +186,10 @@ export class ArtistPage {
              alert.present();
           })
         })
-    })
-   }
       })
-
-    })
-
     }
-  }
+}
+  
   takePicture(){
     const confirm = this.alertCtrl.create({
       title: 'Options?',

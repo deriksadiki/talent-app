@@ -16,10 +16,10 @@ import { DisplayPage } from '../display/display';
 export class ArtisthomePage {
 videos = [];
 color = "primary";
-  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, private modalCtrl: ModalController) {
   }
 
-  ionViewDidLoad(user) {
+  ionViewDidLoad() {
    
    this.firebaseService.getAllvideos().then((data:any) =>{
     if (this.videos != null || this.videos != undefined){
@@ -28,10 +28,9 @@ color = "primary";
     }
      this.videos = data;
      console.log(this.videos);
-    })
-   });
    });
   }
+  
   like(keyIndex){
   this.firebaseService.likeVideo(this.videos[keyIndex].key).then(() =>{
     if (this.videos[keyIndex].color == "grey"){
