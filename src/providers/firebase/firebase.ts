@@ -3,10 +3,7 @@ import {Camera,CameraOptions} from '@ionic-native/camera';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { LoadingController } from 'ionic-angular';
 import moment from 'moment';
-<<<<<<< HEAD
-=======
 import { rendererTypeName } from '@angular/compiler';
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
 declare var firebase;
 
 @Injectable()
@@ -27,10 +24,7 @@ export class FirebaseProvider {
   currentUserID;
   profile =  new Array();
   comments =  new Array();
-<<<<<<< HEAD
-=======
   color;
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
 
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
 
@@ -241,18 +235,13 @@ getAllvideos(){
           var x = keys[i];
           var y  = 'uploads/' + x;
           var details;
-<<<<<<< HEAD
-=======
           var colour;
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
           this.database.ref(y).on('value', (data2: any) => {
            details = data2.val();
             })
           var keys2:any = Object.keys(details);
           for (var a = 0; a < keys2.length; a++){
                 var key = keys2[a];
-<<<<<<< HEAD
-=======
             this.database.ref('likes/' + key).on('value', (data3: any) => {
            
               if (data3.val() != null || data3.val() != undefined)
@@ -275,7 +264,6 @@ getAllvideos(){
               
             }
             })
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
                 let obj = {
                 likes: details[key].likes,
                 comments : details[key].comments,
@@ -285,10 +273,7 @@ getAllvideos(){
                 name : details[key].username,
                 img : details[key].userImg,
                 date : details[key].date,
-<<<<<<< HEAD
-=======
                 color :colour,
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
                 key: key
           }
           this.videoArray.push(obj);
@@ -301,17 +286,12 @@ getAllvideos(){
   })
 
 } 
-<<<<<<< HEAD
-
-
-=======
 
 asignColor(colour){
   this.color = colour;
   console.log(this.color);
 }
 
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
 getuserType(){
 return new Promise ((accpt, rej) =>{
   this.database.ref('users').on('value', (data: any) => {
@@ -324,10 +304,6 @@ return new Promise ((accpt, rej) =>{
       var currentUserID = userIDs[x].substr(index + 1);
       if (user.uid == currentUserID){
         this.storeUserName(userIDs[x].substr(0,index));
-<<<<<<< HEAD
-        console.log(userIDs[x].substr(0,index))
-=======
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
             var Userdetails;
             var Userdetails = data.val(); 
@@ -351,10 +327,6 @@ return new Promise ((accpt, rej) =>{
 
 storeUserName(name){
 this.username = name;
-<<<<<<< HEAD
-console.log(this.username)
-=======
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
 }
 
 storePictureUrl(url){
@@ -435,9 +407,6 @@ addNumComments(key, numComments, user){
   this.database.ref('uploads/' + user+ "/"+ key).update({comments: num});
   console.log("comment number added")
 }
-<<<<<<< HEAD
-}
-=======
 
 likeVideo(key){
   return new Promise ((accpt, rej) =>{
@@ -468,4 +437,3 @@ removeLike(username, key, num){
 }
 
 }
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a

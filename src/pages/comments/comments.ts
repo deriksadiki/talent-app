@@ -30,7 +30,6 @@ export class CommentsPage {
     this.comments2.length = 0;
     this.videos.push(this.videos2);
      this.getComments();
-     console.log(this.comments2)
   }
     
     getComments(){

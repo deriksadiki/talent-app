@@ -1,53 +1,47 @@
-<!--
-  Generated template for the CommentsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>comments</ion-title>
+  <ion-navbar color = "own">
+    <ion-title>Comments</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content *ngFor="let i of videos" padding>
+<ion-content class="img" *ngFor="let i of videos" >
 
-        <ion-item>
+        <ion-item class="it1">
           <ion-avatar item-start>
             <img src={{i.img}}>
           </ion-avatar>
          <h1>{{i.name}}</h1>
          <p></p>
-
-
         </ion-item>
       
-      
+        <ion-item class="it2">
         <video width="390" height="240" controls>
             <source src={{i.vidurl}} type="video/mp4">
-            
-          </video>
+        </video>
+       
           <p><b>{{i.vidDesc}}</b></p>
-          
-          <!-- <ion-item  class="item2" > -->
+         </ion-item>  
+         
+          <ion-item>
             <textarea class="comments" #comment type="text" cols="40" rows="5" placeholder="Comment here"></textarea>
-          <!-- </ion-item> -->
+          
 
           <div align = "right" >
-          <button ion-button round color = "primary" (click)="placeComment(comment.value)">Post</button>
+          <button ion-button round color = "own" (click)="placeComment(comment.value)">Post</button>
         </div>
+      </ion-item>
 <br>
-
+<br>
    
-<div class="cm">
+
     <ion-list no-lines *ngFor="let a of comments2"  >
 
-        <ion-item>
+        <ion-item class="test">
           <ion-avatar class="pic" item-start>
-              <img src={{a.img}}>
+              <img src='../../assets/imgs/pic.jpg'>
           </ion-avatar>
           
           <h2><b>{{a.name}}</b> <span class="datew">{{a.date}}</span></h2>
@@ -66,6 +60,5 @@
         <!-- </div> -->
 
       </ion-list>
-   
-</div>
+
 </ion-content> 

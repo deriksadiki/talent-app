@@ -11,33 +11,13 @@
       <ion-icon name="flame"></ion-icon>&emsp;Top Trending
     </ion-title>
   </ion-navbar>
-  <!-- <div class="logo" align="center">
-      <img class="logo" src="../../assets/imgs/play-button (1).png">
-    </div> 
-     <h1 align="center" class="log">Vid'It.</h1>  -->
-     <!-- <ion-card>
-    <ion-item> -->
-      <!-- <div  align="center">
-    <ion-select class="box" placeholder="video Category" [(ngModel)]="category">
-        <ion-option value="mus">Music</ion-option>
-        <ion-option value="dan">Dance</ion-option>
-        <ion-option value="poet">Poetry</ion-option>
-        <ion-option value="act">Acting</ion-option>
-        <ion-option value="art">Art</ion-option>
-        <ion-option value="sport">Sport</ion-option>
-      </ion-select>
-    </div> -->
-    <!-- </ion-item>
-  </ion-card>
-    -->
-      <!-- </div> -->
 </ion-header>
 
 <ion-content class="img">
 
-   <div  *ngFor="let i of videos; let a =index">
-      <ion-card class="try">
-          <ion-item class="try">
+   <div *ngFor="let i of videos; let a =index">
+      <ion-card >
+          <ion-item>
             <ion-avatar item-start>
               <img src="{{i.img}}">
             </ion-avatar>
@@ -54,8 +34,8 @@
             <p>{{i.vidDesc}}</p>
             <ion-row>
                 <ion-col>
-                  <button ion-button icon-start clear small>
-                    <ion-icon name="thumbs-up"></ion-icon>
+                  <button ion-button icon-start clear small (click)="like(a)">
+                    <ion-icon  color ={{i.color}} name="thumbs-up"></ion-icon>
                     <div>{{i.likes}} Likes</div>
                   </button>
                 </ion-col>
@@ -79,72 +59,5 @@
               </ion-card-content>
             </ion-card>
    </div>
-  
-<!--         
-          <ion-row>
-            <ion-col>
-              <div class="sec">
-                <div class="cont">
-              <button class="l" ion-button icon-start clear small>
-                <ion-icon name="thumbs-up"></ion-icon>
-                <div>12 Likes</div>
-              </button>
-            </div>
-            <div class="cont">
-              <button class="comm" ion-button icon-start clear small>
-                <ion-icon name="text"></ion-icon>
-                <div>4 Comments</div>
-              </button>
-            </div>
-            <div class="cont">
-              <p>
-           {{i.date}}
-          </p> 
-        </div>
-         </div>
-            </ion-col>
-            </ion-row>  -->
-    
-
-    
   </ion-content> 
 
-<<<<<<< HEAD
-=======
-=======
-              <ion-col>
-                <button ion-button icon-start clear small (click)="like(a)">
-                  <ion-icon color ={{i.color}} name="thumbs-up" ></ion-icon>
-                  <div>{{i.likes}} Likes</div>
-                </button>
-              </ion-col>
-              <ion-col>
-                <button  ion-button class="com" icon-start clear small center>
-                  <ion-icon name="text"></ion-icon>
-                  <div (click)="test(a)">{{i.comments}} Comments</div>
-                </button>
-              </ion-col>
-              <ion-col>
-                  <button (click) = " Profile()" ion-button  icon-start clear small center>
-               <div>View Prof.</div> 
-              </button>
-             </ion-col>
-              <ion-col >
-                <ion-note class="time">
-              {{i.date}}
-                </ion-note>
-              </ion-col>
-    
-    
-              </ion-row>
-          </ion-card-content>
-        </ion-card>
-
-
-  
-  </ion-content> 
-
-
-  
->>>>>>> 79926212867663946e034b567e161d2271ea4197
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a

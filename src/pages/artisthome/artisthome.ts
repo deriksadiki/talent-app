@@ -25,14 +25,8 @@ color = "primary";
       this.videos = undefined;
       this.videos = null;
     }
-<<<<<<< HEAD
-
-     this.videos = data;
-     console.log(this.videos)
-=======
      this.videos = data;
      console.log(this.videos);
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
    });
   }
   like(keyIndex){

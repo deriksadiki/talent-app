@@ -48,14 +48,10 @@ export class HomePage {
         console.log(data);
          this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
            console.log('added to db');
-<<<<<<< HEAD
-           this.navCtrl.push(ArtisthomePage);
-=======
 
 
            this.navCtrl.push(HomePage);
 
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
          },
         Error =>{
           console.log(Error)
@@ -65,9 +61,6 @@ export class HomePage {
       })
       
     }
-<<<<<<< HEAD
-}
-=======
 
     preview=function(){
       const modal = this.modalCtrl.create(UploadPreviewPage);
@@ -76,5 +69,4 @@ export class HomePage {
 
 }
 
->>>>>>> 57fa9ae7671e68deeff9fe9cfe0a136d04b0e55a
 
