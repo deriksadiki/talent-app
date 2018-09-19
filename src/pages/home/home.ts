@@ -54,7 +54,7 @@ export class HomePage {
       })
       
     }
-    preview=function(){
+    preview(){
       const modal = this.modalCtrl.create(UploadPreviewPage);
       modal.present();
     }

@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="own">
     <ion-title>comments</ion-title>
   </ion-navbar>
 
@@ -25,20 +25,25 @@
 
         </ion-item>
       
-      
+      <ion-item>
         <video width="390" height="240" controls>
+
             <source src={{i.vidurl}} type="video/mp4">
             
           </video>
           <p><b>{{i.vidDesc}}</b></p>
-          
-          <!-- <ion-item  class="item2" > -->
-            <textarea class="comments" #comment type="text" cols="40" rows="5" placeholder="Comment here"></textarea>
-          <!-- </ion-item> -->
+        </ion-item>
+        <br>
 
-          <div align = "right" >
-          <button ion-button round color = "primary" (click)="placeComment(comment.value)">Post</button>
+         
+          <ion-item  class="item2" >
+            <textarea class="comments" #comment type="text" cols="40" rows="5" placeholder="Comment here"></textarea>
+        
+        <div align = "right" > 
+          <button ion-button round color = "own" (click)="placeComment(comment.value)">Post</button>
         </div>
+            </ion-item>
+<br>
 <br>
 
    
@@ -61,10 +66,7 @@
         </div>
          
  
-          <!-- <div text-wrap> -->
-       
-        <!-- </div> -->
-
+         
       </ion-list>
    
 </div>

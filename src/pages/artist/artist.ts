@@ -103,8 +103,11 @@ export class ArtistPage {
             });
              alert.present();
           })
+        })
       })
   }
+};
+
   takePicture(){
     const confirm = this.alertCtrl.create({
       title: 'Options?',
@@ -135,36 +138,7 @@ export class ArtistPage {
     });
     confirm.present();
   }
-  takePicture(){
-    const confirm = this.alertCtrl.create({
-      title: 'Options?',
-      message: 'Please Choose one of the options',
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Title',
-          type: 'file'
-        },
-      ],
-      buttons: [
-        {
-          text: 'Upload Photo',
-          handler: data => {
-         
-           // this.converImg(`${data.title}`);
-            //console.log(this.url);
-          }
-        },
-        {
-          text: 'Take Photo',
-          handler: () => {
-         this.firebaseService.uploadpic();
-          }
-        }
-      ]
-    });
-    confirm.present();
-  }
+ 
 
   converImg(event:any){
  

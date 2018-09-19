@@ -82,13 +82,7 @@ import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
-<<<<<<< HEAD
-    ScouteProfilePage,
-    UploadPreviewPage
-=======
-    ScouteProfilePage
-
->>>>>>> 3497869891a8c0c19fd45b407848c85f57b8d7cb
+    UploadPreviewPage 
   ],
   providers: [
     StatusBar,
