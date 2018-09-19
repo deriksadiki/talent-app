@@ -222,8 +222,8 @@ storeToDB(name, category, vidname, vidDesc){
             username : this.username,
             userImg : this.imgurl,
             date : today,
-            likes : 0,
-            comments : 0
+            likes : 1,
+            comments : 1
           });
           accpt('success');
 }, Error =>{
@@ -271,7 +271,7 @@ getAllvideos(){
             })
                 let obj = {
                 likes: details[key].likes,
-                comments : details[key].comments,
+                comments : details[key].comments - 1,
                 vidurl : details[key].downloadurl,
                 vidDesc : details[key].description,
                 vidname : details[key].name,
