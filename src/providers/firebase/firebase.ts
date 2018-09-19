@@ -18,16 +18,17 @@ export class FirebaseProvider {
   state;
   image;
   file;
-  videoArray = new Array();
   username;
   imgurl;
   currentUserID;
+
   profile =  new Array();
   comments =  new Array();
-  color;
-
+  videoArray = new Array();
+  arr = new Array();
+  arr2 = new Array();
+  
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
-
   }
 
 login(email, password){
@@ -38,7 +39,8 @@ login(email, password){
       reject(Error.message)
     })
   })
- }
+
+}
 
   registerUser(email,password, Username){
 
@@ -55,8 +57,8 @@ login(email, password){
         reject(Error.message)
       })
     })
-
   }
+  
   registerTalentPerson(username,email,password, name, surname, gender, cellno, age){
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',
@@ -89,10 +91,9 @@ login(email, password){
 
 
   registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno){
-   
     return new Promise((accept,reject) =>{
       this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-        var user = firebase.auth().currentUser;
+      var user = firebase.auth().currentUser;
         this.dbRef =  'users/' + surname + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           name:name,
@@ -119,7 +120,7 @@ login(email, password){
           this.state = 1;
         }
         else{
-          this.state = 0;
+        this.state = 0;
         }
         accpt(this.state);
        });
@@ -163,20 +164,18 @@ return new Promise ((accpt,rej) =>{
 }
 
   async uploadpic(){
-  
-          const options: CameraOptions= {
-            quality : 100,
-            targetWidth: 600,
-            targetHeight: 600,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE,
-            correctOrientation: true
-      
-          }
-            const results = await this.camera.getPicture(options);
-          this.image = `data:image/jpeg;base64,${results}`;
-          console.log(this.image);
+    const options: CameraOptions= {
+    quality : 100,
+    targetWidth: 600,
+    targetHeight: 600,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE,
+    correctOrientation: true
+    }
+      const results = await this.camera.getPicture(options);
+      this.image = `data:image/jpeg;base64,${results}`;
+      console.log(this.image);
   }
 
   uploadvid(vid){
@@ -184,11 +183,12 @@ return new Promise ((accpt,rej) =>{
     let loading = this.loadingCtrl.create({
       spinner: 'bubbles',
       content: 'Please wait',
-      duration: 9000
+      duration: 17000
     });
     loading.present();
   return new Promise((accpt,rejc) =>{
 
+    loading.present();
   this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
     loading.dismiss();
     accpt(d);
@@ -199,6 +199,14 @@ return new Promise ((accpt,rej) =>{
   }
 
 storeToDB(name, category, vidname, vidDesc){
+
+  var d = Date.now();
+  let loading = this.loadingCtrl.create({
+    spinner: 'bubbles',
+    content: 'Please wait',
+    duration: 9000
+  });
+  loading.present();
   return new Promise((accpt,rejc) =>{
     var today = moment().format("Do MMM");
     var storageRef = firebase.storage().ref(name + ".mp4");
@@ -223,7 +231,7 @@ storeToDB(name, category, vidname, vidDesc){
   console.log(Error.message);
 });
 })
-}
+} 
 
 getAllvideos(){
   return new Promise ((accpt, rej) =>{
@@ -243,14 +251,11 @@ getAllvideos(){
           for (var a = 0; a < keys2.length; a++){
                 var key = keys2[a];
             this.database.ref('likes/' + key).on('value', (data3: any) => {
-           
               if (data3.val() != null || data3.val() != undefined)
               {
                 var likes = data3.val();
                 var likesKey:any = Object.keys(likes )
                 console.log(likes[likesKey[0]].username)
-            
-              
               if (likes[likesKey[0]].username == this.currentUserID){
                 colour = "primary";
               }
@@ -287,11 +292,6 @@ getAllvideos(){
 
 } 
 
-asignColor(colour){
-  this.color = colour;
-  console.log(this.color);
-}
-
 getuserType(){
 return new Promise ((accpt, rej) =>{
   this.database.ref('users').on('value', (data: any) => {
@@ -299,6 +299,7 @@ return new Promise ((accpt, rej) =>{
     var user = firebase.auth().currentUser;
     var  userIDs = Object.keys(users);
     for (var x = 0; x < userIDs.length; x++){
+
       var str1 = new String( userIDs[x]); 
       var index = str1.indexOf( ":" ); 
       var currentUserID = userIDs[x].substr(index + 1);
@@ -331,18 +332,17 @@ this.username = name;
 
 storePictureUrl(url){
 this.imgurl =  url;
-
 }
 
 storeuserid(uid){
-  this.currentUserID = uid;
-  this.getProfile();
+this.currentUserID = uid;
 }
 
 getProfile(){
   return new Promise ((accpt, rej) =>{
     this.database.ref('users/' + this.currentUserID).on('value', (data2: any) => {
       var details = data2.val();
+      console.log(details);
       var keys = Object.keys(details)
 
       for (var x = 0; x< keys.length; x++){
@@ -363,6 +363,43 @@ getProfile(){
   })
 }
 
+viewArtistProfile(user){
+  return new Promise ((accpt, rej) =>{
+    this.arr2.length = 0;
+    this.database.ref('users/').on('value', (data: any) => {
+      var users =  data.val();
+      var  userIDs = Object.keys(users);
+      for(var x = 0; x < userIDs.length; x++){
+        var str1 = new String( userIDs[x]);
+        var index = str1.indexOf( ":" );
+        var username = userIDs[x].substr(0,index);
+        if (user == username){
+          this.database.ref('users/' + userIDs[x]).on('value', (data2: any) => {
+            var userFound = data2.val();
+            var keys:any = Object.keys(userFound);
+            for(var b = 0; b <keys.length;b++){
+              var k =  keys[b];
+              let obj = {
+              age: userFound[k].age,
+              cellno: userFound[k].cellno,
+              gender: userFound[k].gender,
+              name: userFound[k].name,
+              surname: userFound[k].surname,
+              img : this.imgurl
+              }
+              this.arr2.push(obj);
+              accpt(this.arr2);
+            };
+           })
+          break;
+        }
+      }
+  }, Error =>{
+    rej(Error.message)
+  })
+  })
+}
+
 comment(key,text){
   return new Promise ((accpt, rej) =>{
     var today = moment().format('l');  
@@ -375,10 +412,8 @@ comment(key,text){
     accpt("comment added")
   })
 }
-
 getcomments(key){
   return new Promise ((pass,fail) =>{
-
     this.database.ref('comments/' + key).on('value', (data2: any) => {
       var details = data2.val();
       if (details != null ||  details != undefined){
@@ -394,11 +429,9 @@ getcomments(key){
           }
           this.comments.push(obj)
         }
-          
           pass(this.comments);
       }
       })
-    
   })
 }
 
@@ -428,7 +461,6 @@ addNumOfLikes(username, key, num){
 
 removeLike(username, key, num){
   num =  num  - 1;
-  console.log(num)
   return new Promise ((accpt, rej) =>{
     this.database.ref('uploads/' + username + '/' + key).update({likes: num});
     this.database.ref('likes/' + key).remove();
@@ -436,4 +468,23 @@ removeLike(username, key, num){
   })
 }
 
+sendMessage(username, text){
+  return new Promise ((accpt, rej) =>{
+    var today = moment().format("Do MMM");
+    this.database.ref('message/' + this.username + ":"  + username).push({
+      message : text,
+      date : today
+    })
+    accpt('message sent')
+  })
+}
+
+getMessages(username){
+return new Promise ((accpt, rej) =>{
+  this.database.ref('message/' + this.username + ":"  + username).on('value', (data: any) => {
+    var messages =  data.val();
+    console.log(messages);
+  })
+})
+}
 }

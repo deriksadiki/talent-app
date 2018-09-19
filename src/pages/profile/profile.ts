@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-<<<<<<< HEAD
-import {Recruit} from '../../Modals/Recruit'
-import {FirebaseProvider} from '../../providers/firebase/firebase'
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
-
-=======
-import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
->>>>>>> 79926212867663946e034b567e161d2271ea4197
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+import {Recruit} from '../../Modals/Recruit';
 
 /**
  * Generated class for the ProfilePage page.
@@ -16,6 +11,7 @@ import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile
  * Ionic pages and navigation.
  */
 
+
 @IonicPage()
 @Component({
   selector: 'page-profile',
@@ -23,41 +19,22 @@ import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile
 })
 export class ProfilePage {
 
-<<<<<<< HEAD
-  // arr = new Array();
-  // dbRef;
-  // datas;
-
-  // recruit = {} as Recruit;
-
-  // email:string;
-  // password:string;
-  // name:string;
-  // surname:string;
-  // companyName:string;
-  // companyemail:string;
-  // gender:string;
-  // age:string;
-  // cellno:string;
+  dbRef;
+  datas;
+  arr2= []; 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService:FirebaseProvider) {
-    // this.firebaseService.getuserType();
-=======
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
->>>>>>> 79926212867663946e034b567e161d2271ea4197
+    this.firebaseService.getuserType();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfilePage');
+    this.firebaseService.getProfile().then((data:any) =>{
+    this.arr2 = data;
+    })
   }
-
 
   Update(){
-<<<<<<< HEAD
-this.navCtrl.push(ArtistProfileUpdatePage);
-=======
-   this.navCtrl.push(ArtistProfileUpdatePage);
->>>>>>> 79926212867663946e034b567e161d2271ea4197
+    this.navCtrl.push(ArtistProfileUpdatePage);
   }
-
+    
 }

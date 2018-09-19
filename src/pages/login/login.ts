@@ -96,17 +96,17 @@ showForgotPassword(){
         console.log(data)
         if (data == "normalPerson"){
           window.location.reload();
+
         }
         else if (data == "talentPerson"){
+
           window.location.reload();
 
         }
-<<<<<<< HEAD
-        else if (data  == "ScoutPerson"){
-            this.navCtrl.push(ScoutPage);
-=======
+        else if (data == "ScoutPerson"){
+          window.location.reload();
+        }
         else{
->>>>>>> 79926212867663946e034b567e161d2271ea4197
             window.location.reload();
         }
       })

@@ -42,7 +42,7 @@
  </div>
 
  </div>
-    </div>
+    
 </ion-header>
 
 
@@ -50,11 +50,11 @@
     <div align="center"> 
         <h2>Your Vid'It profile</h2>    
       </div>
-      <br> -->
+      <br>
       
 
 
-<!-- <ion-grid>
+<ion-grid>
     <ion-row>
         <ion-col>
 
@@ -72,33 +72,47 @@
         <ion-col>
             
         </ion-col>
+
+      </ion-row>
+      </ion-grid>
+      
+      
+      <button class="btn" ion-button color="own" (click)="update()"><ion-icon name="add"></ion-icon></button>
+      
+      </div>
+      </ion-header>
+      
+      
+      <ion-content  class="cont">
+        <div align="center">
+          <h2>Your Vid'It profile</h2>
+          </div>
+          <br>
+      <ion-list *ngFor="let x of arr2" class="list">
+        <p><ion-icon name="contact"></ion-icon>&emsp;{{x.name}}</p>
+        <p><ion-icon name="contact"></ion-icon>&emsp;{{x.surname}}</p>
+        <p><ion-icon name="mail"></ion-icon>&emsp;{{x.cellno}}</p>
+        <p><ion-icon name="transgender"></ion-icon>&emsp;{{x.gender}}</p>
+        <p><p><ion-icon name="contact"></ion-icon>&emsp;Age:{{x.age}}</p>
+      </ion-list>
+      </ion-content>
     </ion-row>
 </ion-grid>
 
 </ion-content>
 
-<<<<<<< HEAD
-<!-- <ion-header>
-    <div class="img" align="center">
-  <ion-navbar color="trans">
-    <ion-title>Your Profile</ion-title>
-    <button ion-button menuToggle icon-only>
-        <ion-icon name='menu'></ion-icon>
-      </button>
-=======
 </ion-content> -->
 <ion-header>
     <div class="img" align="center">
   <ion-navbar color="trans">
+
+    <ion-title></ion-title>
+
         <button ion-button menuToggle icon-only>
                 <ion-icon name='menu'></ion-icon>
               </button>
-    <!-- <ion-title>Your Profile</ion-title> -->
->>>>>>> 79926212867663946e034b567e161d2271ea4197
-  </ion-navbar>
-  
-  
-  
+    <ion-title>Your Profile</ion-title>
+ </ion-navbar>
   <img class="pic" src="../../assets/imgs/face.webp">
   <h1>Jorja Smith</h1>
   
@@ -149,8 +163,9 @@
     <p><p><ion-icon name="contact"></ion-icon>&emsp;30</p>
   </ion-list>
   
+
   </div>
-<<<<<<< HEAD
+
   </ion-content>  -->
   <ion-header>
       <div class="img" align="center">
@@ -187,13 +202,9 @@
       </ion-col>
     </ion-row>
     </ion-grid>
-   
-   
     <button top-right id="btn" class="animated infinite pulse delay-2s"  ion-button (click)="update()" clear><ion-icon name="hammer"></ion-icon>...</button>
-   
     </div>
     </ion-header>
-   
    
     <ion-content class="cont">
       <div align="center">
@@ -215,7 +226,4 @@
    
     </div>
     </ion-content>
-=======
-  </ion-content>
-
->>>>>>> 79926212867663946e034b567e161d2271ea4197
+ 

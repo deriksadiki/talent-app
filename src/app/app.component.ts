@@ -34,7 +34,6 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
- 
 if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
       if (data == 1){
@@ -43,29 +42,41 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
+
             { title: 'Home', component: UsersPage,  },
+
+
+
+            { title: 'Home1', component: ArtisthomePage },
+            // { title: 'Home', component: UsersPage },
+            { title: 'Share', component: HomePage },
+
             { title: 'Log-Out', component: LogoutPage },
-          ];
-          
+          ]
         }
         else if (data == "talentPerson"){
           this.pages = [
-            { title: 'Home', component: ArtisthomePage },
+            { title: 'Home', component: ArtisthomePage},
             { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
-            { title: 'Log-Out', component: LogoutPage },
+            { title: 'Profile', component: ProfilePage},
+            { title: 'Log-Out', component: LogoutPage},
+
           ];
            this.rootPage =  ArtisthomePage;
         }
         else if (data == "ScoutPerson"){
           this.pages = [
+
             { title: 'Home', component: ScoutPage },
+
             { title: 'Profile', component: ProfilePage },
+
+            { title: 'Profile', component:ScouteProfilePage },
+
             { title: 'Log-Out', component: LogoutPage },
           ];
           this.rootPage = ScoutPage;
         }
-  
       })
       }
       else{

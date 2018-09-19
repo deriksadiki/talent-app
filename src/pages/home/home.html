@@ -1,21 +1,40 @@
-<ion-header>
 
+  <ion-header>
      
+  
       <div class="section">  
       <ion-navbar color = "color" >
-          <button ion-button menuToggle icon-only>
-              <ion-icon name='menu'></ion-icon>
-            </button>
-      </ion-navbar>
-        <div class="logo" align="center">
-          <img class="logo" src="../../assets/imgs/play-button (1).png">
-        </div>
-        <h1 align="center" class="log">Vid'It.</h1>  
-  </ion-header>
-  
+        artist
+      <button ion-button menuToggle icon-only>
+        <ion-icon name='menu'></ion-icon>
+      </button>
+      </ion-navbar> 
+       
+      <div class="logo" align="center">
+        <img class="logo" src="../../assets/imgs/play-button (1).png">
+      </div>
+      <h1 align="center">Vid'It.</h1>
+      </div> 
     
-        <!-- <ion-card> -->
-            <ion-card-content>
+      </ion-header>
+
+
+<ion-content >
+
+  <h1 align="center" class="head">UpLoad your Video</h1>
+  <br>
+ <ion-card> 
+  <ion-item class="item item-trns text-center">
+    <input type="file" (change)="insertvid($event)" >
+  </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item class="combo" align="left">
+      </ion-item>
+        </ion-card>
+
+        <ion-card>
+
                 <div align="center">
                     <ion-item class="combo"  >
                   
@@ -29,14 +48,11 @@
                           <ion-option value="sport">Sport</ion-option>
                         </ion-select>
                       </ion-item>
-                  </div>
-                   
-
-     <div >
+                  </div>  
+  
   <ion-item class="item item-trns text-center" id="tem" >
           <ion-input type="file" (change)="insertvid($event)"></ion-input>
         </ion-item>
-
 
        <ion-item id="tem">
           <ion-label><ion-icon  class="i" name="information-circle"></ion-icon></ion-label>
@@ -47,9 +63,10 @@
           <ion-label><ion-icon class="i" name="information-circle"></ion-icon></ion-label>
           <ion-input type="text" placeholder="video description" [(ngModel)]="vidDesc"></ion-input>
        </ion-item>
+
       </div>
-       </ion-card-content>
-<!-- </ion-card> -->
+
+</ion-card>
   
 
      <div  align = "center" >
@@ -59,5 +76,6 @@
 <!-- <button (click)="upload()" ion-button>upload</button> -->
 
   
+
 </ion-content>
 
