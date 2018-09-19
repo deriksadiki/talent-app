@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { NavController, ViewController, AlertController, ModalController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import {LoginPage} from '../login/login';
+
 import { UploadPreviewPage } from '../upload-preview/upload-preview';
+
+
+import { ArtisthomePage } from '../artisthome/artisthome';
 
 
 // import { SecondPage } from '../second/second';
@@ -44,7 +48,10 @@ export class HomePage {
         console.log(data);
          this.firebaseService.storeToDB(data, this.category, this.vidName, this.vidDesc).then(() =>{
            console.log('added to db');
+
+
            this.navCtrl.push(HomePage);
+
          },
         Error =>{
           console.log(Error)
@@ -54,9 +61,16 @@ export class HomePage {
       })
       
     }
+<<<<<<< HEAD
     preview(){
+=======
+
+    preview=function(){
+>>>>>>> 19aa981ae17c9d40120c80e9f414e6053523797f
       const modal = this.modalCtrl.create(UploadPreviewPage);
       modal.present();
     }
-  }
+
+}
+
 

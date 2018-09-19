@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // page-home {
 
 //     .section{
@@ -14,6 +15,88 @@
 //        box-shadow: 2px 2px 4px;
        
 //    }
+=======
+page-home {
+    font-family: 'Ubuntu', sans-serif;
+    // .section{
+    //     background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+    //     background-attachment: fixed;
+    //     background-color: black;
+    //     background-size: cover;
+    //     height: 38vh;
+    //     // box-shadow: 2px 2px 4px;
+    //    background-repeat: no-repeat;
+    //    background-position: center;
+    // } 
+    ion-card.card{
+        // border-radius: 12px;
+        // box-shadow: 2px 2px 4px;
+    }
+
+   .combo{
+    //    box-shadow: 2px 2px 4px;
+       margin-block-end: 20px;
+       border-radius: 12px;
+    //    width: 80%;
+   }
+   .h{
+    //    margin-left: 40px;
+       color: gray;
+   }
+ 
+   .box{
+    //    margin-left: 10px;
+       margin-right: 62%;
+   }
+   .i{
+       color: rgb(219, 219, 219);
+    //    margin-right: 30px;
+   }
+   .img{
+       background-color: rgb(245, 239, 239);
+       background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+           background-attachment: fixed;
+           background-color: black;
+           background-size: cover;
+
+   }
+   .head{
+    //    background-color: #F53D4E;
+    //    box-shadow: 2px 2px 4px;
+       color: rgb(248, 245, 245);
+       text-shadow: 2px 2px 3px black;
+    //    text-shadow: 5px 3px 3px ;
+       margin-left: 50px;
+       margin-right: 50px;
+       border-radius: 8px;
+       padding: 10px;
+     
+    //    border-bottom-left-radius: 100%;
+    //    border-top-right-radius: 10px;
+    //    border-bottom-right-radius: 100%;
+    //    border-top-left-radius: 10px;
+    //    box-shadow: 2px 2px 4px;
+   }
+   .log{
+       color: whitesmoke;
+       font-size: 200%;
+       font-weight: 100;
+   }
+//    #tem{
+//     margin-bottom: 10px;
+//    }
+   .item{
+    //    box-shadow: 1px 1px 2px;
+       background-color: rgba(255, 255, 255, 0);
+       color: white;
+       margin-bottom: 20px;
+    
+<<<<<<< HEAD
+   }
+   .butt{
+       width: 50%;
+   }
+>>>>>>> 19aa981ae17c9d40120c80e9f414e6053523797f
 //    .fabs{
 //     height: 50px;
 //     width: 85%;
@@ -27,11 +110,20 @@
 //     // top: 0;
     
 // }
+<<<<<<< HEAD
 // h1{
 //     color: whitesmoke;
 // }
 
 // }
+=======
+=======
+}
+h1{
+    color: whitesmoke;
+}
+>>>>>>> 79926212867663946e034b567e161d2271ea4197
+>>>>>>> 19aa981ae17c9d40120c80e9f414e6053523797f
 
 
 page-home {

@@ -9,7 +9,7 @@
 
 
 
-<ion-content  class="img">
+<ion-content class="img">
 <br>
 <div class="logo" align="center">
     <img class="logo" src="../../assets/imgs/play-button (1).png">
@@ -21,12 +21,14 @@
         <ion-list class="context" no-lines>
 
           <ion-item>
-            <ion-label ><ion-icon name="lock" class="i"></ion-icon></ion-label>
+            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+            <ion-input type="text" placeholder = "Username" [(ngModel)] = "guest.Username"></ion-input>
 
           </ion-item>
       
             <ion-item>
-              <ion-label ><ion-icon name="mail" class="i"></ion-icon></ion-label>
+              <ion-label ><ion-icon name="at" class="i"></ion-icon></ion-label>
+              <ion-input type="text" placeholder = "E-mail" [(ngModel)] = "guest.email"></ion-input>
 
             </ion-item>
 
@@ -37,8 +39,8 @@
           </ion-list>
           
 
-    <div class="butt">
-        <button class="btn" ion-button color="own" round (click)="reg()">Register</button>
-  </div>
+      <div align="center">
+        <button class="butt"  ion-button color="own" round (click)="reg()">Register</button>
+     </div>
 
 </ion-content>
