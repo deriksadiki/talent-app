@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the ArtistProfileUpdatePage page.
+ * Generated class for the GalleryPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,18 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-artist-profile-update',
-  templateUrl: 'artist-profile-update.html',
+  selector: 'page-gallery',
+  templateUrl: 'gallery.html',
 })
-export class ArtistProfileUpdatePage {
+export class GalleryPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ArtistProfileUpdatePage');
+    console.log('ionViewDidLoad GalleryPage');
   }
-Update(){
-  this.navCtrl.push(ArtistProfileUpdatePage);
-}
+
 }

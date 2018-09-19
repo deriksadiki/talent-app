@@ -1,5 +1,5 @@
 page-login {
-
+    font-family: 'Ubuntu', sans-serif;
     .img{
     background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
     background-attachment: fixed;
@@ -14,9 +14,8 @@ page-login {
         color: white;
         width: 80%;
         position: relative;
-        left: 10%;
+        right: 15%;
         border-radius: 30px;
-        padding: 0.5px;
         padding-left: 7%;
       
         
@@ -34,7 +33,7 @@ page-login {
     h1{
         color: rgb(236, 217, 217);
         text-align: center;
-        padding-top: 15%;
+        padding-top: 5%;
         font-size: 400%;
        font-weight: 100;
     }
@@ -92,7 +91,7 @@ page-login {
     .logo{
         color: rgb(236, 217, 217);
         position: relative;
-        top: 5%;
+        top: 2%;
      }
     
 

@@ -20,15 +20,15 @@ export class ScouteProfilePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
     this.firebaseService.getuserType();
-    this.firebaseService.viewScoutProfile();
+    // this.firebaseService.viewScoutProfile();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScouteProfilePage');
 
-    this.firebaseService.viewScoutProfile().then((data:any) =>{
-      this.arr2 = data;
-    })
+    // this.firebaseService.viewScoutProfile().then((data:any) =>{
+    // this.arr2 = data;
+    // })
 
     console.log(this.arr2);
   }

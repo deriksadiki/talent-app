@@ -14,3 +14,41 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+ 
+.menu{
+    
+        // background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        background-attachment: fixed;
+        background-color: rgb(255, 255, 255);
+        background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
+
+}
+
+// .liss{
+//     color: rgba(255, 255, 255, 0.158);
+// }
+
+// .buttons{
+//     margin-bottom: 8%;
+//     position: relative;
+//     right: 25%;
+//     top: 35px;
+//     background-color: rgba(245, 61, 79, 0);
+//     color: white;
+   
+// }
+
+// .logo{
+//     position: relative;
+//     top: 20px;
+// }
+
+// header{
+//     color: white;
+//     font-weight: 100;
+//     margin-left: 13%;
+//     position: relative;
+//     top: 10px;
+// }
