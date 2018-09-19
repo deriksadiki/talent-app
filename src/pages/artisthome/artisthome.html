@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<ion-content>
-=======
-
 <ion-header>
     <div class="section">
     
@@ -23,7 +19,6 @@
 </ion-header>
 
    <ion-content>
->>>>>>> f93048f008b71425f8f8cef75762ef85946085e7
 
       <ion-card *ngFor="let i of videos; let a =index">
           <ion-item>
@@ -46,8 +41,8 @@
             <p>{{i.vidDesc}}</p>
             <ion-row>
               <ion-col>
-                <button ion-button icon-start clear small>
-                  <ion-icon name="thumbs-up"></ion-icon>
+                <button ion-button icon-start clear small (click)="like(a)">
+                  <ion-icon color ={{i.color}} name="thumbs-up" ></ion-icon>
                   <div>{{i.likes}} Likes</div>
                 </button>
               </ion-col>
@@ -78,4 +73,3 @@
   </ion-content> 
 
 
-  

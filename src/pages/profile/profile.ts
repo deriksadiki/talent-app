@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+import {Recruit} from '../../Modals/Recruit'
+import {FirebaseProvider} from '../../providers/firebase/firebase'
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
 
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,14 +13,28 @@ import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile
 })
 export class ProfilePage {
 
-<<<<<<< HEAD
-  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
-=======
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
->>>>>>> f93048f008b71425f8f8cef75762ef85946085e7
+
+  // arr = new Array();
+  // dbRef;
+  // datas;
+
+  // recruit = {} as Recruit;
+
+  // email:string;
+  // password:string;
+  // name:string;
+  // surname:string;
+  // companyName:string;
+  // companyemail:string;
+  // gender:string;
+  // age:string;
+  // cellno:string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService:FirebaseProvider) {
+    // this.firebaseService.getuserType();
+
+
   }
 
   ionViewDidLoad() {
@@ -31,8 +42,13 @@ export class ProfilePage {
   }
 
 
+
+ 
   Update(){
-   this.navCtrl.push(ArtistProfileUpdatePage);
+
+this.navCtrl.push(ArtistProfileUpdatePage);
+
   }
+    
 
 }
