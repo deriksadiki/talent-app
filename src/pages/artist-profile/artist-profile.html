@@ -1,18 +1,19 @@
 <ion-header>
-
     <div class="section">
-    
       <ion-navbar color = "color" >
           <button ion-button menuToggle icon-only>
               <ion-icon name='menu'></ion-icon>
             </button>
-       
+
+      </ion-navbar>
+    <div *ngFor="let i of videos" align="center">
+     <!-- <img class="img" src={{i.imageURl}}> -->
+    <h1>{{i.name}} {{i.surname}}</h1> 
       </ion-navbar>
     <div class="logo" align="center">
       <img src={{i.imageURl}} >
     <h1>{{i.name}} {{i.surname}}</h1>
     </div>
-    <p class="p1">Artist</p>
     <div class="dash">
      <p><ion-icon name="logo-twitter"></ion-icon><br>
     Uploads | <br> 1 000</p>
@@ -20,29 +21,25 @@
     <p><ion-icon name="thumbs-up"></ion-icon> <br> Likes |<br>23</p>
     <br>
     <p><ion-icon name="text"></ion-icon> <br> comments | <br>80</p>
-    <br>
-    <br>
     </div>
     </div>
-
   </ion-header>
-
-
+  
+  <ion-content>
 
     <ion-content class="img" *ngFor = "let i of arr">
 
-
       <title>Artist</title>
+
         <ion-card>
           <ion-card-content>
             <ion-list>
               <div class="info">
               <p><ion-icon class="i" name="call"></ion-icon>Username</p>
-              <h3 class="detail">BudaNyoni</h3>
+              <!-- <h3 class="detail">{{i.name}} {{i.surname}}</h3> -->
               <p><ion-icon class="i" name="call"></ion-icon>Cell</p>
-
+              <!-- <h3 class="detail">{{i.cellno}}</h3> -->
               <h3 class="detail">{{i.cellno}}</h3>
-
               <p><ion-icon class="i" name="call"></ion-icon> E-mail</p>
               <h3 class="detail">Dreamers@yahoo.com</h3>
               <p><ion-icon class="i" name="call"></ion-icon>Gender</p>
@@ -52,6 +49,5 @@
             </ion-list>
           </ion-card-content>
         </ion-card>
-    
 </ion-content>
         

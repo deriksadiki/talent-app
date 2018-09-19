@@ -1,3 +1,5 @@
+
+<!-- 
 <ion-header>
     <div class="section">
     
@@ -7,16 +9,23 @@
             </button>
       </ion-navbar>
   
-      <!-- <div class="logo" align="center">
+       <div class="logo" align="center">
           <img class="logo" src="../../assets/imgs/play-button (1).png">
         </div>
-        <h1>Vid'It.</h1> -->
+        <h1>Vid'It.</h1> 
         <div class="logo" align="center">
             <img src="../../assets/Pics/2372f27612fee17412c8e647fd76c199.jpg" >
           <h1>Sibusiso Nyoni</h1>
           </div>
     </div>
-</ion-header>
+</ion-header> -->
+
+
+   <ion-content *ngFor="let i of videos; let a = index">
+      <ion-card *ngFor="let i of videos; let a = index">
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="{{i.img}}"  (click)="profile(a)">
 
    <ion-content>
 
@@ -26,9 +35,6 @@
               <img src={{i.img}}>
             </ion-avatar>
            <h1>{{i.name}}</h1>
-           <p></p>
-
-
           </ion-item>
         
         
@@ -36,20 +42,52 @@
               <source src={{i.vidurl}} type="video/mp4">
               
             </video>
-
-          <ion-card-content>
-            <p>{{i.vidDesc}}</p>
+            </ion-card>
+          <ion-card>
+            <!-- <p>{{i.vidDesc}}</p> -->
+          </ion-card>
             <ion-row>
+                <ion-col>
+                  <button ion-button icon-start clear small>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <div> Likes</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                  <button  ion-button class="com" icon-start clear small center>
+                    <ion-icon name="text"></ion-icon>
+                    <div >Comments</div>
+                  </button>
+                </ion-col>
+                <ion-col>
+                    <button color = "gray"  ion-button  icon-start clear small center>
+                 <!-- <div>  {{i.date}}</div> -->
+                </button>
+               </ion-col>
+                <ion-col >
+                  <ion-note class="time">
+              
+                  </ion-note>
+                </ion-col>
+                </ion-row>
+  <ion-card>
+    <ion-card-content>
+              <ion-col>
+                <button ion-button icon-start clear small>
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <!-- <div>{{i.likes}} Likes</div> -->
+
               <ion-col>
                 <button ion-button icon-start clear small (click)="like(a)">
                   <ion-icon color ={{i.color}} name="thumbs-up" ></ion-icon>
                   <div>{{i.likes}} Likes</div>
+
                 </button>
               </ion-col>
               <ion-col>
                 <button  ion-button class="com" icon-start clear small center>
                   <ion-icon name="text"></ion-icon>
-                  <div (click)="test(a)">{{i.comments}} Comments</div>
+                  <!-- <div (click)="test(a)">{{i.comments}} Comments</div> -->
                 </button>
               </ion-col>
               <ion-col>
@@ -59,17 +97,12 @@
              </ion-col>
               <ion-col >
                 <ion-note class="time">
-              {{i.date}}
+              <!-- {{i.date}} -->
                 </ion-note>
               </ion-col>
-    
-    
-              </ion-row>
           </ion-card-content>
         </ion-card>
 
-
-  
-  </ion-content> 
+  </ion-content>  
 
 

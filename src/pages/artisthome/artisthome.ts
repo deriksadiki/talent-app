@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import {CommentsPage} from '../comments/comments'
 import { ArtistProfilePage } from '../artist-profile/artist-profile';
 import { ProfilePage } from '../profile/profile';
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
+import { DisplayPage } from '../display/display';
 
 
 @IonicPage()
@@ -18,16 +19,17 @@ color = "primary";
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider) {
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad(user) {
    
    this.firebaseService.getAllvideos().then((data:any) =>{
     if (this.videos != null || this.videos != undefined){
-      this.videos = undefined;
-      this.videos = null;
+     this.videos = undefined;
+     this.videos = null;
     }
      this.videos = data;
      console.log(this.videos);
-
+    })
+   });
    });
   }
   like(keyIndex){
@@ -53,13 +55,13 @@ else{
     this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
   }
 
-  Profile(){
-    this.navCtrl.push(ArtistProfilePage);
+  profile(a){
+    const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
+    console.log(a);
+    modal.present();
   }
-
   addNumOfLikes(){
 
   }
-
 
 }
