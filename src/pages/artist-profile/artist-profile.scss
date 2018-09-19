@@ -13,16 +13,17 @@ page-artist-profile {
         display: flex;
         align-content: center;
         text-align: center;
-        height: 13vh;
+        // height: 13vh;
         background-color: rgba(0, 0, 0, 0.288);
         justify-content: center;
-        margin-top: 119px;
+        margin-top: 13%;
         // padding: 10px;
     }
     img{
         height: 100px;
         width: 100px;
         border-radius: 50px;
+        background-repeat: no-repeat;
     }
     .section{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');

@@ -1,15 +1,9 @@
-<ion-header>
-  <div class="section">
-
 
   <ion-header>
-      <!-- <div class="section">  -->
      <ion-navbar color = "own" >
         <button ion-button menuToggle icon-only>
             <ion-icon name='menu'></ion-icon>
           </button>
-  
-    
     <ion-title>
       <ion-icon name="flame"></ion-icon>&emsp;Top Trending
     </ion-title>
@@ -17,11 +11,10 @@
 </ion-header>
 
 <ion-content class="img">
-
    <div *ngFor="let i of videos; let a =index">
       <ion-card >
-          <ion-item>
-            <ion-avatar item-start>
+          <ion-item (click)="profile(a)">
+            <ion-avatar item-start >
               <img src="{{i.img}}">
             </ion-avatar>
             <h2>{{i.name}}</h2>
@@ -37,8 +30,8 @@
             <p>{{i.vidDesc}}</p>
             <ion-row>
                 <ion-col>
-                  <button ion-button icon-start clear small (click)="like(a)">
-                    <ion-icon  color ={{i.color}} name="thumbs-up"></ion-icon>
+                  <button color={{i.color}} ion-button icon-start clear small (click)="like(a)">
+                    <ion-icon name="thumbs-up"></ion-icon>
                     <div>{{i.likes}} Likes</div>
                   </button>
                 </ion-col>
@@ -49,7 +42,7 @@
                   </button>
                 </ion-col>
                 <ion-col>
-                    <button color = "gray"  ion-button  icon-start clear small center>
+                    <button ion-button  icon-start clear small center>
                  <div>  {{i.date}}</div>
                 </button>
                </ion-col>
@@ -62,6 +55,6 @@
               </ion-card-content>
             </ion-card>
    </div>
+  
   </ion-content> 
-
 

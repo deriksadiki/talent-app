@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ArtistProfilePage } from '../artist-profile/artist-profile';
 import { ModalController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
+import { ProfilePage } from '../profile/profile';
 
 
 @IonicPage()
@@ -32,5 +33,18 @@ export class ScoutPage {
     const modal = this.modalCtrl.create(ArtistProfilePage);
     modal.present();
   }
+
+  profile(){ 
+    return new Promise((accpt,rej) =>{
+      this.firebaseService.getuserType().then((data:any) =>{
+        if(data == "talentPerson"){
+          this.navCtrl.push(ArtistProfilePage);
+        }
+        else if (data == "ScoutPerson"){
+          this.navCtrl.push(ProfilePage);
+        }
+      })
+    })
+}
 
 }

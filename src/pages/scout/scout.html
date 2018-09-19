@@ -17,7 +17,7 @@
      <ion-card *ngFor="let i of videos">
          <ion-item>
            <ion-avatar item-start>
-             <img class="pic" src={{i.img}}>
+             <img class="pic" src={{i.img}} (click)="profile()">
            </ion-avatar>
            <h2>{{i.name}}</h2>
          </ion-item>
