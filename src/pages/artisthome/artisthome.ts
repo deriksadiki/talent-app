@@ -5,7 +5,7 @@ import {CommentsPage} from '../comments/comments'
 import { ArtistProfilePage } from '../artist-profile/artist-profile';
 import { ProfilePage } from '../profile/profile';
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
-import { DisplayPage } from '../display/display';
+import { DisplayPage } from '../';
 
 
 @IonicPage()
@@ -16,7 +16,7 @@ import { DisplayPage } from '../display/display';
 export class ArtisthomePage {
 videos = [];
 color = "primary";
-  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, public modalCtrl :ModalController) {
   }
 
   ionViewDidLoad() {

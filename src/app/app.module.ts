@@ -56,7 +56,7 @@ import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
     ScouteProfilePage,
-    UploadPreviewPage  
+    UploadPreviewPage,  
 ],
   imports: [
     BrowserModule,
