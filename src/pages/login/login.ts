@@ -8,6 +8,7 @@ import { ArtisthomePage } from '../artisthome/artisthome';
 import { UsersPage } from '../users/users';
 import { ScoutPage } from '../scout/scout';
 import { updateDimensions } from 'ionic-angular/components/virtual-scroll/virtual-util';
+import { UploadPreviewPage } from '../upload-preview/upload-preview';
 
 
 
@@ -93,6 +94,7 @@ showForgotPassword(){
       });
       alert.present();
       this.firebaseService.getuserType().then(data =>{
+        console.log(data)
         if (data == "normalPerson"){
           window.location.reload();
         }
@@ -100,7 +102,10 @@ showForgotPassword(){
           window.location.reload();
 
         }
-        else{
+
+        else if (data  == "ScoutPerson"){
+            this.navCtrl.push(ScoutPage);
+
             window.location.reload();
         }
       })
@@ -129,6 +134,20 @@ showForgotPassword(){
         });
         alert.present();
       }
+      else{
+        const alert = this.alertCtrl.create({
+          title: 'Warning!',
+          message: Error,
+          buttons: ['OK']
+        });
+        alert.present();
+      }
     })
   }
+
+
+  uploadpreview=function(){
+    this.navCtrl.push(UploadPreviewPage)
+  }
+
 }

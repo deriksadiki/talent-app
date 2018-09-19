@@ -3,6 +3,9 @@ import {Camera,CameraOptions} from '@ionic-native/camera';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { LoadingController } from 'ionic-angular';
 import moment from 'moment';
+
+import { rendererTypeName } from '@angular/compiler';
+
 declare var firebase;
 
 @Injectable()
@@ -23,6 +26,7 @@ export class FirebaseProvider {
   currentUserID;
   profile =  new Array();
   comments =  new Array();
+  color;
 
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
 
@@ -161,7 +165,7 @@ return new Promise ((accpt,rej) =>{
 }
 
   async uploadpic(){
-  
+
           const options: CameraOptions= {
             quality : 100,
             targetWidth: 600,
@@ -233,12 +237,35 @@ getAllvideos(){
           var x = keys[i];
           var y  = 'uploads/' + x;
           var details;
+          var colour;
           this.database.ref(y).on('value', (data2: any) => {
            details = data2.val();
             })
           var keys2:any = Object.keys(details);
           for (var a = 0; a < keys2.length; a++){
                 var key = keys2[a];
+            this.database.ref('likes/' + key).on('value', (data3: any) => {
+           
+              if (data3.val() != null || data3.val() != undefined)
+              {
+                var likes = data3.val();
+                var likesKey:any = Object.keys(likes )
+                console.log(likes[likesKey[0]].username)
+            
+              
+              if (likes[likesKey[0]].username == this.currentUserID){
+                colour = "primary";
+              }
+              else{
+                colour = "grey";
+              }
+              
+            }
+            else{
+              colour = "grey";
+              
+            }
+            })
                 let obj = {
                 likes: details[key].likes,
                 comments : details[key].comments - 1,
@@ -248,6 +275,9 @@ getAllvideos(){
                 name : details[key].username,
                 img : details[key].userImg,
                 date : details[key].date,
+
+                color :colour,
+
                 key: key
           }
           this.videoArray.push(obj);
@@ -261,6 +291,10 @@ getAllvideos(){
 
 } 
 
+asignColor(colour){
+  this.color = colour;
+  console.log(this.color);
+}
 
 getuserType(){
 return new Promise ((accpt, rej) =>{
@@ -274,7 +308,6 @@ return new Promise ((accpt, rej) =>{
       var currentUserID = userIDs[x].substr(index + 1);
       if (user.uid == currentUserID){
         this.storeUserName(userIDs[x].substr(0,index));
-        console.log(userIDs[x].substr(0,index))
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
             var Userdetails;
             var Userdetails = data.val(); 
@@ -298,7 +331,6 @@ return new Promise ((accpt, rej) =>{
 
 storeUserName(name){
 this.username = name;
-console.log(this.username)
 }
 
 storePictureUrl(url){
@@ -337,11 +369,12 @@ getProfile(){
 
 comment(key,text){
   return new Promise ((accpt, rej) =>{
-    var today = moment().format("Do MMM");
+    var today = moment().format('l');  
     this.database.ref('comments/' + key).push({
       text:text,
       username: this.username,
-      date : today
+      date : today,
+      img : this.imgurl
     })
     accpt("comment added")
   })
@@ -360,7 +393,8 @@ getcomments(key){
           let obj = {
             date : details[key].date,
             text :  details[key].text,
-            name : details[key].username
+            name : details[key].username,
+            img :  details[key].img
           }
           this.comments.push(obj)
         }
@@ -373,10 +407,38 @@ getcomments(key){
 }
 
 addNumComments(key, numComments, user){
-  console.log(key);
-  console.log(numComments);
   var num =  numComments  + 1;
   this.database.ref('uploads/' + user+ "/"+ key).update({comments: num});
   console.log("comment number added")
 }
+
+
+likeVideo(key){
+  return new Promise ((accpt, rej) =>{
+    this.database.ref('likes/' + key).push({
+      username : this.currentUserID
+    })
+    accpt('liked')
+  })
+
+}
+
+addNumOfLikes(username, key, num){
+  num =  num  + 1;
+  return new Promise ((accpt, rej) =>{
+    this.database.ref('uploads/' + username + '/' + key).update({likes: num});
+    accpt('like added')
+  })
+}
+
+removeLike(username, key, num){
+  num =  num  - 1;
+  console.log(num)
+  return new Promise ((accpt, rej) =>{
+    this.database.ref('uploads/' + username + '/' + key).update({likes: num});
+    this.database.ref('likes/' + key).remove();
+    accpt('like removed')
+  })
+}
+
 }
