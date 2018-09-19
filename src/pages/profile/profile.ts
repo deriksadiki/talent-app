@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
 import {Recruit} from '../../Modals/Recruit'
 import {FirebaseProvider} from '../../providers/firebase/firebase'
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
+
 
 
 /**
@@ -18,6 +20,7 @@ import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
+
 
   // arr = new Array();
   // dbRef;
@@ -37,6 +40,7 @@ export class ProfilePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService:FirebaseProvider) {
     // this.firebaseService.getuserType();
+
   }
 
   ionViewDidLoad() {
@@ -44,8 +48,13 @@ export class ProfilePage {
   }
 
 
+
+ 
   Update(){
+
 this.navCtrl.push(ArtistProfileUpdatePage);
+
   }
+    
 
 }

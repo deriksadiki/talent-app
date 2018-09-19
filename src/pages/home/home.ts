@@ -50,7 +50,9 @@ export class HomePage {
            console.log('added to db');
 
 
+
            this.navCtrl.push(HomePage);
+
 
          },
         Error =>{
@@ -62,11 +64,13 @@ export class HomePage {
       
     }
 
+
     preview=function(){
       const modal = this.modalCtrl.create(UploadPreviewPage);
       modal.present();
     }
 
 }
+
 
 

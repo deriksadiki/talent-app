@@ -3,7 +3,9 @@ import {Camera,CameraOptions} from '@ionic-native/camera';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { LoadingController } from 'ionic-angular';
 import moment from 'moment';
+
 import { rendererTypeName } from '@angular/compiler';
+
 declare var firebase;
 
 @Injectable()
@@ -163,7 +165,7 @@ return new Promise ((accpt,rej) =>{
 }
 
   async uploadpic(){
-  
+
           const options: CameraOptions= {
             quality : 100,
             targetWidth: 600,
@@ -273,7 +275,9 @@ getAllvideos(){
                 name : details[key].username,
                 img : details[key].userImg,
                 date : details[key].date,
+
                 color :colour,
+
                 key: key
           }
           this.videoArray.push(obj);
@@ -407,6 +411,7 @@ addNumComments(key, numComments, user){
   this.database.ref('uploads/' + user+ "/"+ key).update({comments: num});
   console.log("comment number added")
 }
+
 
 likeVideo(key){
   return new Promise ((accpt, rej) =>{

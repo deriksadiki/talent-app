@@ -27,6 +27,7 @@ color = "primary";
     }
      this.videos = data;
      console.log(this.videos);
+
    });
   }
   like(keyIndex){

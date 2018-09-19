@@ -47,6 +47,7 @@ if('Log-Out')
             { title: 'Home', component: UsersPage,  icon: "person" },
             { title: 'Share', component: HomePage,  icon: "person" },
             { title: 'Log-Out', component: LogoutPage,  icon: "person" },
+
           ];
           
         }
@@ -61,10 +62,12 @@ if('Log-Out')
         }
         else if (data == "ScoutPerson"){
           this.pages = [
+
             { title: 'Home', component: ScoutPage, icon: "person" },
              { title: 'Upload', component: HomePage,  icon: "person"},
             { title: 'Profile', component:ScouteProfilePage,  icon: "person" },
             { title: 'Log-Out', component: LogoutPage,  icon: "person" },
+
           ];
           this.rootPage = ScoutPage;
         }
