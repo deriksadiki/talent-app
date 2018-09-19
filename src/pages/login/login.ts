@@ -104,12 +104,9 @@ showForgotPassword(){
 
         }
         else if (data == "ScoutPerson"){
-
           window.location.reload();
-
         }
         else{
-
             window.location.reload();
         }
       })

@@ -15,9 +15,8 @@ import { DisplayPage } from '../display/display';
 })
 export class ArtisthomePage {
 videos = [];
-arr3 = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public modalCtrl: ModalController) {
-    this.firebaseService.getuserType();
+color = "primary";
+  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider) {
   }
 
   ionViewDidLoad(user) {
@@ -29,15 +28,29 @@ arr3 = [];
     }
      this.videos = data;
      console.log(this.videos);
-
-    this.firebaseService.viewArtistProfile(user).then((data2:any) =>{
-    this.arr3 = data2;
     })
-    // console.log(this.arr3);
    });
-  //  console.log(this.arr3);
+   });
   }
-
+  like(keyIndex){
+  this.firebaseService.likeVideo(this.videos[keyIndex].key).then(() =>{
+    if (this.videos[keyIndex].color == "grey"){
+      this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
+        this.ionViewDidLoad();
+      })
+    }
+  else if (this.videos[keyIndex].color == "primary"){
+         this.firebaseService.removeLike(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
+          this.ionViewDidLoad();
+         })
+      }
+else{
+  this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
+  this.ionViewDidLoad();
+  })
+}
+  })
+}
   test(indexNUmber){
     this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
   }
@@ -47,4 +60,8 @@ arr3 = [];
     console.log(a);
     modal.present();
   }
+  addNumOfLikes(){
+
+  }
+
 }

@@ -57,7 +57,6 @@ User(){
   artProfUpdate(){
     this.navCtrl.push(ScouteProfilePage);
   }
-  Profile(){
-    this.navCtrl.push(ProfilePage);
-  }
+
+
 }

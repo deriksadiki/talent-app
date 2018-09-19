@@ -176,6 +176,7 @@ export class ArtistPage {
               this.navCtrl.push(ArtisthomePage);
               window.location.reload();
           })
+
         }, Error =>{
             const alert = this.alertCtrl.create({
               title: 'warning!',
@@ -187,6 +188,11 @@ export class ArtistPage {
         })
     })
    }
+      })
+
+    })
+
+    }
   }
   takePicture(){
     const confirm = this.alertCtrl.create({
