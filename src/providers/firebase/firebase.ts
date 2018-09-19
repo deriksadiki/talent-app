@@ -243,14 +243,11 @@ getAllvideos(){
           for (var a = 0; a < keys2.length; a++){
                 var key = keys2[a];
             this.database.ref('likes/' + key).on('value', (data3: any) => {
-           
               if (data3.val() != null || data3.val() != undefined)
               {
                 var likes = data3.val();
                 var likesKey:any = Object.keys(likes )
                 console.log(likes[likesKey[0]].username)
-            
-              
               if (likes[likesKey[0]].username == this.currentUserID){
                 colour = "primary";
               }
@@ -378,7 +375,6 @@ comment(key,text){
 
 getcomments(key){
   return new Promise ((pass,fail) =>{
-
     this.database.ref('comments/' + key).on('value', (data2: any) => {
       var details = data2.val();
       if (details != null ||  details != undefined){
@@ -428,12 +424,31 @@ addNumOfLikes(username, key, num){
 
 removeLike(username, key, num){
   num =  num  - 1;
-  console.log(num)
   return new Promise ((accpt, rej) =>{
     this.database.ref('uploads/' + username + '/' + key).update({likes: num});
     this.database.ref('likes/' + key).remove();
     accpt('like removed')
   })
+}
+
+sendMessage(username, text){
+  return new Promise ((accpt, rej) =>{
+    var today = moment().format("Do MMM");
+    this.database.ref('message/' + this.username + ":"  + username).push({
+      message : text,
+      date : today
+    })
+    accpt('message sent')
+  })
+}
+
+getMessages(username){
+return new Promise ((accpt, rej) =>{
+  this.database.ref('message/' + this.username + ":"  + username).on('value', (data: any) => {
+    var messages =  data.val();
+    console.log(messages);
+  })
+})
 }
 
 }

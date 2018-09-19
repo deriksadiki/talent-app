@@ -31,6 +31,7 @@ import { ArtistProfileUpdatePage } from '../pages/artist-profile-update/artist-p
 import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-profile-update';
 import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
+import {MessagePage } from '../pages/message/message'
 
 
 
@@ -52,6 +53,7 @@ import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
     ArtisthomePage,
     ScoutPage,
     UsersPage,
+    MessagePage ,
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
@@ -69,6 +71,7 @@ import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
     ListPage,
     LoginPage,
     SecondPage,
+    MessagePage ,
     CommentsPage ,
     RegisterPage,
     RecruiterPage,
