@@ -1,7 +1,5 @@
 
- <ion-content class="img">
-  
-    
+ <ion-content class="img">    
 <!--  <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
     <div class="flb">
       <div class="Aligner-item Aligner-itemtop"></div>
@@ -11,9 +9,9 @@
     </div>
   </div>   -->
 <br>
-  <div class="logo" align="center">
+<div class="logo" align="center">
   <img class="logo" src="../../assets/imgs/play-button (1).png">
-  </div>
+</div>
 <h1>Vid'It.</h1>
   <ion-list no-lines>
       <ion-item>
@@ -21,32 +19,16 @@
         <ion-input type="email" placeholder="E-mail " [(ngModel)]="users.email"></ion-input>
       </ion-item>
       <br>
-      <ion-item>
+      <ion-item no-lines>
         <ion-label><ion-icon name="lock"></ion-icon></ion-label>
         <ion-input type="password" placeholder="Password" [(ngModel)]="users.password"></ion-input>
      </ion-item>
     </ion-list>
-
-
- <!-- <div class="butt">
-<button ion-button>Reg</button> 
-</div> -->
-
-    <button class="btn" ion-button color="own" round (click)="login()">LOGIN</button>   
-
-
-    <br>
-    <button class="btn" ion-button color="own" round  (click)= "Reg()">REGISTER</button>
-
-
-    <button (click)="showForgotPassword()" class="btn" ion-button full clear>Forgot Password?</button>
-
-
-
+   
+<button class="btn" ion-button color="own" round (click)="login()">LOGIN</button>   
 <br>
-
+<button class="btn" ion-button color="own" round  (click)= "Reg()">REGISTER</button>
+<button (click)="showForgotPassword()" class="btn" ion-button full clear>Forgot Password?</button>
+<br>
 <!-- <button ion-button (click)="Profile()"></button> -->
-
-
-
 </ion-content>

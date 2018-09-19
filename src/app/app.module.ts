@@ -10,8 +10,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import {Camera} from '@ionic-native/camera'
-
-
 import { LoginPage } from '../pages/login/login';
 import { SecondPage } from '../pages/second/second';
 import { RegisterPage } from '../pages/register/register';
@@ -24,14 +22,16 @@ import { UsersPage } from '../pages/users/users';
 import { ScoutPage } from '../pages/scout/scout';
 import {CommentsPage } from '../pages/comments/comments'
 
-
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
 import { ArtistProfileUpdatePage } from '../pages/artist-profile-update/artist-profile-update';
 import { ScoutProfileUpdatePage } from '../pages/scout-profile-update/scout-profile-update';
 import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
+
+import { DisplayPage } from '../pages/display/display';
 import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
 import {MessagePage } from '../pages/message/message'
+
 
 
 
@@ -58,6 +58,7 @@ import {MessagePage } from '../pages/message/message'
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
     ScouteProfilePage,
+    DisplayPage 
     UploadPreviewPage  
 ],
   imports: [
@@ -85,8 +86,8 @@ import {MessagePage } from '../pages/message/message'
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
-    ScouteProfilePage
-
+    ScouteProfilePage,
+    DisplayPage
   ],
   providers: [
     StatusBar,
