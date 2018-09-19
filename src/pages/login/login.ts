@@ -101,7 +101,10 @@ showForgotPassword(){
           window.location.reload();
 
         }
-        else{
+
+        else if (data  == "ScoutPerson"){
+            this.navCtrl.push(ScoutPage);
+
             window.location.reload();
         }
       })
