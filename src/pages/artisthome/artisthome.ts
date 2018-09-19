@@ -14,6 +14,7 @@ import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile
 })
 export class ArtisthomePage {
 videos = [];
+color = "primary";
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider) {
   }
 
@@ -28,9 +29,26 @@ videos = [];
      console.log(this.videos);
 
    });
-
   }
-
+  like(keyIndex){
+  this.firebaseService.likeVideo(this.videos[keyIndex].key).then(() =>{
+    if (this.videos[keyIndex].color == "grey"){
+      this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
+        this.ionViewDidLoad();
+      })
+    }
+  else if (this.videos[keyIndex].color == "primary"){
+         this.firebaseService.removeLike(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
+          this.ionViewDidLoad();
+         })
+      }
+else{
+  this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
+  this.ionViewDidLoad();
+  })
+}
+  })
+}
   test(indexNUmber){
     this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
   }
@@ -38,5 +56,10 @@ videos = [];
   Profile(){
     this.navCtrl.push(ArtistProfilePage);
   }
+
+  addNumOfLikes(){
+
+  }
+
 
 }
