@@ -55,10 +55,13 @@ export class HomePage {
     }
 
     preview=function(){
+
       const modal = this.modalCtrl.create(UploadPreviewPage);
       modal.present();
     }
-}
+
+  }
+
 
 
 

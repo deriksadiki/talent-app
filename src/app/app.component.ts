@@ -15,6 +15,8 @@ import { ArtisthomePage } from '../pages/artisthome/artisthome';
 import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
 import { GalleryPage } from '../pages/gallery/gallery';
+import { SeeMessagesPage } from '../pages/see-messages/see-messages'
+
 
 
 
@@ -43,6 +45,7 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
+            { title: 'Home', component: UsersPage,  },
             { title: 'Home1', component: ArtisthomePage },
             // { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage },
@@ -57,6 +60,7 @@ if('Log-Out')
             { title: 'Gallery', component: GalleryPage },
             { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
+            {title: 'Messages', component:  SeeMessagesPage}
 
           ];
            this.rootPage =  ArtisthomePage;
@@ -65,6 +69,7 @@ if('Log-Out')
           this.pages = [
 
             { title: 'Home', component: ScoutPage },
+         // { title: 'Profile', component: ProfilePage },
             { title: 'Profile', component:ScouteProfilePage },
             { title: 'Log-Out', component: LogoutPage },
           ];

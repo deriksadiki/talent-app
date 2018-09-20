@@ -31,10 +31,8 @@ import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 import { DisplayPage } from '../pages/display/display';
 import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
 import { GalleryPage } from '../pages/gallery/gallery';
-
-
-
-
+import {MessagePage } from '../pages/message/message'
+import { SeeMessagesPage } from '../pages/see-messages/see-messages'
 
 @NgModule({
   declarations: [
@@ -45,6 +43,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
     SecondPage,
     RegisterPage,
     RecruiterPage,
+    SeeMessagesPage,
     UserPage,
     ArtistPage,
     CommentsPage ,
@@ -53,13 +52,16 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ArtisthomePage,
     ScoutPage,
     UsersPage,
+    MessagePage ,
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
     ScouteProfilePage,
     DisplayPage, 
     UploadPreviewPage,
-    GalleryPage
+    GalleryPage,
+    UploadPreviewPage, 
+    DisplayPage 
 ],
   imports: [
     BrowserModule,
@@ -72,7 +74,9 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ListPage,
     LoginPage,
     SecondPage,
+    MessagePage ,
     CommentsPage ,
+    SeeMessagesPage,
     RegisterPage,
     RecruiterPage,
     UserPage,
@@ -85,9 +89,11 @@ import { GalleryPage } from '../pages/gallery/gallery';
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
-    ScouteProfilePage,
+    UploadPreviewPage ,
+    ScouteProfilePage
     DisplayPage, 
-    GalleryPage
+    GalleryPage,
+    DisplayPage
   ],
   providers: [
     StatusBar,

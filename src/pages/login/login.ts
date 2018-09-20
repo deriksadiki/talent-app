@@ -8,6 +8,7 @@ import { ArtisthomePage } from '../artisthome/artisthome';
 import { UsersPage } from '../users/users';
 import { ScoutPage } from '../scout/scout';
 import { updateDimensions } from 'ionic-angular/components/virtual-scroll/virtual-util';
+import { UploadPreviewPage } from '../upload-preview/upload-preview';
 
 
 
@@ -145,4 +146,10 @@ showForgotPassword(){
       }
     })
   }
+
+
+  uploadpreview=function(){
+    this.navCtrl.push(UploadPreviewPage)
+  }
+
 }

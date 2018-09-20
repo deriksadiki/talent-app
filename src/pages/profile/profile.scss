@@ -97,18 +97,27 @@ page-profile {
  
         // .butt{
         //     position: relative;
- 
-        // }
- 
-            position: relative;
-            bottom: 140px;
-            width: 50px;
-            left: 24%;
-            height: 50px;
-            color: rgb(255, 255, 255);
-            font-size: 180%;
- 
-        }
+            // position: relative;
+            // bottom: 140px;
+            // width: 50px;
+            // left: 24%;
+            // height: 50px;
+            // color: rgb(255, 255, 255);
+            // font-size: 180%;
+            // }
+
+            .btn{
+                position: relative;
+                bottom: 200px;
+                border-radius: 100%;
+                width: 50px;
+                left: 15%;
+                height: 50px;
+                background-color: white;
+                color: #F53D4E;
+                font-size: 180%;
+                font-weight: 800;
+            }
  
         .cont{
             background-color: rgb(255, 255, 255);
@@ -145,4 +154,7 @@ page-profile {
             border-radius: 100%;
             width: 15%;
             height: 15%;
+            bottom: 15px;
         }
+}
+
