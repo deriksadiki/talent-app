@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="own">
     <ion-title>Talent Profile</ion-title>
     <button ion-button color="custom" clear (click)="dismiss()">Back
       <span ion-text color="primary" showWhen="ios"></span>
@@ -16,8 +16,8 @@
 
 </ion-header>
 
-<ion-content >
-    <ion-card *ngFor="let i of arr;let i of index;">
+<ion-content class="img">
+    <ion-card class="Card" *ngFor="let i of arr;let i of index;">
 
         <img src="{{i.img}}"/>
     

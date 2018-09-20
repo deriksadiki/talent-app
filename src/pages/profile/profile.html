@@ -1,136 +1,39 @@
-<!-- <ion-header>
-    <div class="img" align="center">
-  <ion-navbar color="trans">
-    <ion-title>Your Profile</ion-title>
-  </ion-navbar>
-
- <div class="img" align="center">
-  <img class="pic" src="../../assets/imgs/face.webp">
-<h1>Jorja Smith</h1>
-<button class="btn" ion-button color="own" round (click)="update()"><ion-icon name="hammer"></ion-icon></button>
 
 
 
-<ion-grid class="dash">
-  <ion-row>
-    <ion-col>
-        <ion-icon name="logo-twitter"></ion-icon><br>
-        Followers<br><br>
-        10,000
-    </ion-col>
-
-    <ion-col>
-        <ion-icon name="thumbs-up"></ion-icon><br>
-        Likes<br><br>
-        20,000
-    </ion-col>
-
-    <ion-col>
-        <ion-icon name="text"></ion-icon><br>
-        Comments<br><br>
-        10,000
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
-
-
-<button class="btn" ion-button color="own" (click)="update()"><ion-icon name="add"></ion-icon></button>
-
-
-<button class="btn" ion-button color="own" clear (click)="update()"><ion-icon name="hammer"></ion-icon></button>
- </div>
-
- </div>
-    
-</ion-header>
-
-
-<ion-content class="cont">
-    <div align="center"> 
-        <h2>Your Vid'It profile</h2>    
-      </div>
-      <br>
-      
-
-
-<ion-grid>
-    <ion-row>
-        <ion-col>
-
-        </ion-col>
-
-        <ion-col>
-                <p><ion-icon name="contact"></ion-icon>&emsp;Jorja</p>
-                <p><ion-icon name="contact"></ion-icon>&emsp;Smith</p>
-                <p><ion-icon name="mail"></ion-icon>&emsp;JorjaSmith23@gmail.com</p>
-                <p><ion-icon name="transgender"></ion-icon>&emsp;Female</p>
-                <p><ion-icon name="call"></ion-icon>&emsp;0168753482</p>
-                <p><ion-icon name="contact"></ion-icon>&emsp;30</p>
-        </ion-col>
-
-        <ion-col>
-            
-        </ion-col>
-
-      </ion-row>
-      </ion-grid>
-      
-      
-      <button class="btn" ion-button color="own" (click)="update()"><ion-icon name="add"></ion-icon></button>
-      
-      </div>
-      </ion-header>
-      
-      
-      <ion-content  class="cont">
-        <div align="center">
-          <h2>Your Vid'It profile</h2>
-          </div>
-          <br>
-      <ion-list *ngFor="let x of arr2" class="list">
-        <p><ion-icon name="contact"></ion-icon>&emsp;{{x.name}}</p>
-        <p><ion-icon name="contact"></ion-icon>&emsp;{{x.surname}}</p>
-        <p><ion-icon name="mail"></ion-icon>&emsp;{{x.cellno}}</p>
-        <p><ion-icon name="transgender"></ion-icon>&emsp;{{x.gender}}</p>
-        <p><p><ion-icon name="contact"></ion-icon>&emsp;Age:{{x.age}}</p>
-      </ion-list>
-      </ion-content>
-    </ion-row>
-</ion-grid>
-
-</ion-content>
-
-</ion-content> -->
 <ion-header>
     <div class="img" align="center">
   <ion-navbar color="trans">
 
-    <ion-title></ion-title>
 
-        <button ion-button menuToggle icon-only>
+        <button style="color: white" ion-button menuToggle icon-only>
                 <ion-icon name='menu'></ion-icon>
               </button>
-    <ion-title>Your Profile</ion-title>
+
+    <!-- <ion-title class="tite">Your Profile</ion-title> -->
  </ion-navbar>
+ 
+
+  
+  
   <img class="pic" src="../../assets/imgs/face.webp">
-  <h1>Jorja Smith</h1>
+  <h1>Jorja</h1>
   
   <ion-grid class="dash">
   <ion-row>
-    <ion-col>
-        <ion-icon name="logo-twitter"></ion-icon><br>
-        Followers<br><br>
+    <ion-col class="space">
+            <ion-icon name="videocam"></ion-icon><br>
+        Uploads<br><br>
         10,000
     </ion-col>
   
-    <ion-col>
+    <ion-col class="space">
         <ion-icon name="thumbs-up"></ion-icon><br>
         Likes<br><br>
         20,000
     </ion-col>
   
-    <ion-col>
+    <ion-col class="space">
         <ion-icon name="text"></ion-icon><br>
         Comments<br><br>
         10,000
@@ -139,91 +42,57 @@
   </ion-grid>
   
   
-  <button class="btn" ion-button color="own" (click)="Update()"><ion-icon name="add"></ion-icon></button>
+  <button class="btn" ion-button color="light" (click)="Update()"><ion-icon name="settings"></ion-icon></button>
   
   </div>
   </ion-header>
   
   
   <ion-content class="cont">
+
+
     <div align="center">
         <h2>Your Vid'It profile</h2>
       </div>
       <br>
-  
+
+
+      <h3>Jorja Smith</h3>
+      <h4>Female | 23 years old</h4>
+ 
       <div>
+          <hr>
+
+        <ion-grid align="center">
+            <ion-row>
+                <ion-col>
+                    <img src="../../assets/imgs/phone (1).png"><br>
+                    <p>074 905 4945</p>
+                </ion-col>
+
+                <ion-col>
+                    <img src="../../assets/imgs/close-envelope.png"><br>
+                    <p>JorjaSmith23@gmail.com</p>
+                </ion-col>
+
+
+            </ion-row>
+        </ion-grid>
   
-  <ion-list class="list">
-  
-    <p><ion-icon name="contact"></ion-icon>&emsp;Jorja</p>
+
+
+
+    <!-- <p><ion-icon name="contact"></ion-icon>&emsp;Jorja</p>
     <p><ion-icon name="contact"></ion-icon>&emsp;Smith</p>
     <p><ion-icon name="mail"></ion-icon>&emsp;JorjaSmith23@gmail.com</p>
     <p><ion-icon name="transgender"></ion-icon>&emsp;Female</p>
     <p><ion-icon name="call"></ion-icon>&emsp;0168753482</p>
-    <p><p><ion-icon name="contact"></ion-icon>&emsp;30</p>
-  </ion-list>
+    <p><p><ion-icon name="contact"></ion-icon>&emsp;30</p> -->
   
 
-  </div>
+  
 
-  </ion-content>  -->
-  <ion-header>
-      <div class="img" align="center">
-    <ion-navbar color="trans">
-      <ion-title></ion-title>
-      <button ion-button menuToggle icon-only>
-          <ion-icon name='menu'></ion-icon>
-        </button>
-    </ion-navbar>
-   
-   
-   
-    <img class="pic" src="../../assets/imgs/face.webp">
-    <h1>Jorja Smith</h1>
-   
-    <ion-grid class="dash">
-    <ion-row>
-      <ion-col>
-          <ion-icon name="logo-twitter"></ion-icon><br>
-          Followers<br><br>
-          10,000
-      </ion-col>
-   
-      <ion-col>
-          <ion-icon name="thumbs-up"></ion-icon><br>
-          Likes<br><br>
-          20,000
-      </ion-col>
-   
-      <ion-col>
-          <ion-icon name="text"></ion-icon><br>
-          Comments<br><br>
-          10,000
-      </ion-col>
-    </ion-row>
-    </ion-grid>
-    <button top-right id="btn" class="animated infinite pulse delay-2s"  ion-button (click)="update()" clear><ion-icon name="hammer"></ion-icon>...</button>
-    </div>
-    </ion-header>
-   
-    <ion-content class="cont">
-      <div align="center">
-          <h2>Your Vid'It profile</h2>
-        </div>
-        <br>
-   
-        <div>
-   
-    <ion-list class="list">
-   
-      <p><ion-icon name="contact"></ion-icon>&emsp;Jorja</p>
-      <p><ion-icon name="contact"></ion-icon>&emsp;Smith</p>
-      <p><ion-icon name="at"></ion-icon>&emsp;JorjaSmith23@gmail.com</p>
-      <p><ion-icon name="transgender"></ion-icon>&emsp;Female</p>
-      <p><ion-icon name="call"></ion-icon>&emsp;0168753482</p>
-      <p><p><ion-icon name="contact"></ion-icon>&emsp;30</p>
-    </ion-list>
-   
-    </div>
-    </ion-content>
- 
+  </div> 
+  </ion-content>
+
+
