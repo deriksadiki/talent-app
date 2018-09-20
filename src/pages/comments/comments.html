@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="own">
-    <ion-title>comments</ion-title>
+    <ion-title>Comments</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -14,7 +14,7 @@
           <ion-avatar item-start>
             <img src={{i.img}}>
           </ion-avatar>
-         <h1>{{i.name}}</h1>
+         <h1><b>{{i.name}}</b></h1>
          <p>{{i.vidname}}</p>
 
 
@@ -35,7 +35,7 @@
             <textarea class="comments" #comment type="text" cols="40" rows="5" placeholder="Comment here"></textarea>
         
         <div align = "right" > 
-          <button ion-button round color = "own" (click)="placeComment(comment.value)">Post</button>
+          <button ion-button round color = "own" class="btn" (click)="placeComment(comment.value)">Post</button>
         </div>
             </ion-item>
 <br>
@@ -50,7 +50,7 @@
               <img src={{a.img}}>
           </ion-avatar>
           
-          <h2><b>{{a.name}}</b> <span class="datew">{{a.date}}</span></h2>
+          <h2 capitalize><b>{{a.name}}</b> <span class="datew">{{a.date}}</span></h2>
          
         </ion-item>
     
