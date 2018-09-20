@@ -62,7 +62,7 @@ if('Log-Out')
           this.pages = [
             { title: 'Home', component: ScoutPage },
             { title: 'Profile', component: ProfilePage },
-            { title: 'Profile', component:ScouteProfilePage },
+            // { title: 'Profile', component:ScouteProfilePage },
             { title: 'Log-Out', component: LogoutPage },
           ];
           this.rootPage = ScoutPage;

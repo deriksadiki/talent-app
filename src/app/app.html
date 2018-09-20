@@ -7,9 +7,10 @@
 
   <ion-content  class="menu">
     <ion-list no-lines>
-      <img class="logo" src="../assets/imgs/play.png">
-
-      <h1 class ="header">Vid'it</h1>
+      <div align = "center">
+      <img class="logo"   src="../assets/imgs/play.png">
+    </div>
+      <h1 align = "center" class ="header">Vid'it</h1>
       <button class="buttons" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>

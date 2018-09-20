@@ -5,10 +5,7 @@
           <ion-icon name='menu'></ion-icon>
         </button>
        
-        <ion-title>
-         Users Home
-        </ion-title>
-       
+        <ion-title><ion-icon name="flame"></ion-icon>&emsp;Top Trending        </ion-title>
       </ion-navbar>
      
     </ion-header>
@@ -16,10 +13,10 @@
     
     <ion-content class="img">
 
-      <h1 align = "center" > <ion-icon name="flame"></ion-icon>&emsp;Top Trending</h1>
+      <!-- <h1 align = "center" > -->
       <br>
       <div *ngFor="let i of videos; let a =index">
-          <ion-card >
+          <ion-card>
               <ion-item (click)="profile(a)">
                 <ion-avatar item-start >
                   <img src="{{i.img}}">

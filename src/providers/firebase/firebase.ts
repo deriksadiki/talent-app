@@ -407,7 +407,7 @@ comment(key,text){
       text:text,
       username: this.username,
       date : today,
-      img : this.imgurl
+      // img : this.imgurl
     })
     accpt("comment added")
   })
@@ -425,7 +425,7 @@ getcomments(key){
             date : details[key].date,
             text :  details[key].text,
             name : details[key].username,
-            img :  details[key].img
+            // img :  details[key].img
           }
           this.comments.push(obj)
         }
