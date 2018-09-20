@@ -18,9 +18,7 @@ import { DisplayPage } from '../display/display';
 export class ArtisthomePage {
 videos = [];
 color = "primary";
-
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, private modalCtrl: ModalController) {
-
   }
 
   ionViewDidLoad() {
@@ -70,6 +68,7 @@ else{
     console.log(a);
     modal.present();
   }
+  
   addNumOfLikes(){
 
   }

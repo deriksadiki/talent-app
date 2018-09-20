@@ -27,12 +27,12 @@ export class FirebaseProvider {
   videoArray = new Array();
   arr = new Array();
   arr2 = new Array();
+  scoutArray = new Array();
   messages =  new Array();
   messages2 =  new Array();
   messagePath =  new Array();
   names = new Array();
   results;
-  
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
 
@@ -192,7 +192,6 @@ return new Promise ((accpt,rej) =>{
     });
     loading.present();
   return new Promise((accpt,rejc) =>{
-
     loading.present();
   this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
     loading.dismiss();
@@ -350,7 +349,7 @@ getProfile(){
       console.log(details);
       var keys = Object.keys(details)
 
-      for (var x = 0; x< keys.length; x++){
+      for (var x = 0; x < keys.length; x++){
         var key = keys[x];
         let obj = {
           age : details[key].age,
@@ -368,6 +367,29 @@ getProfile(){
   })
 }
 
+getScoutProfile(){
+  return new Promise((accpt,rej) =>{
+    
+    this.database.ref('users/' + this.currentUserID).on('value', (data4:any) =>{
+      var details =  data4.val();
+      console.log(details);
+      var keys = Object.keys(details)
+
+      for(var y = 0;y <keys.length;y++){
+        var key = keys[y];
+        let obj = {
+           companyName: details[key].companyName,
+           companycellno: details[key].companycellno,
+           companyemail: details[key].companyemail,
+           name: details[key].name
+        }
+        this.scoutArray.push(obj);
+      }
+      console.log(this.scoutArray);
+      accpt(this.scoutArray);
+    })
+  })
+}
 viewArtistProfile(user){
   return new Promise ((accpt, rej) =>{
     this.arr2.length = 0;
@@ -414,7 +436,7 @@ comment(key,text){
       text:text,
       username: this.username,
       date : today,
-      img : this.imgurl
+      // img : this.imgurl
     })
     accpt("comment added")
   })
@@ -432,11 +454,12 @@ getcomments(key){
             date : details[key].date,
             text :  details[key].text,
             name : details[key].username,
-            img :  details[key].img
+            // img :  details[key].img
           }
           this.comments.push(obj)
         }
           pass(this.comments);
+          console.log(this.comments);
       }
       })
   })

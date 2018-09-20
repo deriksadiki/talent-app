@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+import { CommentsPage } from '../comments/comments';
 
 /**
  * Generated class for the GalleryPage page.
@@ -14,12 +16,44 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'gallery.html',
 })
 export class GalleryPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  videos = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GalleryPage');
+   
+    this.firebaseService.getAllvideos().then((data:any) =>{
+     if (this.videos != null || this.videos != undefined){
+      this.videos = undefined;
+      this.videos = null;
+     }
+      this.videos = data;
+      console.log(this.videos);
+     })
+   }
+
+   like(keyIndex){
+    this.firebaseService.likeVideo(this.videos[keyIndex].key).then(() =>{
+      if (this.videos[keyIndex].color == "grey"){
+        this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
+          this.ionViewDidLoad();
+        })
+      }
+    else if (this.videos[keyIndex].color == "primary"){
+           this.firebaseService.removeLike(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
+            this.ionViewDidLoad();
+           })
+        }
+  else{
+    this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
+    this.ionViewDidLoad();
+    })
+  }
+    })
+  }
+
+   test(indexNUmber){
+    this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
   }
 
 }

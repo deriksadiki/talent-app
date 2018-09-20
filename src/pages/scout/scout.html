@@ -15,9 +15,9 @@
     <h1 align="center"><ion-icon name="flame"></ion-icon>&emsp;Top Trending</h1>
 
      <ion-card *ngFor="let i of videos">
-         <ion-item>
+         <ion-item (click)="profile(a)">
            <ion-avatar item-start>
-             <img class="pic" src={{i.img}} (click)="profile()">
+             <img class="pic" src={{i.img}} >
            </ion-avatar>
            <h2>{{i.name}}</h2>
          </ion-item>

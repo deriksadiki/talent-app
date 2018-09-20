@@ -1,5 +1,5 @@
 page-profile {
-    
+    font-family: 'Ubuntu', sans-serif;
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -12,6 +12,8 @@ page-profile {
         }
  
         .pic{
+            width: 60%;
+            height: 45%;
             width: 40%;
             height: 40%;
             border-radius: 60%;
@@ -23,6 +25,7 @@ page-profile {
         h1{
             color: rgb(255, 255, 255);
             font-weight: 100;
+            font-size: 35px;
             position: relative;
             bottom: 50%;
             font-size: 110%;
@@ -46,8 +49,6 @@ page-profile {
             color: rgb(0, 0, 0);
         }
 
-
-
         .space{
             // border:1px solid rgb(255, 255, 255);
             height: 100px;
@@ -55,8 +56,7 @@ page-profile {
             bottom: 5px;
         }
 
-
-        .btn{
+         .btn{
             position: relative;
             bottom: 150px;
             left: 12%;
@@ -66,23 +66,57 @@ page-profile {
             height: 15%;
             font-size: 70%;
             // border:solid 2px #F53D4E;
-    
             }
 
             .block{
                 position: relative;
                 top: 150px;
             }
-
-            .ion{
+  
+        .cont{
+            background-color: rgb(255, 255, 255);
+        }
+ 
+        p{
+            color: rgb(134, 132, 132);
+            font-weight: 100;
+            font-size: 120%;
+        }
+ 
+        .dash{
+            background-color: rgba(53, 52, 52, 0.555);
+            color: white;
+            height: 23%;
+            // border-left: 2px solid white;
+            font-size: 50%;
+ 
+        }
+        .list{
+            position: relative;
+            left: 25%;
+            bottom: 10px;
+            font-size: 55%;
+            font-weight: 100%;
+ 
+        }
+        #btn{
+            position: relative;
+            bottom: 335px;
+            left: 40%;
+            color: #F53D4E;
+            background-color: white;
+            border-radius: 100%;
+            width: 15%;
+            height: 15%;
+            bottom: 15px;
+        }
+       .ion{
                 position: relative;
                 top: 90px;
                 left: 50px;
                 border-radius: 12px;
             }
+}
 
-            
-        
-
-
+       
 

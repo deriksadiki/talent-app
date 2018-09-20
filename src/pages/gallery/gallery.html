@@ -8,11 +8,51 @@
 
   <ion-navbar>
     <ion-title>gallery</ion-title>
+    <button ion-button menuToggle icon-only>
+        <ion-icon name='menu'></ion-icon>
+      </button>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content padding class="bgr">
+  <h1>Your Videos</h1>
+    <ion-card class="card" *ngFor="let i of videos;" >
+      <ion-row class="col1">
+          <video width="500" height="120" controls>
+              <!-- <source src={{i.vidurl}} type="video/mp4">
+              <source src={{i.vidurl}} type="video/mkv"> -->
+          </video>  
+  
+      <button color={{i.color}} ion-button icon-start clear small (click)="like(a)">
+        <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{i.likes}} Likes</div>
+            </button>
+    
+  
+      <button  ion-button class="com" icon-start clear small center (click)="test(a)">
+        <ion-icon name="text"></ion-icon>
+        <div>{{i.comments}} Comments</div>
+        </button>
+   
+        
+          <button ion-button  icon-start clear small center>
+            <div>  {{i.date}}</div>
+            </button>
+      
+      </ion-row>
+    </ion-card>
+  </ion-content>
 
-<ion-content padding>
-
-</ion-content>
+<!-- <ion-content>
+<ion-grid *ngFor="let i of videos;">
+    <ion-row size="6">
+        <ion-col >
+            <video width="390" height="240" controls>
+                <source src={{i.vidurl}} type="video/mp4">
+                  <source src={{i.vidurl}} type="video/mkv">
+              </video>
+        </ion-col>
+      </ion-row>
+</ion-grid>
+</ion-content> -->

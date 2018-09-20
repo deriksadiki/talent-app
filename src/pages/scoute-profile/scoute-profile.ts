@@ -16,21 +16,17 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
 })
 export class ScouteProfilePage {
 
-  arr2 = [];
+  scout = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
     this.firebaseService.getuserType();
-    // this.firebaseService.viewScoutProfile();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ScouteProfilePage');
-
-    // this.firebaseService.viewScoutProfile().then((data:any) =>{
-    // this.arr2 = data;
-    // })
-
-    console.log(this.arr2);
+    this.firebaseService.getScoutProfile().then((data4:any) =>{
+    this.scout = data4;
+    console.log(this.scout);
+    })
+    
   }
-
 }
