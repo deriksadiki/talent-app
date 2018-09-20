@@ -19,7 +19,7 @@
       </ion-header>
 
 
-<ion-content >
+<ion-content class="img" >
 
   <h1 align="center" class="head">UpLoad your Video</h1>
   <br>
@@ -28,10 +28,10 @@
     <input type="file" (change)="insertvid($event)" >
   </ion-item>
   </ion-card>
-  <ion-card>
+  <!-- <ion-card>
     <ion-item class="combo" align="left">
       </ion-item>
-        </ion-card>
+        </ion-card> -->
 
 
         <ion-card>
@@ -51,24 +51,24 @@
                       </ion-item>
                   </div>  
   
-  <ion-item class="item item-trns text-center" id="tem" >
+  <!-- <ion-item class="item item-trns text-center" id="tem" >
           <ion-input type="file" (change)="insertvid($event)"></ion-input>
 
-        </ion-item>
+        </ion-item> -->
 
        <ion-item id="tem">
           <ion-label><ion-icon  class="i" name="information-circle"></ion-icon></ion-label>
           <ion-input type="text" placeholder="video name" [(ngModel)]="vidName"></ion-input>
        </ion-item> 
       
-<ion-item id="tem">
+       <ion-item id="tem">
           <ion-label><ion-icon class="i" name="information-circle"></ion-icon></ion-label>
           <ion-input type="text" placeholder="video description" [(ngModel)]="vidDesc"></ion-input>
        </ion-item>
 
 
-      </div>
 
+     
 </ion-card>
   
 

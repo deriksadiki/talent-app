@@ -88,9 +88,7 @@ import {MessagePage } from '../pages/message/message'
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
-
-    UploadPreviewPage 
-
+    UploadPreviewPage, 
     ScouteProfilePage,
     DisplayPage
 
