@@ -157,6 +157,21 @@ export class ArtistPage {
       this.firebaseService.addImage(this.artist.username).then(data =>{
 
         console.log(data)
+        this.firebaseService.getimagepropicurl(this.artist.username).then(data =>{
+          console.log(data)
+          this.firebaseService.registerTalentPerson(this.artist.username,this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(() =>{
+            this.firebaseService.getuserType().then(()=>{
+                            const alert = this.alertCtrl.create({
+                              title: 'Welcome',
+                              subTitle: 'You have successfully Registered',
+                              buttons: ['OK']
+                            });
+                            alert.present();   
+                            this.navCtrl.push(ArtisthomePage);
+                            window.location.reload();
+
+
+        console.log(data)
 
         this.firebaseService.getimagepropicurl(this.artist.username).then(data =>{
 
@@ -175,6 +190,7 @@ export class ArtistPage {
               alert.present();
               this.navCtrl.push(ArtisthomePage);
               window.location.reload();
+
           })
 
         }, Error =>{
@@ -187,9 +203,14 @@ export class ArtistPage {
           })
         })
       })
+  }
+};
+
+
     }
 }
   
+
   takePicture(){
     const confirm = this.alertCtrl.create({
       title: 'Options?',
@@ -205,9 +226,16 @@ export class ArtistPage {
         {
           text: 'Upload Photo',
           handler: data => {
+
+         
+           // this.converImg(`${data.title}`);
+            //console.log(this.url);
+          }
+
            // this.converImg(`${data.title}`);
           //console.log(this.url);
          }
+
         },
         {
           text: 'Take Photo',
@@ -219,4 +247,10 @@ export class ArtistPage {
     });
     confirm.present();
   }
+
+
+   
+
+=======
+
 }

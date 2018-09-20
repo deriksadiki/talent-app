@@ -10,6 +10,8 @@ page-artisthome {
        
         }
 
+
+
         .logo{
             color: rgb(236, 217, 217);
             position: relative;
@@ -49,6 +51,7 @@ page-artisthome {
         .time{
             margin-left: 50%;
   }
+
     // .section{
     //     background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
     //     background-attachment: fixed;
@@ -59,6 +62,7 @@ page-artisthome {
     //    background-repeat: no-repeat;
     //    background-position: center;
     // } 
+
     h1{
         color: whitesmoke;
         font-size: 200%;
@@ -87,9 +91,7 @@ page-artisthome {
         .comm{
             right: 20%;
         }
-        .l{
-        //    left:20%; 
-        }
+        
         .sec{
             display: flex;
             // margin-left: 20px;
@@ -114,10 +116,10 @@ page-artisthome {
             margin-right: 50px;
             box-shadow: 1px 2px 3px 1px;
         }
-    //    img{
-    //         height: 80px;
-    //         width: 80px;
-    //         border-radius: 50px;
-    //     }
+       img{
+            height: 80px;
+            width: 80px;
+            border-radius: 50px;
+        }
 
 }

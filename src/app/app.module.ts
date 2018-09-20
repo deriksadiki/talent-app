@@ -59,7 +59,9 @@ import { SeeMessagesPage } from '../pages/see-messages/see-messages'
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
     ScouteProfilePage,
+    UploadPreviewPage, 
     DisplayPage 
+
 
 ],
   imports: [
@@ -88,8 +90,12 @@ import { SeeMessagesPage } from '../pages/see-messages/see-messages'
     ArtistProfilePage,
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
+
+    UploadPreviewPage 
+
     ScouteProfilePage,
     DisplayPage
+
   ],
   providers: [
     StatusBar,

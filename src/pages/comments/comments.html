@@ -6,68 +6,67 @@
 -->
 <ion-header>
 
-    <ion-navbar color="own">
-      <ion-title>comments</ion-title>
-    </ion-navbar>
-  
-  </ion-header>
-  
-  
-  <ion-content *ngFor="let i of videos" padding>
-  
-          <ion-item>
-            <ion-avatar item-start>
-              <img src={{i.img}}>
-            </ion-avatar>
-           <h1>{{i.name}}</h1>
-           <p></p>
-  
-  
-          </ion-item>
-        
+
+  <ion-navbar color="own">
+    <ion-title>comments</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content *ngFor="let i of videos" padding>
+
+
         <ion-item>
-          <video width="390" height="240" controls>
-  
-              <source src={{i.vidurl}} type="video/mp4">
-              
-            </video>
-            <p><b>{{i.vidDesc}}</b></p>
-          </ion-item>
-          <br>
-  
-           
-            <ion-item  class="item2" >
-              <textarea class="comments" #comment type="text" cols="40" rows="5" placeholder="Comment here"></textarea>
-          
-          <div align = "right" > 
-            <button ion-button round color = "own" (click)="placeComment(comment.value)">Post</button>
-          </div>
-              </ion-item>
-  <br>
-  <br>
-  
-     
-  <div class="cm">
-      <ion-list no-lines *ngFor="let a of comments2"  >
-  
-          <ion-item>
-            <ion-avatar class="pic" item-start>
-                <img src={{a.img}}>
-            </ion-avatar>
-            
-            <h2><b>{{a.name}}</b> <span class="datew">{{a.date}}</span></h2>
-           
-          </ion-item>
+          <ion-avatar item-start>
+            <img src={{i.img}}>
+          </ion-avatar>
+         <h1>{{i.name}}</h1>
+         <p></p>
+
+
+        </ion-item>
       
-          <div class="list2">
-              <div text-wrap class="text">
-                  <p>{{a.text}}</p>
-                </div>
-          </div>
-           
+      <ion-item>
+        <video width="390" height="240" controls>
+
+            <source src={{i.vidurl}} type="video/mp4">
+            
+          </video>
+          <p><b>{{i.vidDesc}}</b></p>
+        </ion-item>
+        <br>
+
+         
+          <ion-item  class="item2" >
+            <textarea class="comments" #comment type="text" cols="40" rows="5" placeholder="Comment here"></textarea>
+        
+        <div align = "right" > 
+          <button ion-button round color = "own" (click)="placeComment(comment.value)">Post</button>
+        </div>
+            </ion-item>
+<br>
+<br>
+
    
-           
-        </ion-list>
+<div class="cm">
+    <ion-list no-lines *ngFor="let a of comments2"  >
+
+        <ion-item>
+          <ion-avatar class="pic" item-start>
+              <img src={{a.img}}>
+          </ion-avatar>
+          
+          <h2><b>{{a.name}}</b> <span class="datew">{{a.date}}</span></h2>
+         
+        </ion-item>
+    
+        <div class="list2">
+            <div text-wrap class="text">
+                <p>{{a.text}}</p>
+              </div>
+        </div>
      
-  </div>
-  </ion-content> 
+      </ion-list>
+</div>
+</ion-content> 

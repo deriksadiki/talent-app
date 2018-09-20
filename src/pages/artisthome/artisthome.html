@@ -1,16 +1,17 @@
 
-  <ion-header>
-     <ion-navbar color = "own" >
-        <button ion-button menuToggle icon-only>
-            <ion-icon name='menu'></ion-icon>
-          </button>
-    <ion-title>
-      <ion-icon name="flame"></ion-icon>&emsp;Top Trending
-    </ion-title>
-  </ion-navbar>
+<ion-header>
+    <ion-navbar color = "own" >
+       <button ion-button menuToggle icon-only>
+           <ion-icon name='menu'></ion-icon>
+         </button>
+   <ion-title>
+     <ion-icon name="flame"></ion-icon>&emsp;Top Trending
+   </ion-title>
+ </ion-navbar>
 </ion-header>
 
 <ion-content class="img">
+<<<<<<< HEAD
    <div *ngFor="let i of videos; let a =index">
       <ion-card >
           <ion-item (click)="profile(a)">
@@ -25,27 +26,40 @@
               <source src={{i.vidurl}} type="video/mp4">
                 <source src={{i.vidurl}} type="video/mkv">
             </video> -->
+=======
+  <div *ngFor="let i of videos; let a =index">
+     <ion-card >
+         <ion-item (click)="profile(a)">
+           <ion-avatar item-start >
+             <img src="{{i.img}}">
+           </ion-avatar>
+           <h2>{{i.name}}</h2>
+           <p>{{i.vidname}}</p>
+         </ion-item>
 
-          <ion-card-content>
-            <p>{{i.vidDesc}}</p>
-            <ion-row>
-                <ion-col>
-                  <button color={{i.color}} ion-button icon-start clear small (click)="like(a)">
-                    <ion-icon name="thumbs-up"></ion-icon>
-                    <div>{{i.likes}} Likes</div>
-                  </button>
-                </ion-col>
-                <ion-col>
-                  <button  ion-button class="com" icon-start clear small center (click)="test(a)">
-                    <ion-icon name="text"></ion-icon>
-                    <div>{{i.comments}} Comments</div>
-                  </button>
-                </ion-col>
-                <ion-col>
-                    <button ion-button  icon-start clear small center>
-                 <div>  {{i.date}}</div>
-                </button>
+>>>>>>> 036befbd2a043d4391578e449a9c72de3bd27b80
+
+         <video width="390" height="240" controls>
+             <source src={{i.vidurl}} type="video/mp4">
+               <source src={{i.vidurl}} type="video/mkv">
+           </video>
+
+         <ion-card-content>
+           <p>{{i.vidDesc}}</p>
+           <ion-row>
+               <ion-col>
+                 <button color={{i.color}} ion-button icon-start clear small (click)="like(a)">
+                   <ion-icon name="thumbs-up"></ion-icon>
+                   <div>{{i.likes}} Likes</div>
+                 </button>
                </ion-col>
+               <ion-col>
+                 <button  ion-button class="com" icon-start clear small center (click)="test(a)">
+                   <ion-icon name="text"></ion-icon>
+                   <div>{{i.comments}} Comments</div>
+                 </button>
+               </ion-col>
+<<<<<<< HEAD
                 <ion-col >
                   <ion-note class="time">
                   </ion-note>
@@ -56,4 +70,17 @@
    </div>
   
   </ion-content> 
+=======
+               <ion-col>
+                   <button ion-button  icon-start clear small center>
+                <div>  {{i.date}}</div>
+               </button>
+               </ion-col>
+               </ion-row>
+             </ion-card-content>
+           </ion-card>
+  </div>
 
+>>>>>>> 036befbd2a043d4391578e449a9c72de3bd27b80
+
+ </ion-content>

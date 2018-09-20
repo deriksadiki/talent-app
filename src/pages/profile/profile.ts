@@ -11,7 +11,6 @@ import {Recruit} from '../../Modals/Recruit';
  * Ionic pages and navigation.
  */
 
-
 @IonicPage()
 @Component({
   selector: 'page-profile',
@@ -19,12 +18,31 @@ import {Recruit} from '../../Modals/Recruit';
 })
 export class ProfilePage {
 
+
+  // arr = new Array();
+  // dbRef;
+  // datas;
+
+  // recruit = {} as Recruit;
+
+  // email:string;
+  // password:string;
+  // name:string;
+  // surname:string;
+  // companyName:string;
+  // companyemail:string;
+  // gender:string;
+  // age:string;
+  // cellno:string;
+
+
   dbRef;
   datas;
   arr2= []; 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService:FirebaseProvider) {
     this.firebaseService.getuserType();
+
   }
 
   ionViewDidLoad() {

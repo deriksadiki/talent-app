@@ -5,18 +5,22 @@ import {CommentsPage} from '../comments/comments'
 import { ArtistProfilePage } from '../artist-profile/artist-profile';
 import { ProfilePage } from '../profile/profile';
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
+
 import { DisplayPage } from '../display/display';
+
 
 
 @IonicPage()
 @Component({
-  selector: 'page-artisthome',
-  templateUrl: 'artisthome.html',
+ selector: 'page-artisthome',
+ templateUrl: 'artisthome.html',
 })
 export class ArtisthomePage {
 videos = [];
 color = "primary";
+
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, private modalCtrl: ModalController) {
+
   }
 
   ionViewDidLoad() {
@@ -44,12 +48,19 @@ color = "primary";
          })
       }
 else{
-  this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
-  this.ionViewDidLoad();
-  })
+ this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
+ this.ionViewDidLoad();
+ })
 }
-  })
+ })
 }
+
+ test(indexNUmber){
+   this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
+ }
+
+
+
   test(indexNUmber){
     this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
   }
@@ -64,3 +75,4 @@ else{
   }
 
 }
+
