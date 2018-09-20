@@ -15,37 +15,37 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
  
-// .menu{
+.menu{
     
-//         // background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
-//         background-attachment: fixed;
-//         background-color: rgba(110, 101, 101, 0.74);
-//         background-size: cover;
-//        background-repeat: no-repeat;
-//        background-position: center;
+        // background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        background-attachment: fixed;
+        background-color: rgba(110, 101, 101, 0.74);
+        background-size: cover;
+       background-repeat: no-repeat;
+       background-position: center;
 
-// }
+}
 
-// .liss{
-//     color: rgba(255, 255, 255, 0.158);
-// }
+.liss{
+    color: rgba(255, 255, 255, 0.158);
+}
 
-// .buttons{
-//     margin-bottom: 8%;
-//     position: relative;
-//     right: 25%;
-//     top: 35px;
-//     background-color: rgba(245, 61, 79, 0);
+.buttons{
+    margin-bottom: 8%;
+    position: relative;
+    // right: 25%;
+    top: 35px;
+    background-color: rgba(245, 61, 79, 0);
 
-//     color: rgb(255, 247, 247);
+    color: rgb(255, 247, 247);
 
    
-// }
+}
 
-// .logo{
-//     position: relative;
-//     top: 20px;
-// }
+.logo{
+    position: relative;
+    top: 20px;
+}
 
 // header{
 //     color: white;
@@ -55,7 +55,9 @@
 //     top: 10px;
 // }
 
-// h1{
-//         font-size: 10px;
-// }
+h1{
+        font-size: 30px;
+        color: whitesmoke;
+        font-weight: 100;
+}
 
