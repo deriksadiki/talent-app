@@ -59,12 +59,6 @@ else{
    this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
  }
 
-
-
-  test(indexNUmber){
-    this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
-  }
-
   profile(a){
     const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
     console.log(a);
