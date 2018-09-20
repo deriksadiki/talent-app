@@ -15,28 +15,21 @@
 
 <ion-content class="img">
 
-
+   <div *ngFor="let i of videos; let a =index">
+      <ion-card >
+          <ion-item (click)="profile(a)">
+            <ion-avatar item-start >
+              <img src="{{i.img}}">
+            </ion-avatar>
+            <h2>{{i.name}}</h2>
+            <p>{{i.vidname}}</p>
+          </ion-item>
 <!-- 
-          <video width="390" height="240" controls>
-              <source src={{i.vidurl}} type="video/mp4">
-                <source src={{i.vidurl}} type="video/mkv">
-            </video> -->
+         <video width="390" height="240" controls>
 
-  <div *ngFor="let i of videos; let a =index">
-     <ion-card >
-         <ion-item (click)="profile(a)">
-           <ion-avatar item-start >
-             <img src="{{i.img}}">
-           </ion-avatar>
-           <h2>{{i.name}}</h2>
-           <p>{{i.vidname}}</p>
-         </ion-item>
-
-
-      <video width="390" height="240" controls>
              <source src={{i.vidurl}} type="video/mp4">
                <source src={{i.vidurl}} type="video/mkv">
-           </video>
+           </video> -->
 
          <ion-card-content>
            <p>{{i.vidDesc}}</p>
@@ -53,9 +46,6 @@
                    <div>{{i.comments}} Comments</div>
                  </button>
                </ion-col>
-
-  
-  </ion-content> 
 
                <ion-col>
                    <button ion-button  icon-start clear small center>
