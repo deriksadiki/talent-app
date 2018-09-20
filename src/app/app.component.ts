@@ -31,7 +31,7 @@ export class MyApp {
   public rootPage: any;
 
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon?: string}>;
   
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private firebaseService:FirebaseProvider) {
     this.initializeApp();
@@ -46,13 +46,13 @@ if('Log-Out')
           this.rootPage = UsersPage;
           this.pages = [
             { title: 'Home', component: UsersPage,  },
-            { title: 'Home1', component: ArtisthomePage },
+            { title: 'Home1', component: ArtisthomePage, icon: "home"},
             // { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage },
             { title: 'Log-Out', component: LogoutPage },
+
           ]
         }
-
         else if (data == "talentPerson"){
           this.pages = [
             { title: 'Home', component: ArtisthomePage},
@@ -61,17 +61,16 @@ if('Log-Out')
             { title: 'Profile', component: ProfilePage },
             { title: 'Log-Out', component: LogoutPage },
             {title: 'Messages', component:  SeeMessagesPage}
-
           ];
            this.rootPage =  ArtisthomePage;
         }
         else if (data == "ScoutPerson"){
           this.pages = [
-
             { title: 'Home', component: ScoutPage },
          // { title: 'Profile', component: ProfilePage },
             { title: 'Profile', component:ScouteProfilePage },
             { title: 'Log-Out', component: LogoutPage },
+
           ];
           this.rootPage = ScoutPage;
         }
