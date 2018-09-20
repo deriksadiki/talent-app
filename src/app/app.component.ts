@@ -14,6 +14,7 @@ import { LogoutPage } from '../pages/logout/logout';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
 import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
+import { GalleryPage } from '../pages/gallery/gallery';
 
 
 
@@ -28,7 +29,7 @@ export class MyApp {
   public rootPage: any;
 
 
-  pages: Array<{title: string, component: any, icon: any}>;
+  pages: Array<{title: string, component: any}>;
   
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private firebaseService:FirebaseProvider) {
     this.initializeApp();
@@ -42,34 +43,20 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
-
-
             { title: 'Home1', component: ArtisthomePage },
             // { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage },
             { title: 'Log-Out', component: LogoutPage },
           ]
         }
-        else if (data == "talentPerson"){
-          this.pages = [
-            { title: 'Home', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ArtistProfilePage  },
-            { title: 'Log-Out', component: LogoutPage }
-            
-            { title: 'Home', component: UsersPage,  icon: "person" },
-            { title: 'Share', component: HomePage,  icon: "person" },
-            { title: 'Log-Out', component: LogoutPage,  icon: "person" },
 
-          ];
-          
-        }
         else if (data == "talentPerson"){
           this.pages = [
-            { title: 'Home', component: ArtisthomePage, icon: "home"},
-            { title: 'Upload', component: HomePage,  icon: "person" },
-            { title: 'Profile', component: ProfilePage,  icon: "person"},
-            { title: 'Log-Out', component: LogoutPage,  icon: "person"},
+            { title: 'Home', component: ArtisthomePage},
+            { title: 'Upload', component: HomePage  },
+            { title: 'Gallery', component: GalleryPage },
+            { title: 'Profile', component: ProfilePage },
+            { title: 'Log-Out', component: LogoutPage },
 
           ];
            this.rootPage =  ArtisthomePage;
@@ -80,12 +67,6 @@ if('Log-Out')
             { title: 'Home', component: ScoutPage },
             { title: 'Profile', component:ScouteProfilePage },
             { title: 'Log-Out', component: LogoutPage },
-
-            { title: 'Home', component: ScoutPage, icon: "person" },
-             { title: 'Upload', component: HomePage,  icon: "person"},
-            { title: 'Profile', component:ScouteProfilePage,  icon: "person" },
-            { title: 'Log-Out', component: LogoutPage,  icon: "person" },
-
           ];
           this.rootPage = ScoutPage;
         }

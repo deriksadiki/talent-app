@@ -30,6 +30,7 @@ import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 
 import { DisplayPage } from '../pages/display/display';
 import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
+import { GalleryPage } from '../pages/gallery/gallery';
 
 
 
@@ -56,8 +57,9 @@ import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
     ScouteProfilePage,
-    DisplayPage 
-    UploadPreviewPage  
+    DisplayPage, 
+    UploadPreviewPage,
+    GalleryPage
 ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
     ScouteProfilePage,
-    DisplayPage
+    DisplayPage, 
+    GalleryPage
   ],
   providers: [
     StatusBar,

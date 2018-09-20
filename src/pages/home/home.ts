@@ -25,7 +25,6 @@ export class HomePage {
  
 
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController, public modalCtrl: ModalController) {
- 
   }
 
     insertvid(event:any){
@@ -55,7 +54,6 @@ export class HomePage {
       })
     }
 
-  }
     preview=function(){
       const modal = this.modalCtrl.create(UploadPreviewPage);
       modal.present();

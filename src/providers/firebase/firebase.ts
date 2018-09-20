@@ -27,6 +27,8 @@ export class FirebaseProvider {
   videoArray = new Array();
   arr = new Array();
   arr2 = new Array();
+  scoutArray = new Array();
+
   
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
@@ -187,8 +189,6 @@ return new Promise ((accpt,rej) =>{
     });
     loading.present();
   return new Promise((accpt,rejc) =>{
-      duration: 9000
-    });
     loading.present();
   this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
     loading.dismiss();
@@ -296,11 +296,6 @@ getAllvideos(){
 
 } 
 
-asignColor(colour){
-  this.color = colour;
-  console.log(this.color);
-}
-
 getuserType(){
 return new Promise ((accpt, rej) =>{
   this.database.ref('users').on('value', (data: any) => {
@@ -345,6 +340,7 @@ this.imgurl =  url;
 
 storeuserid(uid){
 this.currentUserID = uid;
+console.log(this.currentUserID);
 }
 
 getProfile(){
@@ -354,7 +350,7 @@ getProfile(){
       console.log(details);
       var keys = Object.keys(details)
 
-      for (var x = 0; x< keys.length; x++){
+      for (var x = 0; x < keys.length; x++){
         var key = keys[x];
         let obj = {
           age : details[key].age,
@@ -372,41 +368,27 @@ getProfile(){
   })
 }
 
-getAllvideos(){
-  return new Promise ((accpt, rej) =>{
+getScoutProfile(){
+  return new Promise((accpt,rej) =>{
+    
+    this.database.ref('users/' + this.currentUserID).on('value', (data4:any) =>{
+      var details =  data4.val();
+      console.log(details);
+      var keys = Object.keys(details)
 
-    this.database.ref('uploads/').on('value', (data: any) => {
-      var videos = data.val();
-      this.videoArray.length = 0;
-      var keys:any =  Object.keys(videos);
-        for (var i = 0; i < keys.length; i++){
-          var x = keys[i];
-          var y  = 'uploads/' + x;
-          var details;
-          this.database.ref(y).on('value', (data2: any) => {
-           details = data2.val();
-            })
-          var keys2:any = Object.keys(details);
-          for (var a = 0; a < keys2.length; a++){
-                var key = keys2[a];
-                let obj = {
-                likes: details[key].likes,
-                comments : details[key].comments,
-                vidurl : details[key].downloadurl,
-                vidDesc : details[key].description,
-                vidname : details[key].name,
-                name : details[key].username,
-                img : details[key].userImg,
-                date : details[key].date,
-                key: key
-          }
-          this.videoArray.push(obj);
-          }
+      for(var y = 0;y <keys.length;y++){
+        var key = keys[y];
+        let obj = {
+           companyName: details[key].companyName,
+           companycellno: details[key].companycellno,
+           companyemail: details[key].companyemail,
+           name: details[key].name
         }
-       accpt(this.videoArray);
-  }, Error =>{
-    rej(Error.message)
-  })
+        this.scoutArray.push(obj);
+      }
+      console.log(this.scoutArray);
+      accpt(this.scoutArray);
+    })
   })
 }
 
@@ -454,7 +436,7 @@ comment(key,text){
       text:text,
       username: this.username,
       date : today,
-      img : this.imgurl
+      // img : this.imgurl
     })
     accpt("comment added")
   })
@@ -472,11 +454,12 @@ getcomments(key){
             date : details[key].date,
             text :  details[key].text,
             name : details[key].username,
-            img :  details[key].img
+            // img :  details[key].img
           }
           this.comments.push(obj)
         }
           pass(this.comments);
+          console.log(this.comments);
       }
       })
   })
