@@ -29,6 +29,9 @@ export class FirebaseProvider {
   arr2 = new Array();
   messages =  new Array();
   messages2 =  new Array();
+  messagePath =  new Array();
+  names = new Array();
+  results;
   
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
@@ -472,52 +475,50 @@ removeLike(username, key, num){
   })
 }
 
-sendMessage(username, text){
-  return new Promise ((accpt, rej) =>{
+sendMessage(username, text):any{
     var today = moment().format("Do MMM");
-    this.database.ref('message').on('value', (data: any) => {
+    this.database.ref('message/' + username).on('value', (data: any) => {
       if ( data.val() != null ||  data.val() != undefined){
-        var paths =  data.val();
-        var keys = Object.keys(paths);
-        for (var x = 0; x < keys.length; x++){
-          var key = keys[x];
-          var str1 = new String( key);
-          var index = str1.indexOf( ":" );
-          var person = str1.substr(0,index);
-          var user2 =  str1.substr(index + 1,str1.length)
-          if (this.username == person&& username == user2){
-            this.database.ref('message/' + key).push({
-              date : today,
-              message : text
-            })
-            accpt('message sent')
-            break;
-          }
-          else if (this.username == user2 && username == person){
-            this.database.ref('message/' + key).push({
-              date : today,
-              message : text
-            })
-            accpt('message sent')
-            break;
-          }
-        }
+        this.assisgStatus('pass')
       }
-
-      accpt('fail')
+      else{
+       this.assisgStatus('fail')
+      }
     })
-  })
 }
+
+assisgStatus(status){
+this.results =  status;
+console.log(this.results);
+}
+
+
+getresults(){
+  return this.results;
+}
+
 
 startConvo(username, text){
   var today = moment().format("Do MMM");
-  this.database.ref('message/' + this.username + ":" + username).push({
+    this.database.ref('message/' + username).push({
+      date : today,
+      message : text
+    })
+   console.log("convo started")
+}
+
+
+send(username, text){
+  var today = moment().format("Do MMM");
+  this.database.ref('message/' + username).push({
     date : today,
     message : text
   })
+  console.log('message sent')
 }
 
 getSentMessages(path){
+  console.log('getSentMessages')
 return new Promise ((accpt, rej) =>{
   this.messages.length = 0;
   this.database.ref('message/' + path).on('value', (data: any) => {
@@ -539,8 +540,11 @@ return new Promise ((accpt, rej) =>{
 }
 
 getAllMessages(){
+  console.log('getAllMessages')
+  this.messagePath.length = 0;
 return new Promise ((accpt,rej) =>{
   this.database.ref('message').on('value', (data: any) => {
+    if (data.val() != null || data.val() !=  undefined){
     this.messages2.length = 0;
     var objects = data.val();
     var key = Object.keys(objects);
@@ -549,63 +553,64 @@ return new Promise ((accpt,rej) =>{
       var index = str1.indexOf( ":" );
       var messageID =  str1.substr(index + 1,str1.length);
       var messageID2 = str1.substr(0,index)
-      console.log(this.username);
-      console.log(messageID);
-      console.log(key[x])
         if (messageID == this.username)
-             {  //var storageRef = firebase.storage().ref('pictures/' + username + ".jpg");
-            // storageRef.getDownloadURL().then(url => {})
-              this.database.ref('message/' + key[x]).on('value', (data2: any) => {
-              var messg = data2.val();
-              var mesKeys = Object.keys(messg);
-              var length = mesKeys.length - 1;
-              var messageKey = mesKeys[length]
-              this.database.ref('message/' + key[x] + '/' + messageKey ).on('value', (data3: any) => {
-                let obj = {
-                  path : key[x],
-                  message : data3.val().message,
-                  key : messageKey,
-                  date : data3.val().date,
-                  name : messageID2 
-                }
-              this.AssignMessages(obj)
-              })
-            })
+        {
+          this.setMessagePath( key[x], messageID2);
         }
-      else if (messageID2 == this.username){
-        this.database.ref('message/' + key[x]).on('value', (data2: any) => {
-          var Newmessg = data2.val();
-          console.log(Newmessg )
-          var mesKeys = Object.keys(Newmessg);
-          var length = mesKeys.length - 1;
-          var messageKey = mesKeys[length]
-          this.database.ref('message/' + key[x] + '/' + messageKey ).on('value', (data3: any) => {
-            let obj = {
-              path : key[x],
-              message : data3.val().message,
-              key : messageKey,
-              date : data3.val().date,
-              name : messageID 
-            }
-          this.AssignMessages(obj)
-          })
-        })
+        else if (messageID2 == this.username){
+        this.setMessagePath(key[x], messageID);
       }
+      accpt('finished')
     }
-    accpt('finished')
+    }
   })
 })
 }
 
-AssignMessages(obj:any){
-this.messages2.push(obj)
+getConversation(){
+  return new Promise ((accpt, rej) =>{
+    this.database.ref('message/' + this.messagePath ).on('value', (data: any) => {
+      if (data.val() != null || data.val() != undefined){
+        accpt(this.messagePath);
+      }
+    })
+  })
 }
 
 returnAllMessages(){
   return new Promise ((accpt,rej) =>{
-    accpt(this.messages2);
+    var length = this.messagePath.length;
+    for (var i = 0; i < length; i++){
+      this.database.ref('message/' + this.messagePath[i] ).on('value', (data: any) => {
+        var Newmessg = data.val();
+        var key = Object.keys(Newmessg);
+        var length2 =  key.length - 1;
+        let obj = {
+          key :  key[length2],
+          name : this.names[i],
+          message : Newmessg[key[length2]].message,
+          date : Newmessg[key[length2]].date,
+          path : this.messagePath[i]
+        }
+        this.messages2.push(obj)
+        accpt(this.messages2);
+      })
+    }
   })
 }
 
+reply(key){
+
+}
+
+setMessagePath(path, name){
+this.messagePath.push(path);
+console.log(name)
+this.names.push(name);
+}
+
+getusername(){
+  return this.username;
+}
 
 }

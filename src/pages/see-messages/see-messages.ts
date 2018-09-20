@@ -23,12 +23,12 @@ messages = new Array();
   ionViewDidLoad() {
     this.messages.length = 0;
   this.firebaseService.getAllMessages().then(data =>{
-    console.log(data)
     this.firebaseService.returnAllMessages().then((data2:any) =>{
       this.messages.length = 0;
       this.messages  = data2;
       console.log(this.messages);
-    })
+      console.log('see messages')
+     })
   })
   }
 more(i){

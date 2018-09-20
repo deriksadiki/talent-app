@@ -17,7 +17,7 @@ import { MessagePage } from "../message/message";
 export class DisplayPage {
 
   arr = [];
-
+path;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider,public viewCtrl: ViewController) { 
     // this.firebaseService.getuserType(); 
   }
@@ -28,14 +28,15 @@ export class DisplayPage {
     this.arr = data;
     console.log(this.arr);
     });
-    console.log('ionViewDidLoad DisplayPage');
+    
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
   }
   Message(){
-    var user = this.navParams.get('user');
-    this.navCtrl.push(MessagePage, {username:user})
+    var username = this.firebaseService.getusername();
+    var ID = username + ":" + this.navParams.get('user');
+    this.navCtrl.push(MessagePage, {username:ID})
   }
 }

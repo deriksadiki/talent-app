@@ -29,12 +29,20 @@ if (this.username == null || this.username == undefined){
     this.firebaseService.getSentMessages(this.username).then((data:any) =>{
       this.messages.length = 0;
       this.messages = data;
-      console.log(this.messages)
     })
   }
   sendMessage(message){
-    this.firebaseService.sendMessage(this.username, message).then(data =>{
-      console.log(data);
-    })
+    this.messages.length = 0;
+    this.firebaseService.sendMessage(this.username, message);
+     var res = this.firebaseService.getresults();
+     if (res == 'fail'){
+       this.firebaseService.startConvo(this.username, message)
+     }
+     else if (res  == 'pass'){
+       this.firebaseService.send(this.username, message)
+       console.log(this.messages);
+     }
+   
   }
+
 }
