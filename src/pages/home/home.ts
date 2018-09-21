@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ViewController, AlertController, ModalController } from 'ionic-angular';
+import { NavController, ViewController, AlertController, ModalController,NavParams } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import {LoginPage} from '../login/login';
 
@@ -20,11 +20,12 @@ export class HomePage {
   category;
   vidName;
   vidDesc;
-
-
+  videos = [];
+  videos2 =  this.navParams.get('vid');
  
 
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController, public modalCtrl: ModalController) {
+
   }
 
     insertvid(event:any){
@@ -54,12 +55,15 @@ export class HomePage {
       })
     }
 
-    preview=function(){
+    preview(){
 
       const modal = this.modalCtrl.create(UploadPreviewPage);
       modal.present();
+      this.videos.push(this.videos2);
     }
-
+    test(indexNUmber){
+      this.navCtrl.push(HomePage, {vid:this.videos[indexNUmber]})
+    }
   }
 
 

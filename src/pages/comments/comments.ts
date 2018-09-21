@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import {FirebaseProvider} from '../../providers/firebase/firebase'
+import { DisplayPage } from '../display/display';
 
 /**
  * Generated class for the CommentsPage page.
@@ -22,7 +23,7 @@ export class CommentsPage {
   arr = []
   comments2 =  [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public firebaseService: FirebaseProvider, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -52,5 +53,11 @@ export class CommentsPage {
       this.getComments()
   
     })
+  }
+
+  profile(a){
+    const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
+    console.log(a);
+    modal.present();
   }
 }

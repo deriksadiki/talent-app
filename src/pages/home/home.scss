@@ -13,10 +13,11 @@ page-home {
     //    background-position: center;
 
     // }
-    // ion-card.card{
-    //     // border-radius: 12px;
-    //     // box-shadow: 2px 2px 4px;
-    // }
+    ion-card.card{
+        border-radius: 12px;
+        // box-shadow: 2px 2px 4px;
+        background-color: rgba(0,0,0,0.5);
+    }
 
     // } 
  
@@ -31,7 +32,7 @@ page-home {
    }
    .h{
     //    margin-left: 40px;
-       color: gray;
+       color: rgb(219, 219, 219);
    }
  
    .box{
@@ -76,13 +77,25 @@ page-home {
  //     margin-bottom: 10px;
  //    }
    .item{
-    //    box-shadow: 1px 1px 2px;
+    //    box-shadow: 2px 2px 4px;
        background-color: rgba(255, 255, 255, 0);
        color: white;
+    //    width: 100px;
        margin-bottom: 20px;
 
- 
+
  }
+// .item{
+//     margin-bottom: 20px;
+//     border-radius: 20px;
+//     // font-family: 'Original Surfer', cursive;
+//     font-family: 'Courgette', cursive;
+//     // font-family: 'Pacifico', cursive;
+//     // background-color: rgba(165, 109, 4, 0.747);
+//       box-shadow: 2px 2px 4px black;
+//            overflow:visible;
+
+//   }
  h1{
     color: whitesmoke;
     position: relative;
