@@ -19,9 +19,7 @@ import { HomePage } from '../home/home';
 export class ArtisthomePage {
 videos = [];
 color = "primary";
-
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, private modalCtrl: ModalController) {
-
   }
 
   ionViewDidLoad() {
@@ -61,14 +59,12 @@ else{
  }
 
 
-
- 
-
   profile(a){
     const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
     console.log(a);
     modal.present();
   }
+  
   addNumOfLikes(){
 
   }

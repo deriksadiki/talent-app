@@ -188,8 +188,10 @@ export class ArtistPage {
         })
       })
     }
+
 }
   
+
   takePicture(){
     const confirm = this.alertCtrl.create({
       title: 'Options?',
@@ -219,6 +221,7 @@ export class ArtistPage {
     });
     confirm.present();
   }
+
 }
 
 

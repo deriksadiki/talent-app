@@ -5,7 +5,9 @@ import { ModalController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { ProfilePage } from '../profile/profile';
 import { DisplayPage } from '../display/display';
+
 import {CommentsPage} from '../comments/comments'
+
 
 
 @IonicPage()
@@ -31,22 +33,15 @@ export class ScoutPage {
      });
   
   }
-  like(keyIndex){
-    this.firebaseService.likeVideo(this.videos[keyIndex].key).then(() =>{
-      if (this.videos[keyIndex].color == "grey"){
-        this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
-          this.ionViewDidLoad();
-        })
-      }
-    else if (this.videos[keyIndex].color == "primary"){
-           this.firebaseService.removeLike(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
-            this.ionViewDidLoad();
-           })
-        }
-  else{
-   this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
-   this.ionViewDidLoad();
-   })
+
+
+
+
+  profile(a){
+    const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
+    console.log(a);
+    modal.present();
+
   }
    })
   }
@@ -59,6 +54,7 @@ export class ScoutPage {
   //   const modal = this.modalCtrl.create(ArtistProfilePage);
   //   modal.present();
   // }
+
 
 //   profile(){ 
 //     return new Promise((accpt,rej) =>{
@@ -81,4 +77,5 @@ viewartist(){
   const modal = this.modalCtrl.create(ArtistProfilePage);
   modal.present();
 }
+
 }

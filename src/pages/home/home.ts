@@ -24,8 +24,8 @@ export class HomePage {
   videos2 =  this.navParams.get('vid');
  
 
-  constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController, public modalCtrl: ModalController, public navParams: NavParams) {
- 
+  constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController, public modalCtrl: ModalController) {
+
   }
 
     insertvid(event:any){
