@@ -1,8 +1,15 @@
 page-message {
 
     .img{
-        background-color: grey;
-    }
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        background-attachment: fixed;
+        background-color: black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      
+ 
+        }
 
 
     .comments{
@@ -53,6 +60,34 @@ page-message {
         
     }
 
+    p{
+        font-weight: 200;
+        font-size: 70%;
+        position: relative;
+        // text-align: left;
+       
+    }
+
+    h1{
+        text-align: left;
+        font-weight: 200;
+        font-size: 100%;
+        text-align: center;
+    }
+
+    h2{
+        font-weight: 200;
+        font-size: 70%;
+        position: relative;
+        bottom: 7px;
+        text-align: left;
+        text-align: center;
+    }
+
+    .trash{
+        position: relative;
+        
+    }
 
 
 }

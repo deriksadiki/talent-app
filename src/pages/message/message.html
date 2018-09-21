@@ -13,7 +13,9 @@
                <ion-icon name='menu'></ion-icon>
              </button>
        <ion-title>
-        {{name}}<br> last seen <br>{{lastSeen}}
+       <h1>{{name}}</h1>
+       <h2>last seen {{lastSeen}}</h2> 
+       <ion-icon class="trash" name="trash"></ion-icon>
        </ion-title>
      </ion-navbar>
     </ion-header>
@@ -43,7 +45,7 @@
           </ion-item>
           </div>
     
-          <button class="send" ion-button round color = "own" (click)="sendMessage(text.value)"><ion-icon name="send"></ion-icon></button>
+          <button class="send" ion-button round color = "own" (click)="sendMessage(text.value)"><ion-icon name="send" md="md-send"></ion-icon></button>
        
             
    

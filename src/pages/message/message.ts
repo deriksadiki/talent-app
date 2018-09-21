@@ -25,12 +25,13 @@ lastSeen;
   ionViewDidLoad() {
 if (this.username == null || this.username == undefined){
   this.username = this.navParams.get('path')
-  this.name = this.navParams.get('name');
-  this.firebaseService.getLastSeen(this.name).then(data =>{
-    this.lastSeen = data;
-  })
+
   
 }
+this.name = this.navParams.get('name');
+this.firebaseService.getLastSeen(this.name).then(data =>{
+  this.lastSeen = data;
+})
     this.firebaseService.getSentMessages(this.username).then((data:any) =>{
       this.messages.length = 0;
       this.messages = data;
