@@ -30,6 +30,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   activePage: any;
+ 
 
   public rootPage: any;
 
@@ -57,6 +58,7 @@ if('Log-Out')
             { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
 
+
           ]
         }
         else if (data == "talentPerson"){
@@ -70,9 +72,6 @@ if('Log-Out')
             { title: 'Gallery', component: GalleryPage },
 
 
-        
-
-
           ];
            this.rootPage =  ArtisthomePage;
         }
@@ -82,10 +81,9 @@ if('Log-Out')
 
 
             { title: 'Home', component: ScoutPage, icon: "home" },
-            { title: 'Profile', component:ScouteProfilePage, icon: "person" },
+            { title: 'Profile', component:ScouteProfilePage, icon: "md-person" },
             { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
-
 
 
           ];

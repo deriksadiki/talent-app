@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
+
 import { MessagePage } from "../message/message";
-/**
- * Generated class for the DisplayPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({

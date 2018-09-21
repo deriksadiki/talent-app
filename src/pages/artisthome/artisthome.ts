@@ -36,12 +36,12 @@ color = "primary";
   
   like(keyIndex){
   this.firebaseService.likeVideo(this.videos[keyIndex].key).then(() =>{
-    if (this.videos[keyIndex].color == "grey"){
+    if (this.videos[keyIndex].color == 'grey'){
       this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
         this.ionViewDidLoad();
       })
     }
-  else if (this.videos[keyIndex].color == "primary"){
+  else if (this.videos[keyIndex].color == 'primary'){
          this.firebaseService.removeLike(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
           this.ionViewDidLoad();
          })

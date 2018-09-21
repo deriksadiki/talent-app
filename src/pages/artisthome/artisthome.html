@@ -21,13 +21,17 @@
            <ion-avatar item-start >
              <img src="{{i.img}}">
            </ion-avatar>
-           <h2>{{i.name}}</h2>
-           <p>{{i.vidname}}</p>
+           <h2><b>{{i.name}}</b> <span end class="datew">{{a.date}}</span></h2>
+           <p><b>{{i.vidname}}</b></p>
          </ion-item>
-<!--    <video width="390" height="240" controls>
-           <source src={{i.vidurl}} type="video/mp4">
-           <source src={{i.vidurl}} type="video/mkv">
-        </video> -->
+
+
+         <!-- <video width="10000" height="240" controls>
+             <source src={{i.vidurl}} type="video/mp4">
+               <source src={{i.vidurl}} type="video/mkv">
+           </video> -->
+
+
          <ion-card-content>
            <p>{{i.vidDesc}}</p>
            <ion-row>
