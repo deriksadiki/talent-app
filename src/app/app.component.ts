@@ -14,8 +14,12 @@ import { LogoutPage } from '../pages/logout/logout';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
 import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
+
 import { MessagePage } from '../pages/message/message';
 import { SeeMessagesPage } from '../pages/see-messages/see-messages';
+import { GalleryPage } from '../pages/gallery/gallery';
+
+
 
 
 
@@ -46,20 +50,26 @@ if('Log-Out')
           this.pages = [
 
 
+
             { title: 'Home1', component: ArtisthomePage, icon: "home"},
             // { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage, icon: "send" },
             { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+
           ]
         }
         else if (data == "talentPerson"){
           this.pages = [
+
             { title: 'Home', component: ArtisthomePage, icon:"home"},
             { title: 'Upload', component: HomePage, icon: "cloud-upload" },
             { title: 'Profile', component: ProfilePage, icon: "person"},
             { title: 'Log-Out', component: LogoutPage, icon: "log-out"},
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+            { title: 'Gallery', component: GalleryPage },
+
+        
 
           ];
            this.rootPage =  ArtisthomePage;
@@ -67,10 +77,12 @@ if('Log-Out')
         else if (data == "ScoutPerson"){
           this.pages = [
 
+
             { title: 'Home', component: ScoutPage, icon: "home" },
             { title: 'Profile', component:ScouteProfilePage, icon: "person" },
             { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+
           ];
           this.rootPage = ScoutPage;
         }

@@ -48,7 +48,9 @@ export class ProfilePage {
   ionViewDidLoad() {
     this.firebaseService.getProfile().then((data:any) =>{
     this.arr2 = data;
+    console.log(this.arr2);
     })
+    
   }
 
   Update(){

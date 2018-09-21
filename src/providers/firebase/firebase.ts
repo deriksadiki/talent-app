@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Camera,CameraOptions} from '@ionic-native/camera';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { LoadingController } from 'ionic-angular';
+import { LoadingController, Loading } from 'ionic-angular';
 import moment from 'moment';
 import { rendererTypeName } from '@angular/compiler';
 declare var firebase;
@@ -27,12 +27,18 @@ export class FirebaseProvider {
   videoArray = new Array();
   arr = new Array();
   arr2 = new Array();
+  scoutArray = new Array();
   messages =  new Array();
   messages2 =  new Array();
   messagePath =  new Array();
   names = new Array();
   results;
+<<<<<<< HEAD
+  lastSeen; 
+  messagePic =  new Array();
   
+=======
+>>>>>>> b83da82890b18cb8f185eb6b1e517c94fa308c77
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
 
@@ -192,7 +198,6 @@ return new Promise ((accpt,rej) =>{
     });
     loading.present();
   return new Promise((accpt,rejc) =>{
-
     loading.present();
   this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
     loading.dismiss();
@@ -295,7 +300,14 @@ getAllvideos(){
   })
 
 } 
+storeLastSeen(user2){
+  var user = firebase.auth().currentUser;
+  var day = moment(user.metadata.lastSignInTime).format('MMMM Do YYYY, h:mm:ss a')
+  this.database.ref('lastSeen/' + user2).set({
+    time: day
+  })
 
+}
 getuserType(){
 return new Promise ((accpt, rej) =>{
   this.database.ref('users').on('value', (data: any) => {
@@ -303,12 +315,12 @@ return new Promise ((accpt, rej) =>{
     var user = firebase.auth().currentUser;
     var  userIDs = Object.keys(users);
     for (var x = 0; x < userIDs.length; x++){
-
       var str1 = new String( userIDs[x]); 
       var index = str1.indexOf( ":" ); 
       var currentUserID = userIDs[x].substr(index + 1);
       if (user.uid == currentUserID){
         this.storeUserName(userIDs[x].substr(0,index));
+        this.storeLastSeen(userIDs[x].substr(0,index));
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
             var Userdetails;
             var Userdetails = data.val(); 
@@ -349,8 +361,12 @@ getProfile(){
       var details = data2.val();
       console.log(details);
       var keys = Object.keys(details)
-
+<<<<<<< HEAD
       for (var x = 0; x< keys.length; x++){
+=======
+
+      for (var x = 0; x < keys.length; x++){
+>>>>>>> b83da82890b18cb8f185eb6b1e517c94fa308c77
         var key = keys[x];
         let obj = {
           age : details[key].age,
@@ -368,6 +384,29 @@ getProfile(){
   })
 }
 
+getScoutProfile(){
+  return new Promise((accpt,rej) =>{
+    
+    this.database.ref('users/' + this.currentUserID).on('value', (data4:any) =>{
+      var details =  data4.val();
+      console.log(details);
+      var keys = Object.keys(details)
+
+      for(var y = 0;y <keys.length;y++){
+        var key = keys[y];
+        let obj = {
+           companyName: details[key].companyName,
+           companycellno: details[key].companycellno,
+           companyemail: details[key].companyemail,
+           name: details[key].name
+        }
+        this.scoutArray.push(obj);
+      }
+      console.log(this.scoutArray);
+      accpt(this.scoutArray);
+    })
+  })
+}
 viewArtistProfile(user){
   return new Promise ((accpt, rej) =>{
     this.arr2.length = 0;
@@ -414,7 +453,7 @@ comment(key,text){
       text:text,
       username: this.username,
       date : today,
-      img : this.imgurl
+      // img : this.imgurl
     })
     accpt("comment added")
   })
@@ -432,11 +471,12 @@ getcomments(key){
             date : details[key].date,
             text :  details[key].text,
             name : details[key].username,
-            img :  details[key].img
+            // img :  details[key].img
           }
           this.comments.push(obj)
         }
           pass(this.comments);
+          console.log(this.comments);
       }
       })
   })
@@ -539,9 +579,24 @@ return new Promise ((accpt, rej) =>{
 })
 }
 
+
+getLastSeen(user){
+return new Promise ((accpt, rej) =>{
+  this.database.ref('lastSeen/' + user).on('value', (data: any) => {
+    if (data.val() != null || data.val() != undefined){
+      this.lastSeen =  data.val().time;
+      accpt(this.lastSeen);
+    }
+  })
+})
+ 
+}
+
+
 getAllMessages(){
   console.log('getAllMessages')
   this.messagePath.length = 0;
+  this.messagePic.length = 0;
 return new Promise ((accpt,rej) =>{
   this.database.ref('message').on('value', (data: any) => {
     if (data.val() != null || data.val() !=  undefined){
@@ -567,6 +622,25 @@ return new Promise ((accpt,rej) =>{
 })
 }
 
+
+getImagesURL(){
+  this.messagePic.length = 0;
+  return new Promise ((accpt, rej) =>{
+    var length =  this.names.length;
+    for (var x = 0; x < length; x++){
+      let storageRef =  firebase.storage().ref();
+      var img = this.names[x] + ".jpg"
+       let imgRef = storageRef.child('pictures/' + img);
+       imgRef.getDownloadURL().then(function(url) {
+        this.storeMessagePic(url);
+       }.bind(this)).catch(function(error) {})
+    }
+    this.storeMessagePic(true);
+    accpt(true)
+  })
+ 
+}
+
 getConversation(){
   return new Promise ((accpt, rej) =>{
     this.database.ref('message/' + this.messagePath ).on('value', (data: any) => {
@@ -576,6 +650,8 @@ getConversation(){
     })
   })
 }
+
+
 
 returnAllMessages(){
   return new Promise ((accpt,rej) =>{
@@ -590,7 +666,8 @@ returnAllMessages(){
           name : this.names[i],
           message : Newmessg[key[length2]].message,
           date : Newmessg[key[length2]].date,
-          path : this.messagePath[i]
+          path : this.messagePath[i],
+          img :   this.messagePic[i] 
         }
         this.messages2.push(obj)
         accpt(this.messages2);
@@ -599,7 +676,16 @@ returnAllMessages(){
   })
 }
 
-reply(key){
+storeMessagePic(url){
+
+if (url == true){
+}
+else{
+  this.messagePic.push(url);
+  console.log(this.messagePic);
+
+  
+}
 
 }
 
@@ -607,6 +693,7 @@ setMessagePath(path, name){
 this.messagePath.push(path);
 console.log(name)
 this.names.push(name);
+
 }
 
 getusername(){
