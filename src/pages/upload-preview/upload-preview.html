@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color = "own" >
     <ion-title>UploadPreview</ion-title>
     <ion-buttons end>
         <button ion-button round (click)="close()"> <ion-icon name="md-close"></ion-icon>
@@ -13,7 +13,21 @@
 
 
 
-<ion-content >
+<ion-content class="img" >
+
+
+    <ion-card *ngFor = "let i of videos;let i = index">
+    <ion-item>
+        <video width="390" height="240" controls>
+
+            <source src={{i.vidurl}} type="video/mp4">
+            
+          </video>
+          <p>{{i.vidname}}</p>
+          <br>
+          <p><b>{{i.vidDesc}}</b></p>
+        </ion-item>
+        </ion-card>
     <!-- <p>{{i.vidDesc}}</p>
     <ion-row>
       <ion-col>
@@ -38,6 +52,6 @@
     </ion-row>
   -->
 
-    
+
 
 </ion-content>

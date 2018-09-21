@@ -91,7 +91,7 @@ import { SeeMessagesPage } from '../pages/see-messages/see-messages'
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
 
-    UploadPreviewPage ,
+    UploadPreviewPage, 
 
     ScouteProfilePage,
     DisplayPage

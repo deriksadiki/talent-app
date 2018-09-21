@@ -76,22 +76,14 @@
 
 <ion-content *ngFor="let i of videos; let a =index" padding>
 
-       
         <ion-item (click)="profile(a)">
-
-
-        <ion-item>
-
           <ion-avatar item-start>
             <img src={{i.img}}>
           </ion-avatar>
          <h1><b>{{i.name}}</b></h1>
          <p>{{i.vidname}}</p>
 
-
-        </ion-item>
-      
-      <ion-item>
+          <ion-item>
         <video width="390" height="240" controls>
 
             <source src={{i.vidurl}} type="video/mp4">

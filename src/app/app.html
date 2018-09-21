@@ -7,15 +7,16 @@
 
   <ion-content  class="menu">
     <ion-list no-lines>
-      <div align="center">
-      <img class="logo" src="../assets/imgs/play.png">
-    
-      <h1 class ="header">Vid'it</h1>
 
-      <button ion-item icon-left class="buttons" menuClose *ngFor="let p of pages" (click)="openPage(p)">
-          <ion-icon name="{{p.icon}}"></ion-icon> {{p.title}}
+      <div align = "center">
+      <img class="logo"   src="../assets/imgs/play.png">
+    </div>
+      <h1 align = "center" class ="header">Vid'it</h1>
+      <button icon-left class="buttons" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name="{{p.icon}}"></ion-icon> {{p.title}}
 
       </button>
+      
     </ion-list>
   </ion-content>
 
