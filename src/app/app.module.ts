@@ -60,8 +60,7 @@ import { SeeMessagesPage } from '../pages/see-messages/see-messages'
     DisplayPage, 
     UploadPreviewPage,
     GalleryPage,
-    UploadPreviewPage, 
-    DisplayPage 
+    UploadPreviewPage
 ],
   imports: [
     BrowserModule,
@@ -90,8 +89,7 @@ import { SeeMessagesPage } from '../pages/see-messages/see-messages'
     ArtistProfileUpdatePage,
     ScoutProfileUpdatePage,
     UploadPreviewPage ,
-    ScouteProfilePage
-    DisplayPage, 
+    ScouteProfilePage,
     GalleryPage,
     DisplayPage
   ],
