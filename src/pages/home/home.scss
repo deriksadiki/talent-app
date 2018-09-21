@@ -1,26 +1,32 @@
 page-home {
 
+//     font-family: 'Ubuntu', sans-serif;
+//    .section{
+//        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+//        background-attachment: fixed;
+//        background-color: black;
+//        background-size: cover;
+//        height: 38vh;
+//        // box-shadow: 2px 2px 4px;
+//       background-repeat: no-repeat;
+//       background-position: center;
+
+
     // font-family: 'Ubuntu', sans-serif;
 
-    // .section{
-    //     background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
-    //     background-attachment: fixed;
-    //     background-color: black;
-    //     background-size: cover;
-    //     height: 38vh;
-    //     // box-shadow: 2px 2px 4px;
-    //    background-repeat: no-repeat;
-    //    background-position: center;
+
 
     // }
-    // ion-card.card{
-    //     // border-radius: 12px;
-    //     // box-shadow: 2px 2px 4px;
-    // }
+    ion-card.card{
+        border-radius: 12px;
+        // box-shadow: 2px 2px 4px;
+        background-color: rgba(0,0,0,0.5);
+    }
 
-    // } 
- 
-   .combo{
+
+   // }
+
+  .combo{
     //    box-shadow: 2px 2px 4px;
        margin-block-end: 20px;
        border-radius: 12px;
@@ -31,7 +37,7 @@ page-home {
    }
    .h{
     //    margin-left: 40px;
-       color: gray;
+       color: rgb(219, 219, 219);
    }
  
    .box{
@@ -76,50 +82,63 @@ page-home {
  //     margin-bottom: 10px;
  //    }
    .item{
-    //    box-shadow: 1px 1px 2px;
+    //    box-shadow: 2px 2px 4px;
        background-color: rgba(255, 255, 255, 0);
        color: white;
+    //    width: 100px;
        margin-bottom: 20px;
 
- 
  }
+// .item{
+//     margin-bottom: 20px;
+//     border-radius: 20px;
+//     // font-family: 'Original Surfer', cursive;
+//     font-family: 'Courgette', cursive;
+//     // font-family: 'Pacifico', cursive;
+//     // background-color: rgba(165, 109, 4, 0.747);
+//       box-shadow: 2px 2px 4px black;
+//            overflow:visible;
+
+//   }
  h1{
     color: whitesmoke;
     position: relative;
     top: 5%;
-}
 
-h2{
+ }
+ 
+ h2{
   color: white;
   font-weight: 100;
-
-}
-
-.card1{
+ 
+ }
+ 
+ .card1{
     position: relative;
     top: 20%;
     border-radius: 12px;
     color: black;
     background-color: rgba(0, 0, 0, 0.363);
-}
 
-.Card2{
+ }
+ 
+ .Card2{
     border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.363);
     position: relative;
     top: 21%;
-
-}
-
-.butt{
+ 
+ }
+ 
+ .butt{
     width: 80%;
-
-}
-
-.butt2{
+ 
+ }
+ 
+ .butt2{
     width: 80%;
-}
-
-
-
+ }
+ 
+ }
+ 
 }

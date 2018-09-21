@@ -18,6 +18,7 @@ export class MessagePage {
 username = this.navParams.get('username');
 name = this.navParams.get('username');
 messages = new Array();
+lastSeen;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
   }
 
@@ -25,6 +26,10 @@ messages = new Array();
 if (this.username == null || this.username == undefined){
   this.username = this.navParams.get('path')
   this.name = this.navParams.get('name');
+  this.firebaseService.getLastSeen(this.name).then(data =>{
+    this.lastSeen = data;
+  })
+  
 }
     this.firebaseService.getSentMessages(this.username).then((data:any) =>{
       this.messages.length = 0;

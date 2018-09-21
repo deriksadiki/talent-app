@@ -21,7 +21,7 @@ page-artist {
         color: whitesmoke;
     }
     .box{
-        margin-right: 48%;
+        margin-right: 57%;
     }
     .item{
         background-color: rgba(255, 255, 255, 0.192);
@@ -29,13 +29,12 @@ page-artist {
         width: 80%;
         margin-bottom: 10px;
         position: relative;
-        right: 15%;
+        // right: 15%;
         border-radius: 30px;
         // padding: 0.5px;
         padding-left: 7%;
         top: 20px;
-        position: relative;
-        top: 15%;
+      
         
        
     }
@@ -48,7 +47,7 @@ page-artist {
         text-align: center;
         // margin-left: 180px;
         display: flex;
-        margin: 0 auto;
+        // margin: 0 auto;
         align-content: center;
         justify-content: center;
         // float: right;
@@ -65,9 +64,9 @@ page-artist {
         text-align: center;
         padding-top: 8%;
         font-size: 200%;
-       font-weight: 100;
-       position: relative;
-       bottom: 40px;
+        font-weight: 100;
+        position: relative;
+         bottom: 40px;
     }  
   
 }

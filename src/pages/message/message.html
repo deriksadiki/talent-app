@@ -4,32 +4,47 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
 
 
-    <ion-title>{{name}}</ion-title>
+
+    <ion-header>
+        <ion-navbar >
+           <button ion-button menuToggle icon-only>
+               <ion-icon name='menu'></ion-icon>
+             </button>
+       <ion-title>
+        {{name}}<br> last seen <br>{{lastSeen}}
+       </ion-title>
+     </ion-navbar>
+    </ion-header>
 
 
-</ion-header>
 
 
-<ion-content padding>
-  <ion-list *ngFor="let i of messages ">
-    <ion-item color="primary">
+
+<ion-content padding class="img">
+
+
+  <ion-list *ngFor="let i of messages" no-lines>
+    <ion-item class="item" class="reply" color="own">
       <p>{{i.message}}</p>
     </ion-item>
   </ion-list>
  
 
 </ion-content>
-<ion-footer>
+
+
+
+<ion-footer class="foot">
     <div class="down">
         <ion-item  class="item2" >
-            <textarea  #text class="comments" #comment type="text" cols="40" rows="5" placeholder="message"></textarea>
-        
-        <div align = "right" > 
-          <button ion-button round color = "own" (click)="sendMessage(text.value)">send</button>
-        </div>
-            </ion-item>
-    </div>
+            <textarea  #text class="comments" #comment type="text" cols="40" rows="5" placeholder="Type a message.."></textarea>
+          </ion-item>
+          </div>
+    
+          <button class="send" ion-button round color = "own" (click)="sendMessage(text.value)"><ion-icon name="send"></ion-icon></button>
+       
+            
+   
 </ion-footer>

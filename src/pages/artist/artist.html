@@ -15,11 +15,9 @@
         <img class="logo" src="../../assets/imgs/play-button (1).png">
       </div>
       <h1>Vid'It.</h1>
-
- 
-<ion-card-content>
-
+<div align = "center" >
     <ion-list class="list" no-lines>
+
       <ion-item>
         <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
         <ion-input type="text" placeholder="Name" [(ngModel)]= "artist.name"></ion-input>
@@ -65,13 +63,13 @@
                 <ion-input placeholder="Age" type="text"  [(ngModel)] = "artist.age"></ion-input>
               </ion-item>
             </ion-list>
-          </ion-card-content>
-
-
+          </div>
+  
    <div class="butt1" align="center">
       <button ion-button color="own" round (click)="takePicture()">Take photo</button> <br>
       <button class="btn" ion-button color="own" round (click)="reg()">Sign Up</button>
     </div>
+
    </ion-content>
 
 
