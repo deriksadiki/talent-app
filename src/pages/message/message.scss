@@ -1,3 +1,58 @@
 page-message {
 
+    .img{
+        background-color: grey;
+    }
+
+
+    .comments{
+        height:50px;
+        width: 80%;
+        border: 2px solid red;
+        border-radius: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+     
+    
+    }
+
+    p{
+        font-size: 100%;
+    }
+
+    .send{
+        position: relative;
+        left: 300px;
+        bottom: 70px;
+        width: 20px;
+        height: 50px;  
+        font-size: 150%;           
+       
+    }
+
+    .foot{
+        height: 70px;
+    }
+
+    .reply{
+        border-radius: 20px;
+    
+        
+    }
+    
+    .item{
+        position: relative;
+    
+    }
+
+    .title{
+        background-color: white;
+        height: 50px;
+        font-weight: 100;
+        
+    }
+
+
+
 }

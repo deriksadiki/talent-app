@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Camera,CameraOptions} from '@ionic-native/camera';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { LoadingController } from 'ionic-angular';
+import { LoadingController, Loading } from 'ionic-angular';
 import moment from 'moment';
 import { rendererTypeName } from '@angular/compiler';
 declare var firebase;
@@ -27,7 +27,18 @@ export class FirebaseProvider {
   videoArray = new Array();
   arr = new Array();
   arr2 = new Array();
+  scoutArray = new Array();
+  messages =  new Array();
+  messages2 =  new Array();
+  messagePath =  new Array();
+  names = new Array();
+  results;
+<<<<<<< HEAD
+  lastSeen; 
+  messagePic =  new Array();
   
+=======
+>>>>>>> b83da82890b18cb8f185eb6b1e517c94fa308c77
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
 
@@ -187,7 +198,6 @@ return new Promise ((accpt,rej) =>{
     });
     loading.present();
   return new Promise((accpt,rejc) =>{
-
     loading.present();
   this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
     loading.dismiss();
@@ -255,7 +265,6 @@ getAllvideos(){
               {
                 var likes = data3.val();
                 var likesKey:any = Object.keys(likes )
-                console.log(likes[likesKey[0]].username)
               if (likes[likesKey[0]].username == this.currentUserID){
                 colour = "primary";
               }
@@ -291,7 +300,14 @@ getAllvideos(){
   })
 
 } 
+storeLastSeen(user2){
+  var user = firebase.auth().currentUser;
+  var day = moment(user.metadata.lastSignInTime).format('MMMM Do YYYY, h:mm:ss a')
+  this.database.ref('lastSeen/' + user2).set({
+    time: day
+  })
 
+}
 getuserType(){
 return new Promise ((accpt, rej) =>{
   this.database.ref('users').on('value', (data: any) => {
@@ -299,12 +315,12 @@ return new Promise ((accpt, rej) =>{
     var user = firebase.auth().currentUser;
     var  userIDs = Object.keys(users);
     for (var x = 0; x < userIDs.length; x++){
-
       var str1 = new String( userIDs[x]); 
       var index = str1.indexOf( ":" ); 
       var currentUserID = userIDs[x].substr(index + 1);
       if (user.uid == currentUserID){
         this.storeUserName(userIDs[x].substr(0,index));
+        this.storeLastSeen(userIDs[x].substr(0,index));
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
             var Userdetails;
             var Userdetails = data.val(); 
@@ -336,6 +352,7 @@ this.imgurl =  url;
 
 storeuserid(uid){
 this.currentUserID = uid;
+console.log(this.currentUserID);
 }
 
 getProfile(){
@@ -344,8 +361,12 @@ getProfile(){
       var details = data2.val();
       console.log(details);
       var keys = Object.keys(details)
-
+<<<<<<< HEAD
       for (var x = 0; x< keys.length; x++){
+=======
+
+      for (var x = 0; x < keys.length; x++){
+>>>>>>> b83da82890b18cb8f185eb6b1e517c94fa308c77
         var key = keys[x];
         let obj = {
           age : details[key].age,
@@ -363,6 +384,29 @@ getProfile(){
   })
 }
 
+getScoutProfile(){
+  return new Promise((accpt,rej) =>{
+    
+    this.database.ref('users/' + this.currentUserID).on('value', (data4:any) =>{
+      var details =  data4.val();
+      console.log(details);
+      var keys = Object.keys(details)
+
+      for(var y = 0;y <keys.length;y++){
+        var key = keys[y];
+        let obj = {
+           companyName: details[key].companyName,
+           companycellno: details[key].companycellno,
+           companyemail: details[key].companyemail,
+           name: details[key].name
+        }
+        this.scoutArray.push(obj);
+      }
+      console.log(this.scoutArray);
+      accpt(this.scoutArray);
+    })
+  })
+}
 viewArtistProfile(user){
   return new Promise ((accpt, rej) =>{
     this.arr2.length = 0;
@@ -379,13 +423,15 @@ viewArtistProfile(user){
             var keys:any = Object.keys(userFound);
             for(var b = 0; b <keys.length;b++){
               var k =  keys[b];
+              console.log(userFound)
+              console.log(userFound[k].imageURl)
               let obj = {
               age: userFound[k].age,
               cellno: userFound[k].cellno,
               gender: userFound[k].gender,
               name: userFound[k].name,
               surname: userFound[k].surname,
-              img : this.imgurl
+              img : userFound[k].imageURl
               }
               this.arr2.push(obj);
               accpt(this.arr2);
@@ -407,7 +453,7 @@ comment(key,text){
       text:text,
       username: this.username,
       date : today,
-      img : this.imgurl
+      // img : this.imgurl
     })
     accpt("comment added")
   })
@@ -425,11 +471,12 @@ getcomments(key){
             date : details[key].date,
             text :  details[key].text,
             name : details[key].username,
-            img :  details[key].img
+            // img :  details[key].img
           }
           this.comments.push(obj)
         }
           pass(this.comments);
+          console.log(this.comments);
       }
       })
   })
@@ -468,23 +515,189 @@ removeLike(username, key, num){
   })
 }
 
-sendMessage(username, text){
-  return new Promise ((accpt, rej) =>{
+sendMessage(username, text):any{
     var today = moment().format("Do MMM");
-    this.database.ref('message/' + this.username + ":"  + username).push({
-      message : text,
-      date : today
+    this.database.ref('message/' + username).on('value', (data: any) => {
+      if ( data.val() != null ||  data.val() != undefined){
+        this.assisgStatus('pass')
+      }
+      else{
+       this.assisgStatus('fail')
+      }
     })
-    accpt('message sent')
-  })
 }
 
-getMessages(username){
+assisgStatus(status){
+this.results =  status;
+console.log(this.results);
+}
+
+
+getresults(){
+  return this.results;
+}
+
+
+startConvo(username, text){
+  var today = moment().format("Do MMM");
+    this.database.ref('message/' + username).push({
+      date : today,
+      message : text
+    })
+   console.log("convo started")
+}
+
+
+send(username, text){
+  var today = moment().format("Do MMM");
+  this.database.ref('message/' + username).push({
+    date : today,
+    message : text
+  })
+  console.log('message sent')
+}
+
+getSentMessages(path){
+  console.log('getSentMessages')
 return new Promise ((accpt, rej) =>{
-  this.database.ref('message/' + this.username + ":"  + username).on('value', (data: any) => {
-    var messages =  data.val();
-    console.log(messages);
+  this.messages.length = 0;
+  this.database.ref('message/' + path).on('value', (data: any) => {
+    if ( data.val() != null ||  data.val() != undefined){
+      var messages =  data.val();
+      var keys =  Object.keys(messages);
+      for (var x = 0; x < keys.length; x++){
+        var key = keys[x];
+        let obj = {
+          message: messages[key].message,
+          date : messages[key].date
+        }
+        this.messages.push(obj)
+      }
+      accpt(this.messages);
+    }
   })
 })
 }
+
+
+getLastSeen(user){
+return new Promise ((accpt, rej) =>{
+  this.database.ref('lastSeen/' + user).on('value', (data: any) => {
+    if (data.val() != null || data.val() != undefined){
+      this.lastSeen =  data.val().time;
+      accpt(this.lastSeen);
+    }
+  })
+})
+ 
+}
+
+
+getAllMessages(){
+  console.log('getAllMessages')
+  this.messagePath.length = 0;
+  this.messagePic.length = 0;
+return new Promise ((accpt,rej) =>{
+  this.database.ref('message').on('value', (data: any) => {
+    if (data.val() != null || data.val() !=  undefined){
+    this.messages2.length = 0;
+    var objects = data.val();
+    var key = Object.keys(objects);
+    for (var x = 0; x < key.length; x++){
+      var str1 = new String( key[x]);
+      var index = str1.indexOf( ":" );
+      var messageID =  str1.substr(index + 1,str1.length);
+      var messageID2 = str1.substr(0,index)
+        if (messageID == this.username)
+        {
+          this.setMessagePath( key[x], messageID2);
+        }
+        else if (messageID2 == this.username){
+        this.setMessagePath(key[x], messageID);
+      }
+      accpt('finished')
+    }
+    }
+  })
+})
+}
+
+
+getImagesURL(){
+  this.messagePic.length = 0;
+  return new Promise ((accpt, rej) =>{
+    var length =  this.names.length;
+    for (var x = 0; x < length; x++){
+      let storageRef =  firebase.storage().ref();
+      var img = this.names[x] + ".jpg"
+       let imgRef = storageRef.child('pictures/' + img);
+       imgRef.getDownloadURL().then(function(url) {
+        this.storeMessagePic(url);
+       }.bind(this)).catch(function(error) {})
+    }
+    this.storeMessagePic(true);
+    accpt(true)
+  })
+ 
+}
+
+getConversation(){
+  return new Promise ((accpt, rej) =>{
+    this.database.ref('message/' + this.messagePath ).on('value', (data: any) => {
+      if (data.val() != null || data.val() != undefined){
+        accpt(this.messagePath);
+      }
+    })
+  })
+}
+
+
+
+returnAllMessages(){
+  return new Promise ((accpt,rej) =>{
+    var length = this.messagePath.length;
+    for (var i = 0; i < length; i++){
+      this.database.ref('message/' + this.messagePath[i] ).on('value', (data: any) => {
+        var Newmessg = data.val();
+        var key = Object.keys(Newmessg);
+        var length2 =  key.length - 1;
+        let obj = {
+          key :  key[length2],
+          name : this.names[i],
+          message : Newmessg[key[length2]].message,
+          date : Newmessg[key[length2]].date,
+          path : this.messagePath[i],
+          img :   this.messagePic[i] 
+        }
+        this.messages2.push(obj)
+        accpt(this.messages2);
+      })
+    }
+  })
+}
+
+storeMessagePic(url){
+
+if (url == true){
+}
+else{
+  this.messagePic.push(url);
+  console.log(this.messagePic);
+
+  
+}
+
+}
+
+setMessagePath(path, name){
+this.messagePath.push(path);
+console.log(name)
+this.names.push(name);
+
+}
+
+getusername(){
+  return this.username;
+}
+
 }

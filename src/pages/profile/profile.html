@@ -1,67 +1,131 @@
- <ion-header>
+
+
+<!-- <ion-header>
+        <div  *ngFor="let i of arr2;" class="img" align="center">
+      <ion-navbar color="trans">
+        <ion-title></ion-title>
+            <button ion-button menuToggle icon-only>
+                    <ion-icon name='menu'></ion-icon>
+                  </button>
+        <ion-title>Your Profile</ion-title>
+     </ion-navbar>
+      
+      <img class="pic" src="{{i.imageURl}}">
+      <h1>{{i.name}} {{i.surname}}</h1>
+      
+      <ion-grid class="dash">
+      <ion-row>
+        <ion-col>
+            <ion-icon name="logo-twitter"></ion-icon><br>
+            Followers<br><br>
+            10,000
+        </ion-col>
+      
+        <ion-col>
+            <ion-icon name="thumbs-up"></ion-icon><br>
+            Likes<br><br>
+            20,000
+        </ion-col>
+      
+        <ion-col>
+            <ion-icon name="text"></ion-icon><br>
+            Comments<br><br>
+            10,000
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+      <button class="btn" ion-button color="own" (click)="Update()"><ion-icon name="add"></ion-icon></button>
+      
+      </div>
+      </ion-header>
+      
+      
+      <ion-content *ngFor="let i of arr2;" class="cont">
+        <div align="center">
+            <h2>Your Vid'It profile</h2>
+          </div>
+          <br>
+          <div>
+      <ion-list class="list">
+        <p><ion-icon name="contact"></ion-icon>&emsp;{{i.name}}</p>
+        <p><ion-icon name="contact"></ion-icon>&emsp;{{i.surname}}</p>
+        <p><ion-icon name="transgender"></ion-icon>&emsp;{{i.gender}}</p>
+        <p><ion-icon name="call"></ion-icon>&emsp;{{i.cellno}}</p>
+        <p><p><ion-icon name="contact"></ion-icon>&emsp;Age: {{i.age}}</p>
+      </ion-list>
+      
+      </div> 
+      </ion-content>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+
+<ion-header>
     <div class="img" align="center">
   <ion-navbar color="trans">
-    <ion-title>Your Profile</ion-title>
-  </ion-navbar>
-
- <div class="img" align="center">
+        <button style="color: white" ion-button menuToggle icon-only>
+         <ion-icon name='menu'></ion-icon>
+        </button>
+    <!-- <ion-title class="tite">Your Profile</ion-title> -->
+ </ion-navbar>
   <img class="pic" src="../../assets/imgs/face.webp">
-<h1>Jorja Smith</h1>
-<button class="btn" ion-button color="own" round (click)="update()"><ion-icon name="hammer"></ion-icon></button>
-
-
-
-<ion-grid class="dash">
+  <h1>Jorja</h1>
+  <ion-grid class="dash">
   <ion-row>
-    <ion-col>
-        <ion-icon name="logo-twitter"></ion-icon><br>
-        Followers<br><br>
+    <ion-col class="space">
+            <ion-icon name="videocam"></ion-icon><br>
+        Uploads<br><br>
         10,000
     </ion-col>
-
-    <ion-col>
+    <ion-col class="space">
         <ion-icon name="thumbs-up"></ion-icon><br>
         Likes<br><br>
         20,000
     </ion-col>
-
-    <ion-col>
+    <ion-col class="space">
         <ion-icon name="text"></ion-icon><br>
         Comments<br><br>
         10,000
     </ion-col>
   </ion-row>
-</ion-grid>
-
- </div>
-
- </div>
-    
-</ion-header>
-
-
-<ion-content class="cont">
-    
-    <div align="center"> 
-        <h2>Your Vid'It profile</h2>    
+  </ion-grid>
+  <button class="btn" ion-button color="light" (click)="Update()"><ion-icon name="settings"></ion-icon></button>
+  </div>
+  </ion-header>
+  <ion-content class="cont">
+    <div align="center">
+        <h2>Your Vid'It profile</h2>
       </div>
       <br>
+      <h3>Jorja Smith</h3>
+      <h4>Female | 23 years old</h4>
+ 
+      <div>
 
-<ion-grid>
-    <ion-row>
-        <ion-col>
-                <p><ion-icon name="contact"></ion-icon>&emsp;Jorja</p>
-                <p><ion-icon name="contact"></ion-icon>&emsp;Smith</p>
-                <p><ion-icon name="mail"></ion-icon>&emsp;JorjaSmith23@gmail.com</p>
-                <p><ion-icon name="transgender"></ion-icon>&emsp;Female</p>
-                <p><ion-icon name="call"></ion-icon>&emsp;0168753482</p>
-                <p><ion-icon name="contact"></ion-icon>&emsp;30</p>
-        </ion-col>
+          <hr>
 
+        <ion-grid align="center">
+            <ion-row>
+                <ion-col>
+                    <img src="../../assets/imgs/phone (1).png"><br>
+                    <p>074 905 4945</p>
+                </ion-col>
 
-    </ion-row>
-</ion-grid>
+                <ion-col>
+                    <img src="../../assets/imgs/close-envelope.png"><br>
+                    <p>JorjaSmith23@gmail.com</p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+    <!-- <p><ion-icon name="contact"></ion-icon>&emsp;Jorja</p>
+    <p><ion-icon name="contact"></ion-icon>&emsp;Smith</p>
+    <p><ion-icon name="mail"></ion-icon>&emsp;JorjaSmith23@gmail.com</p>
+    <p><ion-icon name="transgender"></ion-icon>&emsp;Female</p>
+    <p><ion-icon name="call"></ion-icon>&emsp;0168753482</p>
+    <p><p><ion-icon name="contact"></ion-icon>&emsp;30</p> -->
+
+  </div> 
   </ion-content>
-
 
 

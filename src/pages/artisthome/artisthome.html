@@ -1,3 +1,7 @@
+<!-- <ion-header>
+  <div class="section"> -->
+
+
 <ion-header>
     <ion-navbar color = "own" >
        <button ion-button menuToggle icon-only>
@@ -10,6 +14,7 @@
 </ion-header>
 
 <ion-content class="img">
+
   <div *ngFor="let i of videos; let a =index">
      <ion-card >
          <ion-item (click)="profile(a)">
@@ -20,10 +25,12 @@
            <p><b>{{i.vidname}}</b></p>
          </ion-item>
 
+
          <!-- <video width="10000" height="240" controls>
              <source src={{i.vidurl}} type="video/mp4">
                <source src={{i.vidurl}} type="video/mkv">
            </video> -->
+
 
          <ion-card-content>
            <p>{{i.vidDesc}}</p>
@@ -40,19 +47,15 @@
                    <div>{{i.comments}} Comments</div>
                  </button>
                </ion-col>
+
                <ion-col>
                    <button ion-button  icon-start clear small center>
                 <div>  {{i.date}}</div>
                </button>
-              </ion-col>
-               <ion-col >
-                 <ion-note class="time">
-
                  </ion-note>
                </ion-col>
                </ion-row>
              </ion-card-content>
            </ion-card>
   </div>
-
  </ion-content>

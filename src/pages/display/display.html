@@ -1,9 +1,11 @@
 <ion-header>
 
   <ion-navbar color="own">
+
     
     <button ion-button color="custom" clear (click)="dismiss()"><ion-icon big color="light" name="arrow-back"><b> Back</b></ion-icon>
       <span ion-text color="light" showWhen="ios"></span>
+
       <ion-icon name="back-arrow" showWhen="android,windows"></ion-icon>
   </button>
   
@@ -13,8 +15,10 @@
 
 </ion-header>
 
-<ion-content class="section">
-    <ion-card *ngFor="let i of arr;let i of index;">
+
+<ion-content class="img">
+    <ion-card class="Card" *ngFor="let i of arr;let i of index;">
+
 
         <img src="{{i.img}}"/>
     
@@ -42,5 +46,7 @@
         </ion-item>
     
       </ion-card>
-  
+
+<button ion-button (click)="Message()">Message</button>
+
 </ion-content>

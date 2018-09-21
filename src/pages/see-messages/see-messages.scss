@@ -1,0 +1,44 @@
+page-see-messages {
+  .cm{
+        height:70px;
+        //  width: 100%;
+    }
+    .comments{
+        height:80px;
+        width: 100%;
+        border: 2px solid red;
+        border-radius: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+    }
+    h2{
+        text-transform: capitalize;
+    }
+    .pic{
+        position: relative;
+        // margin-bottom: 20%;
+        bottom: 10px;
+        align-content: center;
+        justify-content: center;
+        border-radius: 2px red;
+    }
+    .text{
+        margin-left: 70px;
+        position: relative;
+        font-size: 200%;
+    }
+    .list{
+        border: 0px solid red;
+        margin-top: -20px;
+    }
+    .list2{
+        margin-top: -28px
+    }
+    .datew{
+        font-size: 10px;
+        font-weight: 300;
+        color: grey;
+        margin-left: 7px;
+    }
+}

@@ -11,9 +11,10 @@
       <img class="logo" src="../assets/imgs/play.png">
     
       <h1 class ="header">Vid'it</h1>
-      </div>
-      <button icon-left class="buttons" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon name="{{p.icon}}"></ion-icon>{{p.title}}
+
+      <button ion-item icon-left class="buttons" menuClose *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon name="{{p.icon}}"></ion-icon> {{p.title}}
+
       </button>
     </ion-list>
   </ion-content>

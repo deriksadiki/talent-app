@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 
+import { MessagePage } from "../message/message";
+
 
 @IonicPage()
 @Component({
@@ -11,7 +13,7 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
 export class DisplayPage {
 
   arr = [];
-
+path;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider,public viewCtrl: ViewController) { 
     // this.firebaseService.getuserType(); 
   }
@@ -22,10 +24,15 @@ export class DisplayPage {
     this.arr = data;
     console.log(this.arr);
     });
-    console.log('ionViewDidLoad DisplayPage');
+    
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
+  }
+  Message(){
+    var username = this.firebaseService.getusername();
+    var ID = username + ":" + this.navParams.get('user');
+    this.navCtrl.push(MessagePage, {username:ID})
   }
 }
