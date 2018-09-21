@@ -18,6 +18,7 @@ import { HomePage } from '../home/home';
 })
 export class ArtisthomePage {
 videos = [];
+myVideos = [];
 color = "primary";
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, private modalCtrl: ModalController) {
   }
@@ -57,6 +58,7 @@ else{
  test(indexNUmber){
    this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
  }
+
 
 
   profile(a){
