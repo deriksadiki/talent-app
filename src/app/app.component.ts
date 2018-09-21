@@ -28,7 +28,7 @@ export class MyApp {
   public rootPage: any;
 
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon?: string}>;
   
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private firebaseService:FirebaseProvider) {
     this.initializeApp();
@@ -42,28 +42,28 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
-            { title: 'Home', component: UsersPage  },
+            { title: 'Home', component: UsersPage ,icon: "home" },
             // { title: 'Home1', component: ArtisthomePage },
             // { title: 'Home', component: UsersPage },
-            { title: 'Share', component: HomePage },
-            { title: 'Log-Out', component: LogoutPage },
+            { title: 'Share', component: HomePage,icon: "home" },
+            { title: 'Log-Out', component: LogoutPage,icon: "log-out" },
           ];
         }
         else if (data == "talentPerson"){
           this.pages = [
-            { title: 'Home', component: ArtisthomePage},
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage},
-            { title: 'Log-Out', component: LogoutPage},
+            { title: 'Home', component: ArtisthomePage, icon: "home"},
+            { title: 'Upload', component: HomePage, icon: "heart" },
+            { title: 'Profile', component: ProfilePage, icon: "star"},
+            { title: 'Log-Out', component: LogoutPage, icon: "log-out"},
           ];
            this.rootPage =  ArtisthomePage;
         }
         else if (data == "ScoutPerson"){
           this.pages = [
-            { title: 'Home', component: ScoutPage },
-            { title: 'Profile', component: ProfilePage },
+            { title: 'Home', component: ScoutPage,icon: "home" },
+            { title: 'Profile', component: ProfilePage,icon: "home" },
             // { title: 'Profile', component:ScouteProfilePage },
-            { title: 'Log-Out', component: LogoutPage },
+            { title: 'Log-Out', component: LogoutPage,icon: "home" },
           ];
           this.rootPage = ScoutPage;
         }

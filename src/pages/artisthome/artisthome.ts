@@ -7,6 +7,7 @@ import { ProfilePage } from '../profile/profile';
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
 
 import { DisplayPage } from '../display/display';
+import { HomePage } from '../home/home';
 
 
 
@@ -71,6 +72,8 @@ else{
   addNumOfLikes(){
 
   }
-
+Upload(){
+  this.navCtrl.push(HomePage);
+}
 }
 

@@ -4,15 +4,15 @@
   
       <div class="section">  
       <ion-navbar color = "color" >
-        artist
+    
       <button ion-button menuToggle icon-only>
         <ion-icon name='menu'></ion-icon>
       </button>
       </ion-navbar> 
        
-      <div class="logo" align="center">
+      <!-- <div class="logo" align="center">
         <img class="logo" src="../../assets/imgs/play-button (1).png">
-      </div>
+      </div> -->
       <h1 align="center">Vid'It.</h1>
       </div> 
     
@@ -24,9 +24,9 @@
   <h1 align="center" class="head">UpLoad your Video</h1>
   <br>
  <ion-card> 
-  <ion-item class="item item-trns text-center">
+  <button ion-button class="item item-trns text-center">
     <input type="file" (change)="insertvid($event)" >
-  </ion-item>
+  </button>
   </ion-card>
   <!-- <ion-card>
     <ion-item class="combo" align="left">
@@ -73,7 +73,7 @@
   
 
      <div  align = "center" >
-         <button class="butt" (click)="upload()" round color = "own" block ion-button>Upload</button>
+         <button class="butt" (click)="upload()" round color = "own"  ion-button>Upload</button>
          <button ion-button round color="own" (click)="preview()">Preview</button>
     </div>
 <!-- <button (click)="upload()" ion-button>upload</button> -->
