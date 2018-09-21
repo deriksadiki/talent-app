@@ -22,6 +22,7 @@
 <ion-content class="img">
 
 
+
   <h1 align="center" class="head">video preview</h1>
   <br>
   <ion-card class="card1"> 
@@ -29,6 +30,7 @@
       <input type="file" (change)="insertvid($event)" >
     </ion-item>
    </ion-card>
+
 
      <ion-card class="Card2"> 
      <ion-list>
@@ -58,7 +60,9 @@
         <ion-item id="tem">
           <ion-label><ion-icon class="i" name="information-circle"></ion-icon></ion-label>
           <ion-input type="text" placeholder="video description" [(ngModel)]="vidDesc"></ion-input>
+
         </ion-item>
+
       </div>
            
 
@@ -68,9 +72,8 @@
 
           <button class="butt2" ion-button round color="own" (click)="preview()">Preview</button>
      </div>
-<!-- <button (click)="upload()" ion-button>upload</button> -->
-
-
- </ion-card> 
-
+  <!-- <button (click)="upload()" ion-button>upload</button> -->
+  <button ion-button round color="own" (click)="preview()">Preview</button>
+  <!-- </ion-content> -->
+</ion-card> 
 </ion-content>
