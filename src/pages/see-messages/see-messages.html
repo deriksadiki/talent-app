@@ -17,9 +17,9 @@
   <br>
   <br>
     <div class="cm">
-        <ion-list no-lines *ngFor="let a of messages; let i = index"  >
+        <ion-list no-lines *ngFor="let a of messages; let i = index" (click) = "more(i)" >
     
-            <ion-item (click) = "more(i)">
+            <ion-item >
               <ion-avatar class="pic" item-start>
                   <img src={{a.img}}>
               </ion-avatar>

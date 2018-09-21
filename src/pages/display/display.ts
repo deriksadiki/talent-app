@@ -17,7 +17,8 @@ import { MessagePage } from "../message/message";
 export class DisplayPage {
 
   arr = [];
-path;
+  path;
+  username;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider,public viewCtrl: ViewController) { 
     // this.firebaseService.getuserType(); 
   }
@@ -28,15 +29,18 @@ path;
     this.arr = data;
     console.log(this.arr);
     });
-    
+    this.firebaseService.getConversation(user)
+ 
+
   }
 
   dismiss() {
     this.viewCtrl.dismiss();
   }
   Message(){
-    var username = this.firebaseService.getusername();
-    var ID = username + ":" + this.navParams.get('user');
-    this.navCtrl.push(MessagePage, {username:ID})
+    this.username = this.firebaseService.getDefaultPath();
+    console.log(this.username);
+    this.firebaseService.getConversation(this.navParams.get('user'));
+    this.navCtrl.push(MessagePage, {username:this.username , name2:this.navParams.get('user')})
   }
 }

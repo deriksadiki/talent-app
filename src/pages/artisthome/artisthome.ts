@@ -17,7 +17,7 @@ import { DisplayPage } from '../display/display';
 })
 export class ArtisthomePage {
 videos = [];
-color = "primary";
+color;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, private modalCtrl: ModalController) {
   }
 
@@ -29,18 +29,22 @@ color = "primary";
      this.videos = null;
     }
      this.videos = data;
+     this.videos[0].date;
      console.log(this.videos);
    });
   }
   
+
+
   like(keyIndex){
+    console.log(this.videos[keyIndex].color)
   this.firebaseService.likeVideo(this.videos[keyIndex].key).then(() =>{
-    if (this.videos[keyIndex].color == "grey"){
+    if (this.videos[keyIndex].color == 'grey'){
       this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
         this.ionViewDidLoad();
       })
     }
-  else if (this.videos[keyIndex].color == "primary"){
+  else if (this.videos[keyIndex].color == 'primary'){
          this.firebaseService.removeLike(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
           this.ionViewDidLoad();
          })
