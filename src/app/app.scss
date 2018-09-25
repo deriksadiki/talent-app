@@ -31,6 +31,7 @@
 
 .liss{
 
+
     // color: rgba(255, 255, 255, 0.158);
 
 }
@@ -41,6 +42,7 @@
     // right: 25%;
     top: 35px;
     background-color: rgba(245, 61, 79, 0);
+
 
     color: rgb(255, 247, 247);
 
@@ -65,5 +67,16 @@ h1{
         font-size: 30px;
         color: whitesmoke;
         font-weight: 100;
+}
+
+.menu{
+    
+    // background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+    background-attachment: fixed;
+    background-color: rgba(94, 10, 10, 0.74);
+    background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+
 }
 

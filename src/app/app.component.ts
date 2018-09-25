@@ -68,8 +68,8 @@ if('Log-Out')
             { title: 'Upload', component: HomePage, icon: "cloud-upload" },
             { title: 'Profile', component: ProfilePage, icon: "person"},
             { title: 'Log-Out', component: LogoutPage, icon: "log-out"},
-            { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
-            { title: 'Gallery', component: GalleryPage },
+            { title: 'Messages', component: SeeMessagesPage, icon: "mail" },
+            { title: 'Gallery', component: GalleryPage, icon: "videocam"}
 
 
           ];
