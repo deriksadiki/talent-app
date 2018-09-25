@@ -6,14 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="own">
     <ion-title>Messages</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="img">
   <br>
   <br>
     <div class="cm">
@@ -26,15 +26,12 @@
               
               <h2>{{a.name}}</h2>
               <h3>{{a.date}}</h3>
+
+              <p>{{a.message}}</p>
             </ion-item>
 
             <hr>
-        
-            <div class="list2">
-                <div text-wrap class="text">
-                    <p>{{a.message}}</p>
-                  </div>
-            </div>
+
 
             <hr>
 

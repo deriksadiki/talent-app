@@ -24,11 +24,11 @@
 
 
 
-<ion-content padding class="img">
+<ion-content class="img">
 
 
-  <ion-list *ngFor="let i of messages" no-lines>
-    <ion-item class="item" class="reply" color="own">
+  <ion-list *ngFor="let i of messages" [ngStyle]="i.float" no-lines >
+    <ion-item class="item" class="reply" color={{i.color}}>
       <p>{{i.message}}</p>
     </ion-item>
   </ion-list>

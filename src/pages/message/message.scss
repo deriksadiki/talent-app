@@ -44,6 +44,7 @@ page-message {
 
     .reply{
         border-radius: 20px;
+        min-width: 320px;
     
         
     }
@@ -64,8 +65,9 @@ page-message {
         font-weight: 200;
         font-size: 70%;
         position: relative;
-        // text-align: left;
-       
+        resize: none;
+        height: 25px;
+                       
     }
 
     h1{
