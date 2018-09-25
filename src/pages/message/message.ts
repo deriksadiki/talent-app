@@ -19,7 +19,7 @@ username = this.navParams.get('username');
 name = this.navParams.get('name2');
 messages = new Array();
 lastSeen;
-val = "messageasdasdasdadasdadas"
+
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
   }
 
@@ -52,7 +52,7 @@ this.firebaseService.getLastSeen(this.name).then(data =>{
        this.firebaseService.send(this.username, message)
        console.log(this.messages);
      }
-   this.val ="";
+
   }
 
 }
