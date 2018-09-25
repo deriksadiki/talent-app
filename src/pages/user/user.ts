@@ -44,17 +44,24 @@ if ( this.guest.Username == undefined && this.guest.email == undefined && this.g
     buttons: ['OK']
   });
   alert.present();
-}else {
+}else { this.firebaseService.getimagepropicurl(this.guest.Username).then(data =>{
+
+  console.log(data)
   this.firebaseService.registerUser(this.guest.email, this.guest.password,this.guest.Username).then(() => {
-     const alert = this.alertCtrl.create({
-    title: 'Welcome',
-    subTitle: 'You have successfully Registared',
-    buttons: ['OK']
-  });
-  this.navCtrl.push(UsersPage);
-  window.location.reload();
-  alert.present(); 
-  })
+    const alert = this.alertCtrl.create({
+   title: 'Welcome',
+   subTitle: 'You have successfully Registared',
+   buttons: ['OK']
+ });
+ this.navCtrl.push(UsersPage);
+ window.location.reload();
+ alert.present(); 
+ })
+})
+
 }
+  }
+  takePicture(){
+    this.firebaseService.uploadpic();
   }
 }

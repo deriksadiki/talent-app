@@ -61,7 +61,8 @@ login(email, password){
         this.dbRef =  'users/' + Username + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           Username:Username,
-          userType: "normalPerson"
+          userType: "normalPerson",
+          imageURl:  this.imgurl
         })
       accept("user registred")
       }, Error =>{
@@ -111,7 +112,8 @@ login(email, password){
           companyName:companyName,
           companyemail:companyemail,
           companycellno:companycellno,
-          userType: "ScoutPerson"
+          userType: "ScoutPerson",
+          imageURl:  this.imgurl
         })
         accept("success");
       }, Error =>{
@@ -121,6 +123,7 @@ login(email, password){
   }
 
   logout(){
+    console.log('exit')
     var user = firebase.auth().currentUser;
     var day = moment().format('LT');
     this.database.ref('lastSeen/' + this.username).set({
@@ -223,7 +226,7 @@ storeToDB(name, category, vidname, vidDesc){
   });
   loading.present();
   return new Promise((accpt,rejc) =>{
-    var today = moment().format("L");
+    var day = moment().format('LT');
     var storageRef = firebase.storage().ref(name + ".mp4");
     storageRef.getDownloadURL().then(url => {
       console.log(url)
@@ -236,7 +239,7 @@ storeToDB(name, category, vidname, vidDesc){
             description: vidDesc,
             username : this.username,
             userImg : this.imgurl,
-            date : today,
+            date : day,
             likes : 1,
             comments : 1
           });
@@ -262,7 +265,7 @@ getUploads(){
           vidname : myVideos[k].name,
           name : myVideos[k].username,
           img : myVideos[k].userImg,
-          date : myVideos[k].date,
+          date : moment(myVideos[k].date,'hh:mm').startOf('minutes').fromNow()
         }
         this.MyvidsArray.push(obj);
         accpt(this.MyvidsArray) 
@@ -492,11 +495,11 @@ viewArtistProfile(user){
 
 comment(key,text){
   return new Promise ((accpt, rej) =>{
-    var today = moment().format('l');  
+    var day = moment().format('LT');
     this.database.ref('comments/' + key).push({
       text:text,
       username: this.username,
-      date : today,
+      date : day,
       // img : this.imgurl
     })
     accpt("comment added")
@@ -512,7 +515,7 @@ getcomments(key){
         for (var x =0; x < keys.length; x++){
           var key = keys[x];
           let obj = {
-            date : details[key].date,
+            date :moment( details[key].date,'hh:mm').startOf('minutes').fromNow(),
             text :  details[key].text,
             name : details[key].username
           }
@@ -582,23 +585,23 @@ getresults(){
 
 
 startConvo(username, text){
-  var today = moment().format("Do MMM");
+  var day = moment().format('LT');
   console.log(username);
     this.database.ref('message/' + username).push({
-      date : today,
+      date : day,
       message : text,
       name : this.username,
       receiver : this.messagepicture,
-      sender : this.imgurl
+      //sender : this.imgurl
     })
    console.log("convo started")
 }
 
 
 send(username, text){
-  var today = moment().format("L");
+  var day = moment().format('LT');
   this.database.ref('message/' + username).push({
-    date : today,
+    date : day,
     message : text,
     name : this.username
   })
@@ -619,19 +622,11 @@ return new Promise ((accpt, rej) =>{
       for (var x = 0; x < keys.length; x++){
         var key = keys[x];
         if (messages[key].name == this.username){
-<<<<<<< HEAD
           float = {'float' : 'right'}
           color = 'light';
         }
         else{
           float = {'float' : 'left'};
-=======
-          float = { 'float' : 'right'}
-          color = 'light';
-        }
-        else{
-          float = { 'float' : 'left'}
->>>>>>> 5ef49cd3f65fc0b5392b237d44ee324470cbed59
           color = 'red';
         }
         let obj = {
@@ -653,7 +648,7 @@ getLastSeen(user){
 return new Promise ((accpt, rej) =>{
   this.database.ref('lastSeen/' + user).on('value', (data: any) => {
     if (data.val() != null || data.val() != undefined){
-      this.lastSeen =  moment(data.val().time, 'hh:mm').startOf('hour').fromNow();
+      this.lastSeen =  moment(data.val().time, 'hh:mm').startOf('minutes').fromNow();
       accpt(this.lastSeen);
     }
   })
@@ -728,15 +723,17 @@ getConversation(user){
               if (messageID == this.username && user  == messageID2)
               {
                   this.storeDefaultPath(key[x]);
+                  accpt('finished')
                   break;
               }
               else if (messageID2 == this.username && user == messageID){
                 this.storeDefaultPath(key[x]);
+                accpt('finished')
                 break;
             }
-            accpt('finished')
           }
           }
+            accpt('no path')
         })
       }
     })
@@ -772,7 +769,7 @@ returnAllMessages(){
           key :  key[length2],
           name : this.names[i],
           message : Newmessg[key[length2]].message,
-          date :   moment(Newmessg[key[length2]].date).startOf('day').fromNow(),
+          date :   moment(Newmessg[key[length2]].date,'hh:mm').startOf('minutes').fromNow(),
           path : this.messagePath[i],
           img :   image
         }

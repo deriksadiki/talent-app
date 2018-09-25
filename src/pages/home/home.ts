@@ -16,12 +16,12 @@ import { ArtisthomePage } from '../artisthome/artisthome';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  url;
+  url ='assets/imgs/o.jpg'
   category;
   vidName;
   vidDesc;
-  videos = [];
-  videos2 =  this.navParams.get('vid');
+  videos = new Array();;
+
  
 
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController, public modalCtrl: ModalController) {
@@ -29,12 +29,14 @@ export class HomePage {
   }
 
     insertvid(event:any){
-
+      this.videos.length = 0;
       if (event.target.files && event.target.files[0]){
         let reader = new FileReader();
     
         reader.onload = (event:any) =>{
-          this.url = event.target.result;
+         this.videos.push (event.target.result);
+         this.url = event.target.result;
+          console.log(this.videos)
         }
         reader.readAsDataURL(event.target.files[0]);
 
@@ -59,7 +61,7 @@ export class HomePage {
 
       const modal = this.modalCtrl.create(UploadPreviewPage);
       modal.present();
-      this.videos.push(this.videos2);
+
     }
     test(indexNUmber){
       this.navCtrl.push(HomePage, {vid:this.videos[indexNUmber]})

@@ -75,17 +75,24 @@ if (this.recrt.email == undefined && this.recrt.password == undefined && this.re
   });
   alert.present();
 
-}else {
+}else  { this.firebaseService.getimagepropicurl(this.recrt.surname).then(data =>{
+
+  console.log(data)
   this.firebaseService.registerScoutPerson(this.recrt.email, this.recrt.password, this.recrt.name, this.recrt.surname, this.recrt.companyName, this.recrt.companyemail, this.recrt.companycellno).then(() =>{
-           const alert = this.alertCtrl.create({
-             title: 'Welcome',
-             subTitle: 'You have successfully Registered',
-             buttons: ['OK']
-           });
-           this.navCtrl.push(ScoutPage);
-           window.location.reload();
-           alert.present();
+    const alert = this.alertCtrl.create({
+      title: 'Welcome',
+      subTitle: 'You have successfully Registered',
+      buttons: ['OK']
+    });
+    this.navCtrl.push(ScoutPage);
+    window.location.reload();
+    alert.present();
 })
+})
+
   }
+}
+takePicture(){
+  this.firebaseService.uploadpic();
 }
 }

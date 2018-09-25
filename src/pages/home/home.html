@@ -23,7 +23,11 @@
 
 
   <h1 align="center" class="head">video preview</h1>
-  <br>
+ 
+         <video width="390" height="240" controls *ngFor ="let i of videos">
+             <source [src]="i" type="video/mp4">
+               <source [src]="i" type="video/mkv">
+           </video>
   <ion-card class="card1"> 
     <ion-item class="item item-trns text-center">
       <input type="file" (change)="insertvid($event)" >
@@ -72,11 +76,8 @@
       <div  align = "center" >
           <button class="butt" (click)="upload()" round color = "own" block ion-button>Upload</button>
 
-
-          <button class="butt2" ion-button round color="own" (click)="preview()">Preview</button>
      </div>
-  <!-- <button (click)="upload()" ion-button>upload</button> -->
-  <button ion-button round color="own" (click)="preview()">Preview</button>
-  <!-- </ion-content> -->
+
+
 </ion-card> 
 </ion-content>
