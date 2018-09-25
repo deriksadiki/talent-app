@@ -52,11 +52,11 @@ if('Log-Out')
 
 
 
-           { title: 'Home1', component: ArtisthomePage, icon: "home"},
+           { title: 'Home1', component: ArtisthomePage, icon: "md-home"},
             // { title: 'Home', component: UsersPage },
-            { title: 'Share', component: HomePage, icon: "send" },
-            { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
-            { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+            { title: 'Share', component: HomePage, icon: "md-send" },
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
 
 
           ]
@@ -85,10 +85,10 @@ if('Log-Out')
 
 
 
-            { title: 'Home', component: ScoutPage, icon: "home" },
+            { title: 'Home', component: ScoutPage, icon: "md-home" },
             { title: 'Profile', component:ScouteProfilePage, icon: "md-person" },
-            { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
-            { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
 
 
           ];

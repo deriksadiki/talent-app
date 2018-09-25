@@ -58,9 +58,4 @@ export class CommentsPage {
     modal.present();
   }
 
-  profile(a){
-    const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
-    console.log(a);
-    modal.present();
-  }
-}
+ }
