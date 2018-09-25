@@ -1,6 +1,3 @@
-<!-- <ion-header>
-  <div class="section"> -->
-
 
 <ion-header>
     <ion-navbar color = "own" >
@@ -14,17 +11,15 @@
 </ion-header>
 
 <ion-content class="img">
-
-  <div *ngFor="let i of videos; let a =index">
-     <ion-card >
-         <ion-item (click)="profile(a)">
-           <ion-avatar item-start >
-             <img src="{{i.img}}">
-           </ion-avatar>
-           <h1 capitalize><b>{{i.name}}</b> <span end class="datew">{{a.date}}</span></h1>
-           <p><b>{{i.vidname}}</b></p>
-         </ion-item>
-
+   <div *ngFor="let i of videos; let a =index">
+      <ion-card >
+          <ion-item (click)="profile(a)">
+            <ion-avatar item-start >
+              <img src="{{i.img}}">
+            </ion-avatar>
+             <h1 capitalize><b>{{i.name}}</b> <span end class="datew">{{a.date}}</span></h1>
+            <p>{{i.vidname}}</p>
+          </ion-item>
 
          <video width="10000" height="240" controls>
              <source src={{i.vidurl}} type="video/mp4">
@@ -47,12 +42,11 @@
                    <div><b>{{i.comments}} Comments</b></div>
                  </button>
                </ion-col>
-
                <ion-col>
                    <button ion-button  icon-start clear small center>
                 <div>  {{i.date}}</div>
                </button>
-              
+
                </ion-col>
                </ion-row>
              </ion-card-content>
@@ -60,11 +54,15 @@
   </div>
 
 
+
   <ion-fab  fixed bottom right  >
-      <button class="fabi" ion-fab  (click) = "Upload()" color="own">
+
+      <button class="fabi" ion-fab  (click) = "Upload()" color = "own">
+
         <ion-icon name="md-add"></ion-icon>  
       </button>
     </ion-fab>
+
 
 
  </ion-content>

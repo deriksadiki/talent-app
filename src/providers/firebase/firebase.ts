@@ -25,6 +25,7 @@ export class FirebaseProvider {
   profile =  new Array();
   comments =  new Array();
   videoArray = new Array();
+  MyvidsArray = new Array();
   arr = new Array();
   arr2 = new Array();
   scoutArray = new Array();
@@ -36,6 +37,9 @@ export class FirebaseProvider {
   lastSeen; 
   messagePic =  new Array();
   messagepicture;
+
+  path;
+
   
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
@@ -119,6 +123,11 @@ login(email, password){
   }
 
   logout(){
+    var user = firebase.auth().currentUser;
+    var day = moment().format('LT');
+    this.database.ref('lastSeen/' + this.username).set({
+      time: day
+    })
     this.authnticate.signOut();
   }
 
@@ -241,6 +250,31 @@ storeToDB(name, category, vidname, vidDesc){
 })
 } 
 
+getUploads(){
+  return new Promise((accpt,rej) =>{
+    this.database.ref('uploads/' + this.username).on('value',(data5:any) =>{
+      var myVideos = data5.val();
+      console.log(myVideos);
+      var key:any = Object.keys(myVideos);
+      for(var z = 0; z < key.length;z++){
+        var k = key[z];
+        let obj = {
+          vidurl : myVideos[k].downloadurl,
+          vidDesc : myVideos[k].description,
+          vidname : myVideos[k].name,
+          name : myVideos[k].username,
+          img : myVideos[k].userImg,
+          date : myVideos[k].date,
+        }
+        this.MyvidsArray.push(obj);
+        accpt(this.MyvidsArray) 
+      }
+      console.log(this.MyvidsArray);
+      })
+    })
+  }
+  
+
 getAllvideos(){
   return new Promise ((accpt, rej) =>{
     this.database.ref('uploads/').on('value', (data: any) => {
@@ -299,11 +333,13 @@ getAllvideos(){
 
 } 
 storeLastSeen(user2){
+
   var user = firebase.auth().currentUser;
   var day = moment(user.metadata.lastSignInTime).format('L')
   this.database.ref('lastSeen/' + user2).set({
     time: day
   })
+
 
 }
 getuserType(){
@@ -561,9 +597,9 @@ startConvo(username, text){
     this.database.ref('message/' + username).push({
       date : today,
       message : text,
-      name : this.username,
-      receiver : this.messagepicture,
-      sender : this.imgurl
+      name : this.username
+
+      
     })
    console.log("convo started")
 }
@@ -574,7 +610,9 @@ send(username, text){
   this.database.ref('message/' + username).push({
     date : today,
     message : text,
+
     name : this.username
+
   })
   console.log('message sent')
 }
@@ -582,6 +620,9 @@ send(username, text){
 getSentMessages(path){
   console.log('getSentMessages')
 return new Promise ((accpt, rej) =>{
+  var float;
+  var color;
+
   this.messages.length = 0;
   this.database.ref('message/' + path).on('value', (data: any) => {
     if ( data.val() != null ||  data.val() != undefined){
@@ -589,9 +630,19 @@ return new Promise ((accpt, rej) =>{
       var keys =  Object.keys(messages);
       for (var x = 0; x < keys.length; x++){
         var key = keys[x];
+        if (messages[key].name == this.username){
+          float = {'float' : 'right'}
+          color = 'light';
+        }
+        else{
+          float = {'float' : 'left'};
+          color = 'red';
+        }
         let obj = {
           message: messages[key].message,
-          date : messages[key].date
+          date : messages[key].date,
+          color : color,
+          float : float
         }
         this.messages.push(obj)
       }
@@ -606,7 +657,11 @@ getLastSeen(user){
 return new Promise ((accpt, rej) =>{
   this.database.ref('lastSeen/' + user).on('value', (data: any) => {
     if (data.val() != null || data.val() != undefined){
-      this.lastSeen =  moment(data.val().time).startOf('day').fromNow();
+
+
+      this.lastSeen =  moment(data.val().time, 'hh:mm').startOf('hour').fromNow();
+
+
       accpt(this.lastSeen);
     }
   })
@@ -664,17 +719,45 @@ getImagesURL(){
  
 }
 
-getConversation(){
+getConversation(user){
   return new Promise ((accpt, rej) =>{
-    this.database.ref('message/' + this.messagePath ).on('value', (data: any) => {
+    this.database.ref('message').on('value', (data: any) => {
       if (data.val() != null || data.val() != undefined){
-        accpt(this.messagePath);
+        this.database.ref('message').on('value', (data: any) => {
+          if (data.val() != null || data.val() !=  undefined){
+          this.messages2.length = 0;
+          var objects = data.val();
+          var key = Object.keys(objects);
+          for (var x = 0; x < key.length; x++){
+            var str1 = new String( key[x]);
+            var index = str1.indexOf( ":" );
+            var messageID =  str1.substr(index + 1,str1.length);
+            var messageID2 = str1.substr(0,index)
+              if (messageID == this.username && user  == messageID2)
+              {
+                  this.storeDefaultPath(key[x]);
+                  break;
+              }
+              else if (messageID2 == this.username && user == messageID){
+                this.storeDefaultPath(key[x]);
+                break;
+            }
+            accpt('finished')
+          }
+          }
+        })
       }
     })
   })
 }
 
+storeDefaultPath(path){
+this.path =  path;
+}
 
+getDefaultPath(){
+  return this.path;
+}
 
 returnAllMessages(){
   return new Promise ((accpt,rej) =>{
@@ -699,7 +782,10 @@ returnAllMessages(){
           message : Newmessg[key[length2]].message,
           date :   moment(Newmessg[key[length2]].date).startOf('day').fromNow(),
           path : this.messagePath[i],
+
           img :   image
+
+
         }
         this.messages2.push(obj)
         accpt(this.messages2);

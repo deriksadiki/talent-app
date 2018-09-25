@@ -73,6 +73,9 @@ page-home {
     //    border-top-left-radius: 10px;
     //    box-shadow: 2px 2px 4px;
    }
+   .tem{
+       background-color: rgba(90, 82, 82, 0.562);
+   }
    .log{
        color: whitesmoke;
        font-size: 200%;
@@ -115,7 +118,7 @@ page-home {
  
  .card1{
     position: relative;
-    top: 20%;
+    top: 15%;
     border-radius: 12px;
     color: black;
     background-color: rgba(0, 0, 0, 0.363);
@@ -126,11 +129,13 @@ page-home {
     border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.363);
     position: relative;
-    top: 21%;
- 
- }
- 
- .butt{
+
+    top: 15%;
+
+}
+
+.butt{
+
     width: 80%;
  
  }
@@ -139,4 +144,6 @@ page-home {
     width: 80%;
  }
  
+
 }
+

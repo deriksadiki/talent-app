@@ -17,19 +17,20 @@ import { CommentsPage } from '../comments/comments';
 })
 export class GalleryPage {
   videos = [];
+  myVideos = [];
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
+    this.firebaseService.getuserType();
   }
 
   ionViewDidLoad() {
-   
-    this.firebaseService.getAllvideos().then((data:any) =>{
-     if (this.videos != null || this.videos != undefined){
-      this.videos = undefined;
-      this.videos = null;
-     }
-      this.videos = data;
-      console.log(this.videos);
-     })
+    this.firebaseService.getUploads().then((data2:any) =>{
+      if (this.myVideos != null || this.myVideos != undefined){
+        this.myVideos = undefined;
+        this.myVideos = null;
+       }
+    this.myVideos = data2;
+    console.log(this.myVideos);
+  })
    }
 
    like(keyIndex){

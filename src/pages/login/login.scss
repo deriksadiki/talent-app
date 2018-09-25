@@ -1,5 +1,7 @@
+
+
 page-login {
-    font-family: 'Ubuntu', sans-serif;
+   
     .img{
     background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
     background-attachment: fixed;
@@ -8,28 +10,17 @@ page-login {
     background-repeat: no-repeat;
     background-position: center;
     }
-
+ 
     .item{
         background-color: rgba(255, 255, 255, 0.192);
         color: white;
         width: 80%;
+        text-align: center;
         position: relative;
-        right: 15%;
         border-radius: 30px;
-        padding-left: 7%;
-      
         
-       
     }
-
-    .list{
-        position: relative;
-        top: 8%;
-    }
-
-
-
-
+ 
     h1{
         color: rgb(236, 217, 217);
         text-align: center;
@@ -37,39 +28,20 @@ page-login {
         font-size: 400%;
        font-weight: 100;
     }
-    
+ 
    .butt{
        text-align: center;
        margin-bottom: 10%;
-   } 
-
-
-    // h1{
-    //     color: rgb(236, 217, 217);
-    //     text-align: center;
-    //     padding-top: 3%;
-    //     font-size: 400%;
-    //     font-weight: 100;
-    // }
-
-    .btn1{
-        width: 80%;
-        position: relative;
-        left: 10%;
-        top: 60px;
-
-    }
-
-
+   }
+ 
     .btn{
         width: 80%;
         position: relative;
         left: 10%;
         top: 95px;
-
+ 
     }
-    
-
+ 
     p{
         color: white;
         text-align: center;
@@ -77,32 +49,16 @@ page-login {
         top: 50px;
         font-weight: 100;
     }
-
-
-
-    // .logo{
-    //     color: rgb(236, 217, 217);
-    //     font-size: 400%;
-    //     font-weight: 100;
-    // }
-
-
-
+ 
     .logo{
         color: rgb(236, 217, 217);
         position: relative;
         top: 2%;
      }
-    
-
+ 
      .pass{
          position: relative;
          left: 80px;
         top: 10%;
         }
-
-
-    
-
-
     }

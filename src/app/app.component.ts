@@ -49,9 +49,6 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
-
-
-
            { title: 'Home1', component: ArtisthomePage, icon: "home"},
             // { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage, icon: "send" },
@@ -64,27 +61,22 @@ if('Log-Out')
         else if (data == "talentPerson"){
           this.pages = [
 
-            { title: 'Home', component: ArtisthomePage, icon:"home"},
-            { title: 'Upload', component: HomePage, icon: "cloud-upload" },
-            { title: 'Profile', component: ProfilePage, icon: "person"},
-            { title: 'Messages', component: SeeMessagesPage, icon: "mail" },
-            { title: 'Gallery', component: GalleryPage, icon: "md-photos" },
-            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"},
+            { title: 'Home', component: ArtisthomePage, icon:"md-home"},
+            { title: 'Upload', component: HomePage, icon: "md-cloud-upload" },
+            { title: 'Profile', component: ProfilePage, icon: "md-person"},
+            { title: 'Gallery', component: GalleryPage, icon:"md-images" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail"},
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"}
 
           ];
            this.rootPage =  ArtisthomePage;
         }
         else if (data == "ScoutPerson"){
           this.pages = [
-
-
-
             { title: 'Home', component: ScoutPage, icon: "home" },
             { title: 'Profile', component:ScouteProfilePage, icon: "md-person" },
             { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
-
-
           ];
           this.rootPage = ScoutPage;
         }
