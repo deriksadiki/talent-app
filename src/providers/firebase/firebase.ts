@@ -35,8 +35,10 @@ export class FirebaseProvider {
   names = new Array();
   results;
   lastSeen; 
-  messagePic =  new Array();  
-
+  messagePic =  new Array();
+  messagepicture;
+  path;
+  
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
 
@@ -119,6 +121,11 @@ login(email, password){
   }
 
   logout(){
+    var user = firebase.auth().currentUser;
+    var day = moment().format('LT');
+    this.database.ref('lastSeen/' + this.username).set({
+      time: day
+    })
     this.authnticate.signOut();
   }
 
@@ -216,7 +223,7 @@ storeToDB(name, category, vidname, vidDesc){
   });
   loading.present();
   return new Promise((accpt,rejc) =>{
-    var today = moment().format("Do MMM");
+    var today = moment().format("L");
     var storageRef = firebase.storage().ref(name + ".mp4");
     storageRef.getDownloadURL().then(url => {
       console.log(url)
@@ -309,7 +316,7 @@ getAllvideos(){
                 vidname : details[key].name,
                 name : details[key].username,
                 img : details[key].userImg,
-                date : details[key].date,
+                date : moment(details[key].date).startOf('day').fromNow(),
                 color :colour,
                 key: key
           }
@@ -324,11 +331,13 @@ getAllvideos(){
 
 } 
 storeLastSeen(user2){
+
   var user = firebase.auth().currentUser;
-  var day = moment(user.metadata.lastSignInTime).format('MMMM Do YYYY, h:mm:ss a')
+  var day = moment(user.metadata.lastSignInTime).format('L')
   this.database.ref('lastSeen/' + user2).set({
     time: day
   })
+
 
 }
 getuserType(){
@@ -384,8 +393,7 @@ getProfile(){
       var details = data2.val();
       console.log(details);
       var keys = Object.keys(details)
-      for (var x = 0; x < keys.length; x++){
-
+      for (var x = 0; x< keys.length; x++){
         var key = keys[x];
         let obj = {
           age : details[key].age,
@@ -426,6 +434,33 @@ getScoutProfile(){
     })
   })
 }
+
+getImage(user){
+    this.arr2.length = 0;
+    this.database.ref('users/').on('value', (data: any) => {
+      var users =  data.val();
+      var  userIDs = Object.keys(users);
+      for(var x = 0; x < userIDs.length; x++){
+        var str1 = new String( userIDs[x]);
+        var index = str1.indexOf( ":" );
+        var username = userIDs[x].substr(0,index);
+        if (user == username){
+          this.database.ref('users/' + userIDs[x]).on('value', (data2: any) => {
+            var userFound = data2.val();
+            var keys:any = Object.keys(userFound);
+            for(var b = 0; b <keys.length;b++){
+              var k =  keys[b];
+              this.messagepicture = userFound[k].imageURl
+              console.log(this.messagepicture);
+              break;
+            }
+           })
+          }
+        }
+    })
+        
+}
+
 viewArtistProfile(user){
   return new Promise ((accpt, rej) =>{
     this.arr2.length = 0;
@@ -442,8 +477,6 @@ viewArtistProfile(user){
             var keys:any = Object.keys(userFound);
             for(var b = 0; b <keys.length;b++){
               var k =  keys[b];
-              console.log(userFound)
-              console.log(userFound[k].imageURl)
               let obj = {
               age: userFound[k].age,
               cellno: userFound[k].cellno,
@@ -489,8 +522,7 @@ getcomments(key){
           let obj = {
             date : details[key].date,
             text :  details[key].text,
-            name : details[key].username,
-            // img :  details[key].img
+            name : details[key].username
           }
           this.comments.push(obj)
         }
@@ -559,19 +591,28 @@ getresults(){
 
 startConvo(username, text){
   var today = moment().format("Do MMM");
+  console.log(username);
     this.database.ref('message/' + username).push({
       date : today,
-      message : text
+      message : text,
+      name : this.username,
+
+      receiver : this.messagepicture,
+      sender : this.imgurl
+
     })
    console.log("convo started")
 }
 
 
 send(username, text){
-  var today = moment().format("Do MMM");
+  var today = moment().format("L");
   this.database.ref('message/' + username).push({
     date : today,
-    message : text
+    message : text,
+
+    name : this.username
+
   })
   console.log('message sent')
 }
@@ -579,6 +620,9 @@ send(username, text){
 getSentMessages(path){
   console.log('getSentMessages')
 return new Promise ((accpt, rej) =>{
+  var float;
+  var color;
+
   this.messages.length = 0;
   this.database.ref('message/' + path).on('value', (data: any) => {
     if ( data.val() != null ||  data.val() != undefined){
@@ -586,9 +630,19 @@ return new Promise ((accpt, rej) =>{
       var keys =  Object.keys(messages);
       for (var x = 0; x < keys.length; x++){
         var key = keys[x];
+        if (messages[key].name == this.username){
+          float = {'float' : 'right'}
+          color = 'light';
+        }
+        else{
+          float = {'float' : 'left'};
+          color = 'red';
+        }
         let obj = {
           message: messages[key].message,
-          date : messages[key].date
+          date : messages[key].date,
+          color : color,
+          float : float
         }
         this.messages.push(obj)
       }
@@ -603,7 +657,9 @@ getLastSeen(user){
 return new Promise ((accpt, rej) =>{
   this.database.ref('lastSeen/' + user).on('value', (data: any) => {
     if (data.val() != null || data.val() != undefined){
-      this.lastSeen =  data.val().time;
+
+      this.lastSeen =  moment(data.val().time, 'hh:mm').startOf('hour').fromNow();
+
       accpt(this.lastSeen);
     }
   })
@@ -616,6 +672,7 @@ getAllMessages(){
   console.log('getAllMessages')
   this.messagePath.length = 0;
   this.messagePic.length = 0;
+  this.names.length = 0;
 return new Promise ((accpt,rej) =>{
   this.database.ref('message').on('value', (data: any) => {
     if (data.val() != null || data.val() !=  undefined){
@@ -660,17 +717,45 @@ getImagesURL(){
  
 }
 
-getConversation(){
+getConversation(user){
   return new Promise ((accpt, rej) =>{
-    this.database.ref('message/' + this.messagePath ).on('value', (data: any) => {
+    this.database.ref('message').on('value', (data: any) => {
       if (data.val() != null || data.val() != undefined){
-        accpt(this.messagePath);
+        this.database.ref('message').on('value', (data: any) => {
+          if (data.val() != null || data.val() !=  undefined){
+          this.messages2.length = 0;
+          var objects = data.val();
+          var key = Object.keys(objects);
+          for (var x = 0; x < key.length; x++){
+            var str1 = new String( key[x]);
+            var index = str1.indexOf( ":" );
+            var messageID =  str1.substr(index + 1,str1.length);
+            var messageID2 = str1.substr(0,index)
+              if (messageID == this.username && user  == messageID2)
+              {
+                  this.storeDefaultPath(key[x]);
+                  break;
+              }
+              else if (messageID2 == this.username && user == messageID){
+                this.storeDefaultPath(key[x]);
+                break;
+            }
+            accpt('finished')
+          }
+          }
+        })
       }
     })
   })
 }
 
+storeDefaultPath(path){
+this.path =  path;
+}
 
+getDefaultPath(){
+  return this.path;
+}
 
 returnAllMessages(){
   return new Promise ((accpt,rej) =>{
@@ -678,18 +763,30 @@ returnAllMessages(){
     for (var i = 0; i < length; i++){
       this.database.ref('message/' + this.messagePath[i] ).on('value', (data: any) => {
         var Newmessg = data.val();
+        var image;
         var key = Object.keys(Newmessg);
         var length2 =  key.length - 1;
+         var receiverImage = Newmessg[key[0]].receiver;
+        var senderImage = Newmessg[key[0]].sender;
+        if (receiverImage == this.imgurl){
+            image =  senderImage;
+        }
+        else{
+          image =  receiverImage;
+        }
         let obj = {
           key :  key[length2],
           name : this.names[i],
           message : Newmessg[key[length2]].message,
-          date : Newmessg[key[length2]].date,
+          date :   moment(Newmessg[key[length2]].date).startOf('day').fromNow(),
           path : this.messagePath[i],
-          img :   this.messagePic[i] 
+
+          img :   image
+
         }
         this.messages2.push(obj)
         accpt(this.messages2);
+      
       })
     }
   })
