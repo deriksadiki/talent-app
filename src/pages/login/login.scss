@@ -1,4 +1,5 @@
 
+
 page-login {
    
     .img{
@@ -9,22 +10,17 @@ page-login {
     background-repeat: no-repeat;
     background-position: center;
     }
-
+ 
     .item{
         background-color: rgba(255, 255, 255, 0.192);
         color: white;
         width: 80%;
+        text-align: center;
         position: relative;
-        left: 11%;
         border-radius: 30px;
-         padding-left: 7%;
-  }
-
-    .list{
-        position: relative;
-        top: 8%;
+        
     }
-
+ 
     h1{
         color: rgb(236, 217, 217);
         text-align: center;
@@ -32,29 +28,20 @@ page-login {
         font-size: 400%;
        font-weight: 100;
     }
-    
+ 
    .butt{
        text-align: center;
        margin-bottom: 10%;
-   } 
-
-
-    .btn1{
-        width: 80%;
-        position: relative;
-        left: 10%;
-        top: 60px;
-
-    }
-
+   }
+ 
     .btn{
         width: 80%;
         position: relative;
         left: 10%;
         top: 95px;
-
+ 
     }
-  
+ 
     p{
         color: white;
         text-align: center;
@@ -62,18 +49,16 @@ page-login {
         top: 50px;
         font-weight: 100;
     }
-
  
     .logo{
         color: rgb(236, 217, 217);
         position: relative;
         top: 2%;
      }
-
+ 
      .pass{
          position: relative;
          left: 80px;
         top: 10%;
         }
     }
-

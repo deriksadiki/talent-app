@@ -2,20 +2,18 @@ import { Component } from '@angular/core';
 import { NavController, ViewController, AlertController, ModalController,NavParams } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import {LoginPage} from '../login/login';
-
 import { UploadPreviewPage } from '../upload-preview/upload-preview';
-
-
 import { ArtisthomePage } from '../artisthome/artisthome';
 
 
 // import { SecondPage } from '../second/second';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+ selector: 'page-home',
+ templateUrl: 'home.html'
 })
 export class HomePage {
+
   url;
   category;
   vidName;
@@ -23,7 +21,6 @@ export class HomePage {
   videos = [];
   // videos2 =  this.navParams.get('vid');
  
-
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController, public modalCtrl: ModalController) {
 
   }
@@ -65,7 +62,4 @@ export class HomePage {
       this.navCtrl.push(HomePage, {vid:this.videos[indexNUmber]})
     }
   }
-
-
-
 

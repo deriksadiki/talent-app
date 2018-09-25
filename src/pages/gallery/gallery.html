@@ -17,25 +17,21 @@
 
 <ion-content class="img" padding >
   <h1>Your Videos</h1>
-    <ion-card class="card" *ngFor="let i of myVideos;" >
-      <ion-row class="col1">
+    <ion-card class="col1" *ngFor="let i of myVideos;" >
+      <ion-row >
+          <ion-item (click)="profile(a)">
+              <ion-avatar item-start >
+                <img src="{{i.img}}">
+              </ion-avatar>
+              <h2><b>{{i.name}}</b></h2>
+              <!-- <p><b>{{i.vidname}}</b></p> -->
+            </ion-item>
           <video width="390" height="120" controls>
-              <!-- <source src={{i.vidurl}} type="video/mp4">
-              <source src={{i.vidurl}} type="video/mkv"> -->
+              <source src={{i.vidurl}} type="video/mp4">
+              <source src={{i.vidurl}} type="video/mkv">
           </video>  
-  
-      <button color={{i.color}} ion-button icon-start clear small (click)="like(a)">
-        <ion-icon name="thumbs-up"></ion-icon>
-          <div>{{i.likes}} Likes</div>
-            </button>
-    
-  
-      <button  ion-button class="com" icon-start clear small center (click)="test(a)">
-        <ion-icon name="text"></ion-icon>
-        <div>{{i.comments}} Comments</div>
-        </button>
-   
-        
+          <br>
+          <br>
           <button ion-button  icon-start clear small center>
             <div>  {{i.date}}</div>
             </button>
