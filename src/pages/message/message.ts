@@ -19,7 +19,9 @@ username = this.navParams.get('username');
 name = this.navParams.get('username');
 messages = new Array();
 lastSeen;
+x = 1;
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
+
   }
 
   ionViewDidLoad() {

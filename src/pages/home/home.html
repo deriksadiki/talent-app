@@ -38,8 +38,9 @@
 
 
      <ion-card class="Card2"> 
+        <ion-card-content>
      <ion-list>
-         <ion-item class="combo" align="left">
+         <ion-item no-lines class="combo" align="left">
             <ion-label class="lab" ><ion-icon name="browsers" class="h"></ion-icon></ion-label>
             <ion-select class="box"  placeholder="category"  [(ngModel)]="category">
               <ion-option value="mus">Music</ion-option>
@@ -57,12 +58,12 @@
                 </ion-item> -->
         
         
-               <ion-item id="tem">
+               <ion-item>
                   <ion-label><ion-icon  class="i" name="information-circle"></ion-icon></ion-label>
                   <ion-input type="text" placeholder="video name" [(ngModel)]="vidName"></ion-input>
                </ion-item> 
               
-        <ion-item id="tem">
+          <ion-item >
 
           <ion-label><ion-icon class="i" name="information-circle"></ion-icon></ion-label>
           <ion-input type="text" placeholder="video description" [(ngModel)]="vidDesc"></ion-input>
@@ -81,7 +82,8 @@
           <button class="butt2" ion-button round color="own" (click)="preview()">Preview</button>
      </div>
   <!-- <button (click)="upload()" ion-button>upload</button> -->
-  <button ion-button round color="own" (click)="preview()">Preview</button>
+  <!-- <button ion-button round color="own" (click)="preview()">Preview</button> -->
   <!-- </ion-content> -->
+ </ion-card-content>
 </ion-card> 
 </ion-content>

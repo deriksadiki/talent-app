@@ -33,12 +33,9 @@ export class FirebaseProvider {
   messagePath =  new Array();
   names = new Array();
   results;
-<<<<<<< HEAD
   lastSeen; 
   messagePic =  new Array();
   
-=======
->>>>>>> b83da82890b18cb8f185eb6b1e517c94fa308c77
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
 
@@ -286,7 +283,7 @@ getAllvideos(){
                 vidname : details[key].name,
                 name : details[key].username,
                 img : details[key].userImg,
-                date : details[key].date,
+                date : moment(details[key].date).startOf('day').fromNow(),
                 color :colour,
                 key: key
           }
@@ -302,7 +299,7 @@ getAllvideos(){
 } 
 storeLastSeen(user2){
   var user = firebase.auth().currentUser;
-  var day = moment(user.metadata.lastSignInTime).format('MMMM Do YYYY, h:mm:ss a')
+  var day = moment(user.metadata.lastSignInTime).format('L')
   this.database.ref('lastSeen/' + user2).set({
     time: day
   })
@@ -361,12 +358,7 @@ getProfile(){
       var details = data2.val();
       console.log(details);
       var keys = Object.keys(details)
-<<<<<<< HEAD
       for (var x = 0; x< keys.length; x++){
-=======
-
-      for (var x = 0; x < keys.length; x++){
->>>>>>> b83da82890b18cb8f185eb6b1e517c94fa308c77
         var key = keys[x];
         let obj = {
           age : details[key].age,
@@ -470,8 +462,7 @@ getcomments(key){
           let obj = {
             date : details[key].date,
             text :  details[key].text,
-            name : details[key].username,
-            // img :  details[key].img
+            name : details[key].username
           }
           this.comments.push(obj)
         }
@@ -542,7 +533,9 @@ startConvo(username, text){
   var today = moment().format("Do MMM");
     this.database.ref('message/' + username).push({
       date : today,
-      message : text
+      message : text,
+      name : this.username,
+      img : this.imgurl 
     })
    console.log("convo started")
 }
@@ -552,7 +545,9 @@ send(username, text){
   var today = moment().format("Do MMM");
   this.database.ref('message/' + username).push({
     date : today,
-    message : text
+    message : text,
+    name : this.username,
+    img : this.imgurl 
   })
   console.log('message sent')
 }
@@ -584,7 +579,7 @@ getLastSeen(user){
 return new Promise ((accpt, rej) =>{
   this.database.ref('lastSeen/' + user).on('value', (data: any) => {
     if (data.val() != null || data.val() != undefined){
-      this.lastSeen =  data.val().time;
+      this.lastSeen =  moment(data.val().time).startOf('day').fromNow();
       accpt(this.lastSeen);
     }
   })
@@ -667,7 +662,7 @@ returnAllMessages(){
           message : Newmessg[key[length2]].message,
           date : Newmessg[key[length2]].date,
           path : this.messagePath[i],
-          img :   this.messagePic[i] 
+          img :   Newmessg[key[length2]].img
         }
         this.messages2.push(obj)
         accpt(this.messages2);

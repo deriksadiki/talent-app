@@ -21,7 +21,7 @@ export class HomePage {
   vidName;
   vidDesc;
   videos = [];
-  videos2 =  this.navParams.get('vid');
+  // videos2 =  this.navParams.get('vid');
  
 
   constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController, public modalCtrl: ModalController) {
@@ -55,12 +55,12 @@ export class HomePage {
       })
     }
 
-    preview(){
+    // preview(){
 
-      const modal = this.modalCtrl.create(UploadPreviewPage);
-      modal.present();
-      this.videos.push(this.videos2);
-    }
+    //   const modal = this.modalCtrl.create(UploadPreviewPage);
+    //   modal.present();
+    //   this.videos.push(this.videos2);
+    // }
     test(indexNUmber){
       this.navCtrl.push(HomePage, {vid:this.videos[indexNUmber]})
     }
