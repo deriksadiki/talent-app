@@ -19,7 +19,6 @@ username = this.navParams.get('username');
 name = this.navParams.get('name2');
 messages = new Array();
 lastSeen;
-<<<<<<< HEAD
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
   }
@@ -55,9 +54,7 @@ this.firebaseService.getLastSeen(this.name).then(data =>{
      }
 
   }
-=======
- constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
- }
+
 
  ionViewDidLoad() {
    console.log(name)
@@ -88,7 +85,6 @@ this.firebaseService.getLastSeen(this.name).then(data =>{
       this.firebaseService.send(this.username, message)
       console.log(this.messages);
     }
->>>>>>> 5ef49cd3f65fc0b5392b237d44ee324470cbed59
 
  }
 

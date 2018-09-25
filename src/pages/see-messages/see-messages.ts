@@ -45,20 +45,23 @@ messages = new Array();
  ionViewDidLoad() {
    this.messages.length = 0;
  this.firebaseService.getAllMessages().then(data =>{
+
      let loading = this.loadingCtrl.create({
        spinner: 'bubbles',
        content: 'Please wait',
        duration: 1300
      });
      loading.present();
+
      setTimeout(() =>{
        this.firebaseService.returnAllMessages().then((data2:any) =>{
          this.messages.length = 0;
          this.messages  = data2;
          console.log(this.messages);
          console.log('see messages')
-     })
+
      },500)
+
  })
  }
 >>>>>>> 5ef49cd3f65fc0b5392b237d44ee324470cbed59

@@ -331,6 +331,14 @@ getAllvideos(){
 
 } 
 storeLastSeen(user2){
+
+  var user = firebase.auth().currentUser;
+  var day = moment(user.metadata.lastSignInTime).format('L')
+  this.database.ref('lastSeen/' + user2).set({
+    time: day
+  })
+
+
 }
 getuserType(){
 return new Promise ((accpt, rej) =>{
@@ -588,8 +596,10 @@ startConvo(username, text){
       date : today,
       message : text,
       name : this.username,
+
       receiver : this.messagepicture,
       sender : this.imgurl
+
     })
    console.log("convo started")
 }
@@ -600,7 +610,9 @@ send(username, text){
   this.database.ref('message/' + username).push({
     date : today,
     message : text,
+
     name : this.username
+
   })
   console.log('message sent')
 }
@@ -653,7 +665,9 @@ getLastSeen(user){
 return new Promise ((accpt, rej) =>{
   this.database.ref('lastSeen/' + user).on('value', (data: any) => {
     if (data.val() != null || data.val() != undefined){
+
       this.lastSeen =  moment(data.val().time, 'hh:mm').startOf('hour').fromNow();
+
       accpt(this.lastSeen);
     }
   })
@@ -774,7 +788,9 @@ returnAllMessages(){
           message : Newmessg[key[length2]].message,
           date :   moment(Newmessg[key[length2]].date).startOf('day').fromNow(),
           path : this.messagePath[i],
+
           img :   image
+
         }
         this.messages2.push(obj)
         accpt(this.messages2);

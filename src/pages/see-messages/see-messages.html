@@ -6,23 +6,34 @@
 -->
 <ion-header>
 
-  <ion-navbar color="own">
+
+  <ion-navbar color = "own">
+      <button ion-button menuToggle icon-only>
+          <ion-icon name='menu'></ion-icon>
+        </button>
+
     <ion-title>Messages</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
+
 <ion-content padding class="img">
+
   <br>
   <br>
+  <ion-card-content>
     <div class="cm">
+
         <ion-list no-lines *ngFor="let a of messages; let i = index" (click) = "more(i)" >
+
     
             <ion-item >
               <ion-avatar class="pic" item-start>
                   <img src={{a.img}}>
               </ion-avatar>
+
               
               <h2>{{a.name}}</h2>
               <h3>{{a.date}}</h3>
@@ -42,4 +53,5 @@
        
        
     </div>
+  </ion-card-content>
 </ion-content>

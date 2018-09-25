@@ -64,12 +64,17 @@ if('Log-Out')
         else if (data == "talentPerson"){
           this.pages = [
 
-            { title: 'Home', component: ArtisthomePage, icon:"home"},
-            { title: 'Upload', component: HomePage, icon: "cloud-upload" },
-            { title: 'Profile', component: ProfilePage, icon: "person"},
-            { title: 'Log-Out', component: LogoutPage, icon: "log-out"},
-            { title: 'Messages', component: SeeMessagesPage, icon: "mail" },
-            { title: 'Gallery', component: GalleryPage, icon: "videocam"}
+
+            { title: 'Home', component: ArtisthomePage, icon:"md-home"},
+            { title: 'Upload', component: HomePage, icon: "md-cloud-upload" },
+            { title: 'Profile', component: ProfilePage, icon: "md-person"},
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"},
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" },
+            { title: 'Gallery', component: GalleryPage, icon:"md-images" }
+
+
+        
+
 
 
           ];

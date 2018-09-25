@@ -5,8 +5,8 @@ import { ModalController } from 'ionic-angular';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { ProfilePage } from '../profile/profile';
 import { DisplayPage } from '../display/display';
-
 import {CommentsPage} from '../comments/comments'
+import { HomePage } from '../home/home';
 
 
 
@@ -34,17 +34,20 @@ export class ScoutPage {
   
   }
 
-
+  Upload(){
+    this.navCtrl.push(HomePage);
+  }
 
 
   profile(a){
     const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
     console.log(a);
     modal.present();
+  
 
   }
-   })
-  }
+   
+  
   
    test(indexNUmber){
      this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
@@ -68,11 +71,7 @@ export class ScoutPage {
 //       })
 //     })
 // }
-profile(a){
-  const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
-  console.log(a);
-  modal.present();
-}
+
 viewartist(){
   const modal = this.modalCtrl.create(ArtistProfilePage);
   modal.present();
