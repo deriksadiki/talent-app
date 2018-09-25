@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="own">
     <ion-title>gallery</ion-title>
     <button ion-button menuToggle icon-only>
         <ion-icon name='menu'></ion-icon>
@@ -15,11 +15,11 @@
 
 </ion-header>
 
-<ion-content padding class="bgr">
+<ion-content class="img" padding >
   <h1>Your Videos</h1>
-    <ion-card class="card" *ngFor="let i of videos;" >
+    <ion-card class="card" *ngFor="let i of myVideos;" >
       <ion-row class="col1">
-          <video width="500" height="120" controls>
+          <video width="390" height="120" controls>
               <!-- <source src={{i.vidurl}} type="video/mp4">
               <source src={{i.vidurl}} type="video/mkv"> -->
           </video>  

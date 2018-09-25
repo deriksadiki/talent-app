@@ -30,6 +30,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   activePage: any;
+ 
 
   public rootPage: any;
 
@@ -51,11 +52,12 @@ if('Log-Out')
 
 
 
-            { title: 'Home1', component: ArtisthomePage, icon: "home"},
+           { title: 'Home1', component: ArtisthomePage, icon: "home"},
             // { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage, icon: "send" },
             { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+
 
           ]
         }
@@ -69,7 +71,6 @@ if('Log-Out')
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" },
             { title: 'Gallery', component: GalleryPage, icon: "videocam"}
 
-        
 
           ];
            this.rootPage =  ArtisthomePage;
@@ -78,10 +79,12 @@ if('Log-Out')
           this.pages = [
 
 
+
             { title: 'Home', component: ScoutPage, icon: "home" },
-            { title: 'Profile', component:ScouteProfilePage, icon: "person" },
+            { title: 'Profile', component:ScouteProfilePage, icon: "md-person" },
             { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+
 
           ];
           this.rootPage = ScoutPage;
