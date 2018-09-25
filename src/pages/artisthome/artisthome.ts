@@ -18,6 +18,7 @@ import { HomePage } from '../home/home';
 })
 export class ArtisthomePage {
 videos = [];
+myVideos = [];
 color = "primary";
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, private modalCtrl: ModalController) {
   }
@@ -36,12 +37,12 @@ color = "primary";
   
   like(keyIndex){
   this.firebaseService.likeVideo(this.videos[keyIndex].key).then(() =>{
-    if (this.videos[keyIndex].color == "grey"){
+    if (this.videos[keyIndex].color == 'grey'){
       this.firebaseService.addNumOfLikes(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
         this.ionViewDidLoad();
       })
     }
-  else if (this.videos[keyIndex].color == "primary"){
+  else if (this.videos[keyIndex].color == 'primary'){
          this.firebaseService.removeLike(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
           this.ionViewDidLoad();
          })
@@ -57,6 +58,7 @@ else{
  test(indexNUmber){
    this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
  }
+
 
 
   profile(a){
