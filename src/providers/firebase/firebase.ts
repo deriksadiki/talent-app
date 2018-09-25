@@ -631,11 +631,19 @@ return new Promise ((accpt, rej) =>{
       for (var x = 0; x < keys.length; x++){
         var key = keys[x];
         if (messages[key].name == this.username){
+<<<<<<< HEAD
+          float = {'float' : 'right'}
+          color = 'light';
+        }
+        else{
+          float = {'float' : 'left'};
+=======
           float = { 'float' : 'right'}
           color = 'light';
         }
         else{
           float = { 'float' : 'left'}
+>>>>>>> 5ef49cd3f65fc0b5392b237d44ee324470cbed59
           color = 'red';
         }
         let obj = {

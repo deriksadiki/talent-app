@@ -1,9 +1,10 @@
 <!--
-  Generated template for the MessagePage page.
+ Generated template for the MessagePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
+ See http://ionicframework.com/docs/components/#navigation for more info on
+ Ionic pages and navigation.
 -->
+
 
 
 
@@ -21,6 +22,20 @@
     </ion-header>
 
 
+<ion-header>
+    <ion-navbar >
+       <button ion-button menuToggle icon-only>
+           <ion-icon name='menu'></ion-icon>
+         </button>
+   <ion-title>
+   <h1>{{name}}</h1>
+   <h2>last seen {{lastSeen}}</h2>
+   <ion-icon class="trash" name="trash"></ion-icon>
+   </ion-title>
+ </ion-navbar>
+</ion-header>
+
+
 
 
 
@@ -35,13 +50,16 @@
       <p>{{i.message}}</p>
     </ion-item>
   </ion-list>
+
  </ion-card-content>
+
 
 </ion-content>
 
 
 
 <ion-footer class="foot">
+
     <div class="down">
         <ion-item  class="item2" >
             <textarea  #text class="comments" #comment type="text" cols="40" rows="5" placeholder="Type a message.."></textarea>
@@ -56,3 +74,4 @@
             
    
 </ion-footer>
+
