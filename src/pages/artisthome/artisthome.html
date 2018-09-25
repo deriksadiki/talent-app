@@ -21,15 +21,15 @@
            <ion-avatar item-start >
              <img src="{{i.img}}">
            </ion-avatar>
-           <h2><b>{{i.name}}</b> <span end class="datew">{{a.date}}</span></h2>
+           <h1 capitalize><b>{{i.name}}</b> <span end class="datew">{{a.date}}</span></h1>
            <p><b>{{i.vidname}}</b></p>
          </ion-item>
 
 
-         <!-- <video width="10000" height="240" controls>
+         <video width="10000" height="240" controls>
              <source src={{i.vidurl}} type="video/mp4">
                <source src={{i.vidurl}} type="video/mkv">
-           </video> -->
+           </video>
 
 
          <ion-card-content>
@@ -38,13 +38,13 @@
                <ion-col>
                  <button color={{i.color}} ion-button icon-start clear small (click)="like(a)">
                    <ion-icon name="thumbs-up"></ion-icon>
-                   <div>{{i.likes}} Likes</div>
+                   <div><b>{{i.likes}} Likes</b></div>
                  </button>
                </ion-col>
                <ion-col>
                  <button  ion-button class="com" icon-start clear small center (click)="test(a)">
                    <ion-icon name="text"></ion-icon>
-                   <div>{{i.comments}} Comments</div>
+                   <div><b>{{i.comments}} Comments</b></div>
                  </button>
                </ion-col>
 
@@ -52,7 +52,7 @@
                    <button ion-button  icon-start clear small center>
                 <div>  {{i.date}}</div>
                </button>
-                 </ion-note>
+              
                </ion-col>
                </ion-row>
              </ion-card-content>
@@ -61,8 +61,8 @@
 
 
   <ion-fab  fixed bottom right  >
-      <button class="fabi" ion-fab  (click) = "Upload()" color = "own">
-        <ion-icon name="add"></ion-icon>  
+      <button class="fabi" ion-fab  (click) = "Upload()" color="own">
+        <ion-icon name="md-add"></ion-icon>  
       </button>
     </ion-fab>
 

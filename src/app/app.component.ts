@@ -55,7 +55,7 @@ if('Log-Out')
            { title: 'Home1', component: ArtisthomePage, icon: "home"},
             // { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage, icon: "send" },
-            { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
+            { title: 'Log-Out', component: LogoutPage, icon: "exit" },
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
 
 
@@ -67,10 +67,9 @@ if('Log-Out')
             { title: 'Home', component: ArtisthomePage, icon:"home"},
             { title: 'Upload', component: HomePage, icon: "cloud-upload" },
             { title: 'Profile', component: ProfilePage, icon: "person"},
-            { title: 'Log-Out', component: LogoutPage, icon: "log-out"},
-            { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
-            { title: 'Gallery', component: GalleryPage },
-
+            { title: 'Messages', component: SeeMessagesPage, icon: "mail" },
+            { title: 'Gallery', component: GalleryPage, icon: "md-photos" },
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"},
 
           ];
            this.rootPage =  ArtisthomePage;
