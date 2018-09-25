@@ -52,7 +52,7 @@ if('Log-Out')
            { title: 'Home1', component: ArtisthomePage, icon: "home"},
             // { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage, icon: "send" },
-            { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
+            { title: 'Log-Out', component: LogoutPage, icon: "exit" },
             { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
 
 
@@ -60,12 +60,14 @@ if('Log-Out')
         }
         else if (data == "talentPerson"){
           this.pages = [
+
             { title: 'Home', component: ArtisthomePage, icon:"md-home"},
             { title: 'Upload', component: HomePage, icon: "md-cloud-upload" },
             { title: 'Profile', component: ProfilePage, icon: "md-person"},
             { title: 'Gallery', component: GalleryPage, icon:"md-images" },
             { title: 'Messages', component: SeeMessagesPage, icon: "md-mail"},
             { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"}
+
           ];
            this.rootPage =  ArtisthomePage;
         }

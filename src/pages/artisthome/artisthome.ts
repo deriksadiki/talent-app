@@ -77,7 +77,7 @@ else{
   addNumOfLikes(){
 
   }
-Upload(){
+Upload=function(){
   this.navCtrl.push(HomePage);
 }
 }

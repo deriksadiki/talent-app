@@ -37,7 +37,9 @@ export class FirebaseProvider {
   lastSeen; 
   messagePic =  new Array();
   messagepicture;
+
   path;
+
   
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
@@ -595,11 +597,9 @@ startConvo(username, text){
     this.database.ref('message/' + username).push({
       date : today,
       message : text,
-      name : this.username,
+      name : this.username
 
-      receiver : this.messagepicture,
-      sender : this.imgurl
-
+      
     })
    console.log("convo started")
 }
@@ -658,7 +658,9 @@ return new Promise ((accpt, rej) =>{
   this.database.ref('lastSeen/' + user).on('value', (data: any) => {
     if (data.val() != null || data.val() != undefined){
 
+
       this.lastSeen =  moment(data.val().time, 'hh:mm').startOf('hour').fromNow();
+
 
       accpt(this.lastSeen);
     }
@@ -782,6 +784,7 @@ returnAllMessages(){
           path : this.messagePath[i],
 
           img :   image
+
 
         }
         this.messages2.push(obj)
