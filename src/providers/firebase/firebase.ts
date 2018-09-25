@@ -34,12 +34,9 @@ export class FirebaseProvider {
   messagePath =  new Array();
   names = new Array();
   results;
-<<<<<<< HEAD
   lastSeen; 
-  messagePic =  new Array();
-  
-=======
->>>>>>> b83da82890b18cb8f185eb6b1e517c94fa308c77
+  messagePic =  new Array();  
+
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
 
@@ -387,12 +384,8 @@ getProfile(){
       var details = data2.val();
       console.log(details);
       var keys = Object.keys(details)
-<<<<<<< HEAD
-      for (var x = 0; x< keys.length; x++){
-=======
-
       for (var x = 0; x < keys.length; x++){
->>>>>>> b83da82890b18cb8f185eb6b1e517c94fa308c77
+
         var key = keys[x];
         let obj = {
           age : details[key].age,

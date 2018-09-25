@@ -61,15 +61,15 @@
 </ion-content> -->
 
 <ion-header>
-    <div class="img" align="center">
+    <div *ngFor="let i of arr2;" class="img" align="center">
   <ion-navbar color="trans">
         <button style="color: white" ion-button menuToggle icon-only>
          <ion-icon name='menu'></ion-icon>
         </button>
     <!-- <ion-title class="tite">Your Profile</ion-title> -->
  </ion-navbar>
-  <img class="pic" src="../../assets/imgs/face.webp">
-  <h1>Jorja</h1>
+ <img class="pic" src="{{i.imageURl}}">
+ <h1>{{i.name}} {{i.surname}}</h1>
   <ion-grid class="dash">
   <ion-row>
     <ion-col class="space">
@@ -92,13 +92,13 @@
   <button class="btn" ion-button color="light" (click)="Update()"><ion-icon name="settings"></ion-icon></button>
   </div>
   </ion-header>
-  <ion-content class="cont">
+  <ion-content *ngFor="let i of arr2;" class="cont">
     <div align="center">
         <h2>Your Vid'It profile</h2>
       </div>
       <br>
-      <h3>Jorja Smith</h3>
-      <h4>Female | 23 years old</h4>
+      <h3>{{i.name}} {{i.surname}}</h3>
+      <h4>{{i.gender}} | {{i.age}}</h4>
  
       <div>
 
@@ -108,7 +108,7 @@
             <ion-row>
                 <ion-col>
                     <img src="../../assets/imgs/phone (1).png"><br>
-                    <p>074 905 4945</p>
+                    <p>{{i.cellno}}</p>
                 </ion-col>
 
                 <ion-col>

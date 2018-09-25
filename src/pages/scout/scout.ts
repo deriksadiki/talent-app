@@ -34,48 +34,16 @@ export class ScoutPage {
   
   }
 
-
-
-
   profile(a){
     const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
     console.log(a);
     modal.present();
 
   }
-   })
-  }
   
    test(indexNUmber){
      this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
    }
   
-  // view(){
-  //   const modal = this.modalCtrl.create(ArtistProfilePage);
-  //   modal.present();
-  // }
-
-
-//   profile(){ 
-//     return new Promise((accpt,rej) =>{
-//       this.firebaseService.getuserType().then((data:any) =>{
-//         if(data == "talentPerson"){
-//           this.navCtrl.push(ArtistProfilePage);
-//         }
-//         else if (data == "ScoutPerson"){
-//           this.navCtrl.push(ProfilePage);
-//         }
-//       })
-//     })
-// }
-profile(a){
-  const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
-  console.log(a);
-  modal.present();
-}
-viewartist(){
-  const modal = this.modalCtrl.create(ArtistProfilePage);
-  modal.present();
-}
 
 }
