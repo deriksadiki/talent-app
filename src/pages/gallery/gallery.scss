@@ -25,6 +25,15 @@ ion-title {
     border-radius: 20px;
      
  }
+ .img{
+    background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+    background-attachment: fixed;
+    // background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+   
+    }
     // ion-grid{
     //     background: gray;
     //     // height:100%;
@@ -43,5 +52,6 @@ ion-title {
     // }
 h1{
     font-size: 28px;
+    color: white;
 }
 }

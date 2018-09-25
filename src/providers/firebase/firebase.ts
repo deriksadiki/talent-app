@@ -25,6 +25,7 @@ export class FirebaseProvider {
   profile =  new Array();
   comments =  new Array();
   videoArray = new Array();
+  MyvidsArray = new Array();
   arr = new Array();
   arr2 = new Array();
   scoutArray = new Array();
@@ -246,6 +247,31 @@ storeToDB(name, category, vidname, vidDesc){
 });
 })
 } 
+
+getUploads(){
+  return new Promise((accpt,rej) =>{
+    this.database.ref('uploads/' + this.username).on('value',(data5:any) =>{
+      var myVideos = data5.val();
+      console.log(myVideos);
+      var key:any = Object.keys(myVideos);
+      for(var z = 0; z < key.length;z++){
+        var k = key[z];
+        let obj = {
+          vidurl : myVideos[k].downloadurl,
+          vidDesc : myVideos[k].description,
+          vidname : myVideos[k].name,
+          name : myVideos[k].username,
+          img : myVideos[k].userImg,
+          date : myVideos[k].date,
+        }
+        this.MyvidsArray.push(obj);
+        accpt(this.MyvidsArray) 
+      }
+      console.log(this.MyvidsArray);
+      })
+    })
+  }
+  
 
 getAllvideos(){
   return new Promise ((accpt, rej) =>{
@@ -593,11 +619,19 @@ return new Promise ((accpt, rej) =>{
       for (var x = 0; x < keys.length; x++){
         var key = keys[x];
         if (messages[key].name == this.username){
+<<<<<<< HEAD
           float = {'float' : 'right'}
           color = 'light';
         }
         else{
           float = {'float' : 'left'};
+=======
+          float = { 'float' : 'right'}
+          color = 'light';
+        }
+        else{
+          float = { 'float' : 'left'}
+>>>>>>> 5ef49cd3f65fc0b5392b237d44ee324470cbed59
           color = 'red';
         }
         let obj = {

@@ -14,8 +14,11 @@ import { LogoutPage } from '../pages/logout/logout';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
 import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
+
+import { MessagePage } from '../pages/message/message';
+import { SeeMessagesPage } from '../pages/see-messages/see-messages';
 import { GalleryPage } from '../pages/gallery/gallery';
-import { SeeMessagesPage } from '../pages/see-messages/see-messages'
+
 
 
 
@@ -27,6 +30,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   activePage: any;
+ 
 
   public rootPage: any;
 
@@ -45,31 +49,42 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
-            { title: 'Home', component: UsersPage,  },
-            { title: 'Home1', component: ArtisthomePage, icon: "home"},
+
+
+
+           { title: 'Home1', component: ArtisthomePage, icon: "home"},
             // { title: 'Home', component: UsersPage },
-            { title: 'Share', component: HomePage },
-            { title: 'Log-Out', component: LogoutPage },
+            { title: 'Share', component: HomePage, icon: "send" },
+            { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+
 
           ]
         }
         else if (data == "talentPerson"){
           this.pages = [
-            { title: 'Home', component: ArtisthomePage},
-            { title: 'Upload', component: HomePage  },
-            { title: 'Gallery', component: GalleryPage },
-            { title: 'Profile', component: ProfilePage },
-            { title: 'Log-Out', component: LogoutPage },
-            {title: 'Messages', component:  SeeMessagesPage}
+
+            { title: 'Home', component: ArtisthomePage, icon:"home"},
+            { title: 'Upload', component: HomePage, icon: "cloud-upload" },
+            { title: 'Profile', component: ProfilePage, icon: "person"},
+            { title: 'Log-Out', component: LogoutPage, icon: "log-out"},
+            { title: 'Messages', component: SeeMessagesPage, icon: "mail" },
+            { title: 'Gallery', component: GalleryPage, icon: "videocam"}
+
+
           ];
            this.rootPage =  ArtisthomePage;
         }
         else if (data == "ScoutPerson"){
           this.pages = [
-            { title: 'Home', component: ScoutPage },
-         // { title: 'Profile', component: ProfilePage },
-            { title: 'Profile', component:ScouteProfilePage },
-            { title: 'Log-Out', component: LogoutPage },
+
+
+
+            { title: 'Home', component: ScoutPage, icon: "home" },
+            { title: 'Profile', component:ScouteProfilePage, icon: "md-person" },
+            { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+
 
           ];
           this.rootPage = ScoutPage;

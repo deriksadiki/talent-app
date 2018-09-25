@@ -1,5 +1,5 @@
 page-artisthome {
-    font-family: 'Ubuntu', sans-serif;
+ 
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -10,7 +10,9 @@ page-artisthome {
        
         }
 
-
+.fabi{
+    box-shadow: 2px 2px 3px black;
+}
 
         .logo{
             color: rgb(236, 217, 217);
@@ -67,6 +69,9 @@ page-artisthome {
         color: whitesmoke;
         font-size: 200%;
         font-weight: 100;
+    }
+    h2, p {
+        color: rgb(100, 3, 3);
     }
     .box{
         box-shadow: 5px 4px 7px;

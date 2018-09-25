@@ -15,6 +15,9 @@ ion-label.label{
 .bg{
     background-color:rgba(0,0,0,0.5); 
 }
+.section{
+
+}
 // .logo{
 //     // height: 80%;
 //     // width: 95%;
@@ -34,7 +37,7 @@ img{
     width: 80%;
     margin-bottom: 10px;
     position: relative;
-    right: 15%;
+    // right: 15%;
     border-radius: 30px;
     padding: 0.5px;
     padding-left: 7%;
@@ -52,7 +55,7 @@ img{
     bottom: 9px;
 }
 .btn{
-    width: 60%;
+    width: 35%;
 }
 h1{
     color: rgb(236, 217, 217);
@@ -61,6 +64,16 @@ h1{
     font-weight: 100;
     font-size: 300%;
    
+}
+.butt1{
+    // margin-right: 10px;
+    text-align: center;
+    // margin-left: 180px;
+    display: flex;
+    // margin: 0 auto;
+    align-content: center;
+    justify-content: center;
+    // float: right;
 }
 // button{
 //     // position: relative;

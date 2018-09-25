@@ -7,6 +7,7 @@ import { ProfilePage } from '../profile/profile';
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
 
 import { DisplayPage } from '../display/display';
+import { HomePage } from '../home/home';
 
 
 
@@ -17,7 +18,12 @@ import { DisplayPage } from '../display/display';
 })
 export class ArtisthomePage {
 videos = [];
+<<<<<<< HEAD
 color;
+=======
+myVideos = [];
+color = "primary";
+>>>>>>> 5ef49cd3f65fc0b5392b237d44ee324470cbed59
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, private modalCtrl: ModalController) {
   }
 
@@ -61,6 +67,8 @@ else{
    this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
  }
 
+
+
   profile(a){
     const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
     console.log(a);
@@ -70,6 +78,8 @@ else{
   addNumOfLikes(){
 
   }
-
+Upload(){
+  this.navCtrl.push(HomePage);
+}
 }
 

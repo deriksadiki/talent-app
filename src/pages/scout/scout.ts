@@ -6,6 +6,9 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { ProfilePage } from '../profile/profile';
 import { DisplayPage } from '../display/display';
 
+import {CommentsPage} from '../comments/comments'
+
+
 
 @IonicPage()
 @Component({
@@ -14,6 +17,7 @@ import { DisplayPage } from '../display/display';
 })
 export class ScoutPage {
   videos = [];
+  color = "primary";
   constructor(private firebaseService:FirebaseProvider, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
 
@@ -32,10 +36,46 @@ export class ScoutPage {
 
 
 
+
   profile(a){
     const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
     console.log(a);
     modal.present();
+
   }
+   })
+  }
+  
+   test(indexNUmber){
+     this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
+   }
+  
+  // view(){
+  //   const modal = this.modalCtrl.create(ArtistProfilePage);
+  //   modal.present();
+  // }
+
+
+//   profile(){ 
+//     return new Promise((accpt,rej) =>{
+//       this.firebaseService.getuserType().then((data:any) =>{
+//         if(data == "talentPerson"){
+//           this.navCtrl.push(ArtistProfilePage);
+//         }
+//         else if (data == "ScoutPerson"){
+//           this.navCtrl.push(ProfilePage);
+//         }
+//       })
+//     })
+// }
+profile(a){
+  const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
+  console.log(a);
+  modal.present();
+}
+viewartist(){
+  const modal = this.modalCtrl.create(ArtistProfilePage);
+  modal.present();
+}
 
 }
