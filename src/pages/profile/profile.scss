@@ -2,11 +2,11 @@ page-profile {
     font-family: 'Ubuntu', sans-serif;
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
-        background-attachment: fixed;
-        background-color: black;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
+        // background-attachment: fixed;
+        // background-color: black;
+        // background-size: cover;
+        // background-repeat: no-repeat;
+        // background-position: center;
         height: 350px;
  
         }
@@ -35,7 +35,7 @@ page-profile {
             color: rgb(134, 132, 132);
             position: relative;
             font-size: 1em;
-            bottom: 20px;
+            bottom: 60px;
             // left: 50px;
         }
 
@@ -43,7 +43,7 @@ page-profile {
             font-weight: 100;
             text-align: center;
             position: relative;
-            bottom: 15%;
+            bottom: 30%;
             font-size: 210%;
             color: rgb(134, 132, 132);
         }
@@ -54,7 +54,7 @@ page-profile {
             font-size: 90%;
             color: grey;
             position: relative;
-            bottom: 19%;
+            bottom: 34%;
 
         }
 
@@ -70,7 +70,7 @@ page-profile {
 
          .btn{
             position: relative;
-            top: 160px;
+            top: 135px;
             color: #F53D4E;
             border-radius: 50px;
             // width: 15%;
@@ -135,13 +135,15 @@ page-profile {
 
         .things{
             position: relative;
-            top: 20px;
+            top: 5px;
         }
 
         .HR{
             position: relative;
             top: 30px;
         }
+
+        
 
 
 }
