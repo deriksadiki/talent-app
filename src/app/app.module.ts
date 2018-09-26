@@ -30,9 +30,9 @@ import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 
 import { DisplayPage } from '../pages/display/display';
 import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
-import {MessagePage } from '../pages/message/message'
-import { SeeMessagesPage } from '../pages/see-messages/see-messages'
-
+import {MessagePage } from '../pages/message/message';
+import { SeeMessagesPage } from '../pages/see-messages/see-messages';
+import { GalleryPage } from '../pages/gallery/gallery';
 
 
 

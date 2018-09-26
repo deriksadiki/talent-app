@@ -89,10 +89,16 @@
     </ion-col>
   </ion-row>
   </ion-grid>
-  <button class="btn" ion-button color="light" (click)="Update()"><ion-icon name="settings"></ion-icon></button>
   </div>
+
+  <ion-icon class="sbtn" name="settings"></ion-icon>
   </ion-header>
   <ion-content class="cont">
+
+    <div align="center">
+        <button class="btn" ion-button color="own" (click)="Update()" outline>Edit Profile</button>
+    </div>
+
     <div align="center">
         <h2>Your Vid'It profile</h2>
       </div>
@@ -102,9 +108,9 @@
  
       <div>
 
-          <hr>
+          <hr class="HR">
 
-        <ion-grid align="center">
+        <ion-grid class="things" align="center">
             <ion-row>
                 <ion-col>
                     <img src="../../assets/imgs/phone (1).png"><br>
