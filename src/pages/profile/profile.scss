@@ -34,7 +34,7 @@ page-profile {
             font-weight: 100;
             color: rgb(134, 132, 132);
             position: relative;
-            font-size: 1em;
+            font-size: em;
             bottom: 60px;
             // left: 50px;
         }
@@ -44,14 +44,14 @@ page-profile {
             text-align: center;
             position: relative;
             bottom: 30%;
-            font-size: 210%;
+            font-size: 3em;
             color: rgb(134, 132, 132);
         }
 
         h4{
             text-align: center;
             font-weight: 100;
-            font-size: 90%;
+            font-size: em;
             color: grey;
             position: relative;
             bottom: 34%;
