@@ -66,14 +66,10 @@ if('Log-Out')
 
 
             { title: 'Home', component: ArtisthomePage, icon:"md-home"},
-            { title: 'Upload', component: HomePage, icon: "md-cloud-upload" },
+            { title: 'Gallery', component: GalleryPage, icon:"md-images" },
             { title: 'Profile', component: ProfilePage, icon: "md-person"},
-            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"},
             { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" },
-            { title: 'Gallery', component: GalleryPage, icon:"md-images" }
-
-
-        
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"}
 
 
 

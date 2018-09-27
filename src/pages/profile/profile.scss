@@ -11,10 +11,10 @@ page-profile {
  
         }
  
-        .pic{
+        .pics{
             // width: 60%;
-            height: 45%;
-            width: 45%;
+            height: 110px;
+            width: 110px;
             // height: 40%;
             border-radius: 60%;
             position: relative;
@@ -79,10 +79,14 @@ h4{
         .dash{
             background-color: rgba(53, 52, 52, 0.555);
             color: white;
-            height: 28%;
+            height: 85px;
+         
             // border-left: 2px solid white;
             // font-size: 50%;
  
+        }
+        .dash1{
+            margin-top: 100px;
         }
         .list{
             position: relative;

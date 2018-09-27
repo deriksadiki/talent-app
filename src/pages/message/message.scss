@@ -15,7 +15,7 @@ page-message {
 
     .comments{
         height:50px;
-        width: 80%;
+        width: 90%;
         border: 2px solid red;
         border-radius: 30px;
         padding-left: 10px;
@@ -24,6 +24,10 @@ page-message {
  
  
     }
+    .mesage{
+
+    }
+   
  
     p{
         font-size: 100%;
@@ -31,7 +35,7 @@ page-message {
  
     .send{
         position: relative;
-        left: 340px;
+        // left: 340px;
         bottom: 70px;
         width: 20px;
         height: 50px;  
@@ -44,15 +48,20 @@ page-message {
     }
 
     .reply{
-        border-radius: 20px;
-        min-width: 320px;
+        border-radius: 30px;
+        min-width: 300px;
     
         
     }
+.list{
+    list-style-type: none;
+    margin: 5px;
+//    display: block;
+}
     
     .item{
         position: relative;
-    
+        // margin-bottom: 20px;
     }
 
     .title{
@@ -67,7 +76,7 @@ page-message {
         font-size: 70%;
         position: relative;
         resize: none;
-        height: 25px;
+        // height: 25px;
                        
     }
 
@@ -75,7 +84,7 @@ page-message {
         text-align: left;
         font-weight: 200;
         font-size: 100%;
-        color: black;
+        // color: black;
         text-align: center;
     }
     h2{
@@ -91,6 +100,7 @@ page-message {
         position: relative;
         
     }
+    
 
 
 }
