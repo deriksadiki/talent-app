@@ -58,4 +58,4 @@ export class CommentsPage {
     modal.present();
   }
 
-}
+ }

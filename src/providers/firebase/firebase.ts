@@ -37,9 +37,7 @@ export class FirebaseProvider {
   lastSeen; 
   messagePic =  new Array();
   messagepicture;
-
   path;
-
   
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
@@ -63,7 +61,8 @@ login(email, password){
         this.dbRef =  'users/' + Username + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           Username:Username,
-          userType: "normalPerson"
+          userType: "normalPerson",
+          imageURl:  this.imgurl
         })
       accept("user registred")
       }, Error =>{
@@ -113,7 +112,8 @@ login(email, password){
           companyName:companyName,
           companyemail:companyemail,
           companycellno:companycellno,
-          userType: "ScoutPerson"
+          userType: "ScoutPerson",
+          imageURl:  this.imgurl
         })
         accept("success");
       }, Error =>{
@@ -123,8 +123,9 @@ login(email, password){
   }
 
   logout(){
+    console.log('exit')
     var user = firebase.auth().currentUser;
-    var day = moment().format('LT');
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('lastSeen/' + this.username).set({
       time: day
     })
@@ -225,7 +226,7 @@ storeToDB(name, category, vidname, vidDesc){
   });
   loading.present();
   return new Promise((accpt,rejc) =>{
-    var today = moment().format("L");
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     var storageRef = firebase.storage().ref(name + ".mp4");
     storageRef.getDownloadURL().then(url => {
       console.log(url)
@@ -238,7 +239,7 @@ storeToDB(name, category, vidname, vidDesc){
             description: vidDesc,
             username : this.username,
             userImg : this.imgurl,
-            date : today,
+            date : day,
             likes : 1,
             comments : 1
           });
@@ -252,6 +253,7 @@ storeToDB(name, category, vidname, vidDesc){
 
 getUploads(){
   return new Promise((accpt,rej) =>{
+    this.MyvidsArray.length = 0;
     this.database.ref('uploads/' + this.username).on('value',(data5:any) =>{
       var myVideos = data5.val();
       console.log(myVideos);
@@ -264,7 +266,7 @@ getUploads(){
           vidname : myVideos[k].name,
           name : myVideos[k].username,
           img : myVideos[k].userImg,
-          date : myVideos[k].date,
+          date : moment(myVideos[k].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow()
         }
         this.MyvidsArray.push(obj);
         accpt(this.MyvidsArray) 
@@ -318,7 +320,7 @@ getAllvideos(){
                 vidname : details[key].name,
                 name : details[key].username,
                 img : details[key].userImg,
-                date : moment(details[key].date).startOf('day').fromNow(),
+                date : moment(details[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
                 color :colour,
                 key: key
           }
@@ -333,14 +335,6 @@ getAllvideos(){
 
 } 
 storeLastSeen(user2){
-
-  var user = firebase.auth().currentUser;
-  var day = moment(user.metadata.lastSignInTime).format('L')
-  this.database.ref('lastSeen/' + user2).set({
-    time: day
-  })
-
-
 }
 getuserType(){
 return new Promise ((accpt, rej) =>{
@@ -502,12 +496,12 @@ viewArtistProfile(user){
 
 comment(key,text){
   return new Promise ((accpt, rej) =>{
-    var today = moment().format('l');  
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('comments/' + key).push({
       text:text,
       username: this.username,
-      date : today,
-      // img : this.imgurl
+      date : day,
+      img : this.imgurl
     })
     accpt("comment added")
   })
@@ -522,9 +516,10 @@ getcomments(key){
         for (var x =0; x < keys.length; x++){
           var key = keys[x];
           let obj = {
-            date : details[key].date,
+            date :moment( details[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
             text :  details[key].text,
-            name : details[key].username
+            name : details[key].username,
+            img: details[key].img
           }
           this.comments.push(obj)
         }
@@ -569,7 +564,7 @@ removeLike(username, key, num){
 }
 
 sendMessage(username, text):any{
-    var today = moment().format("Do MMM");
+    var today = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('message/' + username).on('value', (data: any) => {
       if ( data.val() != null ||  data.val() != undefined){
         this.assisgStatus('pass')
@@ -592,27 +587,25 @@ getresults(){
 
 
 startConvo(username, text){
-  var today = moment().format("Do MMM");
+  var day = moment().format('MMMM Do YYYY, h:mm:ss a');
   console.log(username);
     this.database.ref('message/' + username).push({
-      date : today,
+      date : day,
       message : text,
-      name : this.username
-
-      
+      name : this.username,
+      receiver : this.messagepicture,
+      sender : this.imgurl
     })
    console.log("convo started")
 }
 
 
 send(username, text){
-  var today = moment().format("L");
+  var day = moment().format('MMMM Do YYYY, h:mm:ss a');
   this.database.ref('message/' + username).push({
-    date : today,
+    date : day,
     message : text,
-
     name : this.username
-
   })
   console.log('message sent')
 }
@@ -640,7 +633,7 @@ return new Promise ((accpt, rej) =>{
         }
         let obj = {
           message: messages[key].message,
-          date : messages[key].date,
+          date : moment(messages[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
           color : color,
           float : float
         }
@@ -657,11 +650,7 @@ getLastSeen(user){
 return new Promise ((accpt, rej) =>{
   this.database.ref('lastSeen/' + user).on('value', (data: any) => {
     if (data.val() != null || data.val() != undefined){
-
-
-      this.lastSeen =  moment(data.val().time, 'hh:mm').startOf('hour').fromNow();
-
-
+      this.lastSeen =  moment(data.val().time, 'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow();
       accpt(this.lastSeen);
     }
   })
@@ -736,15 +725,17 @@ getConversation(user){
               if (messageID == this.username && user  == messageID2)
               {
                   this.storeDefaultPath(key[x]);
+                  accpt('finished')
                   break;
               }
               else if (messageID2 == this.username && user == messageID){
                 this.storeDefaultPath(key[x]);
+                accpt('finished')
                 break;
             }
-            accpt('finished')
           }
           }
+            accpt('no path')
         })
       }
     })
@@ -780,12 +771,9 @@ returnAllMessages(){
           key :  key[length2],
           name : this.names[i],
           message : Newmessg[key[length2]].message,
-          date :   moment(Newmessg[key[length2]].date).startOf('day').fromNow(),
+          date :   moment(Newmessg[key[length2]].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
           path : this.messagePath[i],
-
           img :   image
-
-
         }
         this.messages2.push(obj)
         accpt(this.messages2);

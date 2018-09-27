@@ -16,11 +16,11 @@ import { ArtisthomePage } from '../artisthome/artisthome';
  templateUrl: 'home.html'
 })
 export class HomePage {
- url;
+ url ='assets/imgs/o.jpg'
  category;
  vidName;
  vidDesc;
- videos = [];
+ videos = new Array();;
 
 
 
@@ -28,18 +28,20 @@ export class HomePage {
 
  }
 
-   insertvid(event:any){
+ insertvid(event:any){
+  this.videos.length = 0;
+  if (event.target.files && event.target.files[0]){
+    let reader = new FileReader();
 
-     if (event.target.files && event.target.files[0]){
-       let reader = new FileReader();
+    reader.onload = (event:any) =>{
+     this.videos.push (event.target.result);
+     this.url = event.target.result;
+      console.log(this.videos)
+    }
+    reader.readAsDataURL(event.target.files[0]);
 
-       reader.onload = (event:any) =>{
-         this.url = event.target.result;
-       }
-       reader.readAsDataURL(event.target.files[0]);
-
-     }
-   }
+  }
+}
    upload(){
      this.firebaseService.uploadvid(this.url).then(data =>{
        console.log(data);
