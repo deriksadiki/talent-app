@@ -52,7 +52,7 @@ if('Log-Out')
 
 
 
-           { title: 'Home1', component: ArtisthomePage, icon: "md-home"},
+           { title: 'Home', component: ArtisthomePage, icon: "md-home"},
             // { title: 'Home', component: UsersPage },
             { title: 'Share', component: HomePage, icon: "md-send" },
             { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },

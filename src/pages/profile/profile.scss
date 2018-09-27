@@ -7,7 +7,7 @@ page-profile {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        height: 350px;
+        height: 40vh;
  
         }
  
@@ -25,19 +25,18 @@ page-profile {
         h1{
             color: rgb(255, 255, 255);
             font-weight: 100;
-            font-size: 35px;
             position: relative;
             bottom: 50%;
-            font-size: 110%;
+            font-size: 35px;
         }
  
         h2{
             font-weight: 100;
             color: rgb(134, 132, 132);
             position: relative;
-            // font-size: 50%;
-            // top: 100px;
-            // left: 50px;
+
+            font-size: 20px;
+         
         }
 h4{
     text-align: center;
@@ -47,16 +46,20 @@ h4{
             text-align: center;
             position: relative;
             bottom: 10%;
-            font-size: 150%;
+            font-size: 40px;
             color: rgb(134, 132, 132);
         }
 
+        h4{
+            font-size: 1.9em;
+        }
 
         .space{
             // border:1px solid rgb(255, 255, 255);
-            height: 100px;
+            height: 110px;
             position: relative;
-            bottom: 5px;
+            bottom: 9px;
+            font-size: 2em;
         }
 
         
@@ -68,6 +71,7 @@ h4{
   
         .cont{
             background-color: rgb(255, 255, 255);
+            margin-top: 20px;
         }
  
         p{
@@ -113,6 +117,10 @@ h4{
                 left: 50px;
                 border-radius: 12px;
             }
+
+        p{
+            font-size: 1.5em;
+        }
 }
 
 

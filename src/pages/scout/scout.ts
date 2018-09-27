@@ -8,8 +8,6 @@ import { DisplayPage } from '../display/display';
 import {CommentsPage} from '../comments/comments'
 import { HomePage } from '../home/home';
 
-
-
 @IonicPage()
 @Component({
   selector: 'page-scout',
@@ -33,11 +31,9 @@ export class ScoutPage {
      });
   
   }
-
   Upload(){
     this.navCtrl.push(HomePage);
   }
-
 
   profile(a){
     const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
@@ -46,35 +42,15 @@ export class ScoutPage {
   
 
   }
-   
-  
+
   
    test(indexNUmber){
      this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
    }
-  
-  // view(){
-  //   const modal = this.modalCtrl.create(ArtistProfilePage);
-  //   modal.present();
-  // }
-
-
-//   profile(){ 
-//     return new Promise((accpt,rej) =>{
-//       this.firebaseService.getuserType().then((data:any) =>{
-//         if(data == "talentPerson"){
-//           this.navCtrl.push(ArtistProfilePage);
-//         }
-//         else if (data == "ScoutPerson"){
-//           this.navCtrl.push(ProfilePage);
-//         }
-//       })
-//     })
-// }
-
 viewartist(){
   const modal = this.modalCtrl.create(ArtistProfilePage);
   modal.present();
 }
+
 
 }
