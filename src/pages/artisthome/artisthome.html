@@ -1,31 +1,24 @@
 
 <ion-header>
-    <ion-navbar color = "own" >
-       <button ion-button menuToggle icon-only>
-           <ion-icon name='menu'></ion-icon>
-         </button>
-   <ion-title>
-     <ion-icon name="flame"></ion-icon>&emsp;Top Trending
-   </ion-title>
- </ion-navbar>
+<ion-navbar color = "color" >
+<ion-title>Artist Profile</ion-title>
+
+<button ion-button menuToggle icon-only>
+    <ion-icon name='menu'></ion-icon>
+  </button>
+</ion-navbar>
 </ion-header>
 
 <ion-content class="img">
-   <div *ngFor="let i of videos; let a =index">
-      <ion-card >
-          <ion-item (click)="profile(a)">
-            <ion-avatar item-start >
-              <img src="{{i.img}}">
-            </ion-avatar>
-            <h2>{{i.name}}</h2>
-            <p>{{i.vidname}}</p>
-          </ion-item>
-<!-- 
-         <video width="390" height="240" controls>
-             <source src={{i.vidurl}} type="video/mp4">
-               <source src={{i.vidurl}} type="video/mkv">
-           </video> -->
+  <br>
+    <div class="logo" align="center">
+        <img class="logo" src="../../assets/imgs/play-button (1).png">
+      </div>
+      <h1>Vid'It.</h1>
+<div align = "center" >
+    <ion-list class="list" no-lines>
 
+<<<<<<< HEAD
          <ion-card-content>
            <p>{{i.vidDesc}}</p>
            <ion-row>
@@ -60,3 +53,62 @@
 
 
  </ion-content>
+=======
+      <ion-item>
+        <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+        <ion-input type="text" placeholder="Name" [(ngModel)]= "artist.name"></ion-input>
+      </ion-item>
+
+
+      <ion-item class="items">
+        <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+        <ion-input placeholder="Surname" type="text" [(ngModel)]= "artist.surname"></ion-input>
+      </ion-item>
+
+        <ion-item class="items">
+            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="Username" type="text" [(ngModel)]= "artist.username"></ion-input>
+          </ion-item>
+  
+        <ion-item class="items">
+            <ion-label ><ion-icon name="at" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="E-mail" type="text"  [(ngModel)] = "artist.email"></ion-input>
+          </ion-item>
+        
+          <ion-item class="items">
+            <ion-label ><ion-icon name="lock" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="Password" type="password"  [(ngModel)] = "artist.password"></ion-input>
+          </ion-item>
+        
+
+        <ion-item class="items">
+            <ion-label > <ion-icon ios="ios-transgender" md="md-body" class="i"></ion-icon></ion-label>
+            <ion-select class="box" [(ngModel)]="artist.gender" placeholder="Gender" item-center>
+                <ion-option value="Male">Male</ion-option>
+                <ion-option value="Female">Female</ion-option>
+              </ion-select>
+          </ion-item>
+    
+          <ion-item class="items">
+            <ion-label ><ion-icon name="call" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="Cell No" type="text"  [(ngModel)] = "artist.cellno"></ion-input>
+          </ion-item>
+   
+            <ion-item class="items">
+                <ion-label ><ion-icon name="walk" class="i"></ion-icon></ion-label>
+                <ion-input placeholder="Age" type="text"  [(ngModel)] = "artist.age"></ion-input>
+              </ion-item>
+            </ion-list>
+          </div>
+  
+   <div class="butt1" align="center">
+      <button ion-button color="own" round (click)="takePicture()">Take photo</button> <br>
+      <button class="btn" ion-button color="own" round (click)="reg()">Sign Up</button>
+    </div>
+
+   </ion-content>
+
+
+
+
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794

@@ -14,14 +14,19 @@ page-message {
         }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
     .comments{
         height:50px;
-        width: 80%;
+        width: 90%;
         border: 2px solid red;
         border-radius: 30px;
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 10px;
+<<<<<<< HEAD
      
     
     }
@@ -30,9 +35,23 @@ page-message {
         font-size: 100%;
     }
 
+=======
+ 
+ 
+    }
+    .mesage{
+
+    }
+   
+ 
+    p{
+        font-size: 100%;
+    }
+ 
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
     .send{
         position: relative;
-        left: 300px;
+        // left: 340px;
         bottom: 70px;
         width: 20px;
         height: 50px;  
@@ -45,19 +64,24 @@ page-message {
     }
 
     .reply{
-        border-radius: 20px;
-        min-width: 320px;
+        border-radius: 30px;
+        min-width: 300px;
     
         
     }
+.list{
+    list-style-type: none;
+    margin: 5px;
+//    display: block;
+}
     
     .item{
         position: relative;
-    
+        // margin-bottom: 20px;
     }
 
     .title{
-        background-color: white;
+        // background-color: white;
         height: 50px;
         font-weight: 100;
         
@@ -68,7 +92,7 @@ page-message {
         font-size: 70%;
         position: relative;
         resize: none;
-        height: 25px;
+        // height: 25px;
                        
     }
 
@@ -76,6 +100,7 @@ page-message {
         text-align: left;
         font-weight: 200;
         font-size: 100%;
+        // color: black;
         text-align: center;
     }
     h2{
@@ -91,9 +116,14 @@ page-message {
         position: relative;
         
     }
+<<<<<<< HEAD
 .icon{
     font-size: 50px;
     color: #000;
 }
+=======
+    
+
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
 
 }

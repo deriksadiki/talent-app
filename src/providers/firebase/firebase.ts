@@ -501,7 +501,11 @@ comment(key,text){
       text:text,
       username: this.username,
       date : day,
+<<<<<<< HEAD
       // img : this.imgurl
+=======
+      img : this.imgurl
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
     })
     accpt("comment added")
   })
@@ -518,7 +522,8 @@ getcomments(key){
           let obj = {
             date :moment( details[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
             text :  details[key].text,
-            name : details[key].username
+            name : details[key].username,
+            img: details[key].img
           }
           this.comments.push(obj)
         }

@@ -84,6 +84,8 @@ export class UsersPage {
     this.navCtrl.push(LogoutPage);
   }
 
-
+  Upload(){
+    this.navCtrl.push(HomePage);
+  }
   
 }

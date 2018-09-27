@@ -148,8 +148,8 @@ showForgotPassword(){
   }
 
 
-  uploadpreview=function(){
-    this.navCtrl.push(UploadPreviewPage)
-  }
+  // uploadpreview=function(){
+  //   this.navCtrl.push(UploadPreviewPage)
+  // }
 
 }

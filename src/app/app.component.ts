@@ -52,11 +52,15 @@ if('Log-Out')
 
 
 
+<<<<<<< HEAD
            { title: 'Home', component: ArtisthomePage, icon: "home"},
+=======
+           { title: 'Home', component: ArtisthomePage, icon: "md-home"},
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
             // { title: 'Home', component: UsersPage },
-            { title: 'Share', component: HomePage, icon: "send" },
-            { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
-            { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+            { title: 'Share', component: HomePage, icon: "md-send" },
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
 
 
           ]
@@ -64,12 +68,13 @@ if('Log-Out')
         else if (data == "talentPerson"){
           this.pages = [
 
-            { title: 'Home', component: ArtisthomePage, icon:"home"},
-            { title: 'Upload', component: HomePage, icon: "cloud-upload" },
-            { title: 'Profile', component: ProfilePage, icon: "person"},
-            { title: 'Log-Out', component: LogoutPage, icon: "log-out"},
-            { title: 'Messages', component: SeeMessagesPage, icon: "mail" },
-            { title: 'Gallery', component: GalleryPage, icon: "videocam"}
+
+            { title: 'Home', component: ArtisthomePage, icon:"md-home"},
+            { title: 'Gallery', component: GalleryPage, icon:"md-images" },
+            { title: 'Profile', component: ProfilePage, icon: "md-person"},
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" },
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"}
+
 
 
           ];
@@ -80,10 +85,10 @@ if('Log-Out')
 
 
 
-            { title: 'Home', component: ScoutPage, icon: "home" },
+            { title: 'Home', component: ScoutPage, icon: "md-home" },
             { title: 'Profile', component:ScouteProfilePage, icon: "md-person" },
-            { title: 'Log-Out', component: LogoutPage, icon: "log-out" },
-            { title: 'Messages', component: SeeMessagesPage, icon: "mail" }
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
 
 
           ];
