@@ -125,7 +125,7 @@ login(email, password){
   logout(){
     console.log('exit')
     var user = firebase.auth().currentUser;
-    var day = moment().format('LT');
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('lastSeen/' + this.username).set({
       time: day
     })
@@ -226,7 +226,7 @@ storeToDB(name, category, vidname, vidDesc){
   });
   loading.present();
   return new Promise((accpt,rejc) =>{
-    var day = moment().format('LT');
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     var storageRef = firebase.storage().ref(name + ".mp4");
     storageRef.getDownloadURL().then(url => {
       console.log(url)
@@ -253,6 +253,7 @@ storeToDB(name, category, vidname, vidDesc){
 
 getUploads(){
   return new Promise((accpt,rej) =>{
+    this.MyvidsArray.length = 0;
     this.database.ref('uploads/' + this.username).on('value',(data5:any) =>{
       var myVideos = data5.val();
       console.log(myVideos);
@@ -265,7 +266,7 @@ getUploads(){
           vidname : myVideos[k].name,
           name : myVideos[k].username,
           img : myVideos[k].userImg,
-          date : moment(myVideos[k].date,'hh:mm').startOf('minutes').fromNow()
+          date : moment(myVideos[k].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow()
         }
         this.MyvidsArray.push(obj);
         accpt(this.MyvidsArray) 
@@ -319,7 +320,7 @@ getAllvideos(){
                 vidname : details[key].name,
                 name : details[key].username,
                 img : details[key].userImg,
-                date : moment(details[key].date).startOf('day').fromNow(),
+                date : moment(details[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
                 color :colour,
                 key: key
           }
@@ -495,7 +496,7 @@ viewArtistProfile(user){
 
 comment(key,text){
   return new Promise ((accpt, rej) =>{
-    var day = moment().format('LT');
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('comments/' + key).push({
       text:text,
       username: this.username,
@@ -515,7 +516,7 @@ getcomments(key){
         for (var x =0; x < keys.length; x++){
           var key = keys[x];
           let obj = {
-            date :moment( details[key].date,'hh:mm').startOf('minutes').fromNow(),
+            date :moment( details[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
             text :  details[key].text,
             name : details[key].username
           }
@@ -562,7 +563,7 @@ removeLike(username, key, num){
 }
 
 sendMessage(username, text):any{
-    var today = moment().format("Do MMM");
+    var today = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('message/' + username).on('value', (data: any) => {
       if ( data.val() != null ||  data.val() != undefined){
         this.assisgStatus('pass')
@@ -585,7 +586,7 @@ getresults(){
 
 
 startConvo(username, text){
-  var day = moment().format('LT');
+  var day = moment().format('MMMM Do YYYY, h:mm:ss a');
   console.log(username);
     this.database.ref('message/' + username).push({
       date : day,
@@ -599,7 +600,7 @@ startConvo(username, text){
 
 
 send(username, text){
-  var day = moment().format('LT');
+  var day = moment().format('MMMM Do YYYY, h:mm:ss a');
   this.database.ref('message/' + username).push({
     date : day,
     message : text,
@@ -631,7 +632,7 @@ return new Promise ((accpt, rej) =>{
         }
         let obj = {
           message: messages[key].message,
-          date : messages[key].date,
+          date : moment(messages[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
           color : color,
           float : float
         }
@@ -648,7 +649,7 @@ getLastSeen(user){
 return new Promise ((accpt, rej) =>{
   this.database.ref('lastSeen/' + user).on('value', (data: any) => {
     if (data.val() != null || data.val() != undefined){
-      this.lastSeen =  moment(data.val().time, 'hh:mm').startOf('minutes').fromNow();
+      this.lastSeen =  moment(data.val().time, 'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow();
       accpt(this.lastSeen);
     }
   })
@@ -769,7 +770,7 @@ returnAllMessages(){
           key :  key[length2],
           name : this.names[i],
           message : Newmessg[key[length2]].message,
-          date :   moment(Newmessg[key[length2]].date,'hh:mm').startOf('minutes').fromNow(),
+          date :   moment(Newmessg[key[length2]].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
           path : this.messagePath[i],
           img :   image
         }

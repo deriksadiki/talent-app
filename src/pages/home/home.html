@@ -10,24 +10,23 @@
       <ion-icon name='menu'></ion-icon>
     </button>
     </ion-navbar>
-
-    <div class="logo" align="center">
-      <!-- <img class="logo" src="../../assets/imgs/play-button (1).png"> -->
     </div>
-    <!-- <h1 align="center"></h1> -->
-    </div>
-
+     <video width="380" height="240" controls *ngFor ="let i of videos">
+        <source [src]="i" type="video/mp4">
+          <source [src]="i" type="video/mkv">
+      </video>
     </ion-header>
-
+  
 <ion-content class="img">
 
 
   <h1 align="center" class="head">video preview</h1>
+  <br>
+  <div  >
+     
+  
  
-         <video width="390" height="240" controls *ngFor ="let i of videos">
-             <source [src]="i" type="video/mp4">
-               <source [src]="i" type="video/mkv">
-           </video>
+</div>
   <ion-card class="card1"> 
     <ion-item class="item item-trns text-center">
       <input type="file" (change)="insertvid($event)" >
@@ -36,8 +35,9 @@
 
 
      <ion-card class="Card2"> 
+        <ion-card-content>
      <ion-list>
-         <ion-item class="combo" align="left">
+         <ion-item no-lines class="combo" align="left">
             <ion-label class="lab" ><ion-icon name="browsers" class="h"></ion-icon></ion-label>
             <ion-select class="box"  placeholder="category"  [(ngModel)]="category">
               <ion-option value="mus">Music</ion-option>
@@ -55,12 +55,12 @@
                 </ion-item> -->
         
         
-               <ion-item id="tem">
+               <ion-item>
                   <ion-label><ion-icon  class="i" name="information-circle"></ion-icon></ion-label>
                   <ion-input type="text" placeholder="video name" [(ngModel)]="vidName"></ion-input>
                </ion-item> 
               
-        <ion-item id="tem">
+          <ion-item >
 
           <ion-label><ion-icon class="i" name="information-circle"></ion-icon></ion-label>
           <ion-input type="text" placeholder="video description" [(ngModel)]="vidDesc"></ion-input>
@@ -73,11 +73,13 @@
 
 
 
-      <div  align = "center" >
-          <button class="butt" (click)="upload()" round color = "own" block ion-button>Upload</button>
-
+      <div class="butts"  align = "center" >
+          <button class="butt" (click)="upload()" round color = "own"  ion-button>Upload</button>
      </div>
-
-
+  <!-- <button (click)="upload()" ion-button>upload</button> -->
+  <!-- <button ion-button round color="own" (click)="preview()">Preview</button> -->
+  <!-- </ion-content> -->
+ </ion-card-content>
 </ion-card> 
+
 </ion-content>
