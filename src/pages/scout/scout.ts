@@ -29,9 +29,6 @@ export class ScoutPage {
    
        this.videos = data;
      });
-<<<<<<< HEAD
-  }
-=======
   
   }
   Upload(){
@@ -46,20 +43,10 @@ export class ScoutPage {
 
   }
 
->>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
   
    test(indexNUmber){
      this.navCtrl.push(CommentsPage, {vid:this.videos[indexNUmber]})
    }
-<<<<<<< HEAD
-
-profile(a){
-  const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
-  console.log(a);
-  modal.present();
-}
-=======
->>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
 viewartist(){
   const modal = this.modalCtrl.create(ArtistProfilePage);
   modal.present();

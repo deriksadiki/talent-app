@@ -1,48 +1,24 @@
 import { Component, Input } from '@angular/core';
-
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-
 import { Talent} from '../../Modals/Talent';
-
 import { FirebaseProvider} from '../../providers/firebase/firebase';
-
 import { HomePage } from '../home/home';
-
 import { unescapeIdentifier } from '@angular/compiler';
-
 import { ScoutPage } from '../scout/scout';
-
 import { ArtisthomePage } from '../artisthome/artisthome';
 
- 
-
 @IonicPage()
-
 @Component({
-
   selector: 'page-artist',
-
   templateUrl: 'artist.html',
-
 })
-
 export class ArtistPage {
-
- 
-
   artist = {} as Talent;
-
   url;
-
- 
-
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
 
   }
-
   reg(){
-
-
     if (this.artist.username == undefined && this.artist.email == undefined && this.artist.password == undefined && this.artist.name == undefined && this.artist.surname == undefined && this.artist.gender == undefined && this.artist.cellno == undefined && this.artist.age == undefined){
     const alert = this.alertCtrl.create({
       title: 'Warning',
@@ -121,18 +97,12 @@ export class ArtistPage {
       alert.present();
     }else {
       this.firebaseService.addImage(this.artist.username).then(data =>{
-
         console.log(data)
-
         this.firebaseService.getimagepropicurl(this.artist.username).then(data =>{
-
           console.log(data)
-
           this.firebaseService.registerTalentPerson(this.artist.username,this.artist.email, this.artist.password, this.artist.name, this.artist.surname, this.artist.gender, this.artist.cellno, this.artist.age).then(data =>{
             console.log(data)
-
             this.firebaseService.getuserType().then(()=>{
-
               const alert = this.alertCtrl.create({
               title: 'Welcome',
               subTitle: 'You have successfully Registered',
@@ -157,8 +127,6 @@ export class ArtistPage {
 
 }
   
-
-
   takePicture(){
     const confirm = this.alertCtrl.create({
       title: 'Options?',
@@ -188,7 +156,6 @@ export class ArtistPage {
     });
     confirm.present();
   }
-
 }
 
 

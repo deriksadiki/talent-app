@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angul
 import { UsersPage} from '../users/users';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {Guest} from '../../Modals/Guest';
+import { RegisterPage } from '../register/register';
 
 @IonicPage()
 @Component({
@@ -44,8 +45,8 @@ if ( this.guest.Username == undefined && this.guest.email == undefined && this.g
     buttons: ['OK']
   });
   alert.present();
+  
 }else { this.firebaseService.getimagepropicurl(this.guest.Username).then(data =>{
-
   console.log(data)
   this.firebaseService.registerUser(this.guest.email, this.guest.password,this.guest.Username).then(() => {
     const alert = this.alertCtrl.create({
@@ -66,5 +67,5 @@ if ( this.guest.Username == undefined && this.guest.email == undefined && this.g
   }
   takePicture(){
     this.firebaseService.uploadpic();
-  }
+}
 }

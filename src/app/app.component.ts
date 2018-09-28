@@ -53,46 +53,39 @@ if('Log-Out')
             { title: 'Share', component: HomePage, icon: "md-send" },
             { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
             { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
-
-
           ]
         }
         else if (data == "talentPerson"){
+      if (data == 1){   
+        this.firebaseService.getuserType().then(() =>{
           this.pages = [
-
-
             { title: 'Home', component: ArtisthomePage, icon:"md-home"},
             { title: 'Gallery', component: GalleryPage, icon:"md-images" },
             { title: 'Profile', component: ProfilePage, icon: "md-person"},
             { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" },
             { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"}
-
-
-
           ];
            this.rootPage =  ArtisthomePage;
         }
         else if (data == "ScoutPerson"){
 
           this.pages = [
-
             { title: 'Home', component: ScoutPage, icon: "md-home" },
             { title: 'Profile', component:ScouteProfilePage, icon: "md-person" },
             { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
             { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
-
-
           ];
           this.rootPage = ScoutPage;
         }
       })
+         this.rootPage = ArtisthomePage;
+        })
       }
       else{
        this.rootPage = LoginPage ;
       }
     })
   }
-
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
