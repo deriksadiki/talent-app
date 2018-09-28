@@ -55,7 +55,7 @@ else {
       subTitle: 'You have successfully Registared',
       buttons: ['OK']
     });
-    this.navCtrl.push(RegisterPage);
+    this.navCtrl.push(RegisterPage, {username:this.guest.Username});
     
     alert.present();
    })

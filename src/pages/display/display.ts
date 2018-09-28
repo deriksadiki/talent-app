@@ -21,6 +21,7 @@ export class DisplayPage {
 
   ionViewDidLoad() {
   var user = this.navParams.get('user');
+  this.arr.length = 0;
     this.firebaseService.viewArtistProfile(user).then((data:any) =>{
     this.arr = data;
     console.log(this.arr);

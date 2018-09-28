@@ -161,11 +161,14 @@ addImage(username){
     duration: 17000
   });
   loading.present();
-  return new Promise ((accpt, rej) =>{
-    this.storageRef.ref('pictures/' + username + ".jpg").putString(this.image, 'data_url');
-    loading.dismiss();
-    accpt("image added to storage")
-  })
+  if (this.image != undefined || this.image != null){
+    return new Promise ((accpt, rej) =>{
+      this.storageRef.ref('pictures/' + username + ".jpg").putString(this.image, 'data_url');
+      loading.dismiss();
+      accpt("image added to storage")
+    })
+  }
+
 
 }
 
@@ -387,6 +390,14 @@ storePictureUrl(url){
 this.imgurl =  url;
 }
 
+returnPictureUrl(){
+  var image;
+  if (this.imgurl == undefined || this.imgurl == null){
+    image = '../../assets/imgs/pic.jpg';
+  }
+  return image;
+}
+
 storeUserKey(key){
   console.log(key);
 this.userKey = key;
@@ -399,6 +410,7 @@ console.log(this.currentUserID);
 
 getProfile(){
   return new Promise ((accpt, rej) =>{
+    this.profile.length = 0;
     this.database.ref('users/' + this.currentUserID).on('value', (data2: any) => {
       var details = data2.val();
       console.log(details);

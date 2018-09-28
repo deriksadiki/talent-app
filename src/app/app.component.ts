@@ -31,7 +31,8 @@ export class MyApp {
 
   activePage: any;
  
-
+name;
+picture;
   public rootPage: any;
 
 
@@ -46,6 +47,9 @@ if('Log-Out')
  
       if (data == 1){   
         this.firebaseService.getuserType().then(() =>{
+          this.name = this.firebaseService.getusername();
+          this.picture =  this.firebaseService.returnPictureUrl(); 
+          console.log(this.picture)
           this.pages = [
             { title: 'Home', component: ArtisthomePage, icon:"md-home"},
             { title: 'Gallery', component: GalleryPage, icon:"md-images" },
