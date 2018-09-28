@@ -12,6 +12,14 @@ import { ScoutPage} from '../pages/scout/scout'
 import { UsersPage } from '../pages/users/users';
 import { LogoutPage } from '../pages/logout/logout';
 import { ArtisthomePage } from '../pages/artisthome/artisthome';
+import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
+import { ArtistProfilePage } from '../pages/artist-profile/artist-profile';
+
+import { MessagePage } from '../pages/message/message';
+import { SeeMessagesPage } from '../pages/see-messages/see-messages';
+import { GalleryPage } from '../pages/gallery/gallery';
+
+
 
 
 
@@ -21,22 +29,17 @@ import { ArtisthomePage } from '../pages/artisthome/artisthome';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  activePage: any;
+ 
 
   public rootPage: any;
 
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon?: string}>;
   
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private firebaseService:FirebaseProvider) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home3', component: ArtisthomePage },
-      { title: 'Upload', component: HomePage },
-      { title: 'Profile', component: ProfilePage },
-      { title: 'Log-Out', component: LogoutPage },
-    ];
 if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
       if (data == 1){
@@ -45,27 +48,43 @@ if('Log-Out')
         if (data == "normalPerson"){
           this.rootPage = UsersPage;
           this.pages = [
-            { title: 'Home1', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
-            { title: 'Log-Out', component: LogoutPage },
-          ];
+           { title: 'Home', component: ArtisthomePage, icon: "md-home"},
+            // { title: 'Home', component: UsersPage },
+            { title: 'Share', component: HomePage, icon: "md-send" },
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
+
+
+          ]
         }
         else if (data == "talentPerson"){
           this.pages = [
-            { title: 'Home2', component: ArtisthomePage },
-            { title: 'Upload', component: HomePage },
-            { title: 'Profile', component: ProfilePage },
-            { title: 'Log-Out', component: LogoutPage },
+
+
+            { title: 'Home', component: ArtisthomePage, icon:"md-home"},
+            { title: 'Gallery', component: GalleryPage, icon:"md-images" },
+            { title: 'Profile', component: ProfilePage, icon: "md-person"},
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" },
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"}
+
+
+
           ];
            this.rootPage =  ArtisthomePage;
         }
         else if (data == "ScoutPerson"){
-         
-       
+
+          this.pages = [
+
+            { title: 'Home', component: ScoutPage, icon: "md-home" },
+            { title: 'Profile', component:ScouteProfilePage, icon: "md-person" },
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
+
+
+          ];
           this.rootPage = ScoutPage;
         }
-  
       })
       }
       else{

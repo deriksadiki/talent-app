@@ -1,63 +1,62 @@
-
-
 <ion-header>
-    <div class="img" align="center">
-  <ion-navbar color="trans">
-    <!-- <ion-title>Your Profile</ion-title> -->
-  <!-- </ion-navbar>
-  
-  
-  
-  <img class="pic" src="../../assets/imgs/face.webp">
-  <h1>Jorja Smith</h1>
-  
-  <ion-grid class="dash">
-  <ion-row>
-    <ion-col>
-        <ion-icon name="logo-twitter"></ion-icon><br>
-        Followers<br><br>
-        10,000
-    </ion-col>
-  
-    <ion-col>
-        <ion-icon name="thumbs-up"></ion-icon><br>
-        Likes<br><br>
-        20,000
-    </ion-col>
-  
-    <ion-col>
-        <ion-icon name="text"></ion-icon><br>
-        Comments<br><br>
-        10,000
-    </ion-col>
-  </ion-row>
-  </ion-grid>
-  
-  
-  <button id="btn" class="animated infinite pluse delay-2s" ion-button (click)="update()" clear><ion-icon name="hammer"></ion-icon>...</button>
-  
-  </div>
-  </ion-header>
-  
-  
-  <ion-content class="cont">
-    <div align="center">
-        <h2>Your Vid'It profile</h2>
-      </div>
+        <div *ngFor="let i of arr2;" class="img" align="center">
+      <ion-navbar color="trans">
+        <button style="color: white" ion-button menuToggle icon-only>
+        <ion-icon name='menu'></ion-icon>
+        </button>
+     </ion-navbar>
+     <div class="mac">
+      <img class="pics" src="{{i.imageURl}}">
       <br>
-  
-      <div>
-  
-  <ion-list class="list">
-  
-    <p><ion-icon name="contact"></ion-icon>&emsp;Jorja</p>
-    <p><ion-icon name="contact"></ion-icon>&emsp;Smith</p>
-    <p><ion-icon name="mail"></ion-icon>&emsp;JorjaSmith23@gmail.com</p>
-    <p><ion-icon name="transgender"></ion-icon>&emsp;Female</p>
-    <p><ion-icon name="call"></ion-icon>&emsp;0168753482</p>
-    <p><p><ion-icon name="contact"></ion-icon>&emsp;30</p>
-  </ion-list>
-  
-  </div>
-  </ion-content> -->
-
+      <h1 class="nam">{{i.name}}</h1>
+    </div>
+    <div class = "dash1">
+      <ion-grid class="dash">
+      <ion-row>
+        <ion-col class="space">
+                <ion-icon name="videocam"></ion-icon><br>
+            Uploads<br><br>
+            10,000
+        </ion-col>
+        <ion-col class="space">
+            <ion-icon name="thumbs-up"></ion-icon><br>
+            Likes<br><br>
+            20,000
+        </ion-col>
+        <ion-col class="space">
+            <ion-icon name="text"></ion-icon><br>
+            Comments<br><br>
+            10,000
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+    </div>
+      </div>
+      <ion-icon class="sbtn" name="settings"></ion-icon>
+      </ion-header>
+      <ion-content *ngFor="let i of arr2;" class="cont">
+        <div align="center">
+            <button class="btn" ion-button color="own" (click)="Update()" outline>Edit Profile</button>
+        </div>
+        <div align="center">
+            <h2>Your Vid'It profile</h2>
+          </div>
+          <br>
+          <h3>{{i.name}} {{i.surname}}</h3>
+          <h4>{{i.gender}} | {{i.age}}</h4>
+     
+          <div>
+            <ion-grid class="things" align="center">
+                <ion-row>
+                    <ion-col>
+                        <img src="../../assets/imgs/phone (1).png"><br>
+                        <p>{{i.cellno}}</p>
+                    </ion-col>
+                    <ion-col>
+                        <img src="../../assets/imgs/close-envelope.png"><br>
+                        <p>JorjaSmith23@gmail.com</p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+      </div> 
+      </ion-content>

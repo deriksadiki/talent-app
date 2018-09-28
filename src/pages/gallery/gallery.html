@@ -1,0 +1,44 @@
+<!--
+  Generated template for the GalleryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="own">
+      <ion-title>gallery</ion-title>
+      <button ion-button menuToggle icon-only>
+          <ion-icon name='menu'></ion-icon>
+        </button>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content class="img" padding >
+    <h1>Your Videos</h1>
+      <ion-card class="col1" *ngFor="let i of myVideos;" >
+        <ion-row >
+            <ion-item (click)="profile(a)">
+                <ion-avatar item-start >
+                  <img src="{{i.img}}">
+                </ion-avatar>
+                <h2><b>{{i.name}}</b></h2>
+<<<<<<< HEAD
+=======
+                <!-- <p><b>{{i.vidname}}</b></p> -->
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
+              </ion-item>
+            <video width="390" height="120" controls>
+                <source src={{i.vidurl}} type="video/mp4">
+                <source src={{i.vidurl}} type="video/mkv">
+            </video>  
+            <br>
+            <br>
+            <button ion-button  icon-start clear small center>
+              <div>  {{i.date}}</div>
+              </button>
+        
+        </ion-row>
+      </ion-card>
+    </ion-content>

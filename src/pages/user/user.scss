@@ -1,5 +1,5 @@
 page-user {
-
+    font-family: 'Ubuntu', sans-serif;
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -25,12 +25,24 @@ page-user {
         width: 80%;
         margin-bottom: 20px;
         position: relative;
-        left: 10%;
+
+        // right: 15%;
+
         border-radius: 30px;
         padding: 0.5px;
         padding-left: 7%;
         
        
+    }
+    .butt1{
+        // margin-right: 10px;
+        text-align: center;
+        // margin-left: 180px;
+        display: flex;
+        // margin: 0 auto;
+        align-content: center;
+        justify-content: center;
+        // float: right;
     }
     .i{
         margin-right: 15px;
@@ -50,10 +62,11 @@ page-user {
     }
     .butt{
         text-align: center;
+        width: 60%;
     }
     button{
         // position: relative;
         // top: 30px;
-        // width: 30%;
+        // width: 60%;
     }
 }

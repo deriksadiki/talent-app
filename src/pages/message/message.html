@@ -1,0 +1,102 @@
+<<<<<<< HEAD
+<!--
+ Generated template for the MessagePage page.
+
+ See http://ionicframework.com/docs/components/#navigation for more info on
+ Ionic pages and navigation.
+-->
+
+
+
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons start>
+          <button (click)="goBack()" clear>
+              <ion-icon name="arrow-round-back"></ion-icon>
+          </button>
+      </ion-buttons>
+=======
+<ion-header>
+  <ion-toolbar color = "own">
+         <button color = "own" ion-button (click)="goBack()"  >
+        <ion-icon name="md-arrow-round-back"></ion-icon>
+    </button>
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
+   <ion-title>
+        <ion-avatar class="pics" item-start>
+                <img src={{img}}>
+            </ion-avatar>
+   <h1>{{name}}</h1>
+   <h2>last seen {{lastSeen}}</h2>
+   </ion-title>
+<<<<<<< HEAD
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content class="img" scrollDownOnLoad="true">
+
+
+  <ion-list *ngFor="let i of messages" [ngStyle]="i.float"  no-lines >
+    <ion-item class="item" class="reply" color={{i.color}}>
+        <p>{{i.message}} <span style="float: right;">{{i.date}}</span></p>
+=======
+  
+  </ion-toolbar>
+ </ion-header>
+ 
+ 
+ 
+ 
+ <ion-content class="img" scrollDownOnLoad="true">
+ <ion-card-content>
+ <div  class="msg">
+  <ion-list *ngFor="let i of messages" [ngStyle]="i.float"  no-lines >
+        <ul>
+    <ion-item class="item" class="reply" color={{i.color}}>
+      <ion-list>
+        <p text-wrap class="mesage" >{{i.message}}<span style="float: right;">{{i.date}}</span></p>
+    </ion-list>
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
+    </ion-item>
+</ul>
+  </ion-list>
+</div>
+</ion-card-content>
+ </ion-content>
+ 
+<<<<<<< HEAD
+
+</ion-content>
+
+
+
+<ion-footer class="foot">
+<div class="down">
+=======
+ 
+ 
+ <ion-footer class="foot">
+ <div class="down">
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
+    <ion-item  class="item2" >
+        <textarea  #text class="comments" #comment type="text" cols="40" rows="5" placeholder="Type a message.." ></textarea>
+      </ion-item>
+      </div>
+<<<<<<< HEAD
+
+      <button class="send" ion-button round color = "own" (click)="sendMessage(text.value)"><ion-icon name="send" md="md-send"></ion-icon></button>
+
+
+
+</ion-footer>
+=======
+ <div fixed bottom align=" right">
+      <button item-end class="send" ion-button round color = "own" (click)="sendMessage(text.value)"><ion-icon name="md-send" ></ion-icon></button>
+    </div>
+ 
+ 
+ </ion-footer>
+>>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794

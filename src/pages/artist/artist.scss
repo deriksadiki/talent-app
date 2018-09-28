@@ -1,5 +1,5 @@
 page-artist {
-
+    font-family: 'Ubuntu', sans-serif;
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -20,19 +20,23 @@ page-artist {
     ion-label.label{
         color: whitesmoke;
     }
+    .box{
+        margin-right: 57%;
+    }
     .item{
         background-color: rgba(255, 255, 255, 0.192);
         color: white;
         width: 80%;
         margin-bottom: 10px;
         position: relative;
-        left: 10%;
+
+        // right: 15%;
         border-radius: 30px;
         // padding: 0.5px;
         padding-left: 7%;
         top: 20px;
-        position: relative;
-        top: 15%;
+      
+
         
        
     }
@@ -45,7 +49,7 @@ page-artist {
         text-align: center;
         // margin-left: 180px;
         display: flex;
-        margin: 0 auto;
+        // margin: 0 auto;
         align-content: center;
         justify-content: center;
         // float: right;
@@ -62,8 +66,9 @@ page-artist {
         text-align: center;
         padding-top: 8%;
         font-size: 200%;
-       font-weight: 100;
-       position: relative;
-       bottom: 40px;
+        font-weight: 100;
+        position: relative;
+         bottom: 40px;
     }  
+  
 }

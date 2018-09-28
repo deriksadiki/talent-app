@@ -1,0 +1,52 @@
+<ion-header>
+
+<ion-navbar>
+
+    <ion-title>Talent Profile</ion-title>
+    <button ion-button color="custom" clear (click)="dismiss()">back
+      <span ion-text color="primary" showWhen="ios"></span>
+
+      <ion-icon name="back-arrow" showWhen="android,windows"></ion-icon>
+  </button>
+  
+  
+  <ion-title align="center">Talent Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="img">
+    <ion-card class="Card" *ngFor="let i of arr;let i of index;">
+
+
+        <img src="{{i.img}}"/>
+    
+        <ion-card-content align="center">
+          <ion-card-title align="center">
+            {{i.name}} {{i.surname}}
+          </ion-card-title>
+          <h3>Age: <br>{{i.age}}</h3>
+          <br>
+          <h3>Gender: <br> {{i.gender}}</h3>
+          <br>
+          <h3>Contacts: <br> {{i.cellno}} </h3>
+        </ion-card-content>
+    
+        <ion-item>
+          <ion-icon name='logo-youtube' item-start style="color: #d03e84"></ion-icon>
+          Videos
+          <ion-badge item-end>9</ion-badge>
+        </ion-item>
+    
+        <ion-item>
+          <ion-icon name='thumbs-up' item-start style="color: own"></ion-icon>
+          Likes
+          <ion-badge item-end>260k</ion-badge>
+        </ion-item>
+    
+      </ion-card>
+<div align = "center" >
+<button ion-button (click)="Message()">Message</button>
+</div>
+</ion-content>

@@ -1,19 +1,20 @@
 page-artist-profile-update {
-    
+    // font-family: 'Ubuntu', sans-serif;
     .section{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
         background-color: black;
         background-size: cover;
-        height: 44%;
+        height: 48vh;
        background-repeat: no-repeat;
        background-position: center;
     }
     .item{
         // box-shadow: 2px 2px 2px ;
-        border-radius: 12px;
-        position: relative;
-        bottom: 20px;
+        // border-radius: 12px;
+        // position: relative;
+        // bottom: 20px;
+        // right: 100px;
         margin-block-end: 1px;
     
     }
@@ -26,8 +27,11 @@ page-artist-profile-update {
     }
     .butt{
         text-align: center;
-        position: relative;
+        // position: relative;
         bottom: 10%;
+    }
+    .boxs{
+        margin-right: 68%;
     }
 
     h1{
@@ -44,7 +48,7 @@ page-artist-profile-update {
         color: #F53D4E;
         font-size: 200%;
         position: relative;
-        bottom: 130px;
+        bottom: 188px;
         left: 55%;
         font-weight: bold
     }
@@ -57,7 +61,7 @@ page-artist-profile-update {
         font-weight: 100;
         text-align: center;
         position: relative;
-        bottom: 40px;
+        // bottom: 40px;
         
     }
 }

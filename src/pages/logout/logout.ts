@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController, ModalController, A
 import { HomePage } from '../home/home';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { LoginPage } from '../login/login';
+import { ArtisthomePage } from '../artisthome/artisthome';
 
 
 
@@ -25,14 +26,14 @@ export class LogoutPage {
           text: 'Disagree',
           handler: () => {
             console.log('Disagree clicked');
-            this.navCtrl.push(HomePage);
+            this.navCtrl.push(ArtisthomePage);
           }
         },
         {
           text: 'Agree',
           handler: () => {
             console.log('Agree clicked');
-            this.firebaseService.authnticate.signOut();
+            this.firebaseService.logout();
             this.navCtrl.push(LoginPage);
           }
         }
