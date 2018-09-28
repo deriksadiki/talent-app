@@ -38,6 +38,7 @@ export class FirebaseProvider {
   messagePic =  new Array();
   messagepicture;
   path;
+  userKey;
   
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
@@ -53,6 +54,53 @@ login(email, password){
 
 }
 
+addMoreUserINformation(name, surname,dateOfBirth, gender, cmpNme, cmpEmail, cmpTel, Bio){
+ return new Promise ((accpt,rej) =>{
+  var image;
+  if (this.image == undefined || this.image == null){
+    image = '../../assets/imgs/pic.jpg';
+  }
+  if (name == undefined){
+    name = ""
+  }
+  if (surname == undefined){
+    surname = ""
+  }
+  if (dateOfBirth == undefined){
+    dateOfBirth = ""
+  }
+  if (gender == undefined){
+    gender = ""
+  }
+  if (cmpNme == undefined){
+    cmpNme = ""
+  }
+  if ( cmpEmail == undefined){
+    cmpEmail = ""
+  }
+  if (cmpTel == undefined){
+    cmpTel = ""
+  }
+  if (Bio == undefined){
+    Bio = ""
+  }
+   var path = 'users/' + this.currentUserID + '/' + this.userKey;
+   this.database.ref(path).update({
+     name : name,
+     surname : surname,
+     dateOfBirth : dateOfBirth,
+     gender : gender,
+     compName: cmpNme,
+     compEmail: cmpEmail,
+     compTel : cmpTel,
+     imageURl:  image,
+     Bio : Bio
+   })
+   accpt('done')
+ })
+}
+
+
   registerUser(email,password, Username){
 
     return new Promise((accept,reject) =>{
@@ -61,8 +109,15 @@ login(email, password){
         this.dbRef =  'users/' + Username + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           Username:Username,
-          userType: "normalPerson",
-          imageURl:  this.imgurl
+          name: " ",
+          surname:" ",
+          dateOfBirth:" ",
+          gender:" ",
+          compName:" ",
+          compEmail: " ",
+          compTel : " ",
+          imageURl:  '../../assets/imgs/pic.jpg',
+          Bio : " "
         })
       accept("user registred")
       }, Error =>{
@@ -71,57 +126,6 @@ login(email, password){
     })
   }
   
-  registerTalentPerson(username,email,password, name, surname, gender, cellno, age){
-    let loading = this.loadingCtrl.create({
-      spinner: 'bubbles',
-      content: 'Please wait',
-      duration: 17000
-    });
-    loading.present();
-      this.username =  username;
-      return new Promise((accept,reject) =>{
-      this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-        var user = firebase.auth().currentUser;
-        this.dbRef =  'users/' +  username + ":" + user.uid;
-        this.database.ref(this.dbRef).push({
-          name:name,
-          surname:surname,
-          gender:gender,
-          cellno:cellno,
-          age:age,
-          userType: "talentPerson",
-          imageURl:  this.imgurl
-        })
-        loading.dismiss();
-        accept("success");
-      }, Error =>{
-        reject(Error.message);
-        console.log(Error.message);
-      })
-    })
-  }
-
-
-  registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno){
-    return new Promise((accept,reject) =>{
-      this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-      var user = firebase.auth().currentUser;
-        this.dbRef =  'users/' + surname + ":" + user.uid;
-        this.database.ref(this.dbRef).push({
-          name:name,
-          companyName:companyName,
-          companyemail:companyemail,
-          companycellno:companycellno,
-          userType: "ScoutPerson",
-          imageURl:  this.imgurl
-        })
-        accept("success");
-      }, Error =>{
-        reject(Error.message);
-      })
-    })
-  }
-
   logout(){
     console.log('exit')
     var user = firebase.auth().currentUser;
@@ -168,7 +172,7 @@ addImage(username){
 getimagepropicurl(username){
   let loading = this.loadingCtrl.create({
     spinner: 'bubbles',
-    content: 'Please wait',
+    content: 'Almost done, Please wait!',
     duration: 5000
   });
   loading.present();
@@ -194,7 +198,7 @@ return new Promise ((accpt,rej) =>{
     }
       const results = await this.camera.getPicture(options);
       this.image = `data:image/jpeg;base64,${results}`;
-      console.log(this.image);
+      return this.image;
   }
 
   uploadvid(vid){
@@ -240,7 +244,7 @@ storeToDB(name, category, vidname, vidDesc){
             username : this.username,
             userImg : this.imgurl,
             date : day,
-            likes : 1,
+            likes : 0,
             comments : 1
           });
           accpt('success');
@@ -337,6 +341,7 @@ getAllvideos(){
 storeLastSeen(user2){
 }
 getuserType(){
+  console.log('user type')
 return new Promise ((accpt, rej) =>{
   this.database.ref('users').on('value', (data: any) => {
     var users =  data.val();
@@ -350,7 +355,6 @@ return new Promise ((accpt, rej) =>{
         this.storeUserName(userIDs[x].substr(0,index));
         this.storeLastSeen(userIDs[x].substr(0,index));
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
-            var Userdetails;
             var Userdetails = data.val(); 
             this.storeuserid(userIDs[x])
             var keys2:any = Object.keys(Userdetails);
@@ -358,9 +362,13 @@ return new Promise ((accpt, rej) =>{
             let storageRef =  firebase.storage().ref();
            var img = userIDs[x].substr(0,index) + ".jpg"
             let imgRef = storageRef.child('pictures/' + img);
+            var url2 = Userdetails[keys2[0]].imageURl;
+            this.storeUserKey(keys2[0])
             imgRef.getDownloadURL().then(function(url) {
             this.storePictureUrl(url);
-            }.bind(this)).catch(function(error) {})
+            }.bind(this)).catch(function(error) {
+          
+            })
             accpt(Userdetails[keys2].userType)
            });
         break;
@@ -375,7 +383,13 @@ this.username = name;
 }
 
 storePictureUrl(url){
+  console.log(url)
 this.imgurl =  url;
+}
+
+storeUserKey(key){
+  console.log(key);
+this.userKey = key;
 }
 
 storeuserid(uid){
@@ -496,16 +510,20 @@ viewArtistProfile(user){
 
 comment(key,text){
   return new Promise ((accpt, rej) =>{
-    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
+if (this.imgurl == undefined || this.imgurl == null){
+  this.database.ref('users/' + this.currentUserID).on('value', (data2: any) => {
+    var details = data2.val();
+    var keys = Object.keys(details);
+    this.storePictureUrl(details[keys[0]].imageURl)
+  })
+}
+
+   var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('comments/' + key).push({
       text:text,
       username: this.username,
       date : day,
-<<<<<<< HEAD
-      // img : this.imgurl
-=======
       img : this.imgurl
->>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
     })
     accpt("comment added")
   })
@@ -591,6 +609,13 @@ getresults(){
 
 
 startConvo(username, text){
+  if (this.imgurl == undefined || this.imgurl == null){
+    this.database.ref('users/' + this.currentUserID).on('value', (data2: any) => {
+      var details = data2.val();
+      var keys = Object.keys(details);
+      this.storePictureUrl(details[keys[0]].imageURl)
+    })
+  }
   var day = moment().format('MMMM Do YYYY, h:mm:ss a');
   console.log(username);
     this.database.ref('message/' + username).push({
@@ -598,7 +623,7 @@ startConvo(username, text){
       message : text,
       name : this.username,
       receiver : this.messagepicture,
-      //sender : this.imgurl
+      sender : this.imgurl
     })
    console.log("convo started")
 }
@@ -713,6 +738,7 @@ getImagesURL(){
 }
 
 getConversation(user){
+  console.log('get convo')
   return new Promise ((accpt, rej) =>{
     this.database.ref('message').on('value', (data: any) => {
       if (data.val() != null || data.val() != undefined){
@@ -729,20 +755,23 @@ getConversation(user){
               if (messageID == this.username && user  == messageID2)
               {
                   this.storeDefaultPath(key[x]);
+                  console.log('finished')
                   accpt('finished')
                   break;
               }
               else if (messageID2 == this.username && user == messageID){
                 this.storeDefaultPath(key[x]);
                 accpt('finished')
+                console.log('finished')
                 break;
             }
           }
           }
-            accpt('no path')
         })
+
       }
     })
+    accpt('no path')
   })
 }
 

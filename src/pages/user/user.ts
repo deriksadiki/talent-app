@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angul
 import { UsersPage} from '../users/users';
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {Guest} from '../../Modals/Guest';
+import { RegisterPage } from '../register/register';
 
 @IonicPage()
 @Component({
@@ -38,56 +39,29 @@ if ( this.guest.Username == undefined && this.guest.email == undefined && this.g
  });
  alert.present();
 } else if (this.guest.Username == undefined){
-<<<<<<< HEAD
-  const alert = this.alertCtrl.create({
-    title: 'Warning',
-    subTitle: 'Username cannot be left out',
-    buttons: ['OK']
-  });
-  alert.present();
-}else { this.firebaseService.getimagepropicurl(this.guest.Username).then(data =>{
-
-  console.log(data)
-  this.firebaseService.registerUser(this.guest.email, this.guest.password,this.guest.Username).then(() => {
-    const alert = this.alertCtrl.create({
-   title: 'Welcome',
-   subTitle: 'You have successfully Registared',
-   buttons: ['OK']
- });
- this.navCtrl.push(UsersPage);
- window.location.reload();
- alert.present(); 
- })
-})
-
-}
-  }
-  takePicture(){
-    this.firebaseService.uploadpic();
-  }
-=======
  const alert = this.alertCtrl.create({
    title: 'Warning',
    subTitle: 'Username cannot be left out',
    buttons: ['OK']
  });
  alert.present();
-}else { this.firebaseService.getimagepropicurl(this.guest.Username).then(data =>{
+}
+else { 
 
- console.log(data)
  this.firebaseService.registerUser(this.guest.email, this.guest.password,this.guest.Username).then(() => {
-   const alert = this.alertCtrl.create({
-  title: 'Welcome',
-  subTitle: 'You have successfully Registared',
-  buttons: ['OK']
-});
-this.navCtrl.push(UsersPage);
-window.location.reload();
-alert.present();
-})
+   this.firebaseService.getuserType().then(() =>{
+    const alert = this.alertCtrl.create({
+      title: 'Welcome',
+      subTitle: 'You have successfully Registared',
+      buttons: ['OK']
+    });
+    this.navCtrl.push(RegisterPage);
+    
+    alert.present();
+   })
+  
 })
 
->>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
 }
  }
  takePicture(){

@@ -43,58 +43,19 @@ export class MyApp {
     // used for an example of ngFor and navigation
 if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
-      if (data == 1){
-        this.firebaseService.getuserType().then(data =>{
-          console.log(data)
-        if (data == "normalPerson"){
-          this.rootPage = UsersPage;
+ 
+      if (data == 1){   
+        this.firebaseService.getuserType().then(() =>{
           this.pages = [
-
-
-
-<<<<<<< HEAD
-           { title: 'Home', component: ArtisthomePage, icon: "home"},
-=======
-           { title: 'Home', component: ArtisthomePage, icon: "md-home"},
->>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
-            // { title: 'Home', component: UsersPage },
-            { title: 'Share', component: HomePage, icon: "md-send" },
-            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
-            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
-
-
-          ]
-        }
-        else if (data == "talentPerson"){
-          this.pages = [
-
-
             { title: 'Home', component: ArtisthomePage, icon:"md-home"},
             { title: 'Gallery', component: GalleryPage, icon:"md-images" },
             { title: 'Profile', component: ProfilePage, icon: "md-person"},
             { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" },
             { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"}
-
-
-
           ];
-           this.rootPage =  ArtisthomePage;
-        }
-        else if (data == "ScoutPerson"){
-          this.pages = [
+         this.rootPage = ArtisthomePage;
+        })
 
-
-
-            { title: 'Home', component: ScoutPage, icon: "md-home" },
-            { title: 'Profile', component:ScouteProfilePage, icon: "md-person" },
-            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
-            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
-
-
-          ];
-          this.rootPage = ScoutPage;
-        }
-      })
       }
       else{
        this.rootPage = LoginPage ;

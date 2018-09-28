@@ -34,7 +34,9 @@ export class DisplayPage {
     this.viewCtrl.dismiss();
   }
   Message(){
+    console.log('message')
     this.firebaseService.getConversation(this.navParams.get('user')).then(data =>{
+      console.log(data);
       if (data =='no path'){
         var user =  this.firebaseService.getusername() + ":" +  this.navParams.get('user');
         console.log('no path, creating one ' + user);

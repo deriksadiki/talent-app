@@ -18,12 +18,8 @@ import { HomePage } from '../home/home';
 })
 export class ArtisthomePage {
 videos = [];
-<<<<<<< HEAD
-color;
-=======
 myVideos = [];
 color = "primary";
->>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, private modalCtrl: ModalController) {
   }
 

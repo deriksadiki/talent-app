@@ -5,8 +5,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import { FirebaseProvider} from '../../providers/firebase/firebase';
 import {login} from '../../Modals/login'
 import { ArtisthomePage } from '../artisthome/artisthome';
-import { UsersPage } from '../users/users';
-import { ScoutPage } from '../scout/scout';
+import {UserPage} from '../user/user';
 import { updateDimensions } from 'ionic-angular/components/virtual-scroll/virtual-util';
 import { UploadPreviewPage } from '../upload-preview/upload-preview';
 
@@ -27,7 +26,7 @@ export class LoginPage {
   }
   
 Reg(){
-  this.navCtrl.push(RegisterPage);
+  this.navCtrl.push(UserPage);
 }
 
 showForgotPassword(){
@@ -87,31 +86,15 @@ showForgotPassword(){
 
   login(){
     this.firebaseService.login(this.users.email,this.users.password).then(()=>{
-      const alert = this.alertCtrl.create({
-        title: 'Welcome',
-        message: 'You have successfully logged in',
-        buttons: ['OK']
-      });
-      alert.present();
-      this.firebaseService.getuserType().then(data =>{
-        console.log(data)
-        if (data == "normalPerson"){
-          window.location.reload();
-
-        }
-        else if (data == "talentPerson"){
-
-          window.location.reload();
-
-        }
-        else if (data == "ScoutPerson"){
-          window.location.reload();
-        }
-        else{
-            window.location.reload();
-        }
+      this.firebaseService.getuserType().then(() =>{
+        const alert = this.alertCtrl.create({
+          title: 'Welcome',
+          message: 'You have successfully logged in',
+          buttons: ['OK']
+        });
+        alert.present();
+        this.navCtrl.push(ArtisthomePage);
       })
-    
     }, Error =>{
       if (this.users.email == undefined && this.users.password == undefined){
         const alert = this.alertCtrl.create({
@@ -146,10 +129,5 @@ showForgotPassword(){
       }
     })
   }
-
-
-  // uploadpreview=function(){
-  //   this.navCtrl.push(UploadPreviewPage)
-  // }
 
 }

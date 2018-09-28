@@ -16,62 +16,27 @@ import { ArtisthomePage } from '../artisthome/artisthome';
  templateUrl: 'home.html'
 })
 export class HomePage {
-<<<<<<< HEAD
-  url ='assets/imgs/o.jpg'
-  category;
-  vidName;
-  vidDesc;
-  videos = new Array();;
-
- 
-=======
  url ='assets/imgs/o.jpg'
  category;
  vidName;
  vidDesc;
  videos = new Array();;
->>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
 
 
 
-<<<<<<< HEAD
-    insertvid(event:any){
-      this.videos.length = 0;
-      if (event.target.files && event.target.files[0]){
-        let reader = new FileReader();
-    
-        reader.onload = (event:any) =>{
-         this.videos.push (event.target.result);
-         this.url = event.target.result;
-          console.log(this.videos)
-        }
-        reader.readAsDataURL(event.target.files[0]);
-=======
  constructor(public navCtrl: NavController,private firebaseService:FirebaseProvider,public alertCtrl:AlertController, public modalCtrl: ModalController) {
 
  }
->>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
 
  insertvid(event:any){
   this.videos.length = 0;
   if (event.target.files && event.target.files[0]){
     let reader = new FileReader();
 
-<<<<<<< HEAD
-    preview(){
-
-      const modal = this.modalCtrl.create(UploadPreviewPage);
-      modal.present();
-
-    }
-    test(indexNUmber){
-      this.navCtrl.push(HomePage, {vid:this.videos[indexNUmber]})
-=======
     reader.onload = (event:any) =>{
      this.videos.push (event.target.result);
      this.url = event.target.result;
       console.log(this.videos)
->>>>>>> dda2be3f35357b6a53ef64820ed520de5dd6f794
     }
     reader.readAsDataURL(event.target.files[0]);
 
