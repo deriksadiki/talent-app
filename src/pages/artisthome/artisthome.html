@@ -29,26 +29,29 @@
 
          <ion-card-content>
            <p>{{i.vidDesc}}</p>
-           <ion-row>
-               <ion-col>
+           
+             <ion-grid>
+            <ion-row>   
+               <ion-col col-3>
                  <button color={{i.color}} ion-button icon-start clear small (click)="like(a)">
                    <ion-icon name="thumbs-up"></ion-icon>
                    <div><b>{{i.likes}} Likes</b></div>
                  </button>
-               </ion-col>
-               <ion-col>
+              </ion-col>
+                 <ion-col col-5>
                  <button  ion-button class="com" icon-start clear small center (click)="test(a)">
                    <ion-icon name="text"></ion-icon>
                    <div><b>{{i.comments}} Comments</b></div>
                  </button>
-               </ion-col>
-               <ion-col>
+                 </ion-col>
+                 <ion-col>
                    <button ion-button  icon-start clear small center>
-                <div>  {{i.date}}</div>
+                <div color="grey">{{i.date}}</div>
                </button>
 
                </ion-col>
                </ion-row>
+              </ion-grid> 
              </ion-card-content>
            </ion-card>
   </div>

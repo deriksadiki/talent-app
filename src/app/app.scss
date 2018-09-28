@@ -19,7 +19,8 @@
     font-family: 'Exo 2', sans-serif;
 }
     .menu{
-        background-image: linear-gradient(  maroon, maroon , red);
+        // background-image: linear-gradient( rgb(248, 145, 163) , maroon);
+        background-image: linear-gradient( rgb(179, 9, 9), rgb(68, 12, 17));
         // background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
         background-color: rgba(94, 10, 10, 0.74);
@@ -30,43 +31,41 @@
 }
 
 .liss{
-
-    color: rgba(255, 255, 255, 0.158);
-
-
+    // color: rgba(255, 255, 255, 0.158);
 }
-
 .buttons{
-    margin-bottom: 8%;
+    margin-bottom: 6%;
     position: relative;
     // right: 25%;
-    top: 35px;
-    // margin: 20px;
+    top: 19px;
     background-color: rgba(245, 61, 79, 0);
-
-
-
     color: rgb(255, 247, 247);
-
+   
 }
-
-
-
-
+.logo{
+    position: relative;
+    top: 20px;
+}
+// header{
+//     // color: white;
+  
+//     margin-left: 13%;
+//     position: relative;
+//     text-align: center;
+//     top: 10px;
+// }
 h1{
         font-size: 30px;
         color: whitesmoke;
         font-weight: 100;
 }
-
 .menu{
     
-    // background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+    background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
     background-attachment: fixed;
-    background-color: rgba(94, 10, 10, 0.74);
+    // background-color: rgba(94, 10, 10, 0.74);
     background-size: cover;
    background-repeat: no-repeat;
    background-position: center;
-
 }
 

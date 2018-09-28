@@ -18,12 +18,8 @@ import { HomePage } from '../home/home';
 })
 export class ArtisthomePage {
 videos = [];
-<<<<<<< HEAD
-color;
-=======
 myVideos = [];
 color = "primary";
->>>>>>> 5ef49cd3f65fc0b5392b237d44ee324470cbed59
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider, private modalCtrl: ModalController) {
   }
 
@@ -50,7 +46,7 @@ color = "primary";
         this.ionViewDidLoad();
       })
     }
-  else if (this.videos[keyIndex].color == 'primary'){
+  else if (this.videos[keyIndex].color == 'color2'){
          this.firebaseService.removeLike(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
           this.ionViewDidLoad();
          })

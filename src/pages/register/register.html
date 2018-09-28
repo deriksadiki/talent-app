@@ -1,34 +1,72 @@
-<!--
-  Generated template for the RegisterPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-  <ion-navbar color = "color">
-    <ion-title>Register</ion-title>
+  <ion-navbar>
+    <ion-title>Slides</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-<ion-content class="img">
-<br>
+<ion-content class="tutorial-page">
+    <ion-slides pager>
+        <ion-slide>
+          <h1>Welcome to Vid'It</h1>
+          <p>
+lhbsdkjfljjk kangjkn knsjgn knjsdgnv jknlkj kjbjbf nbjdbfv BJKBDV khvb jbjdv mnbksd.
+          </p>
+        </ion-slide>
+        <ion-slide>
+          <h1>Personal Information</h1>
+          <ion-item>
+            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+            <ion-input type="text" placeholder="Name"></ion-input>
+          </ion-item>
+    
+    
+          <ion-item class="items">
+            <ion-label ><ion-icon name="person" class="i"></ion-icon></ion-label>
+            <ion-input placeholder="Surname" type="text"></ion-input>
+          </ion-item>
+    
+            <ion-item class="items">
+                <ion-label ><ion-icon name="md-calendar" class="i"></ion-icon></ion-label>
+                <ion-input placeholder="Date of Birth" type="number"></ion-input>
+              </ion-item>
 
-    <div class="logo" align="center">
-        <img class="logo" src="../../assets/imgs/play-button (1).png">
-        </div>
-        <br>
-        <br>
-      <h2>Vid'It.</h2>
-      <div class="head">
-        <h1>Sign Up As?</h1>
-        </div>
-  <br>
-  <br>
- <div class="butt">
-<button id="but" class="animated jello delay-2s" ion-button block color = "own" (click) = "Artist()" >Artist</button><br>
-<button id="but" class="animated jello delay-2s" ion-button block color = "own" (click) = "User()">User</button><br>
-<button id="but" class="animated jello delay-2s" ion-button block color = "own" (click) = "scout()">Recruiter</button>
-</div>
+              <ion-item class="items">
+                  <ion-label > <ion-icon ios="ios-transgender" md="md-body" class="i"></ion-icon></ion-label>
+                  <ion-select class="box" placeholder="Gender" item-center>
+                      <ion-option value="Male">Male</ion-option>
+                      <ion-option value="Female">Female</ion-option>
+                    </ion-select>
+                </ion-item>  
+        </ion-slide>
+        <ion-slide>
+          <h1>Company Details</h1>
+          <ion-item>
+              <ion-label ><ion-icon name="home" class="i"></ion-icon></ion-label>
+              <ion-input type="text" placeholder= "Company Name" ></ion-input>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label ><ion-icon name="at" class="i"></ion-icon></ion-label>
+              <ion-input type="text" placeholder= "Company E-mail"></ion-input>
+            </ion-item>
+    
+            <ion-item>
+              <ion-label ><ion-icon name="call" class="i"></ion-icon></ion-label>
+              <ion-input type="text" placeholder= "Company Tel."></ion-input>
+            </ion-item>
+        </ion-slide>
+
+        <ion-slide>
+            <h1>Slide 4</h1>
+            
+                <button ion-button color="own" round (click)="takePicture()">Take photo</button> <br>
+              <br>
+              <br>
+                <ion-item class="info">
+                    <textarea maxlength="70"  type="text" cols="40" rows="5" placeholder="Short descrioption of yourself"></textarea>
+                </ion-item>
+              
+          </ion-slide>
+      </ion-slides>
+
 </ion-content>

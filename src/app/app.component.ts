@@ -30,7 +30,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   activePage: any;
- 
+
 
   public rootPage: any;
 
