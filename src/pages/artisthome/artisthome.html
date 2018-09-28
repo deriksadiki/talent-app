@@ -1,6 +1,6 @@
 
-
-      <ion-card *ngFor="let i of videos">
+<ion-content>     
+   <ion-card *ngFor="let i of videos">
           <ion-item>
             <ion-avatar item-start>
               <img src={{i.img}}>
@@ -8,10 +8,10 @@
             <h2>{{i.name}}</h2>
           </ion-item>
 
-          <video width="320" height="240" controls>
+          <!-- <video width="320" height="240" controls>
               <source src={{i.vidurl}} type="video/mp4">
               
-            </video>
+            </video> -->
 
           <ion-card-content>
             <p>{{i.vidDesc}}</p>
@@ -40,11 +40,16 @@
               <ion-icon name="update"></ion-icon>
               <div>Update profile</div>
             </button>
+
+            <button ion-button icon-start clear small (click)="Delete(i.key)" >
+                <ion-icon name="delete"></ion-icon>
+                <div>Delete vid</div>
+              </button>
             </ion-row> 
         </ion-card>
+      
+      </ion-content>
 
-    
-  </ion-content> 
 
 
 

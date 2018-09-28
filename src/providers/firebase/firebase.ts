@@ -116,6 +116,9 @@ login(email, password){
   forgotUserPassword(email:any){
     return this.authnticate.sendPasswordResetEmail(email);
   }
+
+
+  
   async uploadpic(){
   
           const options: CameraOptions= {
@@ -132,23 +135,42 @@ login(email, password){
           this.image = `data:image/jpeg;base64,${results}`;
   }
 
-  uploadvid(vid){
-    var d = Date.now();
-    let loading = this.loadingCtrl.create({
-      spinner: 'bubbles',
-      content: 'Please wait',
-      duration: 9000
-    });
-  return new Promise((accpt,rejc) =>{
-    loading.present();
-  this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
-    accpt(d);
-  }, Error =>{
-    rejc(Error.message)
-  })
-  })
-  }
 
+  getAllvideos(){
+
+    return new Promise ((accpt, rej) =>{
+      this.database.ref('uploads/').on('value', (data: any) => {
+        var videos = data.val();
+        var keys:any =  Object.keys(videos);
+          for (var i = 0; i < keys.length; i++){
+            var x = keys[i];
+            var y  = 'uploads/' + x;
+            var details;
+            this.database.ref(y).on('value', (data2: any) => {
+             details = data2.val();
+              })
+              this.videoArray.length = 0;
+            var keys2:any = Object.keys(details);
+            for (var a = 0; a < keys2.length; a++){
+                  var key = keys2[a];
+                  let obj = {
+                  vidurl : details[key].downloadurl,
+                  vidDesc : details[key].description,
+                  vidname : details[key].name,
+                  name : details[key].username,
+                  img : details[key].userImg,
+                  key: key
+            }
+            this.videoArray.push(obj);
+            }
+          }
+         accpt(this.videoArray);
+    }, Error =>{
+      rej(Error.message)
+    })
+    })
+  
+  } 
 storeToDB(name, category, vidname, vidDesc){
   return new Promise((accpt,rejc) =>{
     var storageRef = firebase.storage().ref(name + ".mp4");
@@ -172,42 +194,22 @@ storeToDB(name, category, vidname, vidDesc){
 })
 }
 
-getAllvideos(){
-
-  return new Promise ((accpt, rej) =>{
-    this.database.ref('uploads/').on('value', (data: any) => {
-      var videos = data.val();
-      var keys:any =  Object.keys(videos);
-        for (var i = 0; i < keys.length; i++){
-          var x = keys[i];
-          var y  = 'uploads/' + x;
-          var details;
-          this.database.ref(y).on('value', (data2: any) => {
-           details = data2.val();
-            })
-            this.videoArray.length = 0;
-          var keys2:any = Object.keys(details);
-          for (var a = 0; a < keys2.length; a++){
-                var key = keys2[a];
-                let obj = {
-                vidurl : details[key].downloadurl,
-                vidDesc : details[key].description,
-                vidname : details[key].name,
-                name : details[key].username,
-                img : details[key].userImg,
-                key: key
-          }
-          this.videoArray.push(obj);
-          }
-        }
-       accpt(this.videoArray);
-  }, Error =>{
-    rej(Error.message)
-  })
-  })
-
-} 
-
+uploadvid(vid){
+  var d = Date.now();
+  let loading = this.loadingCtrl.create({
+    spinner: 'bubbles',
+    content: 'Please wait',
+    duration: 9000
+  });
+return new Promise((accpt,rejc) =>{
+  loading.present();
+this.storageRef.ref(d + ".mp4").putString(vid, 'data_url').then(() =>{
+  accpt(d);
+}, Error =>{
+  rejc(Error.message)
+})
+})
+}
 
 getuserType(){
 return new Promise ((accpt, rej) =>{
@@ -258,5 +260,20 @@ storeuserid(uid){
   this.currentUserID = uid;
 }
 
+resetss(i){
+alert(i)
+this.videoArray = [];
+
+var user = firebase.auth().currentUser;
+var storageRef = firebase.storage().ref().child(i);
+
+// Delete the file
+storageRef.delete().then(function() {
+  console.log('Deleted');
+  // File deleted successfully
+}).catch(function(error) {
+  // Uh-oh, an error occurred!
+});
+}
 
 }

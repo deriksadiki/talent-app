@@ -54,6 +54,13 @@ if ( this.guest.Username == undefined && this.guest.email == undefined && this.g
   this.navCtrl.push(UsersPage);
   window.location.reload();
   alert.present(); 
+  }, Error => {
+    const alert = this.alertCtrl.create({
+      title: 'Warning!',
+      subTitle: Error,
+      buttons: ['Ok']
+    });
+    alert.present();
   })
 }
   }

@@ -2,13 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-profile',
@@ -16,24 +9,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  arr = new Array();
-  dbRef;
-  datas;
 
-  recruit = {} as Recruit;
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-  email:string;
-  password:string;
-  name:string;
-  surname:string;
-  companyName:string;
-  companyemail:string;
-  gender:string;
-  age:string;
-  cellno:string;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService:FirebaseProvider) {
-    this.firebaseService.getuserType();
   }
 
   ionViewDidLoad() {
