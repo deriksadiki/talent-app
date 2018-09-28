@@ -64,6 +64,7 @@ else{
  }
 
 
+
   profile(a){
     const modal = this.modalCtrl.create(DisplayPage,{user:this.videos[a].name});
     console.log(a);
@@ -73,7 +74,7 @@ else{
   addNumOfLikes(){
 
   }
-Upload=function(){
+Upload(){
   this.navCtrl.push(HomePage);
 }
 }

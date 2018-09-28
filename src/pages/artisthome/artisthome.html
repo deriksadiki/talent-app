@@ -1,4 +1,3 @@
-
 <ion-header>
     <ion-navbar color = "own" >
        <button ion-button menuToggle icon-only>
@@ -10,34 +9,37 @@
  </ion-navbar>
 </ion-header>
 
+
 <ion-content class="img">
-   <div *ngFor="let i of videos; let a =index">
-      <ion-card >
-          <ion-item (click)="profile(a)">
-            <ion-avatar item-start >
-              <img src="{{i.img}}">
-            </ion-avatar>
-            <h2>{{i.name}}</h2>
-            <p>{{i.vidname}}</p>
-          </ion-item>
-<!-- 
-         <video width="390" height="240" controls>
+  <div *ngFor="let i of videos; let a =index">
+     <ion-card >
+         <ion-item (click)="profile(a)">
+           <ion-avatar item-start >
+             <img src="{{i.img}}">
+           </ion-avatar>
+           <h2><b>{{i.name}}</b> <span end class="datew">{{a.date}}</span></h2>
+           <p><b>{{i.vidname}}</b></p>
+         </ion-item>
+
+
+         <video width="10000" height="240" controls>
              <source src={{i.vidurl}} type="video/mp4">
                <source src={{i.vidurl}} type="video/mkv">
-           </video> -->
+           </video>
 
+        
          <ion-card-content>
            <p>{{i.vidDesc}}</p>
            <ion-row>
                <ion-col>
                  <button color={{i.color}} ion-button icon-start clear small (click)="like(a)">
-                   <ion-icon name="thumbs-up"></ion-icon>
+                   <ion-icon name="md-thumbs-up"></ion-icon>
                    <div>{{i.likes}} Likes</div>
                  </button>
                </ion-col>
                <ion-col>
                  <button  ion-button class="com" icon-start clear small center (click)="test(a)">
-                   <ion-icon name="text"></ion-icon>
+                   <ion-icon name="md-text"></ion-icon>
                    <div>{{i.comments}} Comments</div>
                  </button>
                </ion-col>
@@ -51,12 +53,14 @@
            </ion-card>
   </div>
 
-
-  <ion-fab  fixed bottom right  >
+  <ion-fab   bottom right  >
       <button class="fabi" ion-fab  (click) = "Upload()" color = "own">
-        <ion-icon name="add"></ion-icon>  
+        <ion-icon name="md-add"></ion-icon>  
       </button>
     </ion-fab>
-
-
+       
  </ion-content>
+
+
+
+

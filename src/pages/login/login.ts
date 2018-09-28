@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { RegisterPage } from '../register/register';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
@@ -9,25 +8,18 @@ import {UserPage} from '../user/user';
 import { updateDimensions } from 'ionic-angular/components/virtual-scroll/virtual-util';
 import { UploadPreviewPage } from '../upload-preview/upload-preview';
 
-
-
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+ selector: 'page-login',
+ templateUrl: 'login.html',
 })
 export class LoginPage {
+ name;
+ users = {} as login;
 
-  name;
-
-  users = {} as login;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private firebaseService:FirebaseProvider,public loadingCtrl:LoadingController) {
-  }
-  
-Reg(){
-  this.navCtrl.push(UserPage);
-}
+ constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private firebaseService:FirebaseProvider,public loadingCtrl:LoadingController) {
+ 
+ }
 
 showForgotPassword(){
   const prompt = this.alertCtrl.create({
@@ -129,5 +121,4 @@ showForgotPassword(){
       }
     })
   }
-
 }
