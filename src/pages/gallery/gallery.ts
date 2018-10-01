@@ -31,15 +31,6 @@ export class GalleryPage {
     this.myVideos = data2;
     console.log(this.myVideos);
   })
-   
-    // this.firebaseService.getAllvideos().then((data:any) =>{
-    //  if (this.videos != null || this.videos != undefined){
-    //   this.videos = undefined;
-    //   this.videos = null;
-    //  }
-    //   this.videos = data;
-    //   console.log(this.videos);
-    //  })
    }
 
    like(keyIndex){
