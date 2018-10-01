@@ -28,40 +28,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
  templateUrl: 'app.html'
 })
 export class MyApp {
-<<<<<<< HEAD
  @ViewChild(Nav) nav: Nav;
-=======
-  @ViewChild(Nav) nav: Nav;
-
-  activePage: any;
- 
-
-  public rootPage: any;
-
-
-  pages: Array<{title: string, component: any, icon?: string}>;
-  
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private firebaseService:FirebaseProvider) {
-    this.initializeApp();
-
-    // used for an example of ngFor and navigation
-if('Log-Out')
-    this. firebaseService.getUserSatate().then( data =>{
-      if (data == 1){
-        this.firebaseService.getuserType().then(data =>{
-          console.log(data)
-        if (data == "normalPerson"){
-          this.rootPage = UsersPage;
-          this.pages = [
-
-
-
-           { title: 'Home', component: ArtisthomePage, icon: "md-home"},
-            // { title: 'Home', component: UsersPage },
-            { title: 'Share', component: HomePage, icon: "md-send" },
-            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
-            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
->>>>>>> e44f85cd4159e15923cfc6ed87dac6ae63eb44e1
 
  activePage: any;
 
