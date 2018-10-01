@@ -6,11 +6,12 @@ page-profile {
  
         }
  
-        .pic{
-            width: 60%;
-            height: 45%;
-            width: 40%;
-            height: 40%;
+
+        .pics{
+            // width: 60%;
+            height: 110px;
+            width: 110px;
+            // height: 40%;
             border-radius: 60%;
             position: relative;
             top: 40px;
@@ -55,12 +56,21 @@ page-profile {
             font-size: 15px;
             font-weight: 100;
         }
+
          .btn{
             position: relative;
             top: 135px;
             color: #F53D4E;
             border-radius: 50px;
             font-size: 100%;
+  }
+
+        
+
+            .block{
+                position: relative;
+                top: 150px;
+
             }
         .cont{
             background-color: rgb(255, 255, 255);
@@ -75,8 +85,18 @@ page-profile {
         .dash{
             background-color: rgba(53, 52, 52, 0.555);
             color: white;
-            height: 24%;
-            font-size: 50%;
+
+            height: 85px;
+         
+            // border-left: 2px solid white;
+            // font-size: 50%;
+ 
+        }
+        .dash1{
+            margin-top: 100px;
+        }
+        .list{
+
             position: relative;
             top: 9%;
  

@@ -18,6 +18,7 @@ export class LoginPage {
 
  name;
 
+
  users = {} as login;
 
  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private firebaseService:FirebaseProvider,public loadingCtrl:LoadingController) {
@@ -25,6 +26,69 @@ export class LoginPage {
 
 Reg(){
  this.navCtrl.push(UserPage);
+
+if('Log-Out')
+    this. firebaseService.getUserSatate().then( data =>{
+      if (data == 1){
+        this.firebaseService.getuserType().then(data =>{
+          console.log(data)
+        if (data == "normalPerson"){
+          this.rootPage = UsersPage;
+          this.pages = [
+           { title: 'Home', component: ArtisthomePage, icon: "md-home"},
+            // { title: 'Home', component: UsersPage },
+            { title: 'Share', component: HomePage, icon: "md-send" },
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
+          ]
+        }
+        else if (data == "talentPerson"){
+      if (data == 1){   
+        this.firebaseService.getuserType().then(() =>{
+          this.pages = [
+            { title: 'Home', component: ArtisthomePage, icon:"md-home"},
+            { title: 'Gallery', component: GalleryPage, icon:"md-images" },
+            { title: 'Profile', component: ProfilePage, icon: "md-person"},
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" },
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"}
+          ];
+           this.rootPage =  ArtisthomePage;
+        }
+        else if (data == "ScoutPerson"){
+
+          this.pages = [
+            { title: 'Home', component: ScoutPage, icon: "md-home" },
+            { title: 'Profile', component:ScouteProfilePage, icon: "md-person" },
+            { title: 'Log-Out', component: LogoutPage, icon: "md-log-out" },
+            { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" }
+          ];
+          this.rootPage = ScoutPage;
+        }
+      })
+         this.rootPage = ArtisthomePage;
+        })
+      }
+      else{
+       this.rootPage = LoginPage ;
+      }
+    })
+  }
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
+
+  openPage(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.nav.setRoot(page.component);
+  }
+
+
 }
 
 showForgotPassword(){

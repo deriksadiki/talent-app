@@ -18,16 +18,25 @@
 *{
     font-family: 'Exo 2', sans-serif;
 }
-    .menu{
-        // background-image: linear-gradient( rgb(248, 145, 163) , maroon);
-        background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
-        // background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
-        background-attachment: fixed;
-        background-color: rgba(94, 10, 10, 0.74);
-        background-size: cover;
-       background-repeat: no-repeat;
-       background-position: center;
-
+.pic{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    box-shadow: 2px 2px 4px;
+}
+.menu{
+    
+    background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+.line{
+    // background-color: whitesmoke;
+    font-size: 22%;
+    // color: white;
+    box-shadow: 2px 1px 4px black;
 }
 
 // .liss{
@@ -59,12 +68,7 @@ h1{
         color: whitesmoke;
         font-weight: 100;
 }
-.menu{
-    
-    background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
-    background-attachment: fixed;
-    background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center;
-}
+
+
+
 

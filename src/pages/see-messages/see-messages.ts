@@ -13,10 +13,13 @@ templateUrl: 'see-messages.html',
 export class SeeMessagesPage {
 messages = new Array();
 constructor(public loadingCtrl: LoadingController,public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
+
 }
 
- ionViewDidLoad() {
-   this.messages.length = 0;
+
+}
+ionViewDidEnter(){
+ this.messages.length = 0;
  this.firebaseService.getAllMessages().then(data =>{
      let loading = this.loadingCtrl.create({
        spinner: 'bubbles',
@@ -30,10 +33,12 @@ constructor(public loadingCtrl: LoadingController,public navCtrl: NavController,
          this.messages  = data2;
          console.log(this.messages);
          console.log('see messages')
+
      });
      },500)
  })
 }
+
 more(i){
 this.navCtrl.push( MessagePage, {path:this.messages[i].path, name:this.messages[i].name})
 }
