@@ -20,7 +20,7 @@
 }
     .menu{
         // background-image: linear-gradient( rgb(248, 145, 163) , maroon);
-        background-image: linear-gradient( rgb(179, 9, 9), rgb(68, 12, 17));
+        background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
         // background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
         background-color: rgba(94, 10, 10, 0.74);
@@ -30,9 +30,9 @@
 
 }
 
-.liss{
+// .liss{
     // color: rgba(255, 255, 255, 0.158);
-}
+// }
 .buttons{
     margin-bottom: 6%;
     position: relative;
@@ -63,7 +63,6 @@ h1{
     
     background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
     background-attachment: fixed;
-    // background-color: rgba(94, 10, 10, 0.74);
     background-size: cover;
    background-repeat: no-repeat;
    background-position: center;
