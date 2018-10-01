@@ -7,6 +7,7 @@ import { unescapeIdentifier } from '@angular/compiler';
 import { ScoutPage } from '../scout/scout';
 import { ArtisthomePage } from '../artisthome/artisthome';
 
+
 @IonicPage()
 @Component({
   selector: 'page-artist',
@@ -18,6 +19,7 @@ export class ArtistPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
 
   }
+
   reg(){
     if (this.artist.username == undefined && this.artist.email == undefined && this.artist.password == undefined && this.artist.name == undefined && this.artist.surname == undefined && this.artist.gender == undefined && this.artist.cellno == undefined && this.artist.age == undefined){
     const alert = this.alertCtrl.create({
@@ -156,6 +158,7 @@ export class ArtistPage {
     });
     confirm.present();
   }
+
 }
 
 

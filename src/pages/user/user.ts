@@ -15,6 +15,7 @@ guest = {} as Guest;
 
 constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
 }
+
  reg(){
    var message;
 if ( this.guest.Username == undefined && this.guest.email == undefined && this.guest.password == undefined){
@@ -67,5 +68,6 @@ if ( this.guest.Username == undefined && this.guest.email == undefined && this.g
   }
   takePicture(){
     this.firebaseService.uploadpic();
+
 }
 }
