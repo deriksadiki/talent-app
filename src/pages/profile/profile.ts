@@ -43,7 +43,7 @@ export class ProfilePage {
     
   }
 
-  Update(){
+  Edit(){
     this.navCtrl.push(ArtistProfileUpdatePage);
   }
   

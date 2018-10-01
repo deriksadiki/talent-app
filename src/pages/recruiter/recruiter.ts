@@ -15,6 +15,7 @@ export class RecruiterPage {
  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
  }
 
+
  reg(){
 if (this.recrt.email == undefined && this.recrt.password == undefined && this.recrt.name == undefined && this.recrt.surname == undefined && this.recrt.companyName == undefined && this.recrt.companyemail == undefined && this.recrt.companycellno == undefined){
  const alert = this.alertCtrl.create({
@@ -92,4 +93,5 @@ if (this.recrt.email == undefined && this.recrt.password == undefined && this.re
 takePicture(){
   this.firebaseService.uploadpic();
 }
+
 }

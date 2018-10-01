@@ -7,22 +7,37 @@ page-profile {
         }
  
 
-        .pics{
-            // width: 60%;
-            height: 110px;
-            width: 110px;
-            // height: 40%;
-            border-radius: 60%;
+  
+        .pic{
+           height: 130px;
+           width: 130px;
+           border-radius: 65px;
             position: relative;
-            top: 40px;
+            top: 30px;
+
+          
+
+
+          
             border: solid 3px rgb(255, 255, 255);
         }
- 
+ .phot{
+     position: relative;
+   bottom: 65px;
+ }
+.B{ 
+    position: relative;
+    bottom: 47px;
+    margin-left: 360px;
+}
+// .con{
+//     background-color: rgba(0, 0, 0, 0);
+// }
         h1{
             color: rgb(255, 255, 255);
             font-weight: 100;
-            position: relative;
-            bottom: 50%;
+            // position: relative;
+            bottom: 55%;
             font-size: 35px;
         }
  
@@ -41,6 +56,14 @@ page-profile {
             font-size: 210%;
             color: rgb(134, 132, 132);
         }
+
+          
+        .h{
+            top: 10px;
+            position: relative;
+        }
+
+          
         h4{
             text-align: center;
             font-weight: 100;
@@ -57,13 +80,15 @@ page-profile {
             font-weight: 100;
         }
 
+  
          .btn{
             position: relative;
             top: 135px;
             color: #F53D4E;
             border-radius: 50px;
             font-size: 100%;
-  }
+
+           
 
         
 
@@ -71,6 +96,7 @@ page-profile {
                 position: relative;
                 top: 150px;
 
+              
             }
         .cont{
             background-color: rgb(255, 255, 255);
@@ -85,21 +111,10 @@ page-profile {
         .dash{
             background-color: rgba(53, 52, 52, 0.555);
             color: white;
-
-            height: 85px;
-         
-            // border-left: 2px solid white;
-            // font-size: 50%;
- 
-        }
-        .dash1{
-            margin-top: 100px;
-        }
-        .list{
-
+            height: 26%;
+            font-size: 50%;
             position: relative;
-            top: 9%;
- 
+            bottom: 44px;
         }
         .sbtn{
             position: relative;
@@ -143,8 +158,12 @@ page-profile {
         .header{
             color: black;
             text-align: center;
+
         }
+        .fabi ,{
+            box-shadow: 2px 2px 3px 1px black;
+
+        }
+       
 }
-
-
 

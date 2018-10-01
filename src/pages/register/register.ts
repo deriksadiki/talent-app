@@ -6,10 +6,11 @@ import { FirebaseProvider} from '../../providers/firebase/firebase';
 
 @IonicPage()
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html',
+ selector: 'page-register',
+ templateUrl: 'register.html',
 })
 export class RegisterPage {
+
 
   artist = {} as Talent;
   imageurl:any = '../../assets/imgs/pic.jpg';
@@ -30,3 +31,4 @@ export class RegisterPage {
     })
   }
 }
+

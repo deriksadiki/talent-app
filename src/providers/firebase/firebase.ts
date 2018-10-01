@@ -403,6 +403,7 @@ console.log(this.currentUserID);
 
 getProfile(){
   return new Promise ((accpt, rej) =>{
+    this.profile.length = 0;
     this.database.ref('users/' + this.currentUserID).on('value', (data2: any) => {
       var details = data2.val();
       console.log(details);
@@ -859,5 +860,11 @@ this.names.push(name);
 getusername(){
   return this.username;
 }
-
+returnPictureUrl(){
+  var image;
+  if (this.imgurl == undefined || this.imgurl == null){
+    image = '../../assets/imgs/pic.jpg';
+  }
+  return image;
+ }
 }

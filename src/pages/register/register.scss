@@ -1,5 +1,6 @@
 page-register {
     font-family: 'Ubuntu', sans-serif;
+
     .img{
         background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -29,6 +30,7 @@ page-register {
     position: relative;
     bottom: 30px;
     }
+
 .item{
     background-color: rgba(8, 8, 8, 0.192);
     color: Black;
@@ -45,7 +47,9 @@ page-register {
     display: flex;
     align-content: center;
     justify-content: center;
+
 }
+
 .info{
     height:100%;
     width: 100%;
@@ -54,9 +58,10 @@ page-register {
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 10px;
-}
+
 p{
     color: rgb(236, 229, 229);
+
 
 }
 .pic2{
@@ -64,6 +69,7 @@ p{
     width: 150px;
     border-radius:80px; 
     box-shadow: 2px 2px 2px black;
+
 
 }
 }

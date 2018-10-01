@@ -11,6 +11,8 @@
 
 
 <ion-content class="img">
+
+
   <div *ngFor="let i of videos; let a =index">
 
     <ion-card>
@@ -34,7 +36,9 @@
         <source src={{i.vidurl}} type="video/mkv">
       </video>
 
+
      
+
          <ion-card-content>
            <p>{{i.vidDesc}}</p>
            <ion-row>
@@ -60,15 +64,14 @@
            </ion-card>
   </div>
 
-  <ion-fab   bottom right  >
+
+  <ion-fab  bottom right  >
       <button class="fabi" ion-fab  (click) = "Upload()" color = "own">
         <ion-icon name="md-add"></ion-icon>  
       </button>
     </ion-fab>
-       
+
+
+
  </ion-content>
-
-
-
-
 

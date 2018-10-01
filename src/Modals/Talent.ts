@@ -12,5 +12,7 @@ export interface Talent{
     compTel :string;
     Bio :string;
 
+
  }
+
 
