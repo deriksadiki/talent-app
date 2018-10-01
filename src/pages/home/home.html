@@ -4,20 +4,24 @@
 
 
     <!-- <div class="section"> -->
-        <div class="vid">
-            <video class="vdo"  controls height="320" width="595" *ngFor ="let i of videos">
-    <!-- <ion-navbar color = "color" > -->
-      <!-- <h2 align="center">Upload your video</h2> -->
-    <!-- <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button> -->
+        <!-- <div class="vid"> -->
+           <!-- <ion-navbar color = "trans" > -->
 
-    <!-- </ion-navbar> -->
-   
+<!-- </ion-navbar> -->
+
+            <video class="vdo"  controls height="320" width="595" *ngFor ="let i of videos">
            <source class="v" [src]="i" type="video/mp4">
              <source class="v" [src]="i" type="video/mkv">
+              <!-- <div>
+              <button ion-button menuToggle icon-only>
+                  <ion-icon name='menu'></ion-icon>
+                </button>
+              </div> -->
          </video>
-       </div>
+        
+        
+        
+       <!-- </div> -->
     <!-- </div> -->
     
     </ion-header>
