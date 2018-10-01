@@ -4,12 +4,6 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
 import {SeeMessagesPage} from '../see-messages/see-messages';
 
 
-/**
-* Generated class for the MessagePage page.
-*
-* See https://ionicframework.com/docs/components/#navigation for more info on
-* Ionic pages and navigation.
-*/
 
 @IonicPage()
 @Component({
@@ -27,6 +21,7 @@ messages = new Array();
 lastSeen;
 
  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService: FirebaseProvider) {
+
 
  }
  back(){
@@ -80,7 +75,6 @@ this.firebaseService.getLastSeen(this.name).then(data =>{
    else{
      this.navCtrl.pop();
    }
-
 
  }
 }

@@ -1,12 +1,12 @@
 <ion-header>
-    <ion-navbar color = "own" >
-       <button ion-button menuToggle icon-only>
-           <ion-icon name='menu'></ion-icon>
-         </button>
-   <ion-title>
-     <ion-icon name="flame"></ion-icon>&emsp;Top Trending
-   </ion-title>
- </ion-navbar>
+  <ion-navbar color="own">
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="flame"></ion-icon>&emsp;Top Trending
+    </ion-title>
+  </ion-navbar>
 </ion-header>
 
 
@@ -14,22 +14,30 @@
 
 
   <div *ngFor="let i of videos; let a =index">
-     <ion-card >
-         <ion-item (click)="profile(a)">
-           <ion-avatar item-start >
-             <img src="{{i.img}}">
-           </ion-avatar>
-           <h2><b>{{i.name}}</b> <span end class="datew">{{a.date}}</span></h2>
-           <p><b>{{i.vidname}}</b></p>
-         </ion-item>
+
+    <ion-card>
+      <ion-row>
+        <ion-item (click)="profile(a)">
+          <ion-avatar item-start>
+            <img src="{{i.img}}">
+          </ion-avatar>
+          <h1 capitalize>
+            <b>{{i.name}}</b>
+          </h1>
+          <p>{{i.vidname}}</p>
+          <button ion-button icon-start clear small enter>
+            <div color="grey">{{i.date}}</div>
+          </button>
+        </ion-item>
+      </ion-row>
+      
+      <video width="10000" height="240" controls>
+        <source src={{i.vidurl}} type="video/mp4">
+        <source src={{i.vidurl}} type="video/mkv">
+      </video>
 
 
-
-         <video width="10000" height="240" controls>
-             <source src={{i.vidurl}} type="video/mp4">
-               <source src={{i.vidurl}} type="video/mkv">
-           </video>
-
+     
 
          <ion-card-content>
            <p>{{i.vidDesc}}</p>
@@ -64,4 +72,6 @@
     </ion-fab>
 
 
+
  </ion-content>
+

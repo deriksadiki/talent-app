@@ -528,7 +528,7 @@ if (this.imgurl == undefined || this.imgurl == null){
       text:text,
       username: this.username,
       date : day,
-      // img : this.imgurl
+
       img : this.imgurl
     })
     accpt("comment added")

@@ -46,7 +46,7 @@ color = "primary";
         this.ionViewDidLoad();
       })
     }
-  else if (this.videos[keyIndex].color == 'primary'){
+  else if (this.videos[keyIndex].color == 'color2'){
          this.firebaseService.removeLike(this.videos[keyIndex].name, this.videos[keyIndex].key, this.videos[keyIndex].likes).then (data =>{
           this.ionViewDidLoad();
          })

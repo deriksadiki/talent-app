@@ -15,8 +15,10 @@ guest = {} as Guest;
 
 constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
 }
+
 reg(){
   var message;
+
 if ( this.guest.Username == undefined && this.guest.email == undefined && this.guest.password == undefined){
 const alert = this.alertCtrl.create({
   title: 'Warning',
@@ -68,6 +70,7 @@ alert.present();
   }
   takePicture(){
     this.firebaseService.uploadpic();
+
 }
 
 }

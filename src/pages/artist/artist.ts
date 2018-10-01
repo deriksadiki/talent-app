@@ -7,6 +7,7 @@ import { unescapeIdentifier } from '@angular/compiler';
 import { ScoutPage } from '../scout/scout';
 import { ArtisthomePage } from '../artisthome/artisthome';
 
+
 @IonicPage()
 @Component({
   selector: 'page-artist',
