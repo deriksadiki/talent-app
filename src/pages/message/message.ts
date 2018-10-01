@@ -71,7 +71,7 @@ this.firebaseService.getLastSeen(this.name).then(data =>{
 
       console.log(this.messages);
     }
-
+  
  }
  goBack(){
    if (this.navParams.get('path') != undefined || this.navParams.get('path') != null){

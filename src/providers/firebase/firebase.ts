@@ -154,6 +154,7 @@ addMoreUserINformation(name, surname,dateOfBirth, gender, cmpNme, cmpEmail, cmpT
     return this.authnticate.sendPasswordResetEmail(email);
   }
 
+
 addImage(username){
   let loading = this.loadingCtrl.create({
     spinner: 'bubbles',
@@ -186,6 +187,7 @@ return new Promise ((accpt,rej) =>{
 })
 }
 
+
   async uploadpic(){
     const options: CameraOptions= {
     quality : 100,
@@ -200,6 +202,7 @@ return new Promise ((accpt,rej) =>{
       this.image = `data:image/jpeg;base64,${results}`;
       return this.image;
   }
+
 
   uploadvid(vid){
     var d = Date.now();
@@ -340,6 +343,7 @@ getAllvideos(){
 } 
 storeLastSeen(user2){
 }
+
 getuserType(){
   console.log('user type')
 return new Promise ((accpt, rej) =>{
@@ -524,6 +528,7 @@ if (this.imgurl == undefined || this.imgurl == null){
       text:text,
       username: this.username,
       date : day,
+      // img : this.imgurl
       img : this.imgurl
     })
     accpt("comment added")
@@ -675,6 +680,21 @@ return new Promise ((accpt, rej) =>{
 })
 }
 
+resetss(i){
+alert(i)
+this.videoArray = [];
+
+var user = firebase.auth().currentUser;
+var storageRef = firebase.storage().ref().child(i);
+
+// Delete the file
+storageRef.delete().then(function() {
+  console.log('Deleted');
+  // File deleted successfully
+}).catch(function(error) {
+  // Uh-oh, an error occurred!
+});
+}
 
 getLastSeen(user){
 return new Promise ((accpt, rej) =>{

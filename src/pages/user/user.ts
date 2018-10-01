@@ -39,32 +39,35 @@ const alert = this.alertCtrl.create({
 });
 alert.present();
 } else if (this.guest.Username == undefined){
-const alert = this.alertCtrl.create({
-  title: 'Warning',
-  subTitle: 'Username cannot be left out',
-  buttons: ['OK']
-});
-alert.present();
-}
-else {
 
-this.firebaseService.registerUser(this.guest.email, this.guest.password,this.guest.Username).then(() => {
-  this.firebaseService.getuserType().then(() =>{
-   const alert = this.alertCtrl.create({
-     title: 'Welcome',
-     subTitle: 'You have successfully Registared',
-     buttons: ['OK']
-   });
-   this.navCtrl.push(RegisterPage, {username:this.guest.Username});
-
-   alert.present();
-  })
-
-})
-
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Username cannot be left out',
+    buttons: ['OK']
+  });
+  alert.present();
+  
+}else { this.firebaseService.getimagepropicurl(this.guest.Username).then(data =>{
+  console.log(data)
+  this.firebaseService.registerUser(this.guest.email, this.guest.password,this.guest.Username).then(() => {
+    const alert = this.alertCtrl.create({
+    title: 'Welcome',
+    subTitle: 'You have successfully Registared',
+    buttons: ['OK']
+  });
+  this.navCtrl.push(UsersPage);
+  window.location.reload();
+  alert.present(); 
+  }, Error => {
+    const alert = this.alertCtrl.create({
+      title: 'Warning!',
+      subTitle: Error,
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+  takePicture(){
+    this.firebaseService.uploadpic();
 }
-}
-takePicture(){
-  this.firebaseService.uploadpic();
-}
+
 }

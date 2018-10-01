@@ -5,19 +5,20 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
 import {Recruit} from '../../Modals/Recruit';
 import { HomePage } from '../home/home';
 
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
+
+  arr = new Array();
+  dbRef;
+  datas;
+  recruit = {} as Recruit;
+  // dbRef;
+  // datas;
+
   arr2= []; 
   myVideos = [];
 

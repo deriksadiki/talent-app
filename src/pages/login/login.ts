@@ -8,14 +8,15 @@ import {UserPage} from '../user/user';
 import { updateDimensions } from 'ionic-angular/components/virtual-scroll/virtual-util';
 import { UploadPreviewPage } from '../upload-preview/upload-preview';
 
-
-
 @IonicPage()
 @Component({
  selector: 'page-login',
  templateUrl: 'login.html',
 })
 export class LoginPage {
+ name;
+ users = {} as login;
+
 
  name;
 
@@ -128,5 +129,6 @@ showForgotPassword(){
      }
    })
  }
+
 
 }

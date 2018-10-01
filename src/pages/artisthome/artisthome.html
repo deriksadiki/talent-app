@@ -1,4 +1,3 @@
-
 <ion-header>
     <ion-navbar color = "own" >
        <button ion-button menuToggle icon-only>
@@ -13,6 +12,7 @@
 
 <ion-content class="img">
 
+
   <div *ngFor="let i of videos; let a =index">
      <ion-card >
          <ion-item (click)="profile(a)">
@@ -22,6 +22,7 @@
            <h2><b>{{i.name}}</b> <span end class="datew">{{a.date}}</span></h2>
            <p><b>{{i.vidname}}</b></p>
          </ion-item>
+
 
 
          <video width="10000" height="240" controls>

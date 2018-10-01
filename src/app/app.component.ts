@@ -28,6 +28,7 @@ import { GalleryPage } from '../pages/gallery/gallery';
  templateUrl: 'app.html'
 })
 export class MyApp {
+
  @ViewChild(Nav) nav: Nav;
 
  activePage: any;
@@ -84,3 +85,4 @@ if('Log-Out')
  }
 
 }
+
