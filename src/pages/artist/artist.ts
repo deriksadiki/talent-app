@@ -39,6 +39,9 @@ export class ArtistPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
 
   }
+
+
+
 }
 
 

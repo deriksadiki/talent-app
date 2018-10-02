@@ -3,13 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ArtistProfileUpdatePage } from '../artist-profile-update/artist-profile-update';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import {Recruit} from '../../Modals/Recruit';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -18,31 +12,18 @@ import {Recruit} from '../../Modals/Recruit';
 })
 export class ProfilePage {
 
-
   arr = new Array();
   dbRef;
   datas;
-
   recruit = {} as Recruit;
-
-  email:string;
-  password:string;
-  name:string;
-  surname:string;
-  companyName:string;
-  companyemail:string;
-  gender:string;
-  age:string;
-  cellno:string;
-
-
   // dbRef;
   // datas;
+
   arr2= []; 
+  myVideos = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService:FirebaseProvider) {
     this.firebaseService.getuserType();
-
   }
 
   ionViewDidLoad() {
@@ -50,11 +31,24 @@ export class ProfilePage {
     this.arr2 = data;
     console.log(this.arr2);
     })
+
+    this.firebaseService.getUploads().then((data2:any) =>{
+      if (this.myVideos != null || this.myVideos != undefined){
+        this.myVideos = undefined;
+        this.myVideos = null;
+       }
+    this.myVideos = data2;
+    console.log(this.myVideos);
+  })
     
   }
 
-  Update(){
+  Edit(){
     this.navCtrl.push(ArtistProfileUpdatePage);
+  }
+  
+  Upload(){
+    this.navCtrl.push(HomePage);
   }
     
 }

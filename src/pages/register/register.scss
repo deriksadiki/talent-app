@@ -1,5 +1,6 @@
 page-register {
-    font-family: 'Ubuntu', sans-serif;
+ 
+
     .img{
         background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
@@ -8,54 +9,133 @@ page-register {
         background-repeat: no-repeat;
         background-position: center;
         }
+
+       
         .img2{
             background-image:linear-gradient(#1e2a78,#F53D4E), url('../../assets/imgs/video.jpg');
         }
+    
+
+
         .img3{
             background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
         }
+
         .img4{
             background-image:linear-gradient(#1e2a78,#F53D4E), url('../../assets/imgs/video.jpg');
+
         }
+
         .img5{
             background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
         }
+
+ .pic{
+     position: relative;
+     bottom: 25px;
+ }
+
+ .pic2{
+    height: 150px;
+    width: 150px;
+    border-radius:80px; 
+    box-shadow: 2px 2px 2px black;
+}
+
+
  h1{
     color: rgb(255, 255, 255);
     text-align: center;
     // padding-top: 1px;
-    font-size: 4em;
+    font-size: 2.5em;
     font-weight: 100;
     position: relative;
     bottom: 30px;
+    margin-right: 3%;
+    margin-left: 3%;
     }
+
+ h2{
+     color: white;
+     font-size: 2em;
+     font-weight: 100;
+ }   
+
+ h3{
+    color: white;
+    font-size: 2em;
+    font-weight: 100;
+ }
+
+ h4{
+    color: white;
+    font-size: 2.5em;
+    font-weight: 100
+
+ }
+
+ 
+
 .item{
-    background-color: rgba(8, 8, 8, 0.192);
-    color: Black;
+    background-color: #505997;
+    color: white;
     width: 80%;
     margin-bottom: 10px;
     position: relative;
+    // right: 20%;
     border-radius: 30px;
-    padding-left: 7%;
     top: 20px;
- 
+    font-size: 1.5em;
+    font-weight: 100;
+
+
+    ::-webkit-input-placeholder{
+        color: #d3d5df;
+    }
 }
+
+
+
+
 .butt1{
     text-align: center;
     display: flex;
     align-content: center;
     justify-content: center;
+
 }
+
+
+
 .info{
     height:100%;
     width: 100%;
     border: 2px solid red;
     border-radius: 15px;
-    padding-left: 5px;
+    padding-left: 19px;
     padding-right: 5px;
     padding-top: 10px;
+    color: black;
+
 }
+
 p{
     color: rgb(236, 229, 229);
+    font-weight: 100;
+    margin-left: 3%;
+    margin-right: 3%;
+    
 }
+
+.texts{
+    background-color: #d3d5df;
+    border-radius: 8px;
+}
+
+.start{
+    background-color: #646eb3;
+    height: 60px;
+    margin-top: 10%;
+}
+
 }

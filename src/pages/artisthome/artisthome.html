@@ -1,6 +1,6 @@
 
 <ion-header>
-    <ion-toolbar color = "own" >
+    <ion-toolbar color = "own2" >
        <button ion-button menuToggle icon-only>
            <ion-icon name='menu'></ion-icon>
          </button>
@@ -11,20 +11,23 @@
 </ion-header>
 
 <ion-content class="img">
-   <div *ngFor="let i of videos; let a =index">
-      <ion-card >
-          <ion-item (click)="profile(a)">
-            <ion-avatar item-start >
-              <img src="{{i.img}}">
-            </ion-avatar>
-            <h2>{{i.name}}</h2>
-            <p>{{i.vidname}}</p>
-          </ion-item>
-<!-- 
-         <video width="390" height="240" controls>
+
+  <div *ngFor="let i of videos; let a =index">
+     <ion-card >
+         <ion-item (click)="profile(a)">
+           <ion-avatar item-start >
+             <img src="{{i.img}}" alt="../../assets/imgs/pic.jpg">
+           </ion-avatar>
+           <h2><b>{{i.name}}</b></h2>
+           <p><b>{{i.vidname}}</b></p>
+           <span item-end class="datew">{{i.date}}</span>
+         </ion-item>
+
+
+         <video width="10000" height="240" controls>
              <source src={{i.vidurl}} type="video/mp4">
                <source src={{i.vidurl}} type="video/mkv">
-           </video> -->
+           </video>
 
          <ion-card-content>
            <p>{{i.vidDesc}}</p>
@@ -43,7 +46,7 @@
                </ion-col>
                <ion-col>
                    <button ion-button  icon-start clear small center>
-                <div>  {{i.date}}</div>
+                <!-- <div>  {{i.date}}</div> -->
                </button>
                </ion-col>
                </ion-row>

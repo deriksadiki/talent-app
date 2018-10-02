@@ -1,18 +1,25 @@
 <ion-header>
+<<<<<<< HEAD
     <ion-navbar color = "own" >
+=======
+    <ion-navbar color = "own2" >
+>>>>>>> eff1dc60344883da9b00c7f59cc846768f56f3fc
       <ion-title>comments</ion-title>
     </ion-navbar>
   </ion-header>
- 
-<ion-content *ngFor="let i of videos; let a =index" padding>
+  
+  
 
-        <ion-item (click)="profile(a)">
+<ion-content class="img" *ngFor="let i of videos; let a =index" padding>
+
+        <ion-item class="item1" (click)="profile(a)">
           <ion-avatar item-start>
             <img src={{i.img}}>
           </ion-avatar>
          <h1><b>{{i.name}}</b></h1>
          <p>{{i.vidname}}</p>
         </ion-item>
+        
           <ion-item>
         <video width="390" height="240" controls>
             <source src={{i.vidurl}} type="video/mp4">
