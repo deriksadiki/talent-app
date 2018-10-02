@@ -92,6 +92,7 @@ showForgotPassword(){
           message: 'You have successfully logged in',
           buttons: ['OK']
         });
+        this.firebaseService.storeLAstSeenState();
         alert.present();
         this.navCtrl.push(ArtisthomePage);
       })

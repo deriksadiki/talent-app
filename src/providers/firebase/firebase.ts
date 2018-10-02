@@ -136,6 +136,14 @@ addMoreUserINformation(name, surname,dateOfBirth, gender, cmpNme, cmpEmail, cmpT
     this.authnticate.signOut();
   }
 
+  storeLAstSeenState(){
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
+    this.database.ref('lastSeen/' + this.username).set({
+      time: day
+    })
+  }
+
+
   getUserSatate(){
     return new Promise ((accpt, rej) =>{ 
       this.authnticate.onAuthStateChanged(user =>{ 
@@ -372,6 +380,9 @@ return new Promise ((accpt, rej) =>{
             }.bind(this)).catch(function(error) {
           
             })
+            if (this.imgurl == undefined || this.imgurl == null){
+              this.storePictureUrl2('../../assets/imgs/pic.jpg')
+            }
             accpt(Userdetails[keys2].userType)
            });
         break;
@@ -390,12 +401,13 @@ storePictureUrl(url){
 this.imgurl =  url;
 }
 
+storePictureUrl2(url){
+  console.log(url)
+this.imgurl =  url;
+}
+
 returnPictureUrl(){
-  var image;
-  if (this.imgurl == undefined || this.imgurl == null){
-    image = '../../assets/imgs/pic.jpg';
-  }
-  return image;
+  return this.imgurl;  
 }
 
 storeUserKey(key){

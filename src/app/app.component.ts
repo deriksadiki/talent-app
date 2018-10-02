@@ -42,14 +42,12 @@ picture;
     this.initializeApp();
 
     // used for an example of ngFor and navigation
-if('Log-Out')
     this. firebaseService.getUserSatate().then( data =>{
- 
       if (data == 1){   
         this.firebaseService.getuserType().then(() =>{
           this.name = this.firebaseService.getusername();
-          this.picture =  this.firebaseService.returnPictureUrl(); 
-          console.log(this.picture)
+     
+
           this.pages = [
             { title: 'Home', component: ArtisthomePage, icon:"md-home"},
             { title: 'Gallery', component: GalleryPage, icon:"md-images" },
@@ -57,6 +55,11 @@ if('Log-Out')
             { title: 'Messages', component: SeeMessagesPage, icon: "md-mail" },
             { title: 'Log-Out', component: LogoutPage, icon: "md-log-out"}
           ];
+          setTimeout (() =>{
+            this.picture = this.firebaseService.returnPictureUrl();
+              console.log(this.picture)
+          }, 3000)
+    
          this.rootPage = ArtisthomePage;
         })
 

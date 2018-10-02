@@ -25,7 +25,7 @@ export class RegisterPage {
      this.imageurl = this.firebaseService.uploadpic();
   }
   getStarted(){
-    if (this.imageurl != undefined || this.imageurl != null){
+    if (this.imageurl != '../../assets/imgs/pic.jpg'){
       this.firebaseService.addImage(this.username).then(data =>{
         console.log(data)
         this.firebaseService.getimagepropicurl(this.username).then(data =>{
