@@ -58,4 +58,8 @@ export class CommentsPage {
     modal.present();
   }
 
+<<<<<<< HEAD
  }
+=======
+ }
+>>>>>>> master

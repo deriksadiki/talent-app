@@ -23,6 +23,7 @@ export class GalleryPage {
   }
 
   ionViewDidLoad() {
+    this.myVideos.length = 0;
     this.firebaseService.getUploads().then((data2:any) =>{
       if (this.myVideos != null || this.myVideos != undefined){
         this.myVideos = undefined;
@@ -31,15 +32,6 @@ export class GalleryPage {
     this.myVideos = data2;
     console.log(this.myVideos);
   })
-   
-    // this.firebaseService.getAllvideos().then((data:any) =>{
-    //  if (this.videos != null || this.videos != undefined){
-    //   this.videos = undefined;
-    //   this.videos = null;
-    //  }
-    //   this.videos = data;
-    //   console.log(this.videos);
-    //  })
    }
 
    like(keyIndex){

@@ -11,6 +11,7 @@ import { FirebaseProvider} from '../../providers/firebase/firebase';
 })
 export class RegisterPage {
 
+<<<<<<< HEAD
  username =  this.navParams.get('username')
  artist = {} as Talent;
  imageurl:any = '../../assets/imgs/pic.jpg';
@@ -31,3 +32,26 @@ export class RegisterPage {
  }
 
 }
+=======
+
+  artist = {} as Talent;
+  imageurl:any = '../../assets/imgs/pic.jpg';
+  constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,) {
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad RegisterPage');
+  }
+
+  takePicture(){
+     this.imageurl = this.firebaseService.uploadpic();
+  }
+  getStarted(){
+    this.firebaseService.addMoreUserINformation(this.artist.name, this.artist.surname, this.artist.age, this.artist.gender, this.artist.compName, this.artist.compEmail, this.artist.compTel, this.artist.Bio).then(data =>{
+      console.log(this.artist);
+      this.navCtrl.push(ArtisthomePage);
+    })
+  }
+}
+
+>>>>>>> master

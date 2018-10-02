@@ -1,11 +1,20 @@
 page-display {
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> master
     .section{
     background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
     background-color: black;
     background-size: cover;
+<<<<<<< HEAD
 
 }
+=======
+ 
+ }
+>>>>>>> master
     .image{
         height: 160px;
         // border-radius: 100%;
@@ -14,6 +23,7 @@ page-display {
         width: 160px;
         position: relative;
        bottom: 60px;
+<<<<<<< HEAD
 
     }
 
@@ -84,3 +94,75 @@ page-display {
    
 
 }
+=======
+ 
+    }
+ 
+    .card{
+     position: relative;
+     top: 50%;
+    }
+ 
+    .name{
+        font-size: 200%;
+        font-weight: 100;
+        color: grey;
+    }
+ 
+    .icons{
+        font-size: 3em;
+        color: grey;
+ 
+    }
+ 
+    .spaace{
+        position: relative;
+        top: 20px;
+    }
+ 
+    .msg{
+     border-radius: 50px;
+ 
+    }
+ 
+    .nav{
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        height: 300px;
+    }
+ 
+    .back{
+       position: relative;
+       bottom: 10px;
+       right: 45%;
+       font-size: 200%;
+ 
+    }
+ 
+    h1{
+        color: white;
+        position: relative;
+        bottom: 70px;
+        font-weight: 100;
+ 
+    }
+ 
+    h2{
+        text-align: center;
+        font-weight: 100;
+        color: grey;
+        font-size: 30px;
+    }
+ 
+    p{
+        color: grey;
+        font-weight: 100;
+        text-align: center;
+        position: relative;
+        bottom: 2%;
+    }
+ 
+ 
+ 
+ 
+ }
+>>>>>>> master

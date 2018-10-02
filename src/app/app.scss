@@ -15,18 +15,28 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+<<<<<<< HEAD
 // *{
 //     font-family: 'Exo 2', sans-serif;
 // }
+=======
+*{
+    font-family: 'Exo 2', sans-serif;
+}
+>>>>>>> master
 
 .liss{
     // color: rgba(255, 255, 255, 0.158);
 }
 .buttons{
-    margin-bottom: 8%;
+    margin-bottom: 6%;
     position: relative;
     // right: 25%;
+<<<<<<< HEAD
     top: 10px;
+=======
+    top: 19px;
+>>>>>>> master
     background-color: rgba(245, 61, 79, 0);
     color: rgb(255, 247, 247);
    
@@ -48,6 +58,10 @@ h1{
         color: whitesmoke;
         font-weight: 100;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 img{
     width: 100px;
     height: 100px;
@@ -61,6 +75,13 @@ img{
     background-size: cover;
    background-repeat: no-repeat;
    background-position: center;
+<<<<<<< HEAD
+=======
+}
+.active {
+    background-color: #666;
+   
+>>>>>>> master
 }
 .active {
     background-color: #666;

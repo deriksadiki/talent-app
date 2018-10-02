@@ -30,10 +30,18 @@ import { ScouteProfilePage } from '../pages/scoute-profile/scoute-profile';
 
 import { DisplayPage } from '../pages/display/display';
 import { UploadPreviewPage } from '../pages/upload-preview/upload-preview';
+<<<<<<< HEAD
 import {MessagePage } from '../pages/message/message';
 import { SeeMessagesPage } from '../pages/see-messages/see-messages';
 import { GalleryPage } from '../pages/gallery/gallery';
 SecondPage
+=======
+import {MessagePage } from '../pages/message/message'
+import { SeeMessagesPage } from '../pages/see-messages/see-messages'
+import { GalleryPage } from '../pages/gallery/gallery';
+
+
+>>>>>>> master
 
 
 @NgModule({

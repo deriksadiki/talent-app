@@ -15,8 +15,15 @@ guest = {} as Guest;
 
 constructor(public navCtrl: NavController, public navParams: NavParams,private firebaseService:FirebaseProvider,public alertCtrl:AlertController) {
 }
+<<<<<<< HEAD
 reg(){
   var message;
+=======
+
+reg(){
+  var message;
+
+>>>>>>> master
 if ( this.guest.Username == undefined && this.guest.email == undefined && this.guest.password == undefined){
 const alert = this.alertCtrl.create({
   title: 'Warning',
@@ -39,6 +46,7 @@ const alert = this.alertCtrl.create({
 });
 alert.present();
 } else if (this.guest.Username == undefined){
+<<<<<<< HEAD
 const alert = this.alertCtrl.create({
   title: 'Warning',
   subTitle: 'Username cannot be left out',
@@ -61,10 +69,25 @@ this.firebaseService.registerUser(this.guest.email, this.guest.password,this.gue
 
 }, Error =>{
   const alert = this.alertCtrl.create({
+=======
+
+  const alert = this.alertCtrl.create({
+    title: 'Warning',
+    subTitle: 'Username cannot be left out',
+    buttons: ['OK']
+  });
+  alert.present();
+  
+}else { this.firebaseService.getimagepropicurl(this.guest.Username).then(data =>{
+  console.log(data)
+  this.firebaseService.registerUser(this.guest.email, this.guest.password,this.guest.Username).then(() => {
+    const alert = this.alertCtrl.create({
+>>>>>>> master
     title: 'Welcome',
     subTitle: Error,
     buttons: ['OK']
   });
+<<<<<<< HEAD
   alert.present();
 })
 
@@ -73,4 +96,22 @@ this.firebaseService.registerUser(this.guest.email, this.guest.password,this.gue
 takePicture(){
   this.firebaseService.uploadpic();
 }
+=======
+  this.navCtrl.push(UsersPage);
+  window.location.reload();
+  alert.present(); 
+  }, Error => {
+    const alert = this.alertCtrl.create({
+      title: 'Warning!',
+      subTitle: Error,
+      buttons: ['Ok']
+    });
+    alert.present();
+  }
+  takePicture(){
+    this.firebaseService.uploadpic();
+
+}
+
+>>>>>>> master
 }

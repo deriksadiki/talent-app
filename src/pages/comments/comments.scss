@@ -1,18 +1,32 @@
 page-comments {
 
+<<<<<<< HEAD
  
     .img{
         background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
+=======
+    font-family: 'Ubuntu', sans-serif;
+    .img{ 
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+>>>>>>> master
         background-attachment: fixed;
         background-color: black;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+<<<<<<< HEAD
+=======
+       border: 45px red;
+>>>>>>> master
         }
 
 .cm{
     height:70px;
     //  width: 100%;
+}
+.custom-class-divider {
+    color: yellow;
+    background-color: peachpuff;
 }
 .comments{
     height:80px;
@@ -35,14 +49,6 @@ h2{
     text-transform: capitalize;
  
 }
-// .pic{
-//     position: relative;
-//     // margin-bottom: 20%;
-//     bottom: 10px;
-//     align-content: center;
-//     justify-content: center;
-    
-// }
 
 .text{
     margin-left: 70px;
@@ -56,9 +62,12 @@ h2{
 .list2{
     margin-top: -29px;
     // padding:5px;
+<<<<<<< HEAD
     margin-bottom: 20px;
  
    
+=======
+>>>>>>> master
 }
 .datew{
     font-size: 10px;
@@ -67,6 +76,7 @@ h2{
     margin-left: 7px;
 }
 .btn{
+<<<<<<< HEAD
     padding: 30px;
     height: 50px;
     width: 100%;
@@ -75,6 +85,20 @@ h2{
 
 .item1{
 //   background-color: #b5bad4;
+=======
+    // padding-top: 30px;
+    // padding-bottom: 15px;
+    width: 30%;
+    height: 30px;
+
+}
+.commentsBtn{
+    // border:2px solid red;
+    background: white;
+    padding-right: 10px;
+}
+
+>>>>>>> master
 }
 
 }

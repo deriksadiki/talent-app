@@ -37,6 +37,7 @@
     <ion-icon class="sbtn" name="settings"></ion-icon>
 </ion-header>
 <ion-content>
+<<<<<<< HEAD
 
 <ion-item text-wrap>
     <p>
@@ -52,6 +53,53 @@
             <ion-grid class="grid">
                 <ion-row class="row">
                     <ion-col class="col" col-6 *ngFor="let i of myVideos;" class="col1">
+=======
+
+<ion-item text-wrap>
+    <p>
+        <!-- {{i.bio}} -->
+    </p>
+</ion-item>
+
+    <div class="uploads">
+        <hr class="line">
+
+        <h1 class="header">Uploads</h1>
+        <ion-list>
+            <ion-grid class="grid">
+                <ion-row class="row">
+                    <ion-col class="col" col-6 *ngFor="let i of myVideos;" class="col1">
+
+                        <ion-card class="card">
+                            <ion-card-content>
+                                <ion-item class="avatar" style="width:100%;">
+                                    <!-- <ion-avatar  >
+                                        <img src="{{i.img}}"> 
+                                      </ion-avatar> -->
+                                    <div class="name">{{i.vidname}}</div>
+                                </ion-item>
+                                <video width="150" height="80">
+                                    <source src={{i.vidurl}} type="video/mp4">
+                                    <source src={{i.vidurl}} type="video/mkv">
+                                </video>
+                                <p class="p">{{i.date}}</p>
+                            </ion-card-content>
+                        </ion-card>
+
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-list>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-fab fixed bottom right>
+        <button class="fabi" ion-fab (click)="Upload()" color="own">
+            <ion-icon class="i" name="md-add"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-footer>
+>>>>>>> master
 
                         <ion-card class="card">
                             <ion-card-content>

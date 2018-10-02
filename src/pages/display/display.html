@@ -1,4 +1,5 @@
 <ion-header  *ngFor="let i of arr;let i of index;">
+<<<<<<< HEAD
  
   <div align="center" class="nav">
 
@@ -22,11 +23,33 @@
   </div>
 
   <!-- </ion-navbar> -->
+=======
+ <div align="center" class="nav">
+
+ <!-- <ion-navbar color="trans"> -->
+ <button class="back" ion-button color="trans" clear (click)="dismiss()"><ion-icon big color="light" name="arrow-back"></ion-icon>
+     <!-- <span ion-text color="light" showWhen="ios"></span> -->
+
+     <!-- <ion-icon name="back-arrow" showWhen="android,windows"></ion-icon> -->
+ </button>
+
+
+
+ <!-- <ion-title align="center">Talent Profile</ion-title> -->
+
+<div text-align="center">
+  <h1>{{i.name}}</h1>
+   <img class="image" src="{{i.img}}"/>
+ </div>
+
+ <!-- </ion-navbar> -->
+>>>>>>> master
 </div>
 </ion-header>
 
 
 <ion-content class="img" *ngFor="let i of arr;let i of index;">
+<<<<<<< HEAD
     <!-- <ion-card class="Card" *ngFor="let i of arr;let i of index;"> -->
 
       <div align="center">
@@ -91,3 +114,51 @@
 
 
 </ion-content>
+=======
+   <!-- <ion-card class="Card" *ngFor="let i of arr;let i of index;"> -->
+
+     <div align="center">
+
+     </div>
+       <!-- <ion-card-content align="center"> -->
+         <!-- <ion-card-title class="name" align="center"> -->
+           <h2>{{i.name}} {{i.surname}}</h2>
+           <p>{{i.gender}} &emsp; | &emsp;{{i.age}} years old</p>
+         <!-- </ion-card-title> -->
+       <div align="center">
+         <button color="own" ion-button class="msg" (click)="Message()" outline>Message</button>
+       </div>
+
+       <ion-grid class="things" align="center">
+           <ion-row>
+               <ion-col>
+                   <img src="../../assets/imgs/phone (1).png"><br>
+                   <p>{{i.cellno}}</p>
+               </ion-col>
+
+               <ion-col>
+                   <img src="../../assets/imgs/close-envelope.png"><br>
+                   <p>JorjaSmith23@gmail.com</p>
+               </ion-col>
+           </ion-row>
+       </ion-grid>
+
+
+       <ion-item>
+         <ion-icon name='logo-youtube' item-start style="color: #d03e84"></ion-icon>
+         Videos
+         <ion-badge item-end>9</ion-badge>
+       </ion-item>
+
+       <ion-item>
+         <ion-icon name='thumbs-up' item-start style="color: #55acee"></ion-icon>
+         Likes
+         <ion-badge item-end>260k</ion-badge>
+       </ion-item>
+
+     <!-- </ion-card> -->
+
+
+
+</ion-content>
+>>>>>>> master

@@ -11,7 +11,13 @@ page-artisthome {
         }
 
 .fabi{
-    box-shadow: 2px 2px 3px black;
+    box-shadow: 3px 2px 4px 3px rgb(3, 3, 3);
+    margin-top: 20px;
+}
+.fb{
+    position: fixed;
+    // top:50px; 
+
 }
 
         .logo{
@@ -54,25 +60,23 @@ page-artisthome {
             margin-left: 50%;
   }
 
-    // .section{
-    //     background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
-    //     background-attachment: fixed;
-    //     background-color: black;
-    //     background-size: cover;
-    //     height: 40vh;
-    //     box-shadow: 2px 2px 4px;
-    //    background-repeat: no-repeat;
-    //    background-position: center;
-    // } 
+    .ftext{
+        font-size: 9px;
+    }
 
     h1{
-        color: whitesmoke;
+        color: rgb(100, 3, 3);
         font-size: 200%;
         font-weight: 100;
     }
+<<<<<<< HEAD
     h2, p {
         color: #1e2a78;
         font-weight: 100;
+=======
+    h2 {
+        color: rgb(100, 3, 3);
+>>>>>>> master
     }
     .box{
         box-shadow: 5px 4px 7px;

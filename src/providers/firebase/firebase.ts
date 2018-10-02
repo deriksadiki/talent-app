@@ -163,6 +163,7 @@ addMoreUserINformation(name, surname,dateOfBirth, gender, cmpNme, cmpEmail, cmpT
     return this.authnticate.sendPasswordResetEmail(email);
   }
 
+
 addImage(username){
   let loading = this.loadingCtrl.create({
     spinner: 'bubbles',
@@ -198,6 +199,7 @@ return new Promise ((accpt,rej) =>{
 })
 }
 
+
   async uploadpic(){
     const options: CameraOptions= {
     quality : 100,
@@ -212,6 +214,7 @@ return new Promise ((accpt,rej) =>{
       this.image = `data:image/jpeg;base64,${results}`;
       return this.image;
   }
+
 
   uploadvid(vid){
     var d = Date.now();
@@ -352,10 +355,14 @@ getAllvideos(){
 } 
 storeLastSeen(user2){
 }
+
 getuserType(){
   console.log('user type')
+<<<<<<< HEAD
   this.username = "";
   this.imgurl = "";
+=======
+>>>>>>> master
 return new Promise ((accpt, rej) =>{
   this.database.ref('users').on('value', (data: any) => {
     var users =  data.val();
@@ -381,10 +388,15 @@ return new Promise ((accpt, rej) =>{
             imgRef.getDownloadURL().then(function(url) {
             this.storePictureUrl(url);
             }.bind(this)).catch(function(error) {
+<<<<<<< HEAD
             })
             if (this.imgurl == undefined || this.imgurl == null){
               this.storePictureUrl2('../../assets/imgs/pic.jpg')
             }
+=======
+          
+            })
+>>>>>>> master
             accpt(Userdetails[keys2].userType)
            });
         break;
@@ -400,6 +412,7 @@ this.username = name;
 
 storePictureUrl(url){
   console.log(url)
+<<<<<<< HEAD
 this.imgurl =  url;
 }
 
@@ -420,6 +433,11 @@ returnPictureUrl(){
   return img;
 }
 
+=======
+this.imgurl =  url;
+}
+
+>>>>>>> master
 storeUserKey(key){
   console.log(key);
 this.userKey = key;
@@ -551,15 +569,22 @@ if (this.imgurl == undefined || this.imgurl == null){
     this.storePictureUrl(details[keys[0]].imageURl)
   })
 }
+<<<<<<< HEAD
 else{
   this.imgurl = '../../assets/imgs/pic.jpg';
 }
+=======
+>>>>>>> master
 
    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('comments/' + key).push({
       text:text,
       username: this.username,
       date : day,
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
       img : this.imgurl
     })
     accpt("comment added")
@@ -653,9 +678,12 @@ startConvo(username, text){
       this.storePictureUrl(details[keys[0]].imageURl)
     })
   }
+<<<<<<< HEAD
   else{
     this.imgurl = '../../assets/imgs/pic.jpg';
   }
+=======
+>>>>>>> master
   var day = moment().format('MMMM Do YYYY, h:mm:ss a');
   console.log(username);
     this.database.ref('message/' + username).push({
@@ -714,6 +742,21 @@ return new Promise ((accpt, rej) =>{
 })
 }
 
+resetss(i){
+alert(i)
+this.videoArray = [];
+
+var user = firebase.auth().currentUser;
+var storageRef = firebase.storage().ref().child(i);
+
+// Delete the file
+storageRef.delete().then(function() {
+  console.log('Deleted');
+  // File deleted successfully
+}).catch(function(error) {
+  // Uh-oh, an error occurred!
+});
+}
 
 getLastSeen(user){
 return new Promise ((accpt, rej) =>{
@@ -879,5 +922,11 @@ this.names.push(name);
 getusername(){
   return this.username;
 }
-
+returnPictureUrl(){
+  var image;
+  if (this.imgurl == undefined || this.imgurl == null){
+    image = '../../assets/imgs/pic.jpg';
+  }
+  return image;
+ }
 }

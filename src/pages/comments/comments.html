@@ -1,4 +1,5 @@
 <ion-header>
+<<<<<<< HEAD
     <ion-navbar color = "own2" >
       <ion-title>comments</ion-title>
     </ion-navbar>
@@ -6,9 +7,12 @@
   </ion-header>
   
   
+=======
+>>>>>>> master
 
 <ion-content class="img" *ngFor="let i of videos; let a =index" padding>
 
+<<<<<<< HEAD
         <ion-item class="item1" (click)="profile(a)">
           <ion-avatar item-start>
             <img src={{i.img}}>
@@ -19,45 +23,92 @@
         
           <ion-item>
         <video width="390" height="240" controls>
+=======
+</ion-header>
 
-            <source src={{i.vidurl}} type="video/mp4">
-            
-          </video>
-          <p><b>{{i.vidDesc}}</b></p>
-        </ion-item>
-        <br>
+<ion-content *ngFor="let i of videos; let a =index" padding class="img">
+  <div>
+    <ion-card>
+    <ion-item (click)="profile(a)">
+      <ion-avatar item-start>
+        <img src={{i.img}}>
+      </ion-avatar>
+      <h1>
+        <b>{{i.name}}</b>
+      </h1>
+      <p>
+        <b>{{i.vidname}}</b>
+      </p>
+    </ion-item>
 
-         
-          <ion-item  class="item2" >
-            <textarea class="comments" #comment type="text" cols="40" rows="5" placeholder="Comment here"></textarea>
-        
-        <div align = "right" > 
-          <button ion-button round color = "own" (click)="placeComment(comment.value)" class="btn">Post</button>
-        </div>
-            </ion-item>
-<br>
-<br>
+    <ion-card-content>
+      <video width="390" height="240" controls>
 
+        <source src={{i.vidurl}} type="video/mp4">
+
+      </video>
+      <p>
+        <b>{{i.vidDesc}}</b>
+      </p>
    
-<div class="cm">
-    <ion-list no-lines *ngFor="let a of comments2"  >
 
+    <br>
+>>>>>>> master
+
+    <div class="comm">
+      <ion-item class="item2">
+        <textarea class="comments" maxlength="40" #comment type="text" cols="40" rows="5" placeholder="Comment here"></textarea>
+
+
+<<<<<<< HEAD
         <ion-item>
           <ion-avatar class="pics" item-start>
               <img src={{a.img}}>
+=======
+      </ion-item>
+      <div align="right" class="commentsBtn">
+        <button ion-button round color="own" class="btn" (click)="placeComment(comment.value)">Post</button>
+      </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="cm">
+      <ion-list no-lines *ngFor="let a of comments2">
+
+        <ion-item no-lines>
+          <ion-avatar class="pic" item-start>
+            <img src={{a.img}}>
+
+>>>>>>> master
           </ion-avatar>
-          
-          <h2 capitalize><b>{{a.name}}</b> <span class="datew">{{a.date}}</span></h2>
-         
+
+          <h2 capitalize>
+            <b>{{a.name}}</b>
+            <span class="datew">{{a.date}}</span>
+          </h2>
+
         </ion-item>
-    
-        <div class="list2">
-            <div text-wrap class="text">
-                <p>{{a.text}}</p>
-              </div>
-        </div>
-     
+
+        <ion-item no-lines>
+          <div class="list2">
+            <div class="text">
+              <p autosize text-wrap>{{a.text}}</p>
+            </div>
+          </div>
+        </ion-item>
       </ion-list>
+<<<<<<< HEAD
 </div>
        
 </ion-content>
+=======
+   
+    </div>
+     </ion-card-content>
+   </ion-card>
+       
+</ion-content>
+
+>>>>>>> master

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // page-message {
 
 //     .img{
@@ -33,6 +34,47 @@
 //         width: 20px;
 //         height: 50px;  
 //         font-size: 150%;           
+=======
+page-message {
+.buttons{
+    background-color: #000;
+}
+    .img{
+        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        background-attachment: fixed;
+        background-color: black;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      
+ 
+        }
+
+
+    .comments{
+        height:50px;
+        width: 90%;
+        border: 2px solid red;
+        border-radius: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+ 
+ 
+    }
+  
+    p{
+        font-size: 100%;
+    }
+ 
+    .send{
+        position: relative;
+        // left: 340px;
+        bottom: 70px;
+        width: 20px;
+        height: 50px;  
+        font-size: 150%;           
+>>>>>>> master
        
 //     }
 
@@ -40,6 +82,7 @@
 //         height: 70px;
 //     }
 
+<<<<<<< HEAD
 //     .reply{
 //         border-radius: 20px;
 //         min-width: 320px;
@@ -56,18 +99,56 @@
 //         background-color: white;
 //         height: 50px;
 //         font-weight: 100;
+=======
+    .reply{
+        border-radius: 30px;
+        min-width: 300px;
+    
+        
+    }
+.list{
+    list-style-type: none;
+    margin: 5px;
+//    display: block;
+}
+ul{
+   text-align: center;
+}
+    
+    .item{
+        position: relative;
+        // margin-bottom: 20px;
+    }
+
+
+    .title{
+        // background-color: white;
+        height: 50px;
+        font-weight: 100;
+
+>>>>>>> master
         
 //     }
 
+<<<<<<< HEAD
 //     p{
 //         font-weight: 200;
 //         font-size: 70%;
 //         position: relative;
 //         resize: none;
 //         height: 25px;
+=======
+    p{
+        font-weight: 200;
+        font-size: 70%;
+        position: relative;
+        resize: none;
+        // height: 25px;
+>>>>>>> master
                        
 //     }
 
+<<<<<<< HEAD
 //     h1{
 //         text-align: left;
 //         font-weight: 200;
@@ -192,3 +273,30 @@ page-message {
     
     
     }
+=======
+    h1{
+        text-align: left;
+        font-weight: 200;
+        font-size: 100%;
+        // color: black;
+        text-align: center;
+    }
+    h2{
+        font-weight: 200;
+        font-size: 70%;
+        position: relative;
+        bottom: 7px;
+        text-align: left;
+        text-align: center;
+    }
+
+ 
+    .trash{
+        position: relative;
+ 
+    }
+ 
+ 
+ }
+
+>>>>>>> master

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {FirebaseProvider}  from '../../providers/firebase/firebase'
 
 /**
  * Generated class for the ArtistProfileUpdatePage page.
@@ -15,7 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ArtistProfileUpdatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseService: FirebaseProvider) {
+    this.firebaseService.getuserType();
   }
 
   ionViewDidLoad() {

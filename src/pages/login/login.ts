@@ -9,15 +9,16 @@ import { updateDimensions } from 'ionic-angular/components/virtual-scroll/virtua
 import { UploadPreviewPage } from '../upload-preview/upload-preview';
 import { SecondPage } from '../second/second';
 
-
-
 @IonicPage()
 @Component({
  selector: 'page-login',
  templateUrl: 'login.html',
 })
 export class LoginPage {
+ name;
+ users = {} as login;
 
+<<<<<<< HEAD
  name;
 
  users = {} as login;
@@ -28,6 +29,16 @@ export class LoginPage {
  ionViewDidLoad(){
   setTimeout(()=> this.splash = false , 3000);
 }
+=======
+
+ name;
+
+ users = {} as login;
+
+ constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl:AlertController,private firebaseService:FirebaseProvider,public loadingCtrl:LoadingController) {
+ }
+
+>>>>>>> master
 Reg(){
  this.navCtrl.push(UserPage);
 }
@@ -95,7 +106,10 @@ showForgotPassword(){
          message: 'You have successfully logged in',
          buttons: ['OK']
        });
+<<<<<<< HEAD
        this.firebaseService.storeLAstSeenState();
+=======
+>>>>>>> master
        alert.present();
        this.navCtrl.push(ArtisthomePage);
      })
@@ -133,5 +147,10 @@ showForgotPassword(){
      }
    })
  }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
 
 }

@@ -3,27 +3,38 @@
 
 
 
-    <div class="section">
-    <ion-navbar color = "own" >
-      <h2 align="center">Upload your video</h2>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    </ion-navbar>
 
-    <div class="logo" align="center">
-      <!-- <img class="logo" src="../../assets/imgs/play-button (1).png"> -->
-    </div>
-    <!-- <h1 align="center"></h1> -->
-    </div>
+    <!-- <div class="section"> -->
+        <!-- <div class="vid"> -->
+           <!-- <ion-navbar color = "trans" > -->
 
+<!-- </ion-navbar> -->
+
+            <video class="vdo"  controls height="320" width="595" *ngFor ="let i of videos">
+
+
+           <source class="v" [src]="i" type="video/mp4">
+             <source class="v" [src]="i" type="video/mkv">
+              <!-- <div>
+              <button ion-button menuToggle icon-only>
+                  <ion-icon name='menu'></ion-icon>
+                </button>
+              </div> -->
+         </video>
+        
+        
+        
+       <!-- </div> -->
+    <!-- </div> -->
+    
     </ion-header>
-
+  
 <ion-content class="img">
 
 
   <h1 align="center" class="head">video preview</h1>
   <br>
+ 
   <ion-card class="card1"> 
     <ion-item class="item item-trns text-center">
       <input type="file" (change)="insertvid($event)" >
@@ -32,9 +43,15 @@
 
 
      <ion-card class="Card2"> 
+        <ion-card-content>
      <ion-list>
+<<<<<<< HEAD
          <ion-item class="combo" align="left">
             <ion-label class="lab" ><ion-icon name="browser" class="h"></ion-icon></ion-label>
+=======
+         <ion-item no-lines class="combo" align="left">
+            <ion-label class="lab" ><ion-icon name="browsers" class="h"></ion-icon></ion-label>
+>>>>>>> master
             <ion-select class="box"  placeholder="category"  [(ngModel)]="category">
               <ion-option value="mus">Music</ion-option>
               <ion-option value="dan">Dance</ion-option>
@@ -51,12 +68,12 @@
                 </ion-item> -->
         
         
-               <ion-item id="tem">
+               <ion-item>
                   <ion-label><ion-icon  class="i" name="information-circle"></ion-icon></ion-label>
                   <ion-input type="text" placeholder="video name" [(ngModel)]="vidName"></ion-input>
                </ion-item> 
               
-        <ion-item id="tem">
+          <ion-item >
 
           <ion-label><ion-icon class="i" name="information-circle"></ion-icon></ion-label>
           <ion-input type="text" placeholder="video description" [(ngModel)]="vidDesc"></ion-input>
@@ -69,15 +86,18 @@
 
 
 
-      <div  align = "center" >
-          <button class="butt" (click)="upload()" round color = "own" block ion-button>Upload</button>
-
-
-          <button class="butt2" ion-button round color="own" (click)="preview()">Preview</button>
+      <div class="butts"  align = "center" >
+          <button class="butt" (click)="upload()" round color = "own"  ion-button>Upload</button>
      </div>
      br
   <!-- <button (click)="upload()" ion-button>upload</button> -->
+<<<<<<< HEAD
 
+=======
+  <!-- <button ion-button round color="own" (click)="preview()">Preview</button> -->
+>>>>>>> master
   <!-- </ion-content> -->
+ </ion-card-content>
 </ion-card> 
+
 </ion-content>
