@@ -133,7 +133,16 @@ addMoreUserINformation(name, surname,dateOfBirth, gender, cmpNme, cmpEmail, cmpT
     this.database.ref('lastSeen/' + this.username).set({
       time: day
     })
+    this.username ="";
+    this.imgurl = "";
     this.authnticate.signOut();
+  }
+
+  storeLAstSeenState(){
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
+    this.database.ref('lastSeen/' + this.username).set({
+      time: day
+    })  
   }
 
   getUserSatate(){
@@ -345,6 +354,8 @@ storeLastSeen(user2){
 }
 getuserType(){
   console.log('user type')
+  this.username = "";
+  this.imgurl = "";
 return new Promise ((accpt, rej) =>{
   this.database.ref('users').on('value', (data: any) => {
     var users =  data.val();
@@ -370,8 +381,10 @@ return new Promise ((accpt, rej) =>{
             imgRef.getDownloadURL().then(function(url) {
             this.storePictureUrl(url);
             }.bind(this)).catch(function(error) {
-          
             })
+            if (this.imgurl == undefined || this.imgurl == null){
+              this.storePictureUrl2('../../assets/imgs/pic.jpg')
+            }
             accpt(Userdetails[keys2].userType)
            });
         break;
@@ -390,12 +403,21 @@ storePictureUrl(url){
 this.imgurl =  url;
 }
 
+storePictureUrl2(url){
+  console.log(url)
+this.imgurl =  url;
+}
+
+
 returnPictureUrl(){
-  var image;
+  var img;
   if (this.imgurl == undefined || this.imgurl == null){
-    image = '../../assets/imgs/pic.jpg';
+    img = '../../assets/imgs/pic.jpg';
   }
-  return image;
+  else{
+   img = this.imgurl; 
+  }
+  return img;
 }
 
 storeUserKey(key){
@@ -529,6 +551,9 @@ if (this.imgurl == undefined || this.imgurl == null){
     this.storePictureUrl(details[keys[0]].imageURl)
   })
 }
+else{
+  this.imgurl = '../../assets/imgs/pic.jpg';
+}
 
    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('comments/' + key).push({
@@ -627,6 +652,9 @@ startConvo(username, text){
       var keys = Object.keys(details);
       this.storePictureUrl(details[keys[0]].imageURl)
     })
+  }
+  else{
+    this.imgurl = '../../assets/imgs/pic.jpg';
   }
   var day = moment().format('MMMM Do YYYY, h:mm:ss a');
   console.log(username);

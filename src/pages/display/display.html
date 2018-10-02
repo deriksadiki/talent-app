@@ -1,37 +1,78 @@
-<ion-header>
+<ion-header  *ngFor="let i of arr;let i of index;">
+ 
+  <div align="center" class="nav">
 
-<ion-navbar>
+  <!-- <ion-navbar color="trans"> -->
+    <br>
+    
+  <button class="back" ion-button color="trans" clear (click)="dismiss()"><ion-icon big color="light" name="arrow-back"></ion-icon>
+      <!-- <span ion-text color="light" showWhen="ios"></span> -->
 
-    <ion-title>Talent Profile</ion-title>
-    <button ion-button color="custom" clear (click)="dismiss()">back
-      <span ion-text color="primary" showWhen="ios"></span>
-
-      <ion-icon name="back-arrow" showWhen="android,windows"></ion-icon>
+      <!-- <ion-icon name="back-arrow" showWhen="android,windows"></ion-icon> -->
   </button>
   
   
-  <ion-title align="center">Talent Profile</ion-title>
-  </ion-navbar>
+  <!-- <ion-title align="center">Talent Profile</ion-title> -->
+<br>
+<br>
+<br>
+<div text-align="center">
+   <h1>{{i.name}}</h1>
+    <img class="image" src="{{i.img}}"/>
+  </div>
 
+  <!-- </ion-navbar> -->
+</div>
 </ion-header>
 
 
-<ion-content class="img">
-    <ion-card class="Card" *ngFor="let i of arr;let i of index;">
+<ion-content class="img" *ngFor="let i of arr;let i of index;">
+    <!-- <ion-card class="Card" *ngFor="let i of arr;let i of index;"> -->
 
+      <div align="center">
+       
+      </div> 
+        <!-- <ion-card-content align="center"> -->
+          <!-- <ion-card-title class="name" align="center"> -->
+            <h2>{{i.name}} {{i.surname}}</h2>
+            <p>{{i.gender}} &emsp; | &emsp;{{i.age}} years old</p>
+          <!-- </ion-card-title> -->
+        <div align="center">
+          <button color="own" ion-button class="msg" (click)="Message()" outline>Message</button>
+        </div>
 
-        <img src="{{i.img}}"/>
-    
-        <ion-card-content align="center">
-          <ion-card-title align="center">
-            {{i.name}} {{i.surname}}
-          </ion-card-title>
-          <h3>Age: <br>{{i.age}}</h3>
-          <br>
-          <h3>Gender: <br> {{i.gender}}</h3>
-          <br>
+          <!-- <ion-grid class="spaace">
+            <ion-row>
+              <ion-col>
+                  <ion-icon class="icons" name="person"></ion-icon>
+              </ion-col>
+
+              <ion-col>
+          <ion-icon class="icons" name="transgender"></ion-icon>
+     
+              </ion-col>
+
+              <ion-col>
+                  <ion-icon class="icons" name="call"></ion-icon>
           <h3>Contacts: <br> {{i.cellno}} </h3>
-        </ion-card-content>
+              </ion-col>
+        </ion-row>
+        </ion-grid> -->
+
+        <ion-grid class="things" align="center">
+            <ion-row>
+                <ion-col>
+                    <img src="../../assets/imgs/phone (1).png"><br>
+                    <p>{{i.cellno}}</p>
+                </ion-col>
+
+                <ion-col>
+                    <img src="../../assets/imgs/close-envelope.png"><br>
+                    <p>JorjaSmith23@gmail.com</p>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+       
     
         <ion-item>
           <ion-icon name='logo-youtube' item-start style="color: #d03e84"></ion-icon>
@@ -45,8 +86,8 @@
           <ion-badge item-end>260k</ion-badge>
         </ion-item>
     
-      </ion-card>
-<div align = "center" >
-<button ion-button (click)="Message()">Message</button>
-</div>
+      <!-- </ion-card> -->
+
+
+
 </ion-content>

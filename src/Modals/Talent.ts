@@ -11,4 +11,4 @@ export interface Talent{
     compEmail:string;
     compTel :string;
     Bio :string;
-}
+ }

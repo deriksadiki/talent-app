@@ -16,11 +16,13 @@ import { ArtisthomePage } from '../artisthome/artisthome';
  templateUrl: 'home.html'
 })
 export class HomePage {
- url ='assets/imgs/o.jpg'
- category;
- vidName;
- vidDesc;
- videos = new Array();;
+  url;
+  category;
+  vidName;
+  vidDesc;
+  videos = [];
+
+ 
 
 
 
