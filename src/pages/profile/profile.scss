@@ -2,31 +2,35 @@ page-profile {
     font-family: 'Ubuntu', sans-serif;
     .img{
         background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
-        // background-attachment: fixed;
-        // background-color: black;
-        // background-size: cover;
-        // background-repeat: no-repeat;
-        // background-position: center;
         height: 350px;
  
         }
  
         .pic{
-            width: 60%;
-            height: 45%;
-            width: 40%;
-            height: 40%;
-            border-radius: 60%;
+           height: 130px;
+           width: 130px;
+           border-radius: 65px;
             position: relative;
-            top: 40px;
+            top: 30px;
             border: solid 3px rgb(255, 255, 255);
         }
- 
+ .phot{
+     position: relative;
+   bottom: 65px;
+ }
+.B{ 
+    position: relative;
+    bottom: 47px;
+    margin-left: 360px;
+}
+// .con{
+//     background-color: rgba(0, 0, 0, 0);
+// }
         h1{
             color: rgb(255, 255, 255);
             font-weight: 100;
-            position: relative;
-            bottom: 50%;
+            // position: relative;
+            bottom: 55%;
             font-size: 35px;
         }
  
@@ -34,58 +38,46 @@ page-profile {
             font-weight: 100;
             color: rgb(134, 132, 132);
             position: relative;
-            font-size: em;
+            font-size: 1em;
             bottom: 60px;
-            // left: 50px;
         }
-
         h3{
             font-weight: 100;
             text-align: center;
             position: relative;
             bottom: 30%;
-            font-size: 3em;
+            font-size: 210%;
             color: rgb(134, 132, 132);
         }
-
+        .h{
+            top: 10px;
+            position: relative;
+        }
         h4{
             text-align: center;
             font-weight: 100;
-            font-size: em;
+            font-size: 90%;
             color: grey;
             position: relative;
             bottom: 34%;
-
         }
-
-
         .space{
-            // border:1px solid rgb(255, 255, 255);
             height: 100px;
             position: relative;
             bottom: 4px;
             font-size: 15px;
             font-weight: 100;
         }
-
          .btn{
             position: relative;
             top: 135px;
             color: #F53D4E;
             border-radius: 50px;
-            // width: 15%;
-            // height: 15%;
             font-size: 100%;
-            // border:solid 2px #F53D4E;
             }
-
-            .block{
-                position: relative;
-                top: 150px;
-            }
-  
         .cont{
             background-color: rgb(255, 255, 255);
+            margin-top: 20px;
         }
  
         p{
@@ -97,19 +89,10 @@ page-profile {
         .dash{
             background-color: rgba(53, 52, 52, 0.555);
             color: white;
-            height: 23%;
-            // border-left: 2px solid white;
+            height: 26%;
             font-size: 50%;
             position: relative;
-            top: 3%;
- 
-        }
-        .list{
-            position: relative;
-            left: 25%;
-            bottom: 10px;
-            font-size: 55%;
-            font-weight: 100%;
+            bottom: 29px;
  
         }
         .sbtn{
@@ -118,34 +101,45 @@ page-profile {
             left: 90%;
             font-size: 190%;
             color: white;
-            // background-color: white;
-            // border-radius: 100%;
-            // width: 15%;
-            // height: 15%;
+        }
+        .row{
+            height:55vh;
+            margin-top: 0px;
+            // margin-bottom: 20px; 
+          }
         
-        }
-       .ion{
-                position: relative;
-                top: 100px;
-                left: 50px;
-                border-radius: 12px;
-                font-size: 100em
-
-        }
-
-        .things{
-            position: relative;
-            top: 5px;
-        }
-
-        .HR{
-            position: relative;
-            top: 30px;
-        }
-
+          .col{
+              padding: 10px 10px 10px 10px;
+              margin-bottom: 5px;
+          }
         
-
-
+          .grid{
+              margin: 0;
+            //   margin-bottom: 20px;
+          }
+        
+         .card{
+            border-radius: 20px;
+            height: 24vh;
+            width:98%;
+            margin: 0;
+            padding:0;
+            margin-bottom:10px;
+         } 
+         
+         .uploads{
+             margin: 0;
+             padding:0;
+         }
+         .avatar{
+            background: linear-gradient(rgba(244, 48, 48, 0.809),rgba(0,0,0,0))
+        }
+        .header{
+            color: black;
+            text-align: center;
+        }
+        .fabi ,{
+            box-shadow: 2px 2px 3px 1px black;
+        }
+       
 }
-
-

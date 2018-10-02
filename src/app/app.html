@@ -1,17 +1,17 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar color="own">
+    <ion-toolbar color="own2">
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content  class="menu">
-    <ion-list no-lines>
+    <ion-list>
 
       <div align = "center">
-      <img class="logo"   src="../assets/imgs/play.png">
+      <img class="logo"   src="{{picture}}">
     </div>
-      <h1 align = "center" class ="header">Vid'it</h1>
+      <h1 align = "center" class ="header">{{name}}</h1>
       <button icon-left class="buttons" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon name="{{p.icon}}"></ion-icon> {{p.title}}
 

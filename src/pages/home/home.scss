@@ -42,20 +42,20 @@ page-home {
  
    .box{
     //    margin-left: 10px;
-       margin-right: 62%;
+       margin-right: 46%;
    }
    .i{
        color: rgb(219, 219, 219);
     //    margin-right: 30px;
    }
    .img{
-       background-color: rgb(245, 239, 239);
-       background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
-           background-attachment: fixed;
-           background-color: black;
-           background-size: cover;
- 
-   }
+    background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
+    background-attachment: fixed;
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    }
    .head{
     //    background-color: #F53D4E;
     //    box-shadow: 2px 2px 4px;
@@ -131,12 +131,16 @@ page-home {
  }
  
  .butt{
-    width: 80%;
+    width: 70%;
+    height: 40px;
+    font-size: 1.5em;
  
  }
  
  .butt2{
-    width: 80%;
+    width: 70%;
+    height: 40px;
+    font-size: 1.5em;
  }
  
  }

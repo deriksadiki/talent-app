@@ -1,6 +1,6 @@
 page-see-messages {
 //   .cm{
-//         height:70px;
+//         height:100px;
 //         //  width: 100%;
 //     }
     // .comments{
@@ -53,6 +53,7 @@ page-see-messages {
         font-weight: 100;
         position: relative;
         bottom: 10px;
+        font-size: 1.5em;
     }
 
     h3{
@@ -63,8 +64,19 @@ page-see-messages {
     
     }
 
+    // .img{
+    //     background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
+    //     background-attachment: fixed;
+    //     background-color: black;
+    //     background-size: cover;
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     }
 
-   
+
+   h2{
+       font-size: 200px;
+   }
 
     
 

@@ -38,6 +38,7 @@ export class FirebaseProvider {
   messagePic =  new Array();
   messagepicture;
   path;
+  userKey;
   
   constructor(private camera:Camera, public loadingCtrl: LoadingController) {
   }
@@ -53,6 +54,53 @@ login(email, password){
 
 }
 
+addMoreUserINformation(name, surname,dateOfBirth, gender, cmpNme, cmpEmail, cmpTel, Bio){
+ return new Promise ((accpt,rej) =>{
+  var image;
+  if (this.image == undefined || this.image == null){
+    image = '../../assets/imgs/pic.jpg';
+  }
+  if (name == undefined){
+    name = ""
+  }
+  if (surname == undefined){
+    surname = ""
+  }
+  if (dateOfBirth == undefined){
+    dateOfBirth = ""
+  }
+  if (gender == undefined){
+    gender = ""
+  }
+  if (cmpNme == undefined){
+    cmpNme = ""
+  }
+  if ( cmpEmail == undefined){
+    cmpEmail = ""
+  }
+  if (cmpTel == undefined){
+    cmpTel = ""
+  }
+  if (Bio == undefined){
+    Bio = ""
+  }
+   var path = 'users/' + this.currentUserID + '/' + this.userKey;
+   this.database.ref(path).update({
+     name : name,
+     surname : surname,
+     dateOfBirth : dateOfBirth,
+     gender : gender,
+     compName: cmpNme,
+     compEmail: cmpEmail,
+     compTel : cmpTel,
+     imageURl:  image,
+     Bio : Bio
+   })
+   accpt('done')
+ })
+}
+
+
   registerUser(email,password, Username){
 
     return new Promise((accept,reject) =>{
@@ -61,7 +109,15 @@ login(email, password){
         this.dbRef =  'users/' + Username + ":" + user.uid;
         this.database.ref(this.dbRef).push({
           Username:Username,
-          userType: "normalPerson"
+          name: " ",
+          surname:" ",
+          dateOfBirth:" ",
+          gender:" ",
+          compName:" ",
+          compEmail: " ",
+          compTel : " ",
+          imageURl:  '../../assets/imgs/pic.jpg',
+          Bio : " "
         })
       accept("user registred")
       }, Error =>{
@@ -70,63 +126,23 @@ login(email, password){
     })
   }
   
-  registerTalentPerson(username,email,password, name, surname, gender, cellno, age){
-    let loading = this.loadingCtrl.create({
-      spinner: 'bubbles',
-      content: 'Please wait',
-      duration: 17000
-    });
-    loading.present();
-      this.username =  username;
-      return new Promise((accept,reject) =>{
-      this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-        var user = firebase.auth().currentUser;
-        this.dbRef =  'users/' +  username + ":" + user.uid;
-        this.database.ref(this.dbRef).push({
-          name:name,
-          surname:surname,
-          gender:gender,
-          cellno:cellno,
-          age:age,
-          userType: "talentPerson",
-          imageURl:  this.imgurl
-        })
-        loading.dismiss();
-        accept("success");
-      }, Error =>{
-        reject(Error.message);
-        console.log(Error.message);
-      })
-    })
-  }
-
-
-  registerScoutPerson(email, password, name, surname, companyName, companyemail, companycellno){
-    return new Promise((accept,reject) =>{
-      this.authnticate.createUserWithEmailAndPassword(email, password).then(()=>{
-      var user = firebase.auth().currentUser;
-        this.dbRef =  'users/' + surname + ":" + user.uid;
-        this.database.ref(this.dbRef).push({
-          name:name,
-          companyName:companyName,
-          companyemail:companyemail,
-          companycellno:companycellno,
-          userType: "ScoutPerson"
-        })
-        accept("success");
-      }, Error =>{
-        reject(Error.message);
-      })
-    })
-  }
-
   logout(){
+    console.log('exit')
     var user = firebase.auth().currentUser;
-    var day = moment().format('LT');
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('lastSeen/' + this.username).set({
       time: day
     })
+    this.username ="";
+    this.imgurl = "";
     this.authnticate.signOut();
+  }
+
+  storeLAstSeenState(){
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
+    this.database.ref('lastSeen/' + this.username).set({
+      time: day
+    })  
   }
 
   getUserSatate(){
@@ -154,18 +170,21 @@ addImage(username){
     duration: 17000
   });
   loading.present();
-  return new Promise ((accpt, rej) =>{
-    this.storageRef.ref('pictures/' + username + ".jpg").putString(this.image, 'data_url');
-    loading.dismiss();
-    accpt("image added to storage")
-  })
+  if (this.image != undefined || this.image != null){
+    return new Promise ((accpt, rej) =>{
+      this.storageRef.ref('pictures/' + username + ".jpg").putString(this.image, 'data_url');
+      loading.dismiss();
+      accpt("image added to storage")
+    })
+  }
+
 
 }
 
 getimagepropicurl(username){
   let loading = this.loadingCtrl.create({
     spinner: 'bubbles',
-    content: 'Please wait',
+    content: 'Almost done, Please wait!',
     duration: 5000
   });
   loading.present();
@@ -191,7 +210,7 @@ return new Promise ((accpt,rej) =>{
     }
       const results = await this.camera.getPicture(options);
       this.image = `data:image/jpeg;base64,${results}`;
-      console.log(this.image);
+      return this.image;
   }
 
   uploadvid(vid){
@@ -223,7 +242,7 @@ storeToDB(name, category, vidname, vidDesc){
   });
   loading.present();
   return new Promise((accpt,rejc) =>{
-    var today = moment().format("L");
+    var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     var storageRef = firebase.storage().ref(name + ".mp4");
     storageRef.getDownloadURL().then(url => {
       console.log(url)
@@ -236,8 +255,8 @@ storeToDB(name, category, vidname, vidDesc){
             description: vidDesc,
             username : this.username,
             userImg : this.imgurl,
-            date : today,
-            likes : 1,
+            date : day,
+            likes : 0,
             comments : 1
           });
           accpt('success');
@@ -250,6 +269,7 @@ storeToDB(name, category, vidname, vidDesc){
 
 getUploads(){
   return new Promise((accpt,rej) =>{
+    this.MyvidsArray.length = 0;
     this.database.ref('uploads/' + this.username).on('value',(data5:any) =>{
       var myVideos = data5.val();
       console.log(myVideos);
@@ -262,7 +282,7 @@ getUploads(){
           vidname : myVideos[k].name,
           name : myVideos[k].username,
           img : myVideos[k].userImg,
-          date : myVideos[k].date,
+          date : moment(myVideos[k].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow()
         }
         this.MyvidsArray.push(obj);
         accpt(this.MyvidsArray) 
@@ -316,7 +336,7 @@ getAllvideos(){
                 vidname : details[key].name,
                 name : details[key].username,
                 img : details[key].userImg,
-                date : moment(details[key].date).startOf('day').fromNow(),
+                date : moment(details[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
                 color :colour,
                 key: key
           }
@@ -333,6 +353,9 @@ getAllvideos(){
 storeLastSeen(user2){
 }
 getuserType(){
+  console.log('user type')
+  this.username = "";
+  this.imgurl = "";
 return new Promise ((accpt, rej) =>{
   this.database.ref('users').on('value', (data: any) => {
     var users =  data.val();
@@ -346,7 +369,6 @@ return new Promise ((accpt, rej) =>{
         this.storeUserName(userIDs[x].substr(0,index));
         this.storeLastSeen(userIDs[x].substr(0,index));
           this.database.ref('users/' + userIDs[x]).on('value', (data: any) => {
-            var Userdetails;
             var Userdetails = data.val(); 
             this.storeuserid(userIDs[x])
             var keys2:any = Object.keys(Userdetails);
@@ -354,9 +376,15 @@ return new Promise ((accpt, rej) =>{
             let storageRef =  firebase.storage().ref();
            var img = userIDs[x].substr(0,index) + ".jpg"
             let imgRef = storageRef.child('pictures/' + img);
+            var url2 = Userdetails[keys2[0]].imageURl;
+            this.storeUserKey(keys2[0])
             imgRef.getDownloadURL().then(function(url) {
             this.storePictureUrl(url);
-            }.bind(this)).catch(function(error) {})
+            }.bind(this)).catch(function(error) {
+            })
+            if (this.imgurl == undefined || this.imgurl == null){
+              this.storePictureUrl2('../../assets/imgs/pic.jpg')
+            }
             accpt(Userdetails[keys2].userType)
            });
         break;
@@ -371,7 +399,30 @@ this.username = name;
 }
 
 storePictureUrl(url){
+  console.log(url)
 this.imgurl =  url;
+}
+
+storePictureUrl2(url){
+  console.log(url)
+this.imgurl =  url;
+}
+
+
+returnPictureUrl(){
+  var img;
+  if (this.imgurl == undefined || this.imgurl == null){
+    img = '../../assets/imgs/pic.jpg';
+  }
+  else{
+   img = this.imgurl; 
+  }
+  return img;
+}
+
+storeUserKey(key){
+  console.log(key);
+this.userKey = key;
 }
 
 storeuserid(uid){
@@ -381,6 +432,7 @@ console.log(this.currentUserID);
 
 getProfile(){
   return new Promise ((accpt, rej) =>{
+    this.profile.length = 0;
     this.database.ref('users/' + this.currentUserID).on('value', (data2: any) => {
       var details = data2.val();
       console.log(details);
@@ -492,12 +544,23 @@ viewArtistProfile(user){
 
 comment(key,text){
   return new Promise ((accpt, rej) =>{
-    var today = moment().format('l');  
+if (this.imgurl == undefined || this.imgurl == null){
+  this.database.ref('users/' + this.currentUserID).on('value', (data2: any) => {
+    var details = data2.val();
+    var keys = Object.keys(details);
+    this.storePictureUrl(details[keys[0]].imageURl)
+  })
+}
+else{
+  this.imgurl = '../../assets/imgs/pic.jpg';
+}
+
+   var day = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('comments/' + key).push({
       text:text,
       username: this.username,
-      date : today,
-      // img : this.imgurl
+      date : day,
+      img : this.imgurl
     })
     accpt("comment added")
   })
@@ -512,9 +575,10 @@ getcomments(key){
         for (var x =0; x < keys.length; x++){
           var key = keys[x];
           let obj = {
-            date : details[key].date,
+            date :moment( details[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
             text :  details[key].text,
-            name : details[key].username
+            name : details[key].username,
+            img: details[key].img
           }
           this.comments.push(obj)
         }
@@ -559,7 +623,7 @@ removeLike(username, key, num){
 }
 
 sendMessage(username, text):any{
-    var today = moment().format("Do MMM");
+    var today = moment().format('MMMM Do YYYY, h:mm:ss a');
     this.database.ref('message/' + username).on('value', (data: any) => {
       if ( data.val() != null ||  data.val() != undefined){
         this.assisgStatus('pass')
@@ -582,10 +646,20 @@ getresults(){
 
 
 startConvo(username, text){
-  var today = moment().format("Do MMM");
+  if (this.imgurl == undefined || this.imgurl == null){
+    this.database.ref('users/' + this.currentUserID).on('value', (data2: any) => {
+      var details = data2.val();
+      var keys = Object.keys(details);
+      this.storePictureUrl(details[keys[0]].imageURl)
+    })
+  }
+  else{
+    this.imgurl = '../../assets/imgs/pic.jpg';
+  }
+  var day = moment().format('MMMM Do YYYY, h:mm:ss a');
   console.log(username);
     this.database.ref('message/' + username).push({
-      date : today,
+      date : day,
       message : text,
       name : this.username,
       receiver : this.messagepicture,
@@ -596,9 +670,9 @@ startConvo(username, text){
 
 
 send(username, text){
-  var today = moment().format("L");
+  var day = moment().format('MMMM Do YYYY, h:mm:ss a');
   this.database.ref('message/' + username).push({
-    date : today,
+    date : day,
     message : text,
     name : this.username
   })
@@ -619,16 +693,16 @@ return new Promise ((accpt, rej) =>{
       for (var x = 0; x < keys.length; x++){
         var key = keys[x];
         if (messages[key].name == this.username){
-          float = { 'float' : 'right'}
+          float = {'float' : 'right'}
           color = 'light';
         }
         else{
-          float = { 'float' : 'left'}
+          float = {'float' : 'left'};
           color = 'red';
         }
         let obj = {
           message: messages[key].message,
-          date : messages[key].date,
+          date : moment(messages[key].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
           color : color,
           float : float
         }
@@ -645,7 +719,7 @@ getLastSeen(user){
 return new Promise ((accpt, rej) =>{
   this.database.ref('lastSeen/' + user).on('value', (data: any) => {
     if (data.val() != null || data.val() != undefined){
-      this.lastSeen =  moment(data.val().time, 'hh:mm').startOf('hour').fromNow();
+      this.lastSeen =  moment(data.val().time, 'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow();
       accpt(this.lastSeen);
     }
   })
@@ -704,6 +778,7 @@ getImagesURL(){
 }
 
 getConversation(user){
+  console.log('get convo')
   return new Promise ((accpt, rej) =>{
     this.database.ref('message').on('value', (data: any) => {
       if (data.val() != null || data.val() != undefined){
@@ -720,18 +795,23 @@ getConversation(user){
               if (messageID == this.username && user  == messageID2)
               {
                   this.storeDefaultPath(key[x]);
+                  console.log('finished')
+                  accpt('finished')
                   break;
               }
               else if (messageID2 == this.username && user == messageID){
                 this.storeDefaultPath(key[x]);
+                accpt('finished')
+                console.log('finished')
                 break;
             }
-            accpt('finished')
           }
           }
         })
+
       }
     })
+    accpt('no path')
   })
 }
 
@@ -764,7 +844,7 @@ returnAllMessages(){
           key :  key[length2],
           name : this.names[i],
           message : Newmessg[key[length2]].message,
-          date :   moment(Newmessg[key[length2]].date).startOf('day').fromNow(),
+          date :   moment(Newmessg[key[length2]].date,'MMMM Do YYYY, h:mm:ss a').startOf('minutes').fromNow(),
           path : this.messagePath[i],
           img :   image
         }

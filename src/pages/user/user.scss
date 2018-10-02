@@ -1,72 +1,64 @@
 page-user {
     font-family: 'Ubuntu', sans-serif;
     .img{
-        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
         background-color: black;
         background-size: cover;
-       background-repeat: no-repeat;
-       background-position: center;
-    }
-    ion-card.card{
-        // margin-top: 20%;
-        border-radius: 12px;
-        // box-shadow: 2px 2px 4px;
-    }
-    .bg{
-        background-color:rgba(0,0,0,0.5); 
-    }
-    ion-label.label{
-        color: whitesmoke;
-    }
+        background-repeat: no-repeat;
+        background-position: center;
+        }
+
+    // ion-card.card{
+    //     // margin-top: 20%;
+    //     border-radius: 12px;
+    //     // box-shadow: 2px 2px 4px;
+    // }
+    // .bg{
+    //     background-color:rgba(0,0,0,0.5); 
+    // }
+    // ion-label.label{
+    //     color: whitesmoke;
+    // }
     .item{
         background-color: rgba(255, 255, 255, 0.192);
-        // color: white;
+        color: white;
         width: 80%;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         position: relative;
-
-        // right: 15%;
-
         border-radius: 30px;
-        padding: 0.5px;
         padding-left: 7%;
-        
+        height: 60px;
+        font-size: 1.5em;
+        font-weight: 100;
+
+        ::-webkit-input-placeholder{
+            color: #d3d5df;
+        }
        
     }
-    .butt1{
-        // margin-right: 10px;
-        text-align: center;
-        // margin-left: 180px;
-        display: flex;
-        // margin: 0 auto;
-        align-content: center;
-        justify-content: center;
-        // float: right;
-    }
-    .i{
-        margin-right: 15px;
-    }
+
+   #btn{
+       width: 70%;
+       height: 60px;
+     
+   }
+   
     h1{
         color: rgb(236, 217, 217);
         text-align: center;
-        padding-top: 10%;
+        padding-top: 20%;
         font-size: 300%;
        font-weight: 100;
        position: relative;
        bottom: 54px;
     }
 
-    .logo{
-        // margin-top: 20%;
+    .butt1{
+        margin-top: 15%;
+
     }
-    .butt{
-        text-align: center;
-        width: 60%;
-    }
-    button{
-        // position: relative;
-        // top: 30px;
-        // width: 60%;
-    }
+    
+    
+   
 }

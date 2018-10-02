@@ -1,7 +1,10 @@
 <ion-header  *ngFor="let i of arr;let i of index;">
+ 
   <div align="center" class="nav">
 
   <!-- <ion-navbar color="trans"> -->
+    <br>
+    
   <button class="back" ion-button color="trans" clear (click)="dismiss()"><ion-icon big color="light" name="arrow-back"></ion-icon>
       <!-- <span ion-text color="light" showWhen="ios"></span> -->
 
@@ -10,7 +13,9 @@
   
   
   <!-- <ion-title align="center">Talent Profile</ion-title> -->
-
+<br>
+<br>
+<br>
 <div text-align="center">
    <h1>{{i.name}}</h1>
     <img class="image" src="{{i.img}}"/>

@@ -1,7 +1,7 @@
 page-artisthome {
  
     .img{
-        background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+        background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
         background-attachment: fixed;
         // background-color: black;
         background-size: cover;
@@ -20,7 +20,7 @@ page-artisthome {
             top: 2%;
          }
          .section{
-            background-image:linear-gradient(#F53D4E,rgba(0,0,0,0.5)), url('../../assets/imgs/video.jpg');
+            background-image:linear-gradient(#F53D4E,#1e2a78), url('../../assets/imgs/video.jpg');
             background-attachment: fixed;
             // background-color: black;
             background-size: cover;
@@ -71,7 +71,8 @@ page-artisthome {
         font-weight: 100;
     }
     h2, p {
-        color: rgb(100, 3, 3);
+        color: #1e2a78;
+        font-weight: 100;
     }
     .box{
         box-shadow: 5px 4px 7px;
@@ -128,5 +129,7 @@ page-artisthome {
             width: 80px;
             border-radius: 50px;
         }
-
+.datew{
+    left: 30px
+}
 }
